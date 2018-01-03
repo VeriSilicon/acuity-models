@@ -62,8 +62,17 @@ for (var lid in net.Layers) {
     var label = layer['op'];
     switch (layer['op']) {
         case 'convolution':
+            label = 'conv';
+            label += '(' + layer['parameters']['ksize_h'] + 'x' + layer['parameters']['ksize_w'] + ')'
+            break;
         case 'deconvolution':
+            label = 'deconv';
+            label += '(' + layer['parameters']['ksize_h'] + 'x' + layer['parameters']['ksize_w'] + ')'
+            break;
         case 'pooling':
+            label = 'pool';
+            label += '(' + layer['parameters']['ksize_h'] + 'x' + layer['parameters']['ksize_w'] + ')'
+            break;
         case 'poolwithargmax':
             label += '(' + layer['parameters']['ksize_h'] + 'x' + layer['parameters']['ksize_w'] + ')'
             break;
