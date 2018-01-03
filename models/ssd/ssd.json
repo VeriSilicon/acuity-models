@@ -1614,7 +1614,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "VGG_VOC0712Plus_SSD_300x300_ft_deploy",
+        "Name": "SSD",
         "Platform": "caffe"
     }
 }
