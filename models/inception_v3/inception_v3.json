@@ -3782,7 +3782,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "inception_v3",
+        "Name": "Inception-v3",
         "Platform": "tensorflow"
     }
 }

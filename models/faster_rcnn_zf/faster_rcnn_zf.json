@@ -572,7 +572,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "ZF",
+        "Name": "Faster-RCNN-ZF",
         "Platform": "caffe"
     }
 }

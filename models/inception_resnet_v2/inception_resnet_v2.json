@@ -9696,7 +9696,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "Inception_Resnet_v2",
+        "Name": "Inception-Resnet-v2",
         "Platform": "caffe"
     }
 }

@@ -1158,7 +1158,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "",
+        "Name": "SqueezeNet",
         "Platform": "caffe"
     }
 }

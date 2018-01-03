@@ -691,7 +691,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "VGG_16",
+        "Name": "VGG16",
         "Platform": "caffe"
     }
 }

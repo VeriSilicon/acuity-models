@@ -1888,7 +1888,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "mobilenet_ssd",
+        "Name": "Mobilenet-SSD",
         "Platform": "tensorflow"
     }
 }

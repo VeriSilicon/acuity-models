@@ -2464,7 +2464,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "",
+        "Name": "Xception",
         "Platform": "caffe"
     }
 }

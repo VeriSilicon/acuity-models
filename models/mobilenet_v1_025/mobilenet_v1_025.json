@@ -1082,7 +1082,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "mobilenet_v1_025",
+        "Name": "Mobilenet-v1-025",
         "Platform": "tensorflow"
     }
 }

@@ -958,7 +958,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "yolo_v2",
+        "Name": "YOLO-v2",
         "Platform": "caffe"
     }
 }

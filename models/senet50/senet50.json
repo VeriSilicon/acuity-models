@@ -3482,7 +3482,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "SE_RESNET_50_V1",
+        "Name": "SENet-50",
         "Platform": "caffe"
     }
 }

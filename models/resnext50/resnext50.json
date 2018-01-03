@@ -2097,7 +2097,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "",
+        "Name": "ResNext-50",
         "Platform": "caffe"
     }
 }

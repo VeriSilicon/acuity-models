@@ -1068,7 +1068,7 @@
     },
     "MetaData": {
         "AcuityVersion": "2.0",
-        "Name": "YOLONet",
+        "Name": "YOLO-v1",
         "Platform": "caffe"
     }
 }

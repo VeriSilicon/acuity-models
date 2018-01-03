@@ -2,6 +2,9 @@
 
 ACUITY model zoo contains a set of popular neurarl-network models created or converted (from Caffe or Tensorflow) by ACUITY toolset.
 
+### Model Viewer
+ACUITY uses JSON format to represent a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graph.
+
 ### Classification
  - [Alexnet](https://verisilicon.github.io/acuity-models/viewer/#../models/alexnet/alexnet.json)
  - [Inception-v1](https://verisilicon.github.io/acuity-models/viewer/#../models/inception_v1/inception_v1.json)
@@ -19,12 +22,13 @@ ACUITY model zoo contains a set of popular neurarl-network models created or con
  - [Xception](https://verisilicon.github.io/acuity-models/viewer/#../models/xception/xception.json)
 
 ### Detection
+ - [Faster-RCNN-ZF](https://verisilicon.github.io/acuity-models/viewer/#../models/faster_rcnn_zf/faster_rcnn_zf.json)
+ - [Mobilenet-SSD](https://verisilicon.github.io/acuity-models/viewer/#../models/mobilenet_ssd/mobilenet_ssd.json)
+ - [MTCNN PNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_pnet.json) [RNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_rnet.json) [ONet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_onet.json)
+ - [SSD](https://verisilicon.github.io/acuity-models/viewer/#../models/ssd/ssd.json) [LNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_lnet.json)
  - [Tiny-YOLO](https://verisilicon.github.io/acuity-models/viewer/#../models/tiny_yolo/tiny_yolo.json)
  - [YOLO-v1](https://verisilicon.github.io/acuity-models/viewer/#../models/yolo_v1/yolo_v1.json)
  - [YOLO-v2](https://verisilicon.github.io/acuity-models/viewer/#../models/yolo_v2/yolo_v2.json)
- - [MTCNN LNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_lnet.json) [RNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_rnet.json) [PNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_pnet.json) [ONet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_onet.json)
- - [SSD](https://verisilicon.github.io/acuity-models/viewer/#../models/ssd/ssd.json) 
- - [Mobilenet-SSD](https://verisilicon.github.io/acuity-models/viewer/#../models/mobilenet_ssd/mobilenet_ssd.json)
 
 ### Segmentation
  - [ENET](https://verisilicon.github.io/acuity-models/viewer/#../models/enet/enet.json)
@@ -32,7 +36,7 @@ ACUITY model zoo contains a set of popular neurarl-network models created or con
 
 ## About ACUITY
 
-Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks.
+Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks for deployment.
 
  - Importing from popular frameworks such as Caffe and Tensorflow 
 
