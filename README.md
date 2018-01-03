@@ -1,8 +1,8 @@
-# ACUITY Model Zoo
+## ACUITY Model Zoo
 
 ACUITY model zoo contains a set of popular neurarl-network models created or converted (from Caffe or Tensorflow) by ACUITY toolset.
 
-## Classification
+### Classification
  - [Alexnet](https://verisilicon.github.io/acuity-models/viewer/#../models/alexnet/alexnet.json)
  - [Inception-v1](https://verisilicon.github.io/acuity-models/viewer/#../models/inception_v1/inception_v1.json)
  - [Inception-v2](https://verisilicon.github.io/acuity-models/viewer/#../models/inception_v2/inception_v2.json)
@@ -18,7 +18,7 @@ ACUITY model zoo contains a set of popular neurarl-network models created or con
  - [Squeezenet](https://verisilicon.github.io/acuity-models/viewer/#../models/squeezenet/squeezenet.json)
  - [Xception](https://verisilicon.github.io/acuity-models/viewer/#../models/xception/xception.json)
 
-## Detection
+### Detection
  - [Tiny-YOLO](https://verisilicon.github.io/acuity-models/viewer/#../models/tiny_yolo/tiny_yolo.json)
  - [YOLO-v1](https://verisilicon.github.io/acuity-models/viewer/#../models/yolo_v1/yolo_v1.json)
  - [YOLO-v2](https://verisilicon.github.io/acuity-models/viewer/#../models/yolo_v2/yolo_v2.json)
@@ -26,34 +26,34 @@ ACUITY model zoo contains a set of popular neurarl-network models created or con
  - [SSD](https://verisilicon.github.io/acuity-models/viewer/#../models/ssd/ssd.json)
  - [Mobilenet-SSD](https://verisilicon.github.io/acuity-models/viewer/#../models/mobilenet_ssd/mobilenet_ssd.json)
 
-## Segmentation
+### Segmentation
  - [ENET](https://verisilicon.github.io/acuity-models/viewer/#../models/enet/enet.json)
  - [SegNet](https://verisilicon.github.io/acuity-models/viewer/#../models/segent/segnet.json)
 
-# About ACUITY
+## About ACUITY
 
 Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks.
 
- - Importing from popular frameworks such as Caffe and Tensorflow
-   > AcuityNet natively supports Caffe and Tensorflow imports, although it can be expanded to other NN frameworks.
+ - Importing from popular frameworks such as Caffe and Tensorflow  
+   > AcuityNet natively supports Caffe and Tensorflow imports, although it can be expanded to other NN frameworks.  
 
- - Fixed Point Quantization
-   > AcuityNet provides accurate Fixed Point Quantization from floating point 32 with a calibration dataset and produces accuracy numbers before and after quantization for comparison
+ - Fixed Point Quantization  
+   > AcuityNet provides accurate Fixed Point Quantization from floating point 32 with a calibration dataset and produces accuracy numbers before and after quantization for comparison  
 
- - Graph Optimization
-   > Neural-network graph optimization is performed to reduce graph complexity for inference, such as Layer Merging, Layer Removal and Layer Swapping
-   >> Merge consective layers into dense layers, such as ConvolutionReluPool, FullyConnectedRelu, etc.
-   >> Fold BatchNrom layers into Convolution
-   >> Swap layer ordering when suitable to reduce output size
-   >> Remove Concatenation layers
-   >> Intelligent layer optimization when mathamatically equivalent
+ - Graph Optimization  
+   > Neural-network graph optimization is performed to reduce graph complexity for inference, such as Layer Merging, Layer Removal and Layer Swapping  
+   >> Merge consective layers into dense layers, such as ConvolutionReluPool, FullyConnectedRelu, etc.   
+   >> Fold BatchNrom layers into Convolution  
+   >> Swap layer ordering when suitable to reduce output size  
+   >> Remove Concatenation layers  
+   >> Intelligent layer optimization when mathamatically equivalent  
 
- - Tensor Pruning
-   > Pruning neural networks tensors to remove ineffective connections and neurons to create sparse matrix
+ - Tensor Pruning  
+   > Pruning neural networks tensors to remove ineffective connections and neurons to create sparse matrix  
 
- - Training and Validation
-   > Acuitynet provides capability to train and validate Neural Networks
+ - Training and Validation  
+   > Acuitynet provides capability to train and validate Neural Networks  
 
- - Inference Code Generator
-   > Generates OpenVX Neural Network inference code which can run on any OpenVX enabled platforms
+ - Inference Code Generator  
+   > Generates OpenVX Neural Network inference code which can run on any OpenVX enabled platforms  
 
