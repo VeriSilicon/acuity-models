@@ -1,0 +1,5989 @@
+{
+    "Layers": {
+        "classifier_636": {
+            "inputs": [
+                "@pool_8x8_s1_drop_635:out0"
+            ],
+            "name": "classifier",
+            "op": "fullconnect",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "regularize": false,
+                "weights": 1000
+            }
+        },
+        "conv1_3x3_s2_1": {
+            "inputs": [
+                "@data_0:out0"
+            ],
+            "name": "conv1_3x3_s2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 32
+            }
+        },
+        "conv1_3x3_s2_relu_4": {
+            "inputs": [
+                "@conv1_3x3_s2_1:out0"
+            ],
+            "name": "conv1_3x3_s2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2_3x3_s1_5": {
+            "inputs": [
+                "@conv1_3x3_s2_relu_4:out0"
+            ],
+            "name": "conv2_3x3_s1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_3x3_s1_relu_8": {
+            "inputs": [
+                "@conv2_3x3_s1_5:out0"
+            ],
+            "name": "conv2_3x3_s1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv3_3x3_s1_9": {
+            "inputs": [
+                "@conv2_3x3_s1_relu_8:out0"
+            ],
+            "name": "conv3_3x3_s1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv3_3x3_s1_relu_12": {
+            "inputs": [
+                "@conv3_3x3_s1_9:out0"
+            ],
+            "name": "conv3_3x3_s1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "data_0": {
+            "inputs": [],
+            "name": "data",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "299 299"
+            }
+        },
+        "inception_a1_1x1_2_50": {
+            "inputs": [
+                "@inception_stem3_49:out0"
+            ],
+            "name": "inception_a1_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a1_1x1_2_relu_53": {
+            "inputs": [
+                "@inception_a1_1x1_2_50:out0"
+            ],
+            "name": "inception_a1_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a1_1x1_75": {
+            "inputs": [
+                "@inception_a1_pool_ave_74:out0"
+            ],
+            "name": "inception_a1_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a1_1x1_relu_78": {
+            "inputs": [
+                "@inception_a1_1x1_75:out0"
+            ],
+            "name": "inception_a1_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a1_3x3_2_66": {
+            "inputs": [
+                "@inception_a1_3x3_2_reduce_relu_65:out0"
+            ],
+            "name": "inception_a1_3x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a1_3x3_2_reduce_62": {
+            "inputs": [
+                "@inception_stem3_49:out0"
+            ],
+            "name": "inception_a1_3x3_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_a1_3x3_2_reduce_relu_65": {
+            "inputs": [
+                "@inception_a1_3x3_2_reduce_62:out0"
+            ],
+            "name": "inception_a1_3x3_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a1_3x3_2_relu_69": {
+            "inputs": [
+                "@inception_a1_3x3_2_66:out0"
+            ],
+            "name": "inception_a1_3x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a1_3x3_3_70": {
+            "inputs": [
+                "@inception_a1_3x3_2_relu_69:out0"
+            ],
+            "name": "inception_a1_3x3_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a1_3x3_3_relu_73": {
+            "inputs": [
+                "@inception_a1_3x3_3_70:out0"
+            ],
+            "name": "inception_a1_3x3_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a1_3x3_58": {
+            "inputs": [
+                "@inception_a1_3x3_reduce_relu_57:out0"
+            ],
+            "name": "inception_a1_3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a1_3x3_reduce_54": {
+            "inputs": [
+                "@inception_stem3_49:out0"
+            ],
+            "name": "inception_a1_3x3_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_a1_3x3_reduce_relu_57": {
+            "inputs": [
+                "@inception_a1_3x3_reduce_54:out0"
+            ],
+            "name": "inception_a1_3x3_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a1_3x3_relu_61": {
+            "inputs": [
+                "@inception_a1_3x3_58:out0"
+            ],
+            "name": "inception_a1_3x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a1_concat_79": {
+            "inputs": [
+                "@inception_a1_1x1_2_relu_53:out0",
+                "@inception_a1_3x3_relu_61:out0",
+                "@inception_a1_3x3_3_relu_73:out0",
+                "@inception_a1_1x1_relu_78:out0"
+            ],
+            "name": "inception_a1_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_a1_pool_ave_74": {
+            "inputs": [
+                "@inception_stem3_49:out0"
+            ],
+            "name": "inception_a1_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_a2_1x1_105": {
+            "inputs": [
+                "@inception_a2_pool_ave_104:out0"
+            ],
+            "name": "inception_a2_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a2_1x1_2_80": {
+            "inputs": [
+                "@inception_a1_concat_79:out0"
+            ],
+            "name": "inception_a2_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a2_1x1_2_relu_83": {
+            "inputs": [
+                "@inception_a2_1x1_2_80:out0"
+            ],
+            "name": "inception_a2_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a2_1x1_relu_108": {
+            "inputs": [
+                "@inception_a2_1x1_105:out0"
+            ],
+            "name": "inception_a2_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a2_3x3_2_96": {
+            "inputs": [
+                "@inception_a2_3x3_2_reduce_relu_95:out0"
+            ],
+            "name": "inception_a2_3x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a2_3x3_2_reduce_92": {
+            "inputs": [
+                "@inception_a1_concat_79:out0"
+            ],
+            "name": "inception_a2_3x3_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_a2_3x3_2_reduce_relu_95": {
+            "inputs": [
+                "@inception_a2_3x3_2_reduce_92:out0"
+            ],
+            "name": "inception_a2_3x3_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a2_3x3_2_relu_99": {
+            "inputs": [
+                "@inception_a2_3x3_2_96:out0"
+            ],
+            "name": "inception_a2_3x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a2_3x3_3_100": {
+            "inputs": [
+                "@inception_a2_3x3_2_relu_99:out0"
+            ],
+            "name": "inception_a2_3x3_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a2_3x3_3_relu_103": {
+            "inputs": [
+                "@inception_a2_3x3_3_100:out0"
+            ],
+            "name": "inception_a2_3x3_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a2_3x3_88": {
+            "inputs": [
+                "@inception_a2_3x3_reduce_relu_87:out0"
+            ],
+            "name": "inception_a2_3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a2_3x3_reduce_84": {
+            "inputs": [
+                "@inception_a1_concat_79:out0"
+            ],
+            "name": "inception_a2_3x3_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_a2_3x3_reduce_relu_87": {
+            "inputs": [
+                "@inception_a2_3x3_reduce_84:out0"
+            ],
+            "name": "inception_a2_3x3_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a2_3x3_relu_91": {
+            "inputs": [
+                "@inception_a2_3x3_88:out0"
+            ],
+            "name": "inception_a2_3x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a2_concat_109": {
+            "inputs": [
+                "@inception_a2_1x1_2_relu_83:out0",
+                "@inception_a2_3x3_relu_91:out0",
+                "@inception_a2_3x3_3_relu_103:out0",
+                "@inception_a2_1x1_relu_108:out0"
+            ],
+            "name": "inception_a2_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_a2_pool_ave_104": {
+            "inputs": [
+                "@inception_a1_concat_79:out0"
+            ],
+            "name": "inception_a2_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_a3_1x1_135": {
+            "inputs": [
+                "@inception_a3_pool_ave_134:out0"
+            ],
+            "name": "inception_a3_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a3_1x1_2_110": {
+            "inputs": [
+                "@inception_a2_concat_109:out0"
+            ],
+            "name": "inception_a3_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a3_1x1_2_relu_113": {
+            "inputs": [
+                "@inception_a3_1x1_2_110:out0"
+            ],
+            "name": "inception_a3_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a3_1x1_relu_138": {
+            "inputs": [
+                "@inception_a3_1x1_135:out0"
+            ],
+            "name": "inception_a3_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a3_3x3_118": {
+            "inputs": [
+                "@inception_a3_3x3_reduce_relu_117:out0"
+            ],
+            "name": "inception_a3_3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a3_3x3_2_126": {
+            "inputs": [
+                "@inception_a3_3x3_2_reduce_relu_125:out0"
+            ],
+            "name": "inception_a3_3x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a3_3x3_2_reduce_122": {
+            "inputs": [
+                "@inception_a2_concat_109:out0"
+            ],
+            "name": "inception_a3_3x3_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_a3_3x3_2_reduce_relu_125": {
+            "inputs": [
+                "@inception_a3_3x3_2_reduce_122:out0"
+            ],
+            "name": "inception_a3_3x3_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a3_3x3_2_relu_129": {
+            "inputs": [
+                "@inception_a3_3x3_2_126:out0"
+            ],
+            "name": "inception_a3_3x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a3_3x3_3_130": {
+            "inputs": [
+                "@inception_a3_3x3_2_relu_129:out0"
+            ],
+            "name": "inception_a3_3x3_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a3_3x3_3_relu_133": {
+            "inputs": [
+                "@inception_a3_3x3_3_130:out0"
+            ],
+            "name": "inception_a3_3x3_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a3_3x3_reduce_114": {
+            "inputs": [
+                "@inception_a2_concat_109:out0"
+            ],
+            "name": "inception_a3_3x3_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_a3_3x3_reduce_relu_117": {
+            "inputs": [
+                "@inception_a3_3x3_reduce_114:out0"
+            ],
+            "name": "inception_a3_3x3_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a3_3x3_relu_121": {
+            "inputs": [
+                "@inception_a3_3x3_118:out0"
+            ],
+            "name": "inception_a3_3x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a3_concat_139": {
+            "inputs": [
+                "@inception_a3_1x1_2_relu_113:out0",
+                "@inception_a3_3x3_relu_121:out0",
+                "@inception_a3_3x3_3_relu_133:out0",
+                "@inception_a3_1x1_relu_138:out0"
+            ],
+            "name": "inception_a3_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_a3_pool_ave_134": {
+            "inputs": [
+                "@inception_a2_concat_109:out0"
+            ],
+            "name": "inception_a3_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_a4_1x1_165": {
+            "inputs": [
+                "@inception_a4_pool_ave_164:out0"
+            ],
+            "name": "inception_a4_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a4_1x1_2_140": {
+            "inputs": [
+                "@inception_a3_concat_139:out0"
+            ],
+            "name": "inception_a4_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a4_1x1_2_relu_143": {
+            "inputs": [
+                "@inception_a4_1x1_2_140:out0"
+            ],
+            "name": "inception_a4_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a4_1x1_relu_168": {
+            "inputs": [
+                "@inception_a4_1x1_165:out0"
+            ],
+            "name": "inception_a4_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a4_3x3_148": {
+            "inputs": [
+                "@inception_a4_3x3_reduce_relu_147:out0"
+            ],
+            "name": "inception_a4_3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a4_3x3_2_156": {
+            "inputs": [
+                "@inception_a4_3x3_2_reduce_relu_155:out0"
+            ],
+            "name": "inception_a4_3x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a4_3x3_2_reduce_152": {
+            "inputs": [
+                "@inception_a3_concat_139:out0"
+            ],
+            "name": "inception_a4_3x3_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_a4_3x3_2_reduce_relu_155": {
+            "inputs": [
+                "@inception_a4_3x3_2_reduce_152:out0"
+            ],
+            "name": "inception_a4_3x3_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a4_3x3_2_relu_159": {
+            "inputs": [
+                "@inception_a4_3x3_2_156:out0"
+            ],
+            "name": "inception_a4_3x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a4_3x3_3_160": {
+            "inputs": [
+                "@inception_a4_3x3_2_relu_159:out0"
+            ],
+            "name": "inception_a4_3x3_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_a4_3x3_3_relu_163": {
+            "inputs": [
+                "@inception_a4_3x3_3_160:out0"
+            ],
+            "name": "inception_a4_3x3_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a4_3x3_reduce_144": {
+            "inputs": [
+                "@inception_a3_concat_139:out0"
+            ],
+            "name": "inception_a4_3x3_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_a4_3x3_reduce_relu_147": {
+            "inputs": [
+                "@inception_a4_3x3_reduce_144:out0"
+            ],
+            "name": "inception_a4_3x3_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a4_3x3_relu_151": {
+            "inputs": [
+                "@inception_a4_3x3_148:out0"
+            ],
+            "name": "inception_a4_3x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_a4_concat_169": {
+            "inputs": [
+                "@inception_a4_1x1_2_relu_143:out0",
+                "@inception_a4_3x3_relu_151:out0",
+                "@inception_a4_3x3_3_relu_163:out0",
+                "@inception_a4_1x1_relu_168:out0"
+            ],
+            "name": "inception_a4_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_a4_pool_ave_164": {
+            "inputs": [
+                "@inception_a3_concat_139:out0"
+            ],
+            "name": "inception_a4_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_b1_1x1_225": {
+            "inputs": [
+                "@inception_b1_pool_ave_224:out0"
+            ],
+            "name": "inception_b1_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "inception_b1_1x1_2_188": {
+            "inputs": [
+                "@reduction_a_concat_187:out0"
+            ],
+            "name": "inception_b1_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_b1_1x1_2_relu_191": {
+            "inputs": [
+                "@inception_b1_1x1_2_188:out0"
+            ],
+            "name": "inception_b1_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_1x1_relu_228": {
+            "inputs": [
+                "@inception_b1_1x1_225:out0"
+            ],
+            "name": "inception_b1_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_1x7_196": {
+            "inputs": [
+                "@inception_b1_1x7_reduce_relu_195:out0"
+            ],
+            "name": "inception_b1_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b1_1x7_2_212": {
+            "inputs": [
+                "@inception_b1_7x1_2_relu_211:out0"
+            ],
+            "name": "inception_b1_1x7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b1_1x7_2_relu_215": {
+            "inputs": [
+                "@inception_b1_1x7_2_212:out0"
+            ],
+            "name": "inception_b1_1x7_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_1x7_3_220": {
+            "inputs": [
+                "@inception_b1_7x1_3_relu_219:out0"
+            ],
+            "name": "inception_b1_1x7_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b1_1x7_3_relu_223": {
+            "inputs": [
+                "@inception_b1_1x7_3_220:out0"
+            ],
+            "name": "inception_b1_1x7_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_1x7_reduce_192": {
+            "inputs": [
+                "@reduction_a_concat_187:out0"
+            ],
+            "name": "inception_b1_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b1_1x7_reduce_relu_195": {
+            "inputs": [
+                "@inception_b1_1x7_reduce_192:out0"
+            ],
+            "name": "inception_b1_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_1x7_relu_199": {
+            "inputs": [
+                "@inception_b1_1x7_196:out0"
+            ],
+            "name": "inception_b1_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_7x1_200": {
+            "inputs": [
+                "@inception_b1_1x7_relu_199:out0"
+            ],
+            "name": "inception_b1_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b1_7x1_2_208": {
+            "inputs": [
+                "@inception_b1_7x1_2_reduce_relu_207:out0"
+            ],
+            "name": "inception_b1_7x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b1_7x1_2_reduce_204": {
+            "inputs": [
+                "@reduction_a_concat_187:out0"
+            ],
+            "name": "inception_b1_7x1_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b1_7x1_2_reduce_relu_207": {
+            "inputs": [
+                "@inception_b1_7x1_2_reduce_204:out0"
+            ],
+            "name": "inception_b1_7x1_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_7x1_2_relu_211": {
+            "inputs": [
+                "@inception_b1_7x1_2_208:out0"
+            ],
+            "name": "inception_b1_7x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_7x1_3_216": {
+            "inputs": [
+                "@inception_b1_1x7_2_relu_215:out0"
+            ],
+            "name": "inception_b1_7x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b1_7x1_3_relu_219": {
+            "inputs": [
+                "@inception_b1_7x1_3_216:out0"
+            ],
+            "name": "inception_b1_7x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_7x1_relu_203": {
+            "inputs": [
+                "@inception_b1_7x1_200:out0"
+            ],
+            "name": "inception_b1_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b1_concat_229": {
+            "inputs": [
+                "@inception_b1_1x1_2_relu_191:out0",
+                "@inception_b1_7x1_relu_203:out0",
+                "@inception_b1_1x7_3_relu_223:out0",
+                "@inception_b1_1x1_relu_228:out0"
+            ],
+            "name": "inception_b1_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_b1_pool_ave_224": {
+            "inputs": [
+                "@reduction_a_concat_187:out0"
+            ],
+            "name": "inception_b1_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_b2_1x1_267": {
+            "inputs": [
+                "@inception_b2_pool_ave_266:out0"
+            ],
+            "name": "inception_b2_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "inception_b2_1x1_2_230": {
+            "inputs": [
+                "@inception_b1_concat_229:out0"
+            ],
+            "name": "inception_b2_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_b2_1x1_2_relu_233": {
+            "inputs": [
+                "@inception_b2_1x1_2_230:out0"
+            ],
+            "name": "inception_b2_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_1x1_relu_270": {
+            "inputs": [
+                "@inception_b2_1x1_267:out0"
+            ],
+            "name": "inception_b2_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_1x7_238": {
+            "inputs": [
+                "@inception_b2_1x7_reduce_relu_237:out0"
+            ],
+            "name": "inception_b2_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b2_1x7_2_254": {
+            "inputs": [
+                "@inception_b2_7x1_2_relu_253:out0"
+            ],
+            "name": "inception_b2_1x7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b2_1x7_2_relu_257": {
+            "inputs": [
+                "@inception_b2_1x7_2_254:out0"
+            ],
+            "name": "inception_b2_1x7_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_1x7_3_262": {
+            "inputs": [
+                "@inception_b2_7x1_3_relu_261:out0"
+            ],
+            "name": "inception_b2_1x7_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b2_1x7_3_relu_265": {
+            "inputs": [
+                "@inception_b2_1x7_3_262:out0"
+            ],
+            "name": "inception_b2_1x7_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_1x7_reduce_234": {
+            "inputs": [
+                "@inception_b1_concat_229:out0"
+            ],
+            "name": "inception_b2_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b2_1x7_reduce_relu_237": {
+            "inputs": [
+                "@inception_b2_1x7_reduce_234:out0"
+            ],
+            "name": "inception_b2_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_1x7_relu_241": {
+            "inputs": [
+                "@inception_b2_1x7_238:out0"
+            ],
+            "name": "inception_b2_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_7x1_242": {
+            "inputs": [
+                "@inception_b2_1x7_relu_241:out0"
+            ],
+            "name": "inception_b2_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b2_7x1_2_250": {
+            "inputs": [
+                "@inception_b2_7x1_2_reduce_relu_249:out0"
+            ],
+            "name": "inception_b2_7x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b2_7x1_2_reduce_246": {
+            "inputs": [
+                "@inception_b1_concat_229:out0"
+            ],
+            "name": "inception_b2_7x1_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b2_7x1_2_reduce_relu_249": {
+            "inputs": [
+                "@inception_b2_7x1_2_reduce_246:out0"
+            ],
+            "name": "inception_b2_7x1_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_7x1_2_relu_253": {
+            "inputs": [
+                "@inception_b2_7x1_2_250:out0"
+            ],
+            "name": "inception_b2_7x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_7x1_3_258": {
+            "inputs": [
+                "@inception_b2_1x7_2_relu_257:out0"
+            ],
+            "name": "inception_b2_7x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b2_7x1_3_relu_261": {
+            "inputs": [
+                "@inception_b2_7x1_3_258:out0"
+            ],
+            "name": "inception_b2_7x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_7x1_relu_245": {
+            "inputs": [
+                "@inception_b2_7x1_242:out0"
+            ],
+            "name": "inception_b2_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b2_concat_271": {
+            "inputs": [
+                "@inception_b2_1x1_2_relu_233:out0",
+                "@inception_b2_7x1_relu_245:out0",
+                "@inception_b2_1x7_3_relu_265:out0",
+                "@inception_b2_1x1_relu_270:out0"
+            ],
+            "name": "inception_b2_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_b2_pool_ave_266": {
+            "inputs": [
+                "@inception_b1_concat_229:out0"
+            ],
+            "name": "inception_b2_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_b3_1x1_2_272": {
+            "inputs": [
+                "@inception_b2_concat_271:out0"
+            ],
+            "name": "inception_b3_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_b3_1x1_2_relu_275": {
+            "inputs": [
+                "@inception_b3_1x1_2_272:out0"
+            ],
+            "name": "inception_b3_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_1x1_309": {
+            "inputs": [
+                "@inception_b3_pool_ave_308:out0"
+            ],
+            "name": "inception_b3_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "inception_b3_1x1_relu_312": {
+            "inputs": [
+                "@inception_b3_1x1_309:out0"
+            ],
+            "name": "inception_b3_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_1x7_280": {
+            "inputs": [
+                "@inception_b3_1x7_reduce_relu_279:out0"
+            ],
+            "name": "inception_b3_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b3_1x7_2_296": {
+            "inputs": [
+                "@inception_b3_7x1_2_relu_295:out0"
+            ],
+            "name": "inception_b3_1x7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b3_1x7_2_relu_299": {
+            "inputs": [
+                "@inception_b3_1x7_2_296:out0"
+            ],
+            "name": "inception_b3_1x7_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_1x7_3_304": {
+            "inputs": [
+                "@inception_b3_7x1_3_relu_303:out0"
+            ],
+            "name": "inception_b3_1x7_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b3_1x7_3_relu_307": {
+            "inputs": [
+                "@inception_b3_1x7_3_304:out0"
+            ],
+            "name": "inception_b3_1x7_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_1x7_reduce_276": {
+            "inputs": [
+                "@inception_b2_concat_271:out0"
+            ],
+            "name": "inception_b3_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b3_1x7_reduce_relu_279": {
+            "inputs": [
+                "@inception_b3_1x7_reduce_276:out0"
+            ],
+            "name": "inception_b3_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_1x7_relu_283": {
+            "inputs": [
+                "@inception_b3_1x7_280:out0"
+            ],
+            "name": "inception_b3_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_7x1_284": {
+            "inputs": [
+                "@inception_b3_1x7_relu_283:out0"
+            ],
+            "name": "inception_b3_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b3_7x1_2_292": {
+            "inputs": [
+                "@inception_b3_7x1_2_reduce_relu_291:out0"
+            ],
+            "name": "inception_b3_7x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b3_7x1_2_reduce_288": {
+            "inputs": [
+                "@inception_b2_concat_271:out0"
+            ],
+            "name": "inception_b3_7x1_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b3_7x1_2_reduce_relu_291": {
+            "inputs": [
+                "@inception_b3_7x1_2_reduce_288:out0"
+            ],
+            "name": "inception_b3_7x1_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_7x1_2_relu_295": {
+            "inputs": [
+                "@inception_b3_7x1_2_292:out0"
+            ],
+            "name": "inception_b3_7x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_7x1_3_300": {
+            "inputs": [
+                "@inception_b3_1x7_2_relu_299:out0"
+            ],
+            "name": "inception_b3_7x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b3_7x1_3_relu_303": {
+            "inputs": [
+                "@inception_b3_7x1_3_300:out0"
+            ],
+            "name": "inception_b3_7x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_7x1_relu_287": {
+            "inputs": [
+                "@inception_b3_7x1_284:out0"
+            ],
+            "name": "inception_b3_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b3_concat_313": {
+            "inputs": [
+                "@inception_b3_1x1_2_relu_275:out0",
+                "@inception_b3_7x1_relu_287:out0",
+                "@inception_b3_1x7_3_relu_307:out0",
+                "@inception_b3_1x1_relu_312:out0"
+            ],
+            "name": "inception_b3_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_b3_pool_ave_308": {
+            "inputs": [
+                "@inception_b2_concat_271:out0"
+            ],
+            "name": "inception_b3_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_b4_1x1_2_314": {
+            "inputs": [
+                "@inception_b3_concat_313:out0"
+            ],
+            "name": "inception_b4_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_b4_1x1_2_relu_317": {
+            "inputs": [
+                "@inception_b4_1x1_2_314:out0"
+            ],
+            "name": "inception_b4_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_1x1_351": {
+            "inputs": [
+                "@inception_b4_pool_ave_350:out0"
+            ],
+            "name": "inception_b4_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "inception_b4_1x1_relu_354": {
+            "inputs": [
+                "@inception_b4_1x1_351:out0"
+            ],
+            "name": "inception_b4_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_1x7_2_338": {
+            "inputs": [
+                "@inception_b4_7x1_2_relu_337:out0"
+            ],
+            "name": "inception_b4_1x7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b4_1x7_2_relu_341": {
+            "inputs": [
+                "@inception_b4_1x7_2_338:out0"
+            ],
+            "name": "inception_b4_1x7_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_1x7_322": {
+            "inputs": [
+                "@inception_b4_1x7_reduce_relu_321:out0"
+            ],
+            "name": "inception_b4_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b4_1x7_3_346": {
+            "inputs": [
+                "@inception_b4_7x1_3_relu_345:out0"
+            ],
+            "name": "inception_b4_1x7_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b4_1x7_3_relu_349": {
+            "inputs": [
+                "@inception_b4_1x7_3_346:out0"
+            ],
+            "name": "inception_b4_1x7_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_1x7_reduce_318": {
+            "inputs": [
+                "@inception_b3_concat_313:out0"
+            ],
+            "name": "inception_b4_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b4_1x7_reduce_relu_321": {
+            "inputs": [
+                "@inception_b4_1x7_reduce_318:out0"
+            ],
+            "name": "inception_b4_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_1x7_relu_325": {
+            "inputs": [
+                "@inception_b4_1x7_322:out0"
+            ],
+            "name": "inception_b4_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_7x1_2_334": {
+            "inputs": [
+                "@inception_b4_7x1_2_reduce_relu_333:out0"
+            ],
+            "name": "inception_b4_7x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b4_7x1_2_reduce_330": {
+            "inputs": [
+                "@inception_b3_concat_313:out0"
+            ],
+            "name": "inception_b4_7x1_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b4_7x1_2_reduce_relu_333": {
+            "inputs": [
+                "@inception_b4_7x1_2_reduce_330:out0"
+            ],
+            "name": "inception_b4_7x1_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_7x1_2_relu_337": {
+            "inputs": [
+                "@inception_b4_7x1_2_334:out0"
+            ],
+            "name": "inception_b4_7x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_7x1_326": {
+            "inputs": [
+                "@inception_b4_1x7_relu_325:out0"
+            ],
+            "name": "inception_b4_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b4_7x1_3_342": {
+            "inputs": [
+                "@inception_b4_1x7_2_relu_341:out0"
+            ],
+            "name": "inception_b4_7x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b4_7x1_3_relu_345": {
+            "inputs": [
+                "@inception_b4_7x1_3_342:out0"
+            ],
+            "name": "inception_b4_7x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_7x1_relu_329": {
+            "inputs": [
+                "@inception_b4_7x1_326:out0"
+            ],
+            "name": "inception_b4_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b4_concat_355": {
+            "inputs": [
+                "@inception_b4_1x1_2_relu_317:out0",
+                "@inception_b4_7x1_relu_329:out0",
+                "@inception_b4_1x7_3_relu_349:out0",
+                "@inception_b4_1x1_relu_354:out0"
+            ],
+            "name": "inception_b4_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_b4_pool_ave_350": {
+            "inputs": [
+                "@inception_b3_concat_313:out0"
+            ],
+            "name": "inception_b4_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_b5_1x1_2_356": {
+            "inputs": [
+                "@inception_b4_concat_355:out0"
+            ],
+            "name": "inception_b5_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_b5_1x1_2_relu_359": {
+            "inputs": [
+                "@inception_b5_1x1_2_356:out0"
+            ],
+            "name": "inception_b5_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_1x1_393": {
+            "inputs": [
+                "@inception_b5_pool_ave_392:out0"
+            ],
+            "name": "inception_b5_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "inception_b5_1x1_relu_396": {
+            "inputs": [
+                "@inception_b5_1x1_393:out0"
+            ],
+            "name": "inception_b5_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_1x7_2_380": {
+            "inputs": [
+                "@inception_b5_7x1_2_relu_379:out0"
+            ],
+            "name": "inception_b5_1x7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b5_1x7_2_relu_383": {
+            "inputs": [
+                "@inception_b5_1x7_2_380:out0"
+            ],
+            "name": "inception_b5_1x7_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_1x7_364": {
+            "inputs": [
+                "@inception_b5_1x7_reduce_relu_363:out0"
+            ],
+            "name": "inception_b5_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b5_1x7_3_388": {
+            "inputs": [
+                "@inception_b5_7x1_3_relu_387:out0"
+            ],
+            "name": "inception_b5_1x7_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b5_1x7_3_relu_391": {
+            "inputs": [
+                "@inception_b5_1x7_3_388:out0"
+            ],
+            "name": "inception_b5_1x7_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_1x7_reduce_360": {
+            "inputs": [
+                "@inception_b4_concat_355:out0"
+            ],
+            "name": "inception_b5_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b5_1x7_reduce_relu_363": {
+            "inputs": [
+                "@inception_b5_1x7_reduce_360:out0"
+            ],
+            "name": "inception_b5_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_1x7_relu_367": {
+            "inputs": [
+                "@inception_b5_1x7_364:out0"
+            ],
+            "name": "inception_b5_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_7x1_2_376": {
+            "inputs": [
+                "@inception_b5_7x1_2_reduce_relu_375:out0"
+            ],
+            "name": "inception_b5_7x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b5_7x1_2_reduce_372": {
+            "inputs": [
+                "@inception_b4_concat_355:out0"
+            ],
+            "name": "inception_b5_7x1_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b5_7x1_2_reduce_relu_375": {
+            "inputs": [
+                "@inception_b5_7x1_2_reduce_372:out0"
+            ],
+            "name": "inception_b5_7x1_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_7x1_2_relu_379": {
+            "inputs": [
+                "@inception_b5_7x1_2_376:out0"
+            ],
+            "name": "inception_b5_7x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_7x1_368": {
+            "inputs": [
+                "@inception_b5_1x7_relu_367:out0"
+            ],
+            "name": "inception_b5_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b5_7x1_3_384": {
+            "inputs": [
+                "@inception_b5_1x7_2_relu_383:out0"
+            ],
+            "name": "inception_b5_7x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b5_7x1_3_relu_387": {
+            "inputs": [
+                "@inception_b5_7x1_3_384:out0"
+            ],
+            "name": "inception_b5_7x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_7x1_relu_371": {
+            "inputs": [
+                "@inception_b5_7x1_368:out0"
+            ],
+            "name": "inception_b5_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b5_concat_397": {
+            "inputs": [
+                "@inception_b5_1x1_2_relu_359:out0",
+                "@inception_b5_7x1_relu_371:out0",
+                "@inception_b5_1x7_3_relu_391:out0",
+                "@inception_b5_1x1_relu_396:out0"
+            ],
+            "name": "inception_b5_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_b5_pool_ave_392": {
+            "inputs": [
+                "@inception_b4_concat_355:out0"
+            ],
+            "name": "inception_b5_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_b6_1x1_2_398": {
+            "inputs": [
+                "@inception_b5_concat_397:out0"
+            ],
+            "name": "inception_b6_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_b6_1x1_2_relu_401": {
+            "inputs": [
+                "@inception_b6_1x1_2_398:out0"
+            ],
+            "name": "inception_b6_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_1x1_435": {
+            "inputs": [
+                "@inception_b6_pool_ave_434:out0"
+            ],
+            "name": "inception_b6_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "inception_b6_1x1_relu_438": {
+            "inputs": [
+                "@inception_b6_1x1_435:out0"
+            ],
+            "name": "inception_b6_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_1x7_2_422": {
+            "inputs": [
+                "@inception_b6_7x1_2_relu_421:out0"
+            ],
+            "name": "inception_b6_1x7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b6_1x7_2_relu_425": {
+            "inputs": [
+                "@inception_b6_1x7_2_422:out0"
+            ],
+            "name": "inception_b6_1x7_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_1x7_3_430": {
+            "inputs": [
+                "@inception_b6_7x1_3_relu_429:out0"
+            ],
+            "name": "inception_b6_1x7_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b6_1x7_3_relu_433": {
+            "inputs": [
+                "@inception_b6_1x7_3_430:out0"
+            ],
+            "name": "inception_b6_1x7_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_1x7_406": {
+            "inputs": [
+                "@inception_b6_1x7_reduce_relu_405:out0"
+            ],
+            "name": "inception_b6_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b6_1x7_reduce_402": {
+            "inputs": [
+                "@inception_b5_concat_397:out0"
+            ],
+            "name": "inception_b6_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b6_1x7_reduce_relu_405": {
+            "inputs": [
+                "@inception_b6_1x7_reduce_402:out0"
+            ],
+            "name": "inception_b6_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_1x7_relu_409": {
+            "inputs": [
+                "@inception_b6_1x7_406:out0"
+            ],
+            "name": "inception_b6_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_7x1_2_418": {
+            "inputs": [
+                "@inception_b6_7x1_2_reduce_relu_417:out0"
+            ],
+            "name": "inception_b6_7x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b6_7x1_2_reduce_414": {
+            "inputs": [
+                "@inception_b5_concat_397:out0"
+            ],
+            "name": "inception_b6_7x1_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b6_7x1_2_reduce_relu_417": {
+            "inputs": [
+                "@inception_b6_7x1_2_reduce_414:out0"
+            ],
+            "name": "inception_b6_7x1_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_7x1_2_relu_421": {
+            "inputs": [
+                "@inception_b6_7x1_2_418:out0"
+            ],
+            "name": "inception_b6_7x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_7x1_3_426": {
+            "inputs": [
+                "@inception_b6_1x7_2_relu_425:out0"
+            ],
+            "name": "inception_b6_7x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b6_7x1_3_relu_429": {
+            "inputs": [
+                "@inception_b6_7x1_3_426:out0"
+            ],
+            "name": "inception_b6_7x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_7x1_410": {
+            "inputs": [
+                "@inception_b6_1x7_relu_409:out0"
+            ],
+            "name": "inception_b6_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b6_7x1_relu_413": {
+            "inputs": [
+                "@inception_b6_7x1_410:out0"
+            ],
+            "name": "inception_b6_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b6_concat_439": {
+            "inputs": [
+                "@inception_b6_1x1_2_relu_401:out0",
+                "@inception_b6_7x1_relu_413:out0",
+                "@inception_b6_1x7_3_relu_433:out0",
+                "@inception_b6_1x1_relu_438:out0"
+            ],
+            "name": "inception_b6_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_b6_pool_ave_434": {
+            "inputs": [
+                "@inception_b5_concat_397:out0"
+            ],
+            "name": "inception_b6_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_b7_1x1_2_440": {
+            "inputs": [
+                "@inception_b6_concat_439:out0"
+            ],
+            "name": "inception_b7_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_b7_1x1_2_relu_443": {
+            "inputs": [
+                "@inception_b7_1x1_2_440:out0"
+            ],
+            "name": "inception_b7_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_1x1_477": {
+            "inputs": [
+                "@inception_b7_pool_ave_476:out0"
+            ],
+            "name": "inception_b7_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "inception_b7_1x1_relu_480": {
+            "inputs": [
+                "@inception_b7_1x1_477:out0"
+            ],
+            "name": "inception_b7_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_1x7_2_464": {
+            "inputs": [
+                "@inception_b7_7x1_2_relu_463:out0"
+            ],
+            "name": "inception_b7_1x7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b7_1x7_2_relu_467": {
+            "inputs": [
+                "@inception_b7_1x7_2_464:out0"
+            ],
+            "name": "inception_b7_1x7_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_1x7_3_472": {
+            "inputs": [
+                "@inception_b7_7x1_3_relu_471:out0"
+            ],
+            "name": "inception_b7_1x7_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b7_1x7_3_relu_475": {
+            "inputs": [
+                "@inception_b7_1x7_3_472:out0"
+            ],
+            "name": "inception_b7_1x7_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_1x7_448": {
+            "inputs": [
+                "@inception_b7_1x7_reduce_relu_447:out0"
+            ],
+            "name": "inception_b7_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b7_1x7_reduce_444": {
+            "inputs": [
+                "@inception_b6_concat_439:out0"
+            ],
+            "name": "inception_b7_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b7_1x7_reduce_relu_447": {
+            "inputs": [
+                "@inception_b7_1x7_reduce_444:out0"
+            ],
+            "name": "inception_b7_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_1x7_relu_451": {
+            "inputs": [
+                "@inception_b7_1x7_448:out0"
+            ],
+            "name": "inception_b7_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_7x1_2_460": {
+            "inputs": [
+                "@inception_b7_7x1_2_reduce_relu_459:out0"
+            ],
+            "name": "inception_b7_7x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b7_7x1_2_reduce_456": {
+            "inputs": [
+                "@inception_b6_concat_439:out0"
+            ],
+            "name": "inception_b7_7x1_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "inception_b7_7x1_2_reduce_relu_459": {
+            "inputs": [
+                "@inception_b7_7x1_2_reduce_456:out0"
+            ],
+            "name": "inception_b7_7x1_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_7x1_2_relu_463": {
+            "inputs": [
+                "@inception_b7_7x1_2_460:out0"
+            ],
+            "name": "inception_b7_7x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_7x1_3_468": {
+            "inputs": [
+                "@inception_b7_1x7_2_relu_467:out0"
+            ],
+            "name": "inception_b7_7x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "inception_b7_7x1_3_relu_471": {
+            "inputs": [
+                "@inception_b7_7x1_3_468:out0"
+            ],
+            "name": "inception_b7_7x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_7x1_452": {
+            "inputs": [
+                "@inception_b7_1x7_relu_451:out0"
+            ],
+            "name": "inception_b7_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_b7_7x1_relu_455": {
+            "inputs": [
+                "@inception_b7_7x1_452:out0"
+            ],
+            "name": "inception_b7_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_b7_concat_481": {
+            "inputs": [
+                "@inception_b7_1x1_2_relu_443:out0",
+                "@inception_b7_7x1_relu_455:out0",
+                "@inception_b7_1x7_3_relu_475:out0",
+                "@inception_b7_1x1_relu_480:out0"
+            ],
+            "name": "inception_b7_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_b7_pool_ave_476": {
+            "inputs": [
+                "@inception_b6_concat_439:out0"
+            ],
+            "name": "inception_b7_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_c1_1x1_2_508": {
+            "inputs": [
+                "@reduction_b_concat_507:out0"
+            ],
+            "name": "inception_c1_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c1_1x1_2_relu_511": {
+            "inputs": [
+                "@inception_c1_1x1_2_508:out0"
+            ],
+            "name": "inception_c1_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_1x1_3_512": {
+            "inputs": [
+                "@reduction_b_concat_507:out0"
+            ],
+            "name": "inception_c1_1x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_c1_1x1_3_relu_515": {
+            "inputs": [
+                "@inception_c1_1x1_3_512:out0"
+            ],
+            "name": "inception_c1_1x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_1x1_4_524": {
+            "inputs": [
+                "@reduction_b_concat_507:out0"
+            ],
+            "name": "inception_c1_1x1_4",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_c1_1x1_4_relu_527": {
+            "inputs": [
+                "@inception_c1_1x1_4_524:out0"
+            ],
+            "name": "inception_c1_1x1_4_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_1x1_545": {
+            "inputs": [
+                "@inception_c1_pool_ave_544:out0"
+            ],
+            "name": "inception_c1_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c1_1x1_relu_548": {
+            "inputs": [
+                "@inception_c1_1x1_545:out0"
+            ],
+            "name": "inception_c1_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_1x3_2_532": {
+            "inputs": [
+                "@inception_c1_3x1_2_relu_531:out0"
+            ],
+            "name": "inception_c1_1x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "inception_c1_1x3_2_relu_535": {
+            "inputs": [
+                "@inception_c1_1x3_2_532:out0"
+            ],
+            "name": "inception_c1_1x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_1x3_3_536": {
+            "inputs": [
+                "@inception_c1_1x3_2_relu_535:out0"
+            ],
+            "name": "inception_c1_1x3_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c1_1x3_3_relu_539": {
+            "inputs": [
+                "@inception_c1_1x3_3_536:out0"
+            ],
+            "name": "inception_c1_1x3_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_1x3_516": {
+            "inputs": [
+                "@inception_c1_1x1_3_relu_515:out0"
+            ],
+            "name": "inception_c1_1x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c1_1x3_relu_519": {
+            "inputs": [
+                "@inception_c1_1x3_516:out0"
+            ],
+            "name": "inception_c1_1x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_3x1_2_528": {
+            "inputs": [
+                "@inception_c1_1x1_4_relu_527:out0"
+            ],
+            "name": "inception_c1_3x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 448
+            }
+        },
+        "inception_c1_3x1_2_relu_531": {
+            "inputs": [
+                "@inception_c1_3x1_2_528:out0"
+            ],
+            "name": "inception_c1_3x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_3x1_3_540": {
+            "inputs": [
+                "@inception_c1_1x3_2_relu_535:out0"
+            ],
+            "name": "inception_c1_3x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c1_3x1_3_relu_543": {
+            "inputs": [
+                "@inception_c1_3x1_3_540:out0"
+            ],
+            "name": "inception_c1_3x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_3x1_520": {
+            "inputs": [
+                "@inception_c1_1x1_3_relu_515:out0"
+            ],
+            "name": "inception_c1_3x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c1_3x1_relu_523": {
+            "inputs": [
+                "@inception_c1_3x1_520:out0"
+            ],
+            "name": "inception_c1_3x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c1_concat_549": {
+            "inputs": [
+                "@inception_c1_1x1_2_relu_511:out0",
+                "@inception_c1_1x3_relu_519:out0",
+                "@inception_c1_3x1_relu_523:out0",
+                "@inception_c1_1x3_3_relu_539:out0",
+                "@inception_c1_3x1_3_relu_543:out0",
+                "@inception_c1_1x1_relu_548:out0"
+            ],
+            "name": "inception_c1_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_c1_pool_ave_544": {
+            "inputs": [
+                "@reduction_b_concat_507:out0"
+            ],
+            "name": "inception_c1_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_c2_1x1_2_550": {
+            "inputs": [
+                "@inception_c1_concat_549:out0"
+            ],
+            "name": "inception_c2_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c2_1x1_2_relu_553": {
+            "inputs": [
+                "@inception_c2_1x1_2_550:out0"
+            ],
+            "name": "inception_c2_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_1x1_3_554": {
+            "inputs": [
+                "@inception_c1_concat_549:out0"
+            ],
+            "name": "inception_c2_1x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_c2_1x1_3_relu_557": {
+            "inputs": [
+                "@inception_c2_1x1_3_554:out0"
+            ],
+            "name": "inception_c2_1x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_1x1_4_566": {
+            "inputs": [
+                "@inception_c1_concat_549:out0"
+            ],
+            "name": "inception_c2_1x1_4",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_c2_1x1_4_relu_569": {
+            "inputs": [
+                "@inception_c2_1x1_4_566:out0"
+            ],
+            "name": "inception_c2_1x1_4_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_1x1_587": {
+            "inputs": [
+                "@inception_c2_pool_ave_586:out0"
+            ],
+            "name": "inception_c2_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c2_1x1_relu_590": {
+            "inputs": [
+                "@inception_c2_1x1_587:out0"
+            ],
+            "name": "inception_c2_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_1x3_2_574": {
+            "inputs": [
+                "@inception_c2_3x1_2_relu_573:out0"
+            ],
+            "name": "inception_c2_1x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "inception_c2_1x3_2_relu_577": {
+            "inputs": [
+                "@inception_c2_1x3_2_574:out0"
+            ],
+            "name": "inception_c2_1x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_1x3_3_578": {
+            "inputs": [
+                "@inception_c2_1x3_2_relu_577:out0"
+            ],
+            "name": "inception_c2_1x3_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c2_1x3_3_relu_581": {
+            "inputs": [
+                "@inception_c2_1x3_3_578:out0"
+            ],
+            "name": "inception_c2_1x3_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_1x3_558": {
+            "inputs": [
+                "@inception_c2_1x1_3_relu_557:out0"
+            ],
+            "name": "inception_c2_1x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c2_1x3_relu_561": {
+            "inputs": [
+                "@inception_c2_1x3_558:out0"
+            ],
+            "name": "inception_c2_1x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_3x1_2_570": {
+            "inputs": [
+                "@inception_c2_1x1_4_relu_569:out0"
+            ],
+            "name": "inception_c2_3x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 448
+            }
+        },
+        "inception_c2_3x1_2_relu_573": {
+            "inputs": [
+                "@inception_c2_3x1_2_570:out0"
+            ],
+            "name": "inception_c2_3x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_3x1_3_582": {
+            "inputs": [
+                "@inception_c2_1x3_2_relu_577:out0"
+            ],
+            "name": "inception_c2_3x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c2_3x1_3_relu_585": {
+            "inputs": [
+                "@inception_c2_3x1_3_582:out0"
+            ],
+            "name": "inception_c2_3x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_3x1_562": {
+            "inputs": [
+                "@inception_c2_1x1_3_relu_557:out0"
+            ],
+            "name": "inception_c2_3x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c2_3x1_relu_565": {
+            "inputs": [
+                "@inception_c2_3x1_562:out0"
+            ],
+            "name": "inception_c2_3x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c2_concat_591": {
+            "inputs": [
+                "@inception_c2_1x1_2_relu_553:out0",
+                "@inception_c2_1x3_relu_561:out0",
+                "@inception_c2_3x1_relu_565:out0",
+                "@inception_c2_1x3_3_relu_581:out0",
+                "@inception_c2_3x1_3_relu_585:out0",
+                "@inception_c2_1x1_relu_590:out0"
+            ],
+            "name": "inception_c2_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_c2_pool_ave_586": {
+            "inputs": [
+                "@inception_c1_concat_549:out0"
+            ],
+            "name": "inception_c2_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_c3_1x1_2_592": {
+            "inputs": [
+                "@inception_c2_concat_591:out0"
+            ],
+            "name": "inception_c3_1x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c3_1x1_2_relu_595": {
+            "inputs": [
+                "@inception_c3_1x1_2_592:out0"
+            ],
+            "name": "inception_c3_1x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_1x1_3_596": {
+            "inputs": [
+                "@inception_c2_concat_591:out0"
+            ],
+            "name": "inception_c3_1x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_c3_1x1_3_relu_599": {
+            "inputs": [
+                "@inception_c3_1x1_3_596:out0"
+            ],
+            "name": "inception_c3_1x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_1x1_4_608": {
+            "inputs": [
+                "@inception_c2_concat_591:out0"
+            ],
+            "name": "inception_c3_1x1_4",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 384
+            }
+        },
+        "inception_c3_1x1_4_relu_611": {
+            "inputs": [
+                "@inception_c3_1x1_4_608:out0"
+            ],
+            "name": "inception_c3_1x1_4_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_1x1_629": {
+            "inputs": [
+                "@inception_c3_pool_ave_628:out0"
+            ],
+            "name": "inception_c3_1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c3_1x1_relu_632": {
+            "inputs": [
+                "@inception_c3_1x1_629:out0"
+            ],
+            "name": "inception_c3_1x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_1x3_2_616": {
+            "inputs": [
+                "@inception_c3_3x1_2_relu_615:out0"
+            ],
+            "name": "inception_c3_1x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "inception_c3_1x3_2_relu_619": {
+            "inputs": [
+                "@inception_c3_1x3_2_616:out0"
+            ],
+            "name": "inception_c3_1x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_1x3_3_620": {
+            "inputs": [
+                "@inception_c3_1x3_2_relu_619:out0"
+            ],
+            "name": "inception_c3_1x3_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c3_1x3_3_relu_623": {
+            "inputs": [
+                "@inception_c3_1x3_3_620:out0"
+            ],
+            "name": "inception_c3_1x3_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_1x3_600": {
+            "inputs": [
+                "@inception_c3_1x1_3_relu_599:out0"
+            ],
+            "name": "inception_c3_1x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c3_1x3_relu_603": {
+            "inputs": [
+                "@inception_c3_1x3_600:out0"
+            ],
+            "name": "inception_c3_1x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_3x1_2_612": {
+            "inputs": [
+                "@inception_c3_1x1_4_relu_611:out0"
+            ],
+            "name": "inception_c3_3x1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 448
+            }
+        },
+        "inception_c3_3x1_2_relu_615": {
+            "inputs": [
+                "@inception_c3_3x1_2_612:out0"
+            ],
+            "name": "inception_c3_3x1_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_3x1_3_624": {
+            "inputs": [
+                "@inception_c3_1x3_2_relu_619:out0"
+            ],
+            "name": "inception_c3_3x1_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c3_3x1_3_relu_627": {
+            "inputs": [
+                "@inception_c3_3x1_3_624:out0"
+            ],
+            "name": "inception_c3_3x1_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_3x1_604": {
+            "inputs": [
+                "@inception_c3_1x1_3_relu_599:out0"
+            ],
+            "name": "inception_c3_3x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "inception_c3_3x1_relu_607": {
+            "inputs": [
+                "@inception_c3_3x1_604:out0"
+            ],
+            "name": "inception_c3_3x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_c3_concat_633": {
+            "inputs": [
+                "@inception_c3_1x1_2_relu_595:out0",
+                "@inception_c3_1x3_relu_603:out0",
+                "@inception_c3_3x1_relu_607:out0",
+                "@inception_c3_1x3_3_relu_623:out0",
+                "@inception_c3_3x1_3_relu_627:out0",
+                "@inception_c3_1x1_relu_632:out0"
+            ],
+            "name": "inception_c3_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_c3_pool_ave_628": {
+            "inputs": [
+                "@inception_c2_concat_591:out0"
+            ],
+            "name": "inception_c3_pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "inception_stem1_18": {
+            "inputs": [
+                "@inception_stem1_pool_17:out0",
+                "@inception_stem1_3x3_s2_relu_16:out0"
+            ],
+            "name": "inception_stem1",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_stem1_3x3_s2_13": {
+            "inputs": [
+                "@conv3_3x3_s1_relu_12:out0"
+            ],
+            "name": "inception_stem1_3x3_s2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 96
+            }
+        },
+        "inception_stem1_3x3_s2_relu_16": {
+            "inputs": [
+                "@inception_stem1_3x3_s2_13:out0"
+            ],
+            "name": "inception_stem1_3x3_s2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_stem1_pool_17": {
+            "inputs": [
+                "@conv3_3x3_s1_relu_12:out0"
+            ],
+            "name": "inception_stem1_pool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "inception_stem2_1x7_31": {
+            "inputs": [
+                "@inception_stem2_1x7_reduce_relu_30:out0"
+            ],
+            "name": "inception_stem2_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_stem2_1x7_reduce_27": {
+            "inputs": [
+                "@inception_stem1_18:out0"
+            ],
+            "name": "inception_stem2_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_stem2_1x7_reduce_relu_30": {
+            "inputs": [
+                "@inception_stem2_1x7_reduce_27:out0"
+            ],
+            "name": "inception_stem2_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_stem2_1x7_relu_34": {
+            "inputs": [
+                "@inception_stem2_1x7_31:out0"
+            ],
+            "name": "inception_stem2_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_stem2_3x3_23": {
+            "inputs": [
+                "@inception_stem2_3x3_reduce_relu_22:out0"
+            ],
+            "name": "inception_stem2_3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_stem2_3x3_2_39": {
+            "inputs": [
+                "@inception_stem2_7x1_relu_38:out0"
+            ],
+            "name": "inception_stem2_3x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 96
+            }
+        },
+        "inception_stem2_3x3_2_relu_42": {
+            "inputs": [
+                "@inception_stem2_3x3_2_39:out0"
+            ],
+            "name": "inception_stem2_3x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_stem2_3x3_reduce_19": {
+            "inputs": [
+                "@inception_stem1_18:out0"
+            ],
+            "name": "inception_stem2_3x3_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_stem2_3x3_reduce_relu_22": {
+            "inputs": [
+                "@inception_stem2_3x3_reduce_19:out0"
+            ],
+            "name": "inception_stem2_3x3_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_stem2_3x3_relu_26": {
+            "inputs": [
+                "@inception_stem2_3x3_23:out0"
+            ],
+            "name": "inception_stem2_3x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_stem2_43": {
+            "inputs": [
+                "@inception_stem2_3x3_relu_26:out0",
+                "@inception_stem2_3x3_2_relu_42:out0"
+            ],
+            "name": "inception_stem2",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_stem2_7x1_35": {
+            "inputs": [
+                "@inception_stem2_1x7_relu_34:out0"
+            ],
+            "name": "inception_stem2_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "inception_stem2_7x1_relu_38": {
+            "inputs": [
+                "@inception_stem2_7x1_35:out0"
+            ],
+            "name": "inception_stem2_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_stem3_3x3_s2_44": {
+            "inputs": [
+                "@inception_stem2_43:out0"
+            ],
+            "name": "inception_stem3_3x3_s2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 192
+            }
+        },
+        "inception_stem3_3x3_s2_relu_47": {
+            "inputs": [
+                "@inception_stem3_3x3_s2_44:out0"
+            ],
+            "name": "inception_stem3_3x3_s2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "inception_stem3_49": {
+            "inputs": [
+                "@inception_stem3_3x3_s2_relu_47:out0",
+                "@inception_stem3_pool_48:out0"
+            ],
+            "name": "inception_stem3",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "inception_stem3_pool_48": {
+            "inputs": [
+                "@inception_stem2_43:out0"
+            ],
+            "name": "inception_stem3_pool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "output_638": {
+            "inputs": [
+                "@prob_637:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool_8x8_s1_634": {
+            "inputs": [
+                "@inception_c3_concat_633:out0"
+            ],
+            "name": "pool_8x8_s1",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 8,
+                "ksize_w": 8,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "pool_8x8_s1_drop_635": {
+            "inputs": [
+                "@pool_8x8_s1_634:out0"
+            ],
+            "name": "pool_8x8_s1_drop",
+            "op": "dropout",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ratio": 0.2,
+                "scale_train": true
+            }
+        },
+        "prob_637": {
+            "inputs": [
+                "@classifier_636:out0"
+            ],
+            "name": "prob",
+            "op": "softmax",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "sf_axis": -1
+            }
+        },
+        "reduction_a_3x3_170": {
+            "inputs": [
+                "@inception_a4_concat_169:out0"
+            ],
+            "name": "reduction_a_3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 384
+            }
+        },
+        "reduction_a_3x3_2_178": {
+            "inputs": [
+                "@reduction_a_3x3_2_reduce_relu_177:out0"
+            ],
+            "name": "reduction_a_3x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 224
+            }
+        },
+        "reduction_a_3x3_2_reduce_174": {
+            "inputs": [
+                "@inception_a4_concat_169:out0"
+            ],
+            "name": "reduction_a_3x3_2_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "reduction_a_3x3_2_reduce_relu_177": {
+            "inputs": [
+                "@reduction_a_3x3_2_reduce_174:out0"
+            ],
+            "name": "reduction_a_3x3_2_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_a_3x3_2_relu_181": {
+            "inputs": [
+                "@reduction_a_3x3_2_178:out0"
+            ],
+            "name": "reduction_a_3x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_a_3x3_3_182": {
+            "inputs": [
+                "@reduction_a_3x3_2_relu_181:out0"
+            ],
+            "name": "reduction_a_3x3_3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 256
+            }
+        },
+        "reduction_a_3x3_3_relu_185": {
+            "inputs": [
+                "@reduction_a_3x3_3_182:out0"
+            ],
+            "name": "reduction_a_3x3_3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_a_3x3_relu_173": {
+            "inputs": [
+                "@reduction_a_3x3_170:out0"
+            ],
+            "name": "reduction_a_3x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_a_concat_187": {
+            "inputs": [
+                "@reduction_a_3x3_relu_173:out0",
+                "@reduction_a_3x3_3_relu_185:out0",
+                "@reduction_a_pool_186:out0"
+            ],
+            "name": "reduction_a_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "reduction_a_pool_186": {
+            "inputs": [
+                "@inception_a4_concat_169:out0"
+            ],
+            "name": "reduction_a_pool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "reduction_b_1x7_494": {
+            "inputs": [
+                "@reduction_b_1x7_reduce_relu_493:out0"
+            ],
+            "name": "reduction_b_1x7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "reduction_b_1x7_reduce_490": {
+            "inputs": [
+                "@inception_b7_concat_481:out0"
+            ],
+            "name": "reduction_b_1x7_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "reduction_b_1x7_reduce_relu_493": {
+            "inputs": [
+                "@reduction_b_1x7_reduce_490:out0"
+            ],
+            "name": "reduction_b_1x7_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_b_1x7_relu_497": {
+            "inputs": [
+                "@reduction_b_1x7_494:out0"
+            ],
+            "name": "reduction_b_1x7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_b_3x3_2_502": {
+            "inputs": [
+                "@reduction_b_7x1_relu_501:out0"
+            ],
+            "name": "reduction_b_3x3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 320
+            }
+        },
+        "reduction_b_3x3_2_relu_505": {
+            "inputs": [
+                "@reduction_b_3x3_2_502:out0"
+            ],
+            "name": "reduction_b_3x3_2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_b_3x3_486": {
+            "inputs": [
+                "@reduction_b_3x3_reduce_relu_485:out0"
+            ],
+            "name": "reduction_b_3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 192
+            }
+        },
+        "reduction_b_3x3_reduce_482": {
+            "inputs": [
+                "@inception_b7_concat_481:out0"
+            ],
+            "name": "reduction_b_3x3_reduce",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "reduction_b_3x3_reduce_relu_485": {
+            "inputs": [
+                "@reduction_b_3x3_reduce_482:out0"
+            ],
+            "name": "reduction_b_3x3_reduce_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_b_3x3_relu_489": {
+            "inputs": [
+                "@reduction_b_3x3_486:out0"
+            ],
+            "name": "reduction_b_3x3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_b_7x1_498": {
+            "inputs": [
+                "@reduction_b_1x7_relu_497:out0"
+            ],
+            "name": "reduction_b_7x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 1,
+                "pad_h": 3,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 320
+            }
+        },
+        "reduction_b_7x1_relu_501": {
+            "inputs": [
+                "@reduction_b_7x1_498:out0"
+            ],
+            "name": "reduction_b_7x1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reduction_b_concat_507": {
+            "inputs": [
+                "@reduction_b_3x3_relu_489:out0",
+                "@reduction_b_3x3_2_relu_505:out0",
+                "@reduction_b_pool_506:out0"
+            ],
+            "name": "reduction_b_concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "reduction_b_pool_506": {
+            "inputs": [
+                "@inception_b7_concat_481:out0"
+            ],
+            "name": "reduction_b_pool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "InceptionV4",
+        "Platform": "caffe"
+    }
+}

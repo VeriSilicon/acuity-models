@@ -1,0 +1,176 @@
+{
+    "Layers": {
+        "conv1_1": {
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "name": "conv1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 20
+            }
+        },
+        "conv2_3": {
+            "inputs": [
+                "@pool1_2:out0"
+            ],
+            "name": "conv2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 50
+            }
+        },
+        "input_0": {
+            "inputs": [],
+            "name": "input",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 1,
+                "size": "28 28"
+            }
+        },
+        "ip1_5": {
+            "inputs": [
+                "@pool2_4:out0"
+            ],
+            "name": "ip1",
+            "op": "fullconnect",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "regularize": false,
+                "weights": 500
+            }
+        },
+        "ip2_7": {
+            "inputs": [
+                "@relu1_6:out0"
+            ],
+            "name": "ip2",
+            "op": "fullconnect",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "regularize": false,
+                "weights": 10
+            }
+        },
+        "output_9": {
+            "inputs": [
+                "@prob_8:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool1_2": {
+            "inputs": [
+                "@conv1_1:out0"
+            ],
+            "name": "pool1",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool2_4": {
+            "inputs": [
+                "@conv2_3:out0"
+            ],
+            "name": "pool2",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "prob_8": {
+            "inputs": [
+                "@ip2_7:out0"
+            ],
+            "name": "prob",
+            "op": "softmax",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "sf_axis": -1
+            }
+        },
+        "relu1_6": {
+            "inputs": [
+                "@ip1_5:out0"
+            ],
+            "name": "relu1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "LeNet",
+        "Platform": "caffe"
+    }
+}

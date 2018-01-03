@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Acuity Graph Browser Online v0.1.0 beta</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <style id="css">
+  .label-op {
+    font-size: 24px;
+    color: #b57717;
+  }
+  .layer-tip {
+    text-align: left;
+    max-width: 400px;
+    font-weight: 700;
+  }
+  </style>
+  <body>
+    <div class="container">
+    <div id="user-interface">
+    <h1>Acuity graph browser online</h1>
+        <hr>
+	        <div class="input-group-btn">
+            <input type="button" class="btn btn-default" value="Submit" id="btn-render"/>
+            <input type="button" class="btn btn-default" value="Capature" id="btn-save" style="display:none;"/>
+        </div>
+		<textarea name="content" cols="40" rows="40" class="form-control" id="editor" placeholder="acuity net content" style="resize:none;"></textarea>
+        </div>
+
+    <hr style="margin-top: 30px;">
+    <h1 id="net-name"></h1>
+    <div id="render"  style="text-align: center; margin-top: 60px;">
+        <svg id="render-zone">
+        <style id='render-style'>
+        .node rect {
+          stroke: #333;
+            fill: #fff;
+            rx: 5px;
+            ry: 5px;
+            }
+        .activation rect {
+            fill: #ffbb48;
+            }
+        .fullconnect rect {
+            fill: #7575f1;
+            }
+        .convolution rect {
+            fill: #7575f1;
+            }
+        .deconvolution rect {
+            fill: #7575f1;
+            }
+        .pooling rect {
+            fill: #e42b2b;
+            }
+        .poolwithargmax rect {
+            fill: #e42b2b;
+            }
+        .upsample rect {
+            fill: #e42b2b;
+            }
+        .no-batch-op rect {
+            fill: #58ce17;
+            }
+
+        .edgePath path {
+          stroke: #333;
+            fill: #333;
+              stroke-width: 1.5px;
+              }
+        </style>
+        </svg>
+    </div>
+    </div>
+    <script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="d3.v4.min.js"></script>
+	<script type="text/javascript" src="dagre-d3.min.js"></script>
+	<script type="text/javascript" src="d3.tip.js"></script>
+	<script type="text/javascript" src="renderer.js"></script>
+	<script type="text/javascript" src="online-json.js"></script>
+	<script>
+	document.getElementById('btn-render').addEventListener('click',function(){
+    render_net(JSON.parse($('#editor').val()));
+	},false);
+    </script>
+  </body>
+</html>
