@@ -1,9 +1,9 @@
 ## ACUITY Model Zoo
 
-ACUITY model zoo contains a set of popular neurarl-network models created or converted (from Caffe or Tensorflow) by ACUITY toolset.
+ACUITY model zoo contains a set of popular neural-network models created or converted (from Caffe or Tensorflow) by ACUITY toolset.
 
 ### Model Viewer
-ACUITY uses JSON format to represent a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netscope](http://ethereon.github.io/netscope/quickstart.html).
+ACUITY uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netscope](http://ethereon.github.io/netscope/quickstart.html).
 
 ### Classification
  - [Alexnet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/alexnet/alexnet.json)
