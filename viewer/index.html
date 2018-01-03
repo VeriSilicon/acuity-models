@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Acuity Graph Browser Online v0.1.0 beta</title>
+    <title>Acuity Model Viewer Online v0.1.0 beta</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 	<link href="css/tipsy.css" rel="stylesheet" type="text/css"/>
 	<link href="css/render.css" rel="stylesheet" type="text/css"/>
@@ -10,18 +10,18 @@
   <body>
     <div class="container">
     <div id="user-interface">
-    <h1>Acuity graph browser online</h1>
+    <h1>Acuity Model Viewer</h1>
         <hr>
 	        <div class="input-group-btn">
-            <input type="button" class="btn btn-default" value="Submit" id="btn-render"/>
+            <input type="button" class="btn btn-default" value="Render" id="btn-render"/>
             <input type="button" class="btn btn-default" value="Capature" id="btn-save" style="display:none;"/>
         </div>
 		<textarea name="content" cols="40" rows="40" class="form-control" id="editor" placeholder="acuity net content" style="resize:none;"></textarea>
         </div>
 	</div>
     <hr style="margin-top: 30px;">
-    <h1 id="net-name"></h1>
     <div id="render"  style="text-align: center; margin-top: 60px; position: relative;" data-uk-dropdown="{mode:'click'}">
+        <h1 id="net-name" class="net-name"></h1>
         <svg id="render-zone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <style id='render-style'>
 		.label {
