@@ -1,0 +1,225 @@
+{
+    "Layers": {
+        "PReLU1_2": {
+            "inputs": [
+                "@conv1_1:out0"
+            ],
+            "name": "PReLU1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "PReLU2_5": {
+            "inputs": [
+                "@conv2_4:out0"
+            ],
+            "name": "PReLU2",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "PReLU3_7": {
+            "inputs": [
+                "@conv3_6:out0"
+            ],
+            "name": "PReLU3",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv1_1": {
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "name": "conv1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 10
+            }
+        },
+        "conv2_4": {
+            "inputs": [
+                "@pool1_3:out0"
+            ],
+            "name": "conv2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv3_6": {
+            "inputs": [
+                "@PReLU2_5:out0"
+            ],
+            "name": "conv3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv4-1_8": {
+            "inputs": [
+                "@PReLU3_7:out0"
+            ],
+            "name": "conv4-1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 2
+            }
+        },
+        "conv4-2_9": {
+            "inputs": [
+                "@PReLU3_7:out0"
+            ],
+            "name": "conv4-2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 4
+            }
+        },
+        "input_0": {
+            "inputs": [],
+            "name": "input",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "12 12"
+            }
+        },
+        "output_11": {
+            "inputs": [
+                "@prob1_10:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output_12": {
+            "inputs": [
+                "@conv4-2_9:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool1_3": {
+            "inputs": [
+                "@PReLU1_2:out0"
+            ],
+            "name": "pool1",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "prob1_10": {
+            "inputs": [
+                "@conv4-1_8:out0"
+            ],
+            "name": "prob1",
+            "op": "softmax",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "sf_axis": -1
+            }
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "PNet",
+        "Platform": "caffe"
+    }
+}

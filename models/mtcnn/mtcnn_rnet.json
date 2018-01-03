@@ -1,0 +1,253 @@
+{
+    "Layers": {
+        "conv1_1": {
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "name": "conv1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 28
+            }
+        },
+        "conv2_4": {
+            "inputs": [
+                "@pool1_3:out0"
+            ],
+            "name": "conv2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 48
+            }
+        },
+        "conv3_7": {
+            "inputs": [
+                "@pool2_6:out0"
+            ],
+            "name": "conv3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv4_9": {
+            "inputs": [
+                "@prelu3_8:out0"
+            ],
+            "name": "conv4",
+            "op": "fullconnect",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "regularize": false,
+                "weights": 128
+            }
+        },
+        "conv5-1_11": {
+            "inputs": [
+                "@prelu4_10:out0"
+            ],
+            "name": "conv5-1",
+            "op": "fullconnect",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "regularize": false,
+                "weights": 2
+            }
+        },
+        "conv5-2_12": {
+            "inputs": [
+                "@prelu4_10:out0"
+            ],
+            "name": "conv5-2",
+            "op": "fullconnect",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "regularize": false,
+                "weights": 4
+            }
+        },
+        "input_0": {
+            "inputs": [],
+            "name": "input",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "24 24"
+            }
+        },
+        "output_14": {
+            "inputs": [
+                "@prob1_13:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output_15": {
+            "inputs": [
+                "@conv5-2_12:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool1_3": {
+            "inputs": [
+                "@prelu1_2:out0"
+            ],
+            "name": "pool1",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool2_6": {
+            "inputs": [
+                "@prelu2_5:out0"
+            ],
+            "name": "pool2",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "prelu1_2": {
+            "inputs": [
+                "@conv1_1:out0"
+            ],
+            "name": "prelu1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_5": {
+            "inputs": [
+                "@conv2_4:out0"
+            ],
+            "name": "prelu2",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_8": {
+            "inputs": [
+                "@conv3_7:out0"
+            ],
+            "name": "prelu3",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_10": {
+            "inputs": [
+                "@conv4_9:out0"
+            ],
+            "name": "prelu4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prob1_13": {
+            "inputs": [
+                "@conv5-1_11:out0"
+            ],
+            "name": "prob1",
+            "op": "softmax",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "sf_axis": -1
+            }
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "RNet",
+        "Platform": "caffe"
+    }
+}

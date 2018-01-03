@@ -1,0 +1,1164 @@
+{
+    "Layers": {
+        "conv10_63": {
+            "inputs": [
+                "@drop9_62:out0"
+            ],
+            "name": "conv10",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1000
+            }
+        },
+        "conv1_1": {
+            "inputs": [
+                "@data_0:out0"
+            ],
+            "name": "conv1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 64
+            }
+        },
+        "data_0": {
+            "inputs": [],
+            "name": "data",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "227 227"
+            }
+        },
+        "drop9_62": {
+            "inputs": [
+                "@fire9/concat_61:out0"
+            ],
+            "name": "drop9",
+            "op": "dropout",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ratio": 0.5,
+                "scale_train": true
+            }
+        },
+        "fire2/concat_10": {
+            "inputs": [
+                "@fire2/relu_expand1x1_7:out0",
+                "@fire2/relu_expand3x3_9:out0"
+            ],
+            "name": "fire2/concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "fire2/expand1x1_6": {
+            "inputs": [
+                "@fire2/relu_squeeze1x1_5:out0"
+            ],
+            "name": "fire2/expand1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "fire2/expand3x3_8": {
+            "inputs": [
+                "@fire2/relu_squeeze1x1_5:out0"
+            ],
+            "name": "fire2/expand3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "fire2/relu_expand1x1_7": {
+            "inputs": [
+                "@fire2/expand1x1_6:out0"
+            ],
+            "name": "fire2/relu_expand1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire2/relu_expand3x3_9": {
+            "inputs": [
+                "@fire2/expand3x3_8:out0"
+            ],
+            "name": "fire2/relu_expand3x3",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire2/relu_squeeze1x1_5": {
+            "inputs": [
+                "@fire2/squeeze1x1_4:out0"
+            ],
+            "name": "fire2/relu_squeeze1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire2/squeeze1x1_4": {
+            "inputs": [
+                "@pool1_3:out0"
+            ],
+            "name": "fire2/squeeze1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "fire3/concat_17": {
+            "inputs": [
+                "@fire3/relu_expand1x1_14:out0",
+                "@fire3/relu_expand3x3_16:out0"
+            ],
+            "name": "fire3/concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "fire3/expand1x1_13": {
+            "inputs": [
+                "@fire3/relu_squeeze1x1_12:out0"
+            ],
+            "name": "fire3/expand1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "fire3/expand3x3_15": {
+            "inputs": [
+                "@fire3/relu_squeeze1x1_12:out0"
+            ],
+            "name": "fire3/expand3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "fire3/relu_expand1x1_14": {
+            "inputs": [
+                "@fire3/expand1x1_13:out0"
+            ],
+            "name": "fire3/relu_expand1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire3/relu_expand3x3_16": {
+            "inputs": [
+                "@fire3/expand3x3_15:out0"
+            ],
+            "name": "fire3/relu_expand3x3",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire3/relu_squeeze1x1_12": {
+            "inputs": [
+                "@fire3/squeeze1x1_11:out0"
+            ],
+            "name": "fire3/relu_squeeze1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire3/squeeze1x1_11": {
+            "inputs": [
+                "@fire2/concat_10:out0"
+            ],
+            "name": "fire3/squeeze1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "fire4/concat_25": {
+            "inputs": [
+                "@fire4/relu_expand1x1_22:out0",
+                "@fire4/relu_expand3x3_24:out0"
+            ],
+            "name": "fire4/concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "fire4/expand1x1_21": {
+            "inputs": [
+                "@fire4/relu_squeeze1x1_20:out0"
+            ],
+            "name": "fire4/expand1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "fire4/expand3x3_23": {
+            "inputs": [
+                "@fire4/relu_squeeze1x1_20:out0"
+            ],
+            "name": "fire4/expand3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "fire4/relu_expand1x1_22": {
+            "inputs": [
+                "@fire4/expand1x1_21:out0"
+            ],
+            "name": "fire4/relu_expand1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire4/relu_expand3x3_24": {
+            "inputs": [
+                "@fire4/expand3x3_23:out0"
+            ],
+            "name": "fire4/relu_expand3x3",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire4/relu_squeeze1x1_20": {
+            "inputs": [
+                "@fire4/squeeze1x1_19:out0"
+            ],
+            "name": "fire4/relu_squeeze1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire4/squeeze1x1_19": {
+            "inputs": [
+                "@pool3_18:out0"
+            ],
+            "name": "fire4/squeeze1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "fire5/concat_32": {
+            "inputs": [
+                "@fire5/relu_expand1x1_29:out0",
+                "@fire5/relu_expand3x3_31:out0"
+            ],
+            "name": "fire5/concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "fire5/expand1x1_28": {
+            "inputs": [
+                "@fire5/relu_squeeze1x1_27:out0"
+            ],
+            "name": "fire5/expand1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "fire5/expand3x3_30": {
+            "inputs": [
+                "@fire5/relu_squeeze1x1_27:out0"
+            ],
+            "name": "fire5/expand3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "fire5/relu_expand1x1_29": {
+            "inputs": [
+                "@fire5/expand1x1_28:out0"
+            ],
+            "name": "fire5/relu_expand1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire5/relu_expand3x3_31": {
+            "inputs": [
+                "@fire5/expand3x3_30:out0"
+            ],
+            "name": "fire5/relu_expand3x3",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire5/relu_squeeze1x1_27": {
+            "inputs": [
+                "@fire5/squeeze1x1_26:out0"
+            ],
+            "name": "fire5/relu_squeeze1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire5/squeeze1x1_26": {
+            "inputs": [
+                "@fire4/concat_25:out0"
+            ],
+            "name": "fire5/squeeze1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "fire6/concat_40": {
+            "inputs": [
+                "@fire6/relu_expand1x1_37:out0",
+                "@fire6/relu_expand3x3_39:out0"
+            ],
+            "name": "fire6/concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "fire6/expand1x1_36": {
+            "inputs": [
+                "@fire6/relu_squeeze1x1_35:out0"
+            ],
+            "name": "fire6/expand1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "fire6/expand3x3_38": {
+            "inputs": [
+                "@fire6/relu_squeeze1x1_35:out0"
+            ],
+            "name": "fire6/expand3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "fire6/relu_expand1x1_37": {
+            "inputs": [
+                "@fire6/expand1x1_36:out0"
+            ],
+            "name": "fire6/relu_expand1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire6/relu_expand3x3_39": {
+            "inputs": [
+                "@fire6/expand3x3_38:out0"
+            ],
+            "name": "fire6/relu_expand3x3",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire6/relu_squeeze1x1_35": {
+            "inputs": [
+                "@fire6/squeeze1x1_34:out0"
+            ],
+            "name": "fire6/relu_squeeze1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire6/squeeze1x1_34": {
+            "inputs": [
+                "@pool5_33:out0"
+            ],
+            "name": "fire6/squeeze1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 48
+            }
+        },
+        "fire7/concat_47": {
+            "inputs": [
+                "@fire7/relu_expand1x1_44:out0",
+                "@fire7/relu_expand3x3_46:out0"
+            ],
+            "name": "fire7/concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "fire7/expand1x1_43": {
+            "inputs": [
+                "@fire7/relu_squeeze1x1_42:out0"
+            ],
+            "name": "fire7/expand1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "fire7/expand3x3_45": {
+            "inputs": [
+                "@fire7/relu_squeeze1x1_42:out0"
+            ],
+            "name": "fire7/expand3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 192
+            }
+        },
+        "fire7/relu_expand1x1_44": {
+            "inputs": [
+                "@fire7/expand1x1_43:out0"
+            ],
+            "name": "fire7/relu_expand1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire7/relu_expand3x3_46": {
+            "inputs": [
+                "@fire7/expand3x3_45:out0"
+            ],
+            "name": "fire7/relu_expand3x3",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire7/relu_squeeze1x1_42": {
+            "inputs": [
+                "@fire7/squeeze1x1_41:out0"
+            ],
+            "name": "fire7/relu_squeeze1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire7/squeeze1x1_41": {
+            "inputs": [
+                "@fire6/concat_40:out0"
+            ],
+            "name": "fire7/squeeze1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 48
+            }
+        },
+        "fire8/concat_54": {
+            "inputs": [
+                "@fire8/relu_expand1x1_51:out0",
+                "@fire8/relu_expand3x3_53:out0"
+            ],
+            "name": "fire8/concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "fire8/expand1x1_50": {
+            "inputs": [
+                "@fire8/relu_squeeze1x1_49:out0"
+            ],
+            "name": "fire8/expand1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "fire8/expand3x3_52": {
+            "inputs": [
+                "@fire8/relu_squeeze1x1_49:out0"
+            ],
+            "name": "fire8/expand3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "fire8/relu_expand1x1_51": {
+            "inputs": [
+                "@fire8/expand1x1_50:out0"
+            ],
+            "name": "fire8/relu_expand1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire8/relu_expand3x3_53": {
+            "inputs": [
+                "@fire8/expand3x3_52:out0"
+            ],
+            "name": "fire8/relu_expand3x3",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire8/relu_squeeze1x1_49": {
+            "inputs": [
+                "@fire8/squeeze1x1_48:out0"
+            ],
+            "name": "fire8/relu_squeeze1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire8/squeeze1x1_48": {
+            "inputs": [
+                "@fire7/concat_47:out0"
+            ],
+            "name": "fire8/squeeze1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "fire9/concat_61": {
+            "inputs": [
+                "@fire9/relu_expand1x1_58:out0",
+                "@fire9/relu_expand3x3_60:out0"
+            ],
+            "name": "fire9/concat",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "fire9/expand1x1_57": {
+            "inputs": [
+                "@fire9/relu_squeeze1x1_56:out0"
+            ],
+            "name": "fire9/expand1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "fire9/expand3x3_59": {
+            "inputs": [
+                "@fire9/relu_squeeze1x1_56:out0"
+            ],
+            "name": "fire9/expand3x3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "fire9/relu_expand1x1_58": {
+            "inputs": [
+                "@fire9/expand1x1_57:out0"
+            ],
+            "name": "fire9/relu_expand1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire9/relu_expand3x3_60": {
+            "inputs": [
+                "@fire9/expand3x3_59:out0"
+            ],
+            "name": "fire9/relu_expand3x3",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire9/relu_squeeze1x1_56": {
+            "inputs": [
+                "@fire9/squeeze1x1_55:out0"
+            ],
+            "name": "fire9/relu_squeeze1x1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fire9/squeeze1x1_55": {
+            "inputs": [
+                "@fire8/concat_54:out0"
+            ],
+            "name": "fire9/squeeze1x1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "output_67": {
+            "inputs": [
+                "@prob_66:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool10_65": {
+            "inputs": [
+                "@relu_conv10_64:out0"
+            ],
+            "name": "pool10",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 14,
+                "ksize_w": 14,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "pool1_3": {
+            "inputs": [
+                "@relu_conv1_2:out0"
+            ],
+            "name": "pool1",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool3_18": {
+            "inputs": [
+                "@fire3/concat_17:out0"
+            ],
+            "name": "pool3",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool5_33": {
+            "inputs": [
+                "@fire5/concat_32:out0"
+            ],
+            "name": "pool5",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "prob_66": {
+            "inputs": [
+                "@pool10_65:out0"
+            ],
+            "name": "prob",
+            "op": "softmax",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "sf_axis": -1
+            }
+        },
+        "relu_conv10_64": {
+            "inputs": [
+                "@conv10_63:out0"
+            ],
+            "name": "relu_conv10",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "relu_conv1_2": {
+            "inputs": [
+                "@conv1_1:out0"
+            ],
+            "name": "relu_conv1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "",
+        "Platform": "caffe"
+    }
+}

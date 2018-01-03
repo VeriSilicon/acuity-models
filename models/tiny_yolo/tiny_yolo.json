@@ -1,0 +1,477 @@
+{
+    "Layers": {
+        "conv1_1": {
+            "inputs": [
+                "@data_0:out0"
+            ],
+            "name": "conv1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv2_6": {
+            "inputs": [
+                "@pool1_5:out0"
+            ],
+            "name": "conv2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_11": {
+            "inputs": [
+                "@pool2_10:out0"
+            ],
+            "name": "conv3",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv4_16": {
+            "inputs": [
+                "@pool3_15:out0"
+            ],
+            "name": "conv4",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv5_21": {
+            "inputs": [
+                "@pool4_20:out0"
+            ],
+            "name": "conv5",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "conv6_26": {
+            "inputs": [
+                "@pool5_25:out0"
+            ],
+            "name": "conv6",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "conv7_31": {
+            "inputs": [
+                "@pool6_30:out0"
+            ],
+            "name": "conv7",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "conv8_35": {
+            "inputs": [
+                "@relu7_34:out0"
+            ],
+            "name": "conv8",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "conv9_39": {
+            "inputs": [
+                "@relu8_38:out0"
+            ],
+            "name": "conv9",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 425
+            }
+        },
+        "data_0": {
+            "inputs": [],
+            "name": "data",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "432 432"
+            }
+        },
+        "output_40": {
+            "inputs": [
+                "@conv9_39:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool1_5": {
+            "inputs": [
+                "@relu1_4:out0"
+            ],
+            "name": "pool1",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool2_10": {
+            "inputs": [
+                "@relu2_9:out0"
+            ],
+            "name": "pool2",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool3_15": {
+            "inputs": [
+                "@relu3_14:out0"
+            ],
+            "name": "pool3",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool4_20": {
+            "inputs": [
+                "@relu4_19:out0"
+            ],
+            "name": "pool4",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool5_25": {
+            "inputs": [
+                "@relu5_24:out0"
+            ],
+            "name": "pool5",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool6_30": {
+            "inputs": [
+                "@relu6_29:out0"
+            ],
+            "name": "pool6",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "MAX"
+            }
+        },
+        "relu1_4": {
+            "inputs": [
+                "@conv1_1:out0"
+            ],
+            "name": "relu1",
+            "op": "leakyrelu",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "leaky_ratio": 0.1
+            }
+        },
+        "relu2_9": {
+            "inputs": [
+                "@conv2_6:out0"
+            ],
+            "name": "relu2",
+            "op": "leakyrelu",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "leaky_ratio": 0.1
+            }
+        },
+        "relu3_14": {
+            "inputs": [
+                "@conv3_11:out0"
+            ],
+            "name": "relu3",
+            "op": "leakyrelu",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "leaky_ratio": 0.1
+            }
+        },
+        "relu4_19": {
+            "inputs": [
+                "@conv4_16:out0"
+            ],
+            "name": "relu4",
+            "op": "leakyrelu",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "leaky_ratio": 0.1
+            }
+        },
+        "relu5_24": {
+            "inputs": [
+                "@conv5_21:out0"
+            ],
+            "name": "relu5",
+            "op": "leakyrelu",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "leaky_ratio": 0.1
+            }
+        },
+        "relu6_29": {
+            "inputs": [
+                "@conv6_26:out0"
+            ],
+            "name": "relu6",
+            "op": "leakyrelu",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "leaky_ratio": 0.1
+            }
+        },
+        "relu7_34": {
+            "inputs": [
+                "@conv7_31:out0"
+            ],
+            "name": "relu7",
+            "op": "leakyrelu",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "leaky_ratio": 0.1
+            }
+        },
+        "relu8_38": {
+            "inputs": [
+                "@conv8_35:out0"
+            ],
+            "name": "relu8",
+            "op": "leakyrelu",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "leaky_ratio": 0.1
+            }
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "tiny-yolo",
+        "Platform": "caffe"
+    }
+}

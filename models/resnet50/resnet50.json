@@ -1,0 +1,2156 @@
+{
+    "Layers": {
+        "conv1_1": {
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "name": "conv1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "pad_h": 3,
+                "pad_w": 3,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 64
+            }
+        },
+        "conv1_relu_4": {
+            "inputs": [
+                "@conv1_1:out0"
+            ],
+            "name": "conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fc1000_227": {
+            "inputs": [
+                "@pool5_226:out0"
+            ],
+            "name": "fc1000",
+            "op": "fullconnect",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "regularize": false,
+                "weights": 1000
+            }
+        },
+        "input_0": {
+            "inputs": [],
+            "name": "input",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "224 224"
+            }
+        },
+        "output_229": {
+            "inputs": [
+                "@prob_228:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool1_5": {
+            "inputs": [
+                "@conv1_relu_4:out0"
+            ],
+            "name": "pool1",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool5_226": {
+            "inputs": [
+                "@res5c_relu_225:out0"
+            ],
+            "name": "pool5",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "prob_228": {
+            "inputs": [
+                "@fc1000_227:out0"
+            ],
+            "name": "prob",
+            "op": "softmax",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "sf_axis": -1
+            }
+        },
+        "res2a_20": {
+            "inputs": [
+                "@res2a_branch1_6:out0",
+                "@res2a_branch2c_17:out0"
+            ],
+            "name": "res2a",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res2a_branch1_6": {
+            "inputs": [
+                "@pool1_5:out0"
+            ],
+            "name": "res2a_branch1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res2a_branch2a_9": {
+            "inputs": [
+                "@pool1_5:out0"
+            ],
+            "name": "res2a_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "res2a_branch2a_relu_12": {
+            "inputs": [
+                "@res2a_branch2a_9:out0"
+            ],
+            "name": "res2a_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res2a_branch2b_13": {
+            "inputs": [
+                "@res2a_branch2a_relu_12:out0"
+            ],
+            "name": "res2a_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "res2a_branch2b_relu_16": {
+            "inputs": [
+                "@res2a_branch2b_13:out0"
+            ],
+            "name": "res2a_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res2a_branch2c_17": {
+            "inputs": [
+                "@res2a_branch2b_relu_16:out0"
+            ],
+            "name": "res2a_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res2a_relu_21": {
+            "inputs": [
+                "@res2a_20:out0"
+            ],
+            "name": "res2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res2b_33": {
+            "inputs": [
+                "@res2a_relu_21:out0",
+                "@res2b_branch2c_30:out0"
+            ],
+            "name": "res2b",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res2b_branch2a_22": {
+            "inputs": [
+                "@res2a_relu_21:out0"
+            ],
+            "name": "res2b_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "res2b_branch2a_relu_25": {
+            "inputs": [
+                "@res2b_branch2a_22:out0"
+            ],
+            "name": "res2b_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res2b_branch2b_26": {
+            "inputs": [
+                "@res2b_branch2a_relu_25:out0"
+            ],
+            "name": "res2b_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "res2b_branch2b_relu_29": {
+            "inputs": [
+                "@res2b_branch2b_26:out0"
+            ],
+            "name": "res2b_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res2b_branch2c_30": {
+            "inputs": [
+                "@res2b_branch2b_relu_29:out0"
+            ],
+            "name": "res2b_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res2b_relu_34": {
+            "inputs": [
+                "@res2b_33:out0"
+            ],
+            "name": "res2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res2c_46": {
+            "inputs": [
+                "@res2b_relu_34:out0",
+                "@res2c_branch2c_43:out0"
+            ],
+            "name": "res2c",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res2c_branch2a_35": {
+            "inputs": [
+                "@res2b_relu_34:out0"
+            ],
+            "name": "res2c_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "res2c_branch2a_relu_38": {
+            "inputs": [
+                "@res2c_branch2a_35:out0"
+            ],
+            "name": "res2c_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res2c_branch2b_39": {
+            "inputs": [
+                "@res2c_branch2a_relu_38:out0"
+            ],
+            "name": "res2c_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "res2c_branch2b_relu_42": {
+            "inputs": [
+                "@res2c_branch2b_39:out0"
+            ],
+            "name": "res2c_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res2c_branch2c_43": {
+            "inputs": [
+                "@res2c_branch2b_relu_42:out0"
+            ],
+            "name": "res2c_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res2c_relu_47": {
+            "inputs": [
+                "@res2c_46:out0"
+            ],
+            "name": "res2c_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3a_62": {
+            "inputs": [
+                "@res3a_branch1_48:out0",
+                "@res3a_branch2c_59:out0"
+            ],
+            "name": "res3a",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res3a_branch1_48": {
+            "inputs": [
+                "@res2c_relu_47:out0"
+            ],
+            "name": "res3a_branch1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 512
+            }
+        },
+        "res3a_branch2a_51": {
+            "inputs": [
+                "@res2c_relu_47:out0"
+            ],
+            "name": "res3a_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 128
+            }
+        },
+        "res3a_branch2a_relu_54": {
+            "inputs": [
+                "@res3a_branch2a_51:out0"
+            ],
+            "name": "res3a_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3a_branch2b_55": {
+            "inputs": [
+                "@res3a_branch2a_relu_54:out0"
+            ],
+            "name": "res3a_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "res3a_branch2b_relu_58": {
+            "inputs": [
+                "@res3a_branch2b_55:out0"
+            ],
+            "name": "res3a_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3a_branch2c_59": {
+            "inputs": [
+                "@res3a_branch2b_relu_58:out0"
+            ],
+            "name": "res3a_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res3a_relu_63": {
+            "inputs": [
+                "@res3a_62:out0"
+            ],
+            "name": "res3a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3b_75": {
+            "inputs": [
+                "@res3a_relu_63:out0",
+                "@res3b_branch2c_72:out0"
+            ],
+            "name": "res3b",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res3b_branch2a_64": {
+            "inputs": [
+                "@res3a_relu_63:out0"
+            ],
+            "name": "res3b_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "res3b_branch2a_relu_67": {
+            "inputs": [
+                "@res3b_branch2a_64:out0"
+            ],
+            "name": "res3b_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3b_branch2b_68": {
+            "inputs": [
+                "@res3b_branch2a_relu_67:out0"
+            ],
+            "name": "res3b_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "res3b_branch2b_relu_71": {
+            "inputs": [
+                "@res3b_branch2b_68:out0"
+            ],
+            "name": "res3b_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3b_branch2c_72": {
+            "inputs": [
+                "@res3b_branch2b_relu_71:out0"
+            ],
+            "name": "res3b_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res3b_relu_76": {
+            "inputs": [
+                "@res3b_75:out0"
+            ],
+            "name": "res3b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3c_88": {
+            "inputs": [
+                "@res3b_relu_76:out0",
+                "@res3c_branch2c_85:out0"
+            ],
+            "name": "res3c",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res3c_branch2a_77": {
+            "inputs": [
+                "@res3b_relu_76:out0"
+            ],
+            "name": "res3c_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "res3c_branch2a_relu_80": {
+            "inputs": [
+                "@res3c_branch2a_77:out0"
+            ],
+            "name": "res3c_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3c_branch2b_81": {
+            "inputs": [
+                "@res3c_branch2a_relu_80:out0"
+            ],
+            "name": "res3c_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "res3c_branch2b_relu_84": {
+            "inputs": [
+                "@res3c_branch2b_81:out0"
+            ],
+            "name": "res3c_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3c_branch2c_85": {
+            "inputs": [
+                "@res3c_branch2b_relu_84:out0"
+            ],
+            "name": "res3c_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res3c_relu_89": {
+            "inputs": [
+                "@res3c_88:out0"
+            ],
+            "name": "res3c_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3d_101": {
+            "inputs": [
+                "@res3c_relu_89:out0",
+                "@res3d_branch2c_98:out0"
+            ],
+            "name": "res3d",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res3d_branch2a_90": {
+            "inputs": [
+                "@res3c_relu_89:out0"
+            ],
+            "name": "res3d_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "res3d_branch2a_relu_93": {
+            "inputs": [
+                "@res3d_branch2a_90:out0"
+            ],
+            "name": "res3d_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3d_branch2b_94": {
+            "inputs": [
+                "@res3d_branch2a_relu_93:out0"
+            ],
+            "name": "res3d_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "res3d_branch2b_relu_97": {
+            "inputs": [
+                "@res3d_branch2b_94:out0"
+            ],
+            "name": "res3d_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res3d_branch2c_98": {
+            "inputs": [
+                "@res3d_branch2b_relu_97:out0"
+            ],
+            "name": "res3d_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res3d_relu_102": {
+            "inputs": [
+                "@res3d_101:out0"
+            ],
+            "name": "res3d_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4a_117": {
+            "inputs": [
+                "@res4a_branch1_103:out0",
+                "@res4a_branch2c_114:out0"
+            ],
+            "name": "res4a",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res4a_branch1_103": {
+            "inputs": [
+                "@res3d_relu_102:out0"
+            ],
+            "name": "res4a_branch1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 1024
+            }
+        },
+        "res4a_branch2a_106": {
+            "inputs": [
+                "@res3d_relu_102:out0"
+            ],
+            "name": "res4a_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 256
+            }
+        },
+        "res4a_branch2a_relu_109": {
+            "inputs": [
+                "@res4a_branch2a_106:out0"
+            ],
+            "name": "res4a_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4a_branch2b_110": {
+            "inputs": [
+                "@res4a_branch2a_relu_109:out0"
+            ],
+            "name": "res4a_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4a_branch2b_relu_113": {
+            "inputs": [
+                "@res4a_branch2b_110:out0"
+            ],
+            "name": "res4a_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4a_branch2c_114": {
+            "inputs": [
+                "@res4a_branch2b_relu_113:out0"
+            ],
+            "name": "res4a_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "res4a_relu_118": {
+            "inputs": [
+                "@res4a_117:out0"
+            ],
+            "name": "res4a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4b_130": {
+            "inputs": [
+                "@res4a_relu_118:out0",
+                "@res4b_branch2c_127:out0"
+            ],
+            "name": "res4b",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res4b_branch2a_119": {
+            "inputs": [
+                "@res4a_relu_118:out0"
+            ],
+            "name": "res4b_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4b_branch2a_relu_122": {
+            "inputs": [
+                "@res4b_branch2a_119:out0"
+            ],
+            "name": "res4b_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4b_branch2b_123": {
+            "inputs": [
+                "@res4b_branch2a_relu_122:out0"
+            ],
+            "name": "res4b_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4b_branch2b_relu_126": {
+            "inputs": [
+                "@res4b_branch2b_123:out0"
+            ],
+            "name": "res4b_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4b_branch2c_127": {
+            "inputs": [
+                "@res4b_branch2b_relu_126:out0"
+            ],
+            "name": "res4b_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "res4b_relu_131": {
+            "inputs": [
+                "@res4b_130:out0"
+            ],
+            "name": "res4b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4c_143": {
+            "inputs": [
+                "@res4b_relu_131:out0",
+                "@res4c_branch2c_140:out0"
+            ],
+            "name": "res4c",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res4c_branch2a_132": {
+            "inputs": [
+                "@res4b_relu_131:out0"
+            ],
+            "name": "res4c_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4c_branch2a_relu_135": {
+            "inputs": [
+                "@res4c_branch2a_132:out0"
+            ],
+            "name": "res4c_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4c_branch2b_136": {
+            "inputs": [
+                "@res4c_branch2a_relu_135:out0"
+            ],
+            "name": "res4c_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4c_branch2b_relu_139": {
+            "inputs": [
+                "@res4c_branch2b_136:out0"
+            ],
+            "name": "res4c_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4c_branch2c_140": {
+            "inputs": [
+                "@res4c_branch2b_relu_139:out0"
+            ],
+            "name": "res4c_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "res4c_relu_144": {
+            "inputs": [
+                "@res4c_143:out0"
+            ],
+            "name": "res4c_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4d_156": {
+            "inputs": [
+                "@res4c_relu_144:out0",
+                "@res4d_branch2c_153:out0"
+            ],
+            "name": "res4d",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res4d_branch2a_145": {
+            "inputs": [
+                "@res4c_relu_144:out0"
+            ],
+            "name": "res4d_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4d_branch2a_relu_148": {
+            "inputs": [
+                "@res4d_branch2a_145:out0"
+            ],
+            "name": "res4d_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4d_branch2b_149": {
+            "inputs": [
+                "@res4d_branch2a_relu_148:out0"
+            ],
+            "name": "res4d_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4d_branch2b_relu_152": {
+            "inputs": [
+                "@res4d_branch2b_149:out0"
+            ],
+            "name": "res4d_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4d_branch2c_153": {
+            "inputs": [
+                "@res4d_branch2b_relu_152:out0"
+            ],
+            "name": "res4d_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "res4d_relu_157": {
+            "inputs": [
+                "@res4d_156:out0"
+            ],
+            "name": "res4d_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4e_169": {
+            "inputs": [
+                "@res4d_relu_157:out0",
+                "@res4e_branch2c_166:out0"
+            ],
+            "name": "res4e",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res4e_branch2a_158": {
+            "inputs": [
+                "@res4d_relu_157:out0"
+            ],
+            "name": "res4e_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4e_branch2a_relu_161": {
+            "inputs": [
+                "@res4e_branch2a_158:out0"
+            ],
+            "name": "res4e_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4e_branch2b_162": {
+            "inputs": [
+                "@res4e_branch2a_relu_161:out0"
+            ],
+            "name": "res4e_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4e_branch2b_relu_165": {
+            "inputs": [
+                "@res4e_branch2b_162:out0"
+            ],
+            "name": "res4e_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4e_branch2c_166": {
+            "inputs": [
+                "@res4e_branch2b_relu_165:out0"
+            ],
+            "name": "res4e_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "res4e_relu_170": {
+            "inputs": [
+                "@res4e_169:out0"
+            ],
+            "name": "res4e_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4f_182": {
+            "inputs": [
+                "@res4e_relu_170:out0",
+                "@res4f_branch2c_179:out0"
+            ],
+            "name": "res4f",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res4f_branch2a_171": {
+            "inputs": [
+                "@res4e_relu_170:out0"
+            ],
+            "name": "res4f_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4f_branch2a_relu_174": {
+            "inputs": [
+                "@res4f_branch2a_171:out0"
+            ],
+            "name": "res4f_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4f_branch2b_175": {
+            "inputs": [
+                "@res4f_branch2a_relu_174:out0"
+            ],
+            "name": "res4f_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "res4f_branch2b_relu_178": {
+            "inputs": [
+                "@res4f_branch2b_175:out0"
+            ],
+            "name": "res4f_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res4f_branch2c_179": {
+            "inputs": [
+                "@res4f_branch2b_relu_178:out0"
+            ],
+            "name": "res4f_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "res4f_relu_183": {
+            "inputs": [
+                "@res4f_182:out0"
+            ],
+            "name": "res4f_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5a_198": {
+            "inputs": [
+                "@res5a_branch1_184:out0",
+                "@res5a_branch2c_195:out0"
+            ],
+            "name": "res5a",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res5a_branch1_184": {
+            "inputs": [
+                "@res4f_relu_183:out0"
+            ],
+            "name": "res5a_branch1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 2048
+            }
+        },
+        "res5a_branch2a_187": {
+            "inputs": [
+                "@res4f_relu_183:out0"
+            ],
+            "name": "res5a_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 512
+            }
+        },
+        "res5a_branch2a_relu_190": {
+            "inputs": [
+                "@res5a_branch2a_187:out0"
+            ],
+            "name": "res5a_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5a_branch2b_191": {
+            "inputs": [
+                "@res5a_branch2a_relu_190:out0"
+            ],
+            "name": "res5a_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res5a_branch2b_relu_194": {
+            "inputs": [
+                "@res5a_branch2b_191:out0"
+            ],
+            "name": "res5a_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5a_branch2c_195": {
+            "inputs": [
+                "@res5a_branch2b_relu_194:out0"
+            ],
+            "name": "res5a_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 2048
+            }
+        },
+        "res5a_relu_199": {
+            "inputs": [
+                "@res5a_198:out0"
+            ],
+            "name": "res5a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5b_211": {
+            "inputs": [
+                "@res5a_relu_199:out0",
+                "@res5b_branch2c_208:out0"
+            ],
+            "name": "res5b",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res5b_branch2a_200": {
+            "inputs": [
+                "@res5a_relu_199:out0"
+            ],
+            "name": "res5b_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res5b_branch2a_relu_203": {
+            "inputs": [
+                "@res5b_branch2a_200:out0"
+            ],
+            "name": "res5b_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5b_branch2b_204": {
+            "inputs": [
+                "@res5b_branch2a_relu_203:out0"
+            ],
+            "name": "res5b_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res5b_branch2b_relu_207": {
+            "inputs": [
+                "@res5b_branch2b_204:out0"
+            ],
+            "name": "res5b_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5b_branch2c_208": {
+            "inputs": [
+                "@res5b_branch2b_relu_207:out0"
+            ],
+            "name": "res5b_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 2048
+            }
+        },
+        "res5b_relu_212": {
+            "inputs": [
+                "@res5b_211:out0"
+            ],
+            "name": "res5b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5c_224": {
+            "inputs": [
+                "@res5b_relu_212:out0",
+                "@res5c_branch2c_221:out0"
+            ],
+            "name": "res5c",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "res5c_branch2a_213": {
+            "inputs": [
+                "@res5b_relu_212:out0"
+            ],
+            "name": "res5c_branch2a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res5c_branch2a_relu_216": {
+            "inputs": [
+                "@res5c_branch2a_213:out0"
+            ],
+            "name": "res5c_branch2a_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5c_branch2b_217": {
+            "inputs": [
+                "@res5c_branch2a_relu_216:out0"
+            ],
+            "name": "res5c_branch2b",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 512
+            }
+        },
+        "res5c_branch2b_relu_220": {
+            "inputs": [
+                "@res5c_branch2b_217:out0"
+            ],
+            "name": "res5c_branch2b_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "res5c_branch2c_221": {
+            "inputs": [
+                "@res5c_branch2b_relu_220:out0"
+            ],
+            "name": "res5c_branch2c",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "depth_wise": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 2048
+            }
+        },
+        "res5c_relu_225": {
+            "inputs": [
+                "@res5c_224:out0"
+            ],
+            "name": "res5c_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "ResNet-50",
+        "Platform": "caffe"
+    }
+}

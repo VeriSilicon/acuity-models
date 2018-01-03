@@ -1,0 +1,3595 @@
+{
+    "Layers": {
+        "bn0_1_4": {
+            "inputs": [
+                "@concat0_1_3:out0"
+            ],
+            "name": "bn0_1",
+            "op": "batchnormalize",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "eps": 0.0001
+            }
+        },
+        "bn4_0_1_171": {
+            "inputs": [
+                "@deconv4_0_1_170:out0"
+            ],
+            "name": "bn4_0_1",
+            "op": "batchnormalize",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "eps": 0.0001
+            }
+        },
+        "bn5_0_1_195": {
+            "inputs": [
+                "@deconv5_0_1_194:out0"
+            ],
+            "name": "bn5_0_1",
+            "op": "batchnormalize",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "eps": 0.0001
+            }
+        },
+        "concat0_1_3": {
+            "inputs": [
+                "@conv0_1_1:out0",
+                "@pool0_1_2:out0"
+            ],
+            "name": "concat0_1",
+            "op": "concat",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "dim": 3
+            }
+        },
+        "conv0_1_1": {
+            "inputs": [
+                "@data_0:out0"
+            ],
+            "name": "conv0_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 13
+            }
+        },
+        "conv1_0_0_6": {
+            "inputs": [
+                "@prelu0_1_5:out0"
+            ],
+            "name": "conv1_0_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 16
+            }
+        },
+        "conv1_0_1_8": {
+            "inputs": [
+                "@prelu1_0_0_7:out0"
+            ],
+            "name": "conv1_0_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_0_2_10": {
+            "inputs": [
+                "@prelu1_0_1_9:out0"
+            ],
+            "name": "conv1_0_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv1_0_4_12": {
+            "inputs": [
+                "@pool1_0_4_11:out0"
+            ],
+            "name": "conv1_0_4",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv1_1_0_15": {
+            "inputs": [
+                "@prelu1_0_4_14:out0"
+            ],
+            "name": "conv1_1_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_1_1_17": {
+            "inputs": [
+                "@prelu1_1_0_16:out0"
+            ],
+            "name": "conv1_1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_1_2_19": {
+            "inputs": [
+                "@prelu1_1_1_18:out0"
+            ],
+            "name": "conv1_1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv1_2_0_22": {
+            "inputs": [
+                "@prelu1_1_4_21:out0"
+            ],
+            "name": "conv1_2_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_2_1_24": {
+            "inputs": [
+                "@prelu1_2_0_23:out0"
+            ],
+            "name": "conv1_2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_2_2_26": {
+            "inputs": [
+                "@prelu1_2_1_25:out0"
+            ],
+            "name": "conv1_2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv1_3_0_29": {
+            "inputs": [
+                "@prelu1_2_4_28:out0"
+            ],
+            "name": "conv1_3_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_3_1_31": {
+            "inputs": [
+                "@prelu1_3_0_30:out0"
+            ],
+            "name": "conv1_3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_3_2_33": {
+            "inputs": [
+                "@prelu1_3_1_32:out0"
+            ],
+            "name": "conv1_3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv1_4_0_36": {
+            "inputs": [
+                "@prelu1_3_4_35:out0"
+            ],
+            "name": "conv1_4_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_4_1_38": {
+            "inputs": [
+                "@prelu1_4_0_37:out0"
+            ],
+            "name": "conv1_4_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv1_4_2_40": {
+            "inputs": [
+                "@prelu1_4_1_39:out0"
+            ],
+            "name": "conv1_4_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv2_0_0_43": {
+            "inputs": [
+                "@prelu1_4_4_42:out0"
+            ],
+            "name": "conv2_0_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 32
+            }
+        },
+        "conv2_0_1_45": {
+            "inputs": [
+                "@prelu2_0_0_44:out0"
+            ],
+            "name": "conv2_0_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_0_2_47": {
+            "inputs": [
+                "@prelu2_0_1_46:out0"
+            ],
+            "name": "conv2_0_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_0_4_49": {
+            "inputs": [
+                "@pool2_0_4_48:out0"
+            ],
+            "name": "conv2_0_4",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_1_0_52": {
+            "inputs": [
+                "@prelu2_0_4_51:out0"
+            ],
+            "name": "conv2_1_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_1_1_54": {
+            "inputs": [
+                "@prelu2_1_0_53:out0"
+            ],
+            "name": "conv2_1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_1_2_56": {
+            "inputs": [
+                "@prelu2_1_1_55:out0"
+            ],
+            "name": "conv2_1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_2_0_59": {
+            "inputs": [
+                "@prelu2_1_4_58:out0"
+            ],
+            "name": "conv2_2_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_2_1_61": {
+            "inputs": [
+                "@prelu2_2_0_60:out0"
+            ],
+            "name": "conv2_2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 2,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 2,
+                "pad_w": 2,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_2_2_63": {
+            "inputs": [
+                "@prelu2_2_1_62:out0"
+            ],
+            "name": "conv2_2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_3_0_66": {
+            "inputs": [
+                "@prelu2_2_4_65:out0"
+            ],
+            "name": "conv2_3_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_3_1_69": {
+            "inputs": [
+                "@conv2_3_1_a_68:out0"
+            ],
+            "name": "conv2_3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 5,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_3_1_a_68": {
+            "inputs": [
+                "@prelu2_3_0_67:out0"
+            ],
+            "name": "conv2_3_1_a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 5,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_3_2_71": {
+            "inputs": [
+                "@prelu2_3_1_70:out0"
+            ],
+            "name": "conv2_3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_4_0_74": {
+            "inputs": [
+                "@prelu2_3_4_73:out0"
+            ],
+            "name": "conv2_4_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_4_1_76": {
+            "inputs": [
+                "@prelu2_4_0_75:out0"
+            ],
+            "name": "conv2_4_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 4,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 4,
+                "pad_w": 4,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_4_2_78": {
+            "inputs": [
+                "@prelu2_4_1_77:out0"
+            ],
+            "name": "conv2_4_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_5_0_81": {
+            "inputs": [
+                "@prelu2_4_4_80:out0"
+            ],
+            "name": "conv2_5_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_5_1_83": {
+            "inputs": [
+                "@prelu2_5_0_82:out0"
+            ],
+            "name": "conv2_5_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_5_2_85": {
+            "inputs": [
+                "@prelu2_5_1_84:out0"
+            ],
+            "name": "conv2_5_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_6_0_88": {
+            "inputs": [
+                "@prelu2_5_4_87:out0"
+            ],
+            "name": "conv2_6_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_6_1_90": {
+            "inputs": [
+                "@prelu2_6_0_89:out0"
+            ],
+            "name": "conv2_6_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 8,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 8,
+                "pad_w": 8,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_6_2_92": {
+            "inputs": [
+                "@prelu2_6_1_91:out0"
+            ],
+            "name": "conv2_6_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_7_0_95": {
+            "inputs": [
+                "@prelu2_6_4_94:out0"
+            ],
+            "name": "conv2_7_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_7_1_98": {
+            "inputs": [
+                "@conv2_7_1_a_97:out0"
+            ],
+            "name": "conv2_7_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 5,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_7_1_a_97": {
+            "inputs": [
+                "@prelu2_7_0_96:out0"
+            ],
+            "name": "conv2_7_1_a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 5,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_7_2_100": {
+            "inputs": [
+                "@prelu2_7_1_99:out0"
+            ],
+            "name": "conv2_7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv2_8_0_103": {
+            "inputs": [
+                "@prelu2_7_4_102:out0"
+            ],
+            "name": "conv2_8_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_8_1_105": {
+            "inputs": [
+                "@prelu2_8_0_104:out0"
+            ],
+            "name": "conv2_8_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 16,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 16,
+                "pad_w": 16,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv2_8_2_107": {
+            "inputs": [
+                "@prelu2_8_1_106:out0"
+            ],
+            "name": "conv2_8_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv3_1_0_110": {
+            "inputs": [
+                "@prelu2_8_4_109:out0"
+            ],
+            "name": "conv3_1_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_1_1_112": {
+            "inputs": [
+                "@prelu3_1_0_111:out0"
+            ],
+            "name": "conv3_1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_1_2_114": {
+            "inputs": [
+                "@prelu3_1_1_113:out0"
+            ],
+            "name": "conv3_1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv3_2_0_117": {
+            "inputs": [
+                "@prelu3_1_4_116:out0"
+            ],
+            "name": "conv3_2_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_2_1_119": {
+            "inputs": [
+                "@prelu3_2_0_118:out0"
+            ],
+            "name": "conv3_2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 2,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 2,
+                "pad_w": 2,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_2_2_121": {
+            "inputs": [
+                "@prelu3_2_1_120:out0"
+            ],
+            "name": "conv3_2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv3_3_0_124": {
+            "inputs": [
+                "@prelu3_2_4_123:out0"
+            ],
+            "name": "conv3_3_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_3_1_127": {
+            "inputs": [
+                "@conv3_3_1_a_126:out0"
+            ],
+            "name": "conv3_3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 5,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_3_1_a_126": {
+            "inputs": [
+                "@prelu3_3_0_125:out0"
+            ],
+            "name": "conv3_3_1_a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 5,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_3_2_129": {
+            "inputs": [
+                "@prelu3_3_1_128:out0"
+            ],
+            "name": "conv3_3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv3_4_0_132": {
+            "inputs": [
+                "@prelu3_3_4_131:out0"
+            ],
+            "name": "conv3_4_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_4_1_134": {
+            "inputs": [
+                "@prelu3_4_0_133:out0"
+            ],
+            "name": "conv3_4_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 4,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 4,
+                "pad_w": 4,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_4_2_136": {
+            "inputs": [
+                "@prelu3_4_1_135:out0"
+            ],
+            "name": "conv3_4_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv3_5_0_139": {
+            "inputs": [
+                "@prelu3_4_4_138:out0"
+            ],
+            "name": "conv3_5_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_5_1_141": {
+            "inputs": [
+                "@prelu3_5_0_140:out0"
+            ],
+            "name": "conv3_5_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_5_2_143": {
+            "inputs": [
+                "@prelu3_5_1_142:out0"
+            ],
+            "name": "conv3_5_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv3_6_0_146": {
+            "inputs": [
+                "@prelu3_5_4_145:out0"
+            ],
+            "name": "conv3_6_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_6_1_148": {
+            "inputs": [
+                "@prelu3_6_0_147:out0"
+            ],
+            "name": "conv3_6_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 8,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 8,
+                "pad_w": 8,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_6_2_150": {
+            "inputs": [
+                "@prelu3_6_1_149:out0"
+            ],
+            "name": "conv3_6_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv3_7_0_153": {
+            "inputs": [
+                "@prelu3_6_4_152:out0"
+            ],
+            "name": "conv3_7_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_7_1_156": {
+            "inputs": [
+                "@conv3_7_1_a_155:out0"
+            ],
+            "name": "conv3_7_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 5,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_7_1_a_155": {
+            "inputs": [
+                "@prelu3_7_0_154:out0"
+            ],
+            "name": "conv3_7_1_a",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 5,
+                "ksize_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_7_2_158": {
+            "inputs": [
+                "@prelu3_7_1_157:out0"
+            ],
+            "name": "conv3_7_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv3_8_0_161": {
+            "inputs": [
+                "@prelu3_7_4_160:out0"
+            ],
+            "name": "conv3_8_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_8_1_163": {
+            "inputs": [
+                "@prelu3_8_0_162:out0"
+            ],
+            "name": "conv3_8_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 16,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 16,
+                "pad_w": 16,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "conv3_8_2_165": {
+            "inputs": [
+                "@prelu3_8_1_164:out0"
+            ],
+            "name": "conv3_8_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "conv4_0_0_168": {
+            "inputs": [
+                "@prelu3_8_4_167:out0"
+            ],
+            "name": "conv4_0_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv4_0_2_173": {
+            "inputs": [
+                "@prelu4_0_1_172:out0"
+            ],
+            "name": "conv4_0_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv4_0_4_174": {
+            "inputs": [
+                "@prelu3_8_4_167:out0"
+            ],
+            "name": "conv4_0_4",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv4_1_0_178": {
+            "inputs": [
+                "@prelu4_0_4_177:out0"
+            ],
+            "name": "conv4_1_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv4_1_1_180": {
+            "inputs": [
+                "@prelu4_1_0_179:out0"
+            ],
+            "name": "conv4_1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv4_1_2_182": {
+            "inputs": [
+                "@prelu4_1_1_181:out0"
+            ],
+            "name": "conv4_1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv4_2_0_185": {
+            "inputs": [
+                "@prelu4_1_4_184:out0"
+            ],
+            "name": "conv4_2_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv4_2_1_187": {
+            "inputs": [
+                "@prelu4_2_0_186:out0"
+            ],
+            "name": "conv4_2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv4_2_2_189": {
+            "inputs": [
+                "@prelu4_2_1_188:out0"
+            ],
+            "name": "conv4_2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv5_0_0_192": {
+            "inputs": [
+                "@prelu4_2_4_191:out0"
+            ],
+            "name": "conv5_0_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 4
+            }
+        },
+        "conv5_0_2_197": {
+            "inputs": [
+                "@prelu5_0_1_196:out0"
+            ],
+            "name": "conv5_0_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv5_0_4_198": {
+            "inputs": [
+                "@prelu4_2_4_191:out0"
+            ],
+            "name": "conv5_0_4",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "conv5_1_0_202": {
+            "inputs": [
+                "@prelu5_0_4_201:out0"
+            ],
+            "name": "conv5_1_0",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 4
+            }
+        },
+        "conv5_1_1_204": {
+            "inputs": [
+                "@prelu5_1_0_203:out0"
+            ],
+            "name": "conv5_1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 4
+            }
+        },
+        "conv5_1_2_206": {
+            "inputs": [
+                "@prelu5_1_1_205:out0"
+            ],
+            "name": "conv5_1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "data_0": {
+            "inputs": [],
+            "name": "data",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "1024 512"
+            }
+        },
+        "deconv4_0_1_170": {
+            "inputs": [
+                "@prelu4_0_0_169:out0"
+            ],
+            "name": "deconv4_0_1",
+            "op": "deconvolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "group_number": 1,
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 16
+            }
+        },
+        "deconv5_0_1_194": {
+            "inputs": [
+                "@prelu5_0_0_193:out0"
+            ],
+            "name": "deconv5_0_1",
+            "op": "deconvolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "group_number": 1,
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 4
+            }
+        },
+        "deconv6_0_0_209": {
+            "inputs": [
+                "@prelu5_1_4_208:out0"
+            ],
+            "name": "deconv6_0_0",
+            "op": "deconvolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "group_number": 1,
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 19
+            }
+        },
+        "eltwise1_0_4_13": {
+            "inputs": [
+                "@conv1_0_4_12:out0",
+                "@conv1_0_2_10:out0"
+            ],
+            "name": "eltwise1_0_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise1_1_4_20": {
+            "inputs": [
+                "@prelu1_0_4_14:out0",
+                "@conv1_1_2_19:out0"
+            ],
+            "name": "eltwise1_1_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise1_2_4_27": {
+            "inputs": [
+                "@prelu1_1_4_21:out0",
+                "@conv1_2_2_26:out0"
+            ],
+            "name": "eltwise1_2_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise1_3_4_34": {
+            "inputs": [
+                "@prelu1_2_4_28:out0",
+                "@conv1_3_2_33:out0"
+            ],
+            "name": "eltwise1_3_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise1_4_4_41": {
+            "inputs": [
+                "@prelu1_3_4_35:out0",
+                "@conv1_4_2_40:out0"
+            ],
+            "name": "eltwise1_4_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_0_4_50": {
+            "inputs": [
+                "@conv2_0_4_49:out0",
+                "@conv2_0_2_47:out0"
+            ],
+            "name": "eltwise2_0_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_1_4_57": {
+            "inputs": [
+                "@prelu2_0_4_51:out0",
+                "@conv2_1_2_56:out0"
+            ],
+            "name": "eltwise2_1_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_2_4_64": {
+            "inputs": [
+                "@prelu2_1_4_58:out0",
+                "@conv2_2_2_63:out0"
+            ],
+            "name": "eltwise2_2_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_3_4_72": {
+            "inputs": [
+                "@prelu2_2_4_65:out0",
+                "@conv2_3_2_71:out0"
+            ],
+            "name": "eltwise2_3_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_4_4_79": {
+            "inputs": [
+                "@prelu2_3_4_73:out0",
+                "@conv2_4_2_78:out0"
+            ],
+            "name": "eltwise2_4_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_5_4_86": {
+            "inputs": [
+                "@prelu2_4_4_80:out0",
+                "@conv2_5_2_85:out0"
+            ],
+            "name": "eltwise2_5_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_6_4_93": {
+            "inputs": [
+                "@prelu2_5_4_87:out0",
+                "@conv2_6_2_92:out0"
+            ],
+            "name": "eltwise2_6_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_7_4_101": {
+            "inputs": [
+                "@prelu2_6_4_94:out0",
+                "@conv2_7_2_100:out0"
+            ],
+            "name": "eltwise2_7_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise2_8_4_108": {
+            "inputs": [
+                "@prelu2_7_4_102:out0",
+                "@conv2_8_2_107:out0"
+            ],
+            "name": "eltwise2_8_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise3_1_4_115": {
+            "inputs": [
+                "@prelu2_8_4_109:out0",
+                "@conv3_1_2_114:out0"
+            ],
+            "name": "eltwise3_1_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise3_2_4_122": {
+            "inputs": [
+                "@prelu3_1_4_116:out0",
+                "@conv3_2_2_121:out0"
+            ],
+            "name": "eltwise3_2_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise3_3_4_130": {
+            "inputs": [
+                "@prelu3_2_4_123:out0",
+                "@conv3_3_2_129:out0"
+            ],
+            "name": "eltwise3_3_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise3_4_4_137": {
+            "inputs": [
+                "@prelu3_3_4_131:out0",
+                "@conv3_4_2_136:out0"
+            ],
+            "name": "eltwise3_4_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise3_5_4_144": {
+            "inputs": [
+                "@prelu3_4_4_138:out0",
+                "@conv3_5_2_143:out0"
+            ],
+            "name": "eltwise3_5_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise3_6_4_151": {
+            "inputs": [
+                "@prelu3_5_4_145:out0",
+                "@conv3_6_2_150:out0"
+            ],
+            "name": "eltwise3_6_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise3_7_4_159": {
+            "inputs": [
+                "@prelu3_6_4_152:out0",
+                "@conv3_7_2_158:out0"
+            ],
+            "name": "eltwise3_7_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise3_8_4_166": {
+            "inputs": [
+                "@prelu3_7_4_160:out0",
+                "@conv3_8_2_165:out0"
+            ],
+            "name": "eltwise3_8_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise4_0_4_176": {
+            "inputs": [
+                "@upsample4_0_4_175:out0",
+                "@conv4_0_2_173:out0"
+            ],
+            "name": "eltwise4_0_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise4_1_4_183": {
+            "inputs": [
+                "@prelu4_0_4_177:out0",
+                "@conv4_1_2_182:out0"
+            ],
+            "name": "eltwise4_1_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise4_2_4_190": {
+            "inputs": [
+                "@prelu4_1_4_184:out0",
+                "@conv4_2_2_189:out0"
+            ],
+            "name": "eltwise4_2_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise5_0_4_200": {
+            "inputs": [
+                "@upsample5_0_4_199:out0",
+                "@conv5_0_2_197:out0"
+            ],
+            "name": "eltwise5_0_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "eltwise5_1_4_207": {
+            "inputs": [
+                "@prelu5_0_4_201:out0",
+                "@conv5_1_2_206:out0"
+            ],
+            "name": "eltwise5_1_4",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "output_210": {
+            "inputs": [
+                "@deconv6_0_0_209:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool0_1_2": {
+            "inputs": [
+                "@data_0:out0"
+            ],
+            "name": "pool0_1",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool1_0_4_11": {
+            "inputs": [
+                "@prelu0_1_5:out0"
+            ],
+            "name": "pool1_0_4",
+            "op": "poolwithargmax",
+            "outputs": [
+                "out0",
+                "out1"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "pool2_0_4_48": {
+            "inputs": [
+                "@prelu1_4_4_42:out0"
+            ],
+            "name": "pool2_0_4",
+            "op": "poolwithargmax",
+            "outputs": [
+                "out0",
+                "out1"
+            ],
+            "parameters": {
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "prelu0_1_5": {
+            "inputs": [
+                "@bn0_1_4:out0"
+            ],
+            "name": "prelu0_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_0_0_7": {
+            "inputs": [
+                "@conv1_0_0_6:out0"
+            ],
+            "name": "prelu1_0_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_0_1_9": {
+            "inputs": [
+                "@conv1_0_1_8:out0"
+            ],
+            "name": "prelu1_0_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_0_4_14": {
+            "inputs": [
+                "@eltwise1_0_4_13:out0"
+            ],
+            "name": "prelu1_0_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_1_0_16": {
+            "inputs": [
+                "@conv1_1_0_15:out0"
+            ],
+            "name": "prelu1_1_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_1_1_18": {
+            "inputs": [
+                "@conv1_1_1_17:out0"
+            ],
+            "name": "prelu1_1_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_1_4_21": {
+            "inputs": [
+                "@eltwise1_1_4_20:out0"
+            ],
+            "name": "prelu1_1_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_2_0_23": {
+            "inputs": [
+                "@conv1_2_0_22:out0"
+            ],
+            "name": "prelu1_2_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_2_1_25": {
+            "inputs": [
+                "@conv1_2_1_24:out0"
+            ],
+            "name": "prelu1_2_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_2_4_28": {
+            "inputs": [
+                "@eltwise1_2_4_27:out0"
+            ],
+            "name": "prelu1_2_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_3_0_30": {
+            "inputs": [
+                "@conv1_3_0_29:out0"
+            ],
+            "name": "prelu1_3_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_3_1_32": {
+            "inputs": [
+                "@conv1_3_1_31:out0"
+            ],
+            "name": "prelu1_3_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_3_4_35": {
+            "inputs": [
+                "@eltwise1_3_4_34:out0"
+            ],
+            "name": "prelu1_3_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_4_0_37": {
+            "inputs": [
+                "@conv1_4_0_36:out0"
+            ],
+            "name": "prelu1_4_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_4_1_39": {
+            "inputs": [
+                "@conv1_4_1_38:out0"
+            ],
+            "name": "prelu1_4_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu1_4_4_42": {
+            "inputs": [
+                "@eltwise1_4_4_41:out0"
+            ],
+            "name": "prelu1_4_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_0_0_44": {
+            "inputs": [
+                "@conv2_0_0_43:out0"
+            ],
+            "name": "prelu2_0_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_0_1_46": {
+            "inputs": [
+                "@conv2_0_1_45:out0"
+            ],
+            "name": "prelu2_0_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_0_4_51": {
+            "inputs": [
+                "@eltwise2_0_4_50:out0"
+            ],
+            "name": "prelu2_0_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_1_0_53": {
+            "inputs": [
+                "@conv2_1_0_52:out0"
+            ],
+            "name": "prelu2_1_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_1_1_55": {
+            "inputs": [
+                "@conv2_1_1_54:out0"
+            ],
+            "name": "prelu2_1_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_1_4_58": {
+            "inputs": [
+                "@eltwise2_1_4_57:out0"
+            ],
+            "name": "prelu2_1_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_2_0_60": {
+            "inputs": [
+                "@conv2_2_0_59:out0"
+            ],
+            "name": "prelu2_2_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_2_1_62": {
+            "inputs": [
+                "@conv2_2_1_61:out0"
+            ],
+            "name": "prelu2_2_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_2_4_65": {
+            "inputs": [
+                "@eltwise2_2_4_64:out0"
+            ],
+            "name": "prelu2_2_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_3_0_67": {
+            "inputs": [
+                "@conv2_3_0_66:out0"
+            ],
+            "name": "prelu2_3_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_3_1_70": {
+            "inputs": [
+                "@conv2_3_1_69:out0"
+            ],
+            "name": "prelu2_3_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_3_4_73": {
+            "inputs": [
+                "@eltwise2_3_4_72:out0"
+            ],
+            "name": "prelu2_3_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_4_0_75": {
+            "inputs": [
+                "@conv2_4_0_74:out0"
+            ],
+            "name": "prelu2_4_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_4_1_77": {
+            "inputs": [
+                "@conv2_4_1_76:out0"
+            ],
+            "name": "prelu2_4_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_4_4_80": {
+            "inputs": [
+                "@eltwise2_4_4_79:out0"
+            ],
+            "name": "prelu2_4_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_5_0_82": {
+            "inputs": [
+                "@conv2_5_0_81:out0"
+            ],
+            "name": "prelu2_5_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_5_1_84": {
+            "inputs": [
+                "@conv2_5_1_83:out0"
+            ],
+            "name": "prelu2_5_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_5_4_87": {
+            "inputs": [
+                "@eltwise2_5_4_86:out0"
+            ],
+            "name": "prelu2_5_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_6_0_89": {
+            "inputs": [
+                "@conv2_6_0_88:out0"
+            ],
+            "name": "prelu2_6_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_6_1_91": {
+            "inputs": [
+                "@conv2_6_1_90:out0"
+            ],
+            "name": "prelu2_6_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_6_4_94": {
+            "inputs": [
+                "@eltwise2_6_4_93:out0"
+            ],
+            "name": "prelu2_6_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_7_0_96": {
+            "inputs": [
+                "@conv2_7_0_95:out0"
+            ],
+            "name": "prelu2_7_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_7_1_99": {
+            "inputs": [
+                "@conv2_7_1_98:out0"
+            ],
+            "name": "prelu2_7_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_7_4_102": {
+            "inputs": [
+                "@eltwise2_7_4_101:out0"
+            ],
+            "name": "prelu2_7_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_8_0_104": {
+            "inputs": [
+                "@conv2_8_0_103:out0"
+            ],
+            "name": "prelu2_8_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_8_1_106": {
+            "inputs": [
+                "@conv2_8_1_105:out0"
+            ],
+            "name": "prelu2_8_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu2_8_4_109": {
+            "inputs": [
+                "@eltwise2_8_4_108:out0"
+            ],
+            "name": "prelu2_8_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_1_0_111": {
+            "inputs": [
+                "@conv3_1_0_110:out0"
+            ],
+            "name": "prelu3_1_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_1_1_113": {
+            "inputs": [
+                "@conv3_1_1_112:out0"
+            ],
+            "name": "prelu3_1_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_1_4_116": {
+            "inputs": [
+                "@eltwise3_1_4_115:out0"
+            ],
+            "name": "prelu3_1_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_2_0_118": {
+            "inputs": [
+                "@conv3_2_0_117:out0"
+            ],
+            "name": "prelu3_2_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_2_1_120": {
+            "inputs": [
+                "@conv3_2_1_119:out0"
+            ],
+            "name": "prelu3_2_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_2_4_123": {
+            "inputs": [
+                "@eltwise3_2_4_122:out0"
+            ],
+            "name": "prelu3_2_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_3_0_125": {
+            "inputs": [
+                "@conv3_3_0_124:out0"
+            ],
+            "name": "prelu3_3_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_3_1_128": {
+            "inputs": [
+                "@conv3_3_1_127:out0"
+            ],
+            "name": "prelu3_3_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_3_4_131": {
+            "inputs": [
+                "@eltwise3_3_4_130:out0"
+            ],
+            "name": "prelu3_3_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_4_0_133": {
+            "inputs": [
+                "@conv3_4_0_132:out0"
+            ],
+            "name": "prelu3_4_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_4_1_135": {
+            "inputs": [
+                "@conv3_4_1_134:out0"
+            ],
+            "name": "prelu3_4_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_4_4_138": {
+            "inputs": [
+                "@eltwise3_4_4_137:out0"
+            ],
+            "name": "prelu3_4_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_5_0_140": {
+            "inputs": [
+                "@conv3_5_0_139:out0"
+            ],
+            "name": "prelu3_5_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_5_1_142": {
+            "inputs": [
+                "@conv3_5_1_141:out0"
+            ],
+            "name": "prelu3_5_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_5_4_145": {
+            "inputs": [
+                "@eltwise3_5_4_144:out0"
+            ],
+            "name": "prelu3_5_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_6_0_147": {
+            "inputs": [
+                "@conv3_6_0_146:out0"
+            ],
+            "name": "prelu3_6_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_6_1_149": {
+            "inputs": [
+                "@conv3_6_1_148:out0"
+            ],
+            "name": "prelu3_6_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_6_4_152": {
+            "inputs": [
+                "@eltwise3_6_4_151:out0"
+            ],
+            "name": "prelu3_6_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_7_0_154": {
+            "inputs": [
+                "@conv3_7_0_153:out0"
+            ],
+            "name": "prelu3_7_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_7_1_157": {
+            "inputs": [
+                "@conv3_7_1_156:out0"
+            ],
+            "name": "prelu3_7_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_7_4_160": {
+            "inputs": [
+                "@eltwise3_7_4_159:out0"
+            ],
+            "name": "prelu3_7_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_8_0_162": {
+            "inputs": [
+                "@conv3_8_0_161:out0"
+            ],
+            "name": "prelu3_8_0",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_8_1_164": {
+            "inputs": [
+                "@conv3_8_1_163:out0"
+            ],
+            "name": "prelu3_8_1",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu3_8_4_167": {
+            "inputs": [
+                "@eltwise3_8_4_166:out0"
+            ],
+            "name": "prelu3_8_4",
+            "op": "prelu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_0_0_169": {
+            "inputs": [
+                "@conv4_0_0_168:out0"
+            ],
+            "name": "prelu4_0_0",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_0_1_172": {
+            "inputs": [
+                "@bn4_0_1_171:out0"
+            ],
+            "name": "prelu4_0_1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_0_4_177": {
+            "inputs": [
+                "@eltwise4_0_4_176:out0"
+            ],
+            "name": "prelu4_0_4",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_1_0_179": {
+            "inputs": [
+                "@conv4_1_0_178:out0"
+            ],
+            "name": "prelu4_1_0",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_1_1_181": {
+            "inputs": [
+                "@conv4_1_1_180:out0"
+            ],
+            "name": "prelu4_1_1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_1_4_184": {
+            "inputs": [
+                "@eltwise4_1_4_183:out0"
+            ],
+            "name": "prelu4_1_4",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_2_0_186": {
+            "inputs": [
+                "@conv4_2_0_185:out0"
+            ],
+            "name": "prelu4_2_0",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_2_1_188": {
+            "inputs": [
+                "@conv4_2_1_187:out0"
+            ],
+            "name": "prelu4_2_1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu4_2_4_191": {
+            "inputs": [
+                "@eltwise4_2_4_190:out0"
+            ],
+            "name": "prelu4_2_4",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu5_0_0_193": {
+            "inputs": [
+                "@conv5_0_0_192:out0"
+            ],
+            "name": "prelu5_0_0",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu5_0_1_196": {
+            "inputs": [
+                "@bn5_0_1_195:out0"
+            ],
+            "name": "prelu5_0_1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu5_0_4_201": {
+            "inputs": [
+                "@eltwise5_0_4_200:out0"
+            ],
+            "name": "prelu5_0_4",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu5_1_0_203": {
+            "inputs": [
+                "@conv5_1_0_202:out0"
+            ],
+            "name": "prelu5_1_0",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu5_1_1_205": {
+            "inputs": [
+                "@conv5_1_1_204:out0"
+            ],
+            "name": "prelu5_1_1",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "prelu5_1_4_208": {
+            "inputs": [
+                "@eltwise5_1_4_207:out0"
+            ],
+            "name": "prelu5_1_4",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "upsample4_0_4_175": {
+            "inputs": [
+                "@conv4_0_4_174:out0",
+                "@pool2_0_4_48:out1"
+            ],
+            "name": "upsample4_0_4",
+            "op": "upsample",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "pad_h": false,
+                "pad_w": false,
+                "scale": 2,
+                "scale_h": 0,
+                "scale_w": 0,
+                "upsample_h": 128,
+                "upsample_w": 256
+            }
+        },
+        "upsample5_0_4_199": {
+            "inputs": [
+                "@conv5_0_4_198:out0",
+                "@pool1_0_4_11:out1"
+            ],
+            "name": "upsample5_0_4",
+            "op": "upsample",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "pad_h": false,
+                "pad_w": false,
+                "scale": 2,
+                "scale_h": 0,
+                "scale_w": 0,
+                "upsample_h": 256,
+                "upsample_w": 512
+            }
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "ENet",
+        "Platform": "caffe"
+    }
+}

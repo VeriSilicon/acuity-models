@@ -1,0 +1,2470 @@
+{
+    "Layers": {
+        "classifier_207": {
+            "inputs": [
+                "@pool_ave_206:out0"
+            ],
+            "name": "classifier",
+            "op": "fullconnect",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "regularize": false,
+                "weights": 1000
+            }
+        },
+        "conv1_1": {
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "name": "conv1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 32
+            }
+        },
+        "conv1_relu_4": {
+            "inputs": [
+                "@conv1_1:out0"
+            ],
+            "name": "conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2_5": {
+            "inputs": [
+                "@conv1_relu_4:out0"
+            ],
+            "name": "conv2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "conv2_relu_8": {
+            "inputs": [
+                "@conv2_5:out0"
+            ],
+            "name": "conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv3_1_196": {
+            "inputs": [
+                "@xception12_elewise_195:out0"
+            ],
+            "name": "conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1024,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "conv3_2_197": {
+            "inputs": [
+                "@conv3_1_196:out0"
+            ],
+            "name": "conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1536
+            }
+        },
+        "conv3_relu_200": {
+            "inputs": [
+                "@conv3_2_197:out0"
+            ],
+            "name": "conv3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv4_1_201": {
+            "inputs": [
+                "@conv3_relu_200:out0"
+            ],
+            "name": "conv4_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1536,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1536
+            }
+        },
+        "conv4_2_202": {
+            "inputs": [
+                "@conv4_1_201:out0"
+            ],
+            "name": "conv4_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 2048
+            }
+        },
+        "conv4_relu_205": {
+            "inputs": [
+                "@conv4_2_202:out0"
+            ],
+            "name": "conv4_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "input_0": {
+            "inputs": [],
+            "name": "input",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "299 299"
+            }
+        },
+        "output_209": {
+            "inputs": [
+                "@prob_208:out0"
+            ],
+            "name": "output",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pool_ave_206": {
+            "inputs": [
+                "@conv4_relu_205:out0"
+            ],
+            "name": "pool_ave",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 10,
+                "ksize_w": 10,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 1,
+                "stride_w": 1,
+                "type": "AVG"
+            }
+        },
+        "prob_208": {
+            "inputs": [
+                "@classifier_207:out0"
+            ],
+            "name": "prob",
+            "op": "softmax",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "sf_axis": -1
+            }
+        },
+        "xception10_conv1_1_150": {
+            "inputs": [
+                "@xception10_relu_149:out0"
+            ],
+            "name": "xception10_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception10_conv1_2_151": {
+            "inputs": [
+                "@xception10_conv1_1_150:out0"
+            ],
+            "name": "xception10_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception10_conv1_relu_154": {
+            "inputs": [
+                "@xception10_conv1_2_151:out0"
+            ],
+            "name": "xception10_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception10_conv2_1_155": {
+            "inputs": [
+                "@xception10_conv1_relu_154:out0"
+            ],
+            "name": "xception10_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception10_conv2_2_156": {
+            "inputs": [
+                "@xception10_conv2_1_155:out0"
+            ],
+            "name": "xception10_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception10_conv2_relu_159": {
+            "inputs": [
+                "@xception10_conv2_2_156:out0"
+            ],
+            "name": "xception10_conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception10_conv3_1_160": {
+            "inputs": [
+                "@xception10_conv2_relu_159:out0"
+            ],
+            "name": "xception10_conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception10_conv3_2_161": {
+            "inputs": [
+                "@xception10_conv3_1_160:out0"
+            ],
+            "name": "xception10_conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception10_elewise_164": {
+            "inputs": [
+                "@xception9_elewise_148:out0",
+                "@xception10_conv3_2_161:out0"
+            ],
+            "name": "xception10_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception10_relu_149": {
+            "inputs": [
+                "@xception9_elewise_148:out0"
+            ],
+            "name": "xception10_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception11_conv1_1_166": {
+            "inputs": [
+                "@xception11_relu_165:out0"
+            ],
+            "name": "xception11_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception11_conv1_2_167": {
+            "inputs": [
+                "@xception11_conv1_1_166:out0"
+            ],
+            "name": "xception11_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception11_conv1_relu_170": {
+            "inputs": [
+                "@xception11_conv1_2_167:out0"
+            ],
+            "name": "xception11_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception11_conv2_1_171": {
+            "inputs": [
+                "@xception11_conv1_relu_170:out0"
+            ],
+            "name": "xception11_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception11_conv2_2_172": {
+            "inputs": [
+                "@xception11_conv2_1_171:out0"
+            ],
+            "name": "xception11_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception11_conv2_relu_175": {
+            "inputs": [
+                "@xception11_conv2_2_172:out0"
+            ],
+            "name": "xception11_conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception11_conv3_1_176": {
+            "inputs": [
+                "@xception11_conv2_relu_175:out0"
+            ],
+            "name": "xception11_conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception11_conv3_2_177": {
+            "inputs": [
+                "@xception11_conv3_1_176:out0"
+            ],
+            "name": "xception11_conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception11_elewise_180": {
+            "inputs": [
+                "@xception10_elewise_164:out0",
+                "@xception11_conv3_2_177:out0"
+            ],
+            "name": "xception11_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception11_relu_165": {
+            "inputs": [
+                "@xception10_elewise_164:out0"
+            ],
+            "name": "xception11_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception12_conv1_1_185": {
+            "inputs": [
+                "@xception12_relu_184:out0"
+            ],
+            "name": "xception12_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception12_conv1_2_186": {
+            "inputs": [
+                "@xception12_conv1_1_185:out0"
+            ],
+            "name": "xception12_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception12_conv1_relu_189": {
+            "inputs": [
+                "@xception12_conv1_2_186:out0"
+            ],
+            "name": "xception12_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception12_conv2_1_190": {
+            "inputs": [
+                "@xception12_conv1_relu_189:out0"
+            ],
+            "name": "xception12_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception12_conv2_2_191": {
+            "inputs": [
+                "@xception12_conv2_1_190:out0"
+            ],
+            "name": "xception12_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1024
+            }
+        },
+        "xception12_elewise_195": {
+            "inputs": [
+                "@xception12_match_conv_181:out0",
+                "@xception12_pool_194:out0"
+            ],
+            "name": "xception12_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception12_match_conv_181": {
+            "inputs": [
+                "@xception11_elewise_180:out0"
+            ],
+            "name": "xception12_match_conv",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 1024
+            }
+        },
+        "xception12_pool_194": {
+            "inputs": [
+                "@xception12_conv2_2_191:out0"
+            ],
+            "name": "xception12_pool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "xception12_relu_184": {
+            "inputs": [
+                "@xception11_elewise_180:out0"
+            ],
+            "name": "xception12_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception1_conv1_1_12": {
+            "inputs": [
+                "@conv2_relu_8:out0"
+            ],
+            "name": "xception1_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 64,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "xception1_conv1_2_13": {
+            "inputs": [
+                "@xception1_conv1_1_12:out0"
+            ],
+            "name": "xception1_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "xception1_conv1_relu_16": {
+            "inputs": [
+                "@xception1_conv1_2_13:out0"
+            ],
+            "name": "xception1_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception1_conv2_1_17": {
+            "inputs": [
+                "@xception1_conv1_relu_16:out0"
+            ],
+            "name": "xception1_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 128,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "xception1_conv2_2_18": {
+            "inputs": [
+                "@xception1_conv2_1_17:out0"
+            ],
+            "name": "xception1_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "xception1_elewise_22": {
+            "inputs": [
+                "@xception1_match_conv_9:out0",
+                "@xception1_pool_21:out0"
+            ],
+            "name": "xception1_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception1_match_conv_9": {
+            "inputs": [
+                "@conv2_relu_8:out0"
+            ],
+            "name": "xception1_match_conv",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 128
+            }
+        },
+        "xception1_pool_21": {
+            "inputs": [
+                "@xception1_conv2_2_18:out0"
+            ],
+            "name": "xception1_pool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "xception2_conv1_1_27": {
+            "inputs": [
+                "@xception2_relu_26:out0"
+            ],
+            "name": "xception2_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 128,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "xception2_conv1_2_28": {
+            "inputs": [
+                "@xception2_conv1_1_27:out0"
+            ],
+            "name": "xception2_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "xception2_conv1_relu_31": {
+            "inputs": [
+                "@xception2_conv1_2_28:out0"
+            ],
+            "name": "xception2_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception2_conv2_1_32": {
+            "inputs": [
+                "@xception2_conv1_relu_31:out0"
+            ],
+            "name": "xception2_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 256,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "xception2_conv2_2_33": {
+            "inputs": [
+                "@xception2_conv2_1_32:out0"
+            ],
+            "name": "xception2_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "xception2_elewise_37": {
+            "inputs": [
+                "@xception2_match_conv_23:out0",
+                "@xception2_pool_36:out0"
+            ],
+            "name": "xception2_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception2_match_conv_23": {
+            "inputs": [
+                "@xception1_elewise_22:out0"
+            ],
+            "name": "xception2_match_conv",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 256
+            }
+        },
+        "xception2_pool_36": {
+            "inputs": [
+                "@xception2_conv2_2_33:out0"
+            ],
+            "name": "xception2_pool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "xception2_relu_26": {
+            "inputs": [
+                "@xception1_elewise_22:out0"
+            ],
+            "name": "xception2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception3_conv1_1_42": {
+            "inputs": [
+                "@xception3_relu_41:out0"
+            ],
+            "name": "xception3_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 256,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "xception3_conv1_2_43": {
+            "inputs": [
+                "@xception3_conv1_1_42:out0"
+            ],
+            "name": "xception3_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception3_conv1_relu_46": {
+            "inputs": [
+                "@xception3_conv1_2_43:out0"
+            ],
+            "name": "xception3_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception3_conv2_1_47": {
+            "inputs": [
+                "@xception3_conv1_relu_46:out0"
+            ],
+            "name": "xception3_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception3_conv2_2_48": {
+            "inputs": [
+                "@xception3_conv2_1_47:out0"
+            ],
+            "name": "xception3_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception3_elewise_52": {
+            "inputs": [
+                "@xception3_match_conv_38:out0",
+                "@xception3_pool_51:out0"
+            ],
+            "name": "xception3_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception3_match_conv_38": {
+            "inputs": [
+                "@xception2_elewise_37:out0"
+            ],
+            "name": "xception3_match_conv",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 728
+            }
+        },
+        "xception3_pool_51": {
+            "inputs": [
+                "@xception3_conv2_2_48:out0"
+            ],
+            "name": "xception3_pool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "round_type": "ceil",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "MAX"
+            }
+        },
+        "xception3_relu_41": {
+            "inputs": [
+                "@xception2_elewise_37:out0"
+            ],
+            "name": "xception3_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception4_conv1_1_54": {
+            "inputs": [
+                "@xception4_relu_53:out0"
+            ],
+            "name": "xception4_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception4_conv1_2_55": {
+            "inputs": [
+                "@xception4_conv1_1_54:out0"
+            ],
+            "name": "xception4_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception4_conv1_relu_58": {
+            "inputs": [
+                "@xception4_conv1_2_55:out0"
+            ],
+            "name": "xception4_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception4_conv2_1_59": {
+            "inputs": [
+                "@xception4_conv1_relu_58:out0"
+            ],
+            "name": "xception4_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception4_conv2_2_60": {
+            "inputs": [
+                "@xception4_conv2_1_59:out0"
+            ],
+            "name": "xception4_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception4_conv2_relu_63": {
+            "inputs": [
+                "@xception4_conv2_2_60:out0"
+            ],
+            "name": "xception4_conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception4_conv3_1_64": {
+            "inputs": [
+                "@xception4_conv2_relu_63:out0"
+            ],
+            "name": "xception4_conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception4_conv3_2_65": {
+            "inputs": [
+                "@xception4_conv3_1_64:out0"
+            ],
+            "name": "xception4_conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception4_elewise_68": {
+            "inputs": [
+                "@xception3_elewise_52:out0",
+                "@xception4_conv3_2_65:out0"
+            ],
+            "name": "xception4_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception4_relu_53": {
+            "inputs": [
+                "@xception3_elewise_52:out0"
+            ],
+            "name": "xception4_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception5_conv1_1_70": {
+            "inputs": [
+                "@xception5_relu_69:out0"
+            ],
+            "name": "xception5_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception5_conv1_2_71": {
+            "inputs": [
+                "@xception5_conv1_1_70:out0"
+            ],
+            "name": "xception5_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception5_conv1_relu_74": {
+            "inputs": [
+                "@xception5_conv1_2_71:out0"
+            ],
+            "name": "xception5_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception5_conv2_1_75": {
+            "inputs": [
+                "@xception5_conv1_relu_74:out0"
+            ],
+            "name": "xception5_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception5_conv2_2_76": {
+            "inputs": [
+                "@xception5_conv2_1_75:out0"
+            ],
+            "name": "xception5_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception5_conv2_relu_79": {
+            "inputs": [
+                "@xception5_conv2_2_76:out0"
+            ],
+            "name": "xception5_conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception5_conv3_1_80": {
+            "inputs": [
+                "@xception5_conv2_relu_79:out0"
+            ],
+            "name": "xception5_conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception5_conv3_2_81": {
+            "inputs": [
+                "@xception5_conv3_1_80:out0"
+            ],
+            "name": "xception5_conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception5_elewise_84": {
+            "inputs": [
+                "@xception4_elewise_68:out0",
+                "@xception5_conv3_2_81:out0"
+            ],
+            "name": "xception5_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception5_relu_69": {
+            "inputs": [
+                "@xception4_elewise_68:out0"
+            ],
+            "name": "xception5_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception6_conv1_1_86": {
+            "inputs": [
+                "@xception6_relu_85:out0"
+            ],
+            "name": "xception6_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception6_conv1_2_87": {
+            "inputs": [
+                "@xception6_conv1_1_86:out0"
+            ],
+            "name": "xception6_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception6_conv1_relu_90": {
+            "inputs": [
+                "@xception6_conv1_2_87:out0"
+            ],
+            "name": "xception6_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception6_conv2_1_91": {
+            "inputs": [
+                "@xception6_conv1_relu_90:out0"
+            ],
+            "name": "xception6_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception6_conv2_2_92": {
+            "inputs": [
+                "@xception6_conv2_1_91:out0"
+            ],
+            "name": "xception6_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception6_conv2_relu_95": {
+            "inputs": [
+                "@xception6_conv2_2_92:out0"
+            ],
+            "name": "xception6_conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception6_conv3_1_96": {
+            "inputs": [
+                "@xception6_conv2_relu_95:out0"
+            ],
+            "name": "xception6_conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception6_conv3_2_97": {
+            "inputs": [
+                "@xception6_conv3_1_96:out0"
+            ],
+            "name": "xception6_conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception6_elewise_100": {
+            "inputs": [
+                "@xception5_elewise_84:out0",
+                "@xception6_conv3_2_97:out0"
+            ],
+            "name": "xception6_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception6_relu_85": {
+            "inputs": [
+                "@xception5_elewise_84:out0"
+            ],
+            "name": "xception6_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception7_conv1_1_102": {
+            "inputs": [
+                "@xception7_relu_101:out0"
+            ],
+            "name": "xception7_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception7_conv1_2_103": {
+            "inputs": [
+                "@xception7_conv1_1_102:out0"
+            ],
+            "name": "xception7_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception7_conv1_relu_106": {
+            "inputs": [
+                "@xception7_conv1_2_103:out0"
+            ],
+            "name": "xception7_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception7_conv2_1_107": {
+            "inputs": [
+                "@xception7_conv1_relu_106:out0"
+            ],
+            "name": "xception7_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception7_conv2_2_108": {
+            "inputs": [
+                "@xception7_conv2_1_107:out0"
+            ],
+            "name": "xception7_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception7_conv2_relu_111": {
+            "inputs": [
+                "@xception7_conv2_2_108:out0"
+            ],
+            "name": "xception7_conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception7_conv3_1_112": {
+            "inputs": [
+                "@xception7_conv2_relu_111:out0"
+            ],
+            "name": "xception7_conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception7_conv3_2_113": {
+            "inputs": [
+                "@xception7_conv3_1_112:out0"
+            ],
+            "name": "xception7_conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception7_elewise_116": {
+            "inputs": [
+                "@xception6_elewise_100:out0",
+                "@xception7_conv3_2_113:out0"
+            ],
+            "name": "xception7_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception7_relu_101": {
+            "inputs": [
+                "@xception6_elewise_100:out0"
+            ],
+            "name": "xception7_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception8_conv1_1_118": {
+            "inputs": [
+                "@xception8_relu_117:out0"
+            ],
+            "name": "xception8_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception8_conv1_2_119": {
+            "inputs": [
+                "@xception8_conv1_1_118:out0"
+            ],
+            "name": "xception8_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception8_conv1_relu_122": {
+            "inputs": [
+                "@xception8_conv1_2_119:out0"
+            ],
+            "name": "xception8_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception8_conv2_1_123": {
+            "inputs": [
+                "@xception8_conv1_relu_122:out0"
+            ],
+            "name": "xception8_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception8_conv2_2_124": {
+            "inputs": [
+                "@xception8_conv2_1_123:out0"
+            ],
+            "name": "xception8_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception8_conv2_relu_127": {
+            "inputs": [
+                "@xception8_conv2_2_124:out0"
+            ],
+            "name": "xception8_conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception8_conv3_1_128": {
+            "inputs": [
+                "@xception8_conv2_relu_127:out0"
+            ],
+            "name": "xception8_conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception8_conv3_2_129": {
+            "inputs": [
+                "@xception8_conv3_1_128:out0"
+            ],
+            "name": "xception8_conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception8_elewise_132": {
+            "inputs": [
+                "@xception7_elewise_116:out0",
+                "@xception8_conv3_2_129:out0"
+            ],
+            "name": "xception8_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception8_relu_117": {
+            "inputs": [
+                "@xception7_elewise_116:out0"
+            ],
+            "name": "xception8_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception9_conv1_1_134": {
+            "inputs": [
+                "@xception9_relu_133:out0"
+            ],
+            "name": "xception9_conv1_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception9_conv1_2_135": {
+            "inputs": [
+                "@xception9_conv1_1_134:out0"
+            ],
+            "name": "xception9_conv1_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception9_conv1_relu_138": {
+            "inputs": [
+                "@xception9_conv1_2_135:out0"
+            ],
+            "name": "xception9_conv1_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception9_conv2_1_139": {
+            "inputs": [
+                "@xception9_conv1_relu_138:out0"
+            ],
+            "name": "xception9_conv2_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception9_conv2_2_140": {
+            "inputs": [
+                "@xception9_conv2_1_139:out0"
+            ],
+            "name": "xception9_conv2_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception9_conv2_relu_143": {
+            "inputs": [
+                "@xception9_conv2_2_140:out0"
+            ],
+            "name": "xception9_conv2_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        },
+        "xception9_conv3_1_144": {
+            "inputs": [
+                "@xception9_conv2_relu_143:out0"
+            ],
+            "name": "xception9_conv3_1",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 728,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception9_conv3_2_145": {
+            "inputs": [
+                "@xception9_conv3_1_144:out0"
+            ],
+            "name": "xception9_conv3_2",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 728
+            }
+        },
+        "xception9_elewise_148": {
+            "inputs": [
+                "@xception8_elewise_132:out0",
+                "@xception9_conv3_2_145:out0"
+            ],
+            "name": "xception9_elewise",
+            "op": "eltwise",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "coeff": "",
+                "operation": "SUM"
+            }
+        },
+        "xception9_relu_133": {
+            "inputs": [
+                "@xception8_elewise_132:out0"
+            ],
+            "name": "xception9_relu",
+            "op": "relu",
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "",
+        "Platform": "caffe"
+    }
+}

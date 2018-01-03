@@ -1,0 +1,1088 @@
+{
+    "Layers": {
+        "MobilenetV1/Logits/AvgPool_1a/AvgPool_82": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_81:out0"
+            ],
+            "name": "MobilenetV1/Logits/AvgPool_1a/AvgPool",
+            "op": "pooling",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "VALID",
+                "round_type": "floor",
+                "stride_h": 2,
+                "stride_w": 2,
+                "type": "AVG"
+            }
+        },
+        "MobilenetV1/Logits/Conv2d_1c_1x1/Conv2D_84": {
+            "inputs": [
+                "@MobilenetV1/Logits/AvgPool_1a/AvgPool_82:out0"
+            ],
+            "name": "MobilenetV1/Logits/Conv2d_1c_1x1/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": true,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 1001
+            }
+        },
+        "MobilenetV1/Logits/SpatialSqueeze_85": {
+            "inputs": [
+                "@MobilenetV1/Logits/Conv2d_1c_1x1/Conv2D_84:out0"
+            ],
+            "name": "MobilenetV1/Logits/SpatialSqueeze",
+            "op": "reshape",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "shape": "-1 1001"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_1": {
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_0/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 8
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_0/Relu6_3": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_1:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_0/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_60": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_58:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_58": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_57:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 128,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_61": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_60:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_63": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_61:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_66": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_64:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_64": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_63:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 128,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_67": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_66:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_69": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_67:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_72": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_70:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_70": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_69:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 128,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_73": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_72:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_75": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_73:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_78": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_76:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_76": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_75:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 256,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_79": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_78:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 256
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_81": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_79:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_6": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_4:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_4": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_0/Relu6_3:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 8,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 8
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_7": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_6:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 16
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_9": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_7:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_12": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_10:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_10": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_9:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 16,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 16
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_13": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_12:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_15": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_13:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_18": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_16:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_16": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_15:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 32,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_19": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_18:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 32
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_21": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_19:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_24": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_22:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_22": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_21:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 32,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 32
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_25": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_24:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_27": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_25:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_30": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_28:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_28": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_27:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 64,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_31": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_30:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 64
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_33": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_31:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_36": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_34:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_34": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_33:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 64,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 2,
+                "stride_w": 2,
+                "weights": 64
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_37": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_36:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_39": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_37:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_42": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_40:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_40": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_39:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 128,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_43": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_42:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_45": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_43:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_48": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_46:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_46": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_45:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 128,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_49": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_48:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_51": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_49:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_54": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_52:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_52": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_51:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 128,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "pad_h": 1,
+                "pad_w": 1,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_55": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_54:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D",
+            "op": "convolution",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "bias": false,
+                "dilation": 1,
+                "group_number": 1,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "padding": "SAME",
+                "regularize": false,
+                "stride_h": 1,
+                "stride_w": 1,
+                "weights": 128
+            }
+        },
+        "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_57": {
+            "inputs": [
+                "@MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_55:out0"
+            ],
+            "name": "MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6",
+            "op": "relun",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "relu_clamp_top": "6"
+            }
+        },
+        "input_0": {
+            "inputs": [],
+            "name": "input",
+            "op": "input",
+            "outputs": [
+                "out0"
+            ],
+            "parameters": {
+                "channels": 3,
+                "size": "224 224"
+            }
+        },
+        "output_MobilenetV1/Logits/SpatialSqueeze_86": {
+            "inputs": [
+                "@MobilenetV1/Logits/SpatialSqueeze_85:out0"
+            ],
+            "name": "output_MobilenetV1/Logits/SpatialSqueeze",
+            "op": "output",
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "MetaData": {
+        "AcuityVersion": "2.0",
+        "Name": "mobilenet_v1_025",
+        "Platform": "tensorflow"
+    }
+}
