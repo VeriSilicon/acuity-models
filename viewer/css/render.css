@@ -1,0 +1,12 @@
+.label-op {
+  font-size: 24px;
+  color: #b57717;
+}
+.layer-tip {
+  text-align: left;
+  max-width: 200px;
+  font-weight: 700;
+}
+.tip-val {
+  color: #b57717;
+}

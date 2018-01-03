@@ -8,16 +8,10 @@
 	<link href="css/render.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <div class="container">
-    <div id="user-interface">
-    <h1>Acuity graph browser online</h1>
-        <hr>
-	        <div class="input-group-btn">
-            <input type="button" class="btn btn-default" value="Submit" id="btn-render"/>
-            <input type="button" class="btn btn-default" value="Capature" id="btn-save" style="display:none;"/>
-        </div>
-		<textarea name="content" cols="40" rows="40" class="form-control" id="editor" placeholder="acuity net content" style="resize:none;"></textarea>
-        </div>
+    <div id="user-interface" class="container" style="margin-top:50px;">
+		<div class="progress">
+	  <div id="progress-bar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	  Rendering</div></div>
 	</div>
     <hr style="margin-top: 30px;">
     <h1 id="net-name"></h1>
@@ -75,11 +69,5 @@
 	<script type="text/javascript" src="d3.tip.js"></script>
 	<script type="text/javascript" src="renderer.js"></script>
 	<script type="text/javascript" src="online-json.js"></script>
-	<script>
-	document.getElementById('btn-render').addEventListener('click',function(){
-	//$('#user-interface').hide();
-    render_net(JSON.parse($('#editor').val()));
-	},false);
-    </script>
   </body>
 </html>

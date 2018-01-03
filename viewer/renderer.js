@@ -7,7 +7,7 @@ function build_description(layer, lid) {
     var desc = '';
     for (var key in layer['parameters']) {
         val = layer['parameters'][key];
-        desc += '<p class="list-group-item-text">' + key + ':&nbsp;' + val + '</p>';
+        desc += '<p class="list-group-item-text">' + key + ':&nbsp;<span class="tip-val">' + val + '</span></p>';
     }
     if (desc == '') {
         desc = '<p class="list-group-item-text">No parameters</p>';
@@ -22,7 +22,8 @@ var render_net = function(net) {
 
 //console.log(net);
 
-var g = new dagreD3.graphlib.Graph().setGraph({});
+var g = new dagreD3.graphlib.Graph()
+			.setGraph({rankdir: 'tb',ranksep:30,nodesep:10,edgesep:20,marginx:0,marginy:0});
 //var progress = d3.select('#parse-progress-bar');
 //progress.attr('aria-valuenow', '0')
 //progress.attr('style', 'width: 0%')
@@ -71,7 +72,7 @@ for (var lid in net.Layers) {
         default:
             break;
     }
-    g.setNode(lid, {description: build_description(layer, lid), class: style, label: label, width: 100, height: 20});
+    g.setNode(lid, {description: build_description(layer, lid), class: style, label: label});
     //console.log(lid)
 }
 //progress.attr('aria-valuenow', '70')
@@ -104,9 +105,11 @@ if (inner.empty()) {
 
 render(inner, g);
 
+
 var tips = d3.tip()
     .attr('class', 'layer-tip')
-    .offset([15, 40])
+    //.offset([15, 40])
+	.direction('e')
     .html(function(d) {
         return g.node(d).description;
     });
@@ -117,24 +120,25 @@ inner.selectAll("g.node")
     .on('mouseover', tips.show)
     .on('mouseout', tips.hide);
 
-//inner.selectAll("g.node")
-//     .attr('title', function(v) { return g.node(v).description })
-//     .attr('data-toggle', 'tooltip');
-//     //.attr('data-placement', 'right')
-//$(function () { $("[data-toggle='tooltip']").tooltip(); });
+
+/*
+inner.selectAll("g.node")
+  .attr("title", function(v) { return g.node(v).description; })
+  .each(function(v) { $(this).tipsy({ gravity: "w", opacity: 1, html: true }); });
+*/
 
 //var zoom = d3.zoom().on("zoom", function() {
-//    inner.attr("transform", "translate(" + d3.event.translate + ")" +
-//            "scale(" + d3.event.scale + ")");
-//    //svg.attr("transform", "translate(" + d3.event.translate + ")" +
-//    //        "scale(" + d3.event.scale + ")");
+//    inner.attr("transform", "translate(" + d3.event.transform.x + ',' + d3.event.transform.y + ")" +
+//            "scale(" + d3.event.transform.k + ")");
+	//svg.attr("transform", "translate(" + d3.event.transform.x + ',' + d3.event.transform.y + ")" +
+    //        "scale(" + d3.event.transform.k + ")");
 //});
 //svg.call(zoom);
-var initialScale = 2;
+var initialScale = 1;
 
-svg.attr('width', g.graph().width * initialScale + 50);
+svg.attr('width', g.graph().width * initialScale + 100);
 svg.attr('height', g.graph().height * initialScale + 150);
-inner.attr("transform", "translate(5,20)" + "scale(" + initialScale + ")");
+inner.attr("transform", "translate(15,20)" + "scale(" + initialScale + ")");
 
 //progress.attr('aria-valuenow', '100')
 //progress.attr('style', 'width: 100%')

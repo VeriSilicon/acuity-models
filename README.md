@@ -6,34 +6,34 @@ ACUITY model zoo contains a set of popular neurarl-network models created or con
 ACUITY uses JSON format to represent a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netscope](http://ethereon.github.io/netscope/quickstart.html).
 
 ### Classification
- - [Alexnet](https://verisilicon.github.io/acuity-models/viewer/#../models/alexnet/alexnet.json)
- - [Inception-v1](https://verisilicon.github.io/acuity-models/viewer/#../models/inception_v1/inception_v1.json)
- - [Inception-v2](https://verisilicon.github.io/acuity-models/viewer/#../models/inception_v2/inception_v2.json)
- - [Inception-v3](https://verisilicon.github.io/acuity-models/viewer/#../models/inception_v3/inception_v3.json)
- - [Inception-v4](https://verisilicon.github.io/acuity-models/viewer/#../models/inception_v4/inception_v4.json)
- - [Mobilenet-v1](https://verisilicon.github.io/acuity-models/viewer/#../models/mobilenet_v1/mobilenet_v1.json)
- - [Mobilenet-v1-025](https://verisilicon.github.io/acuity-models/viewer/#../models/mobilenet_v1_025/mobilenet_v1_025.json)
- - [Nasnet-Large](https://verisilicon.github.io/acuity-models/viewer/#../models/nasnet_large/nasnet_large.json)
- - [Nasnet-Mobile](https://verisilicon.github.io/acuity-models/viewer/#../models/nasnet_mobile/nasnet_mobile.json)
- - [Resnet-50](https://verisilicon.github.io/acuity-models/viewer/#../models/resnet50/resnet50.json)
- - [Resnext-50](https://verisilicon.github.io/acuity-models/viewer/#../models/resnext50/resnext50.json)
- - [Senet-50](https://verisilicon.github.io/acuity-models/viewer/#../models/senet50/senet50.json)
- - [Squeezenet](https://verisilicon.github.io/acuity-models/viewer/#../models/squeezenet/squeezenet.json)
- - [VGG-16](https://verisilicon.github.io/acuity-models/viewer/#../models/vgg16/vgg16.json)
- - [Xception](https://verisilicon.github.io/acuity-models/viewer/#../models/xception/xception.json)
+ - [Alexnet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/alexnet/alexnet.json)
+ - [Inception-v1](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/inception_v1/inception_v1.json)
+ - [Inception-v2](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/inception_v2/inception_v2.json)
+ - [Inception-v3](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/inception_v3/inception_v3.json)
+ - [Inception-v4](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/inception_v4/inception_v4.json)
+ - [Mobilenet-v1](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/mobilenet_v1/mobilenet_v1.json)
+ - [Mobilenet-v1-025](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/mobilenet_v1_025/mobilenet_v1_025.json)
+ - [Nasnet-Large](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/nasnet_large/nasnet_large.json)
+ - [Nasnet-Mobile](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/nasnet_mobile/nasnet_mobile.json)
+ - [Resnet-50](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/resnet50/resnet50.json)
+ - [Resnext-50](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/resnext50/resnext50.json)
+ - [Senet-50](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/senet50/senet50.json)
+ - [Squeezenet](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/squeezenet/squeezenet.json)
+ - [VGG-16](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/vgg16/vgg16.json)
+ - [Xception](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/xception/xception.json)
 
 ### Detection
- - [Faster-RCNN-ZF](https://verisilicon.github.io/acuity-models/viewer/#../models/faster_rcnn_zf/faster_rcnn_zf.json)
- - [Mobilenet-SSD](https://verisilicon.github.io/acuity-models/viewer/#../models/mobilenet_ssd/mobilenet_ssd.json)
- - [MTCNN PNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_pnet.json) [RNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_rnet.json) [ONet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_onet.json) [LNet](https://verisilicon.github.io/acuity-models/viewer/#../models/mtcnn/mtcnn_lnet.json)
- - [SSD](https://verisilicon.github.io/acuity-models/viewer/#../models/ssd/ssd.json) 
- - [Tiny-YOLO](https://verisilicon.github.io/acuity-models/viewer/#../models/tiny_yolo/tiny_yolo.json)
- - [YOLO-v1](https://verisilicon.github.io/acuity-models/viewer/#../models/yolo_v1/yolo_v1.json)
- - [YOLO-v2](https://verisilicon.github.io/acuity-models/viewer/#../models/yolo_v2/yolo_v2.json)
+ - [Faster-RCNN-ZF](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/faster_rcnn_zf/faster_rcnn_zf.json)
+ - [Mobilenet-SSD](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/mobilenet_ssd/mobilenet_ssd.json)
+ - [MTCNN PNet](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/mtcnn/mtcnn_pnet.json) [RNet](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/mtcnn/mtcnn_rnet.json) [ONet](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/mtcnn/mtcnn_onet.json) [LNet](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/mtcnn/mtcnn_lnet.json)
+ - [SSD](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/ssd/ssd.json) 
+ - [Tiny-YOLO](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/tiny_yolo/tiny_yolo.json)
+ - [YOLO-v1](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/yolo_v1/yolo_v1.json)
+ - [YOLO-v2](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/yolo_v2/yolo_v2.json)
 
 ### Segmentation
- - [ENET](https://verisilicon.github.io/acuity-models/viewer/#../models/enet/enet.json)
- - [SegNet](https://verisilicon.github.io/acuity-models/viewer/#../models/segnet/segnet.json)
+ - [ENET](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/enet/enet.json)
+ - [SegNet](https://verisilicon.github.io/acuity-models/viewer/render.html/#../models/segnet/segnet.json)
 
 ## About ACUITY
 
