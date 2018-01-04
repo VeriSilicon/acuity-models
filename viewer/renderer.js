@@ -12,8 +12,17 @@ function build_description(layer, lid) {
     if (desc == '') {
         desc = '<p class="list-group-item-text">No parameters</p>';
     }
-    desc = '<p class="list-group-item-text label-op"><strong>' + lid + '</strong></p>' + desc;
-    desc = '<div class="alert alert-success">' + desc + '</div>';
+    var lid_str = '<strong class="label-op">';
+    var segs = lid.split('/');
+    for (var i in segs) {
+        var seg = segs[i];
+        if (i > 0) {
+            seg = '/' + seg;
+        }
+        lid_str += '<p class="list-group-item-text label-op">' + seg + '</p>';
+    }
+    lid_str += '</strong>';
+    desc = '<div class="alert alert-success">' + lid_str + desc + '</div>';
     return desc;
 }
 
