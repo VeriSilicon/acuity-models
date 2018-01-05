@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <title>Acuity Model Viewer Online v0.1.0 beta</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-	<link href="css/tipsy.css" rel="stylesheet" type="text/css"/>
-	<link href="css/render.css" rel="stylesheet" type="text/css"/>
+    <link href="css/tipsy.css" rel="stylesheet" type="text/css"/>
+    <link href="css/render.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <div class="container">
     <div id="user-interface">
     <h1>Acuity Model Viewer</h1>
         <hr>
-	        <div class="input-group-btn">
+            <div class="input-group-btn">
             <input type="button" class="btn btn-default" value="Render" id="btn-render"/>
             <input type="button" class="btn btn-default" value="Capature" id="btn-save" style="display:none;"/>
         </div>
-		<textarea name="content" cols="40" rows="40" class="form-control" id="editor" placeholder="Paste AcuityNet JSON content here" style="resize:none;"></textarea>
+        <div name="content" id="editor" placeholder="acuity net content" style="width:800px;height:600px;border:1px solid grey"></textarea>
         </div>
-	</div>
+    </div>
     <hr style="margin-top: 30px;">
     <div id="render"  style="text-align: center; margin-top: 60px; position: relative;" data-uk-dropdown="{mode:'click'}">
         <h1 id="net-name" class="net-name"></h1>
         <svg id="render-zone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <style id='render-style'>
-		.label {
-			font-size: 140%;
-			font-weight: 100;
+        .label {
+            font-size: 140%;
+            font-weight: 100;
             }
         .node rect {
           stroke: #333;
@@ -67,19 +67,30 @@
         </style>
         </svg>
     </div>
-   
+
     <script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript" src="jquery.tipsy.js"></script>
-	<script type="text/javascript" src="d3.v4.min.js"></script>
-	<script type="text/javascript" src="dagre-d3.min.js"></script>
-	<script type="text/javascript" src="d3.tip.js"></script>
-	<script type="text/javascript" src="renderer.js"></script>
-	<script type="text/javascript" src="online-json.js"></script>
-	<script>
-	document.getElementById('btn-render').addEventListener('click',function(){
-	//$('#user-interface').hide();
-    render_net(JSON.parse($('#editor').val()));
-	},false);
+    <script type="text/javascript" src="jquery.tipsy.js"></script>
+    <script type="text/javascript" src="d3.v4.min.js"></script>
+    <script type="text/javascript" src="dagre-d3.min.js"></script>
+    <script type="text/javascript" src="d3.tip.js"></script>
+    <script type="text/javascript" src="renderer.js"></script>
+    <script type="text/javascript" src="online-json.js"></script>
+    <script type="text/javascript" src="monaco-editor/min/vs/loader.js"></script>
+    <script>
+    require.config({ paths: { 'vs': 'monaco-editor/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+        var editor = monaco.editor.create(document.getElementById('editor'), {
+            value: [
+                ''
+            ].join('\n'),
+            language: 'json'
+        });
+
+        document.getElementById('btn-render').addEventListener('click',function(){
+        //$('#user-interface').hide();
+            render_net(JSON.parse(editor.getValue()));
+        },false);
+    });
     </script>
   </body>
 </html>
