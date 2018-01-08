@@ -71,7 +71,13 @@ for (var lid in net.Layers) {
     var label = layer['op'];
     switch (layer['op']) {
         case 'convolution':
-            label = 'conv';
+            if (layer['parameters']['group_number'] == layer['parameters']['weights']
+                && layer['parameters']['group_number'] > 1) {
+                label = 'dw-conv';
+                style = 'depthwise-convolution';
+            } else {
+                label = 'conv';
+            }
             label += '(' + layer['parameters']['ksize_h'] + 'x' + layer['parameters']['ksize_w'] + ')'
             break;
         case 'deconvolution':
