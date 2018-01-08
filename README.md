@@ -1,9 +1,9 @@
-## ACUITY Model Zoo
+## Acuity Model Zoo
 
-ACUITY model zoo contains a set of popular neural-network models created or converted (from Caffe or Tensorflow) by ACUITY toolset.
+Acuity model zoo contains a set of popular neural-network models created or converted (from Caffe or Tensorflow) by Acuity toolset.
 
 ### Model Viewer
-ACUITY uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netscope](http://ethereon.github.io/netscope/quickstart.html).
+Acuity uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netscope](http://ethereon.github.io/netscope/quickstart.html).
 
 ### Classification
  - [Alexnet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/alexnet/alexnet.json)
@@ -35,9 +35,12 @@ ACUITY uses JSON format to describe a neural-network model, and we provide an [o
  - [ENET](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/enet/enet.json)
  - [SegNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/segnet/segnet.json)
 
-## About ACUITY
+## About Acuity
 
-Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks for deployment.
+Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks for deployment on [Vivante Vision IP](http://www.verisilicon.com/IPPortfolio_2_122_1_VisionIP.html) powered hardware platforms.
+
+![Acuity Workflow](/docs/acuity-workflow.png)
+
 
  - Importing from popular frameworks such as Caffe and Tensorflow 
 
