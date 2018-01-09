@@ -1,5 +1,7 @@
 var url = window.location.href; 
 var regx = /#(.+)/;
+var matches = url.match(regx)
+if (matches) {
 var json = url.match(regx)[1];
 $.getJSON(json,function(result){
     //$('#editor').val(JSON.stringify(result));
@@ -15,3 +17,4 @@ $.getJSON(json,function(result){
 		
 		alert(json + ' not found.');
 	});
+}
