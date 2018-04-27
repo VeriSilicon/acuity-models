@@ -54,3 +54,6 @@
     fill: #333;
     stroke-width: 1.5px;
 }
+.lstm rect {
+    fill: #e060ea;
+}

@@ -1,0 +1,213 @@
+{
+    "MetaData": {
+        "Name": "Speech Recognition LSTM",
+        "AcuityVersion": "2.0",
+        "Platform": "caffe"
+    },
+    "Layers": {
+        "input_0": {
+            "name": "input",
+            "op": "input",
+            "parameters": {
+                "size": "99 161",
+                "channels": 1
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "indicator_1": {
+            "name": "indicator",
+            "op": "continuationindicator",
+            "parameters": {
+                "time_step": 99,
+                "batch_size": 1
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "permuted_data_2": {
+            "name": "permuted_data",
+            "op": "permute",
+            "parameters": {
+                "perm": "3 0 1 2"
+            },
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "scale1_3": {
+            "name": "scale1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 2,
+                "bias": true
+            },
+            "inputs": [
+                "@permuted_data_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reverse_1_4": {
+            "name": "reverse_1",
+            "op": "reverse",
+            "parameters": {
+                "axis": 0
+            },
+            "inputs": [
+                "@scale1_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm1_5": {
+            "name": "lstm1",
+            "op": "lstm",
+            "parameters": {
+                "weights": 256
+            },
+            "inputs": [
+                "@scale1_3:out0",
+                "@indicator_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm3_6": {
+            "name": "lstm3",
+            "op": "lstm",
+            "parameters": {
+                "weights": 256
+            },
+            "inputs": [
+                "@reverse_1_4:out0",
+                "@indicator_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reverse_2_7": {
+            "name": "reverse_2",
+            "op": "reverse",
+            "parameters": {
+                "axis": 0
+            },
+            "inputs": [
+                "@lstm3_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "concat_1_8": {
+            "name": "concat_1",
+            "op": "concat",
+            "parameters": {
+                "dim": 2
+            },
+            "inputs": [
+                "@lstm1_5:out0",
+                "@reverse_2_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm2_9": {
+            "name": "lstm2",
+            "op": "lstm",
+            "parameters": {
+                "weights": 256
+            },
+            "inputs": [
+                "@concat_1_8:out0",
+                "@indicator_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fc1_10": {
+            "name": "fc1",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 256,
+                "bias": true,
+                "regularize": false,
+                "axis": 2
+            },
+            "inputs": [
+                "@lstm2_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fc2_11": {
+            "name": "fc2",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 96,
+                "bias": true,
+                "regularize": false,
+                "axis": 2
+            },
+            "inputs": [
+                "@fc1_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fc3_12": {
+            "name": "fc3",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 33,
+                "bias": true,
+                "regularize": false,
+                "axis": 2
+            },
+            "inputs": [
+                "@fc2_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "permute_fc_13": {
+            "name": "permute_fc",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@fc3_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output_14": {
+            "name": "output",
+            "op": "output",
+            "inputs": [
+                "@permute_fc_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}
