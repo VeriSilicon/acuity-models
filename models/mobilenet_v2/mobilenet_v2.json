@@ -1,0 +1,1952 @@
+{
+    "MetaData": {
+        "Name": "mobilenet_v2_1.4_224_a",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow"
+    },
+    "Layers": {
+        "input_0": {
+            "name": "input",
+            "op": "input",
+            "parameters": {
+                "size": "224 224",
+                "channels": 3,
+                "shape": []
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/Conv_1": {
+            "name": "MobilenetV2/Conv",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/Conv_2": {
+            "name": "MobilenetV2/Conv",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/Conv_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv/depthwise_3": {
+            "name": "MobilenetV2/expanded_conv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 48,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/Conv_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv/depthwise_4": {
+            "name": "MobilenetV2/expanded_conv/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv/depthwise_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv/project/BatchNorm_5": {
+            "name": "MobilenetV2/expanded_conv/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 24,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv/depthwise_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_1/expand_6": {
+            "name": "MobilenetV2/expanded_conv_1/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv/project/BatchNorm_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_1/expand_7": {
+            "name": "MobilenetV2/expanded_conv_1/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_1/expand_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_1/depthwise_8": {
+            "name": "MobilenetV2/expanded_conv_1/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 144,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_1/expand_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_1/depthwise_9": {
+            "name": "MobilenetV2/expanded_conv_1/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_1/depthwise_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_1/project/BatchNorm_10": {
+            "name": "MobilenetV2/expanded_conv_1/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_1/depthwise_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_2/expand_11": {
+            "name": "MobilenetV2/expanded_conv_2/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_1/project/BatchNorm_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_2/expand_12": {
+            "name": "MobilenetV2/expanded_conv_2/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_2/expand_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_2/depthwise_13": {
+            "name": "MobilenetV2/expanded_conv_2/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 192,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_2/expand_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_2/depthwise_14": {
+            "name": "MobilenetV2/expanded_conv_2/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_2/depthwise_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_2/project/BatchNorm_15": {
+            "name": "MobilenetV2/expanded_conv_2/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_2/depthwise_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_2_16": {
+            "name": "MobilenetV2/expanded_conv_2",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_2/project/BatchNorm_15:out0",
+                "@MobilenetV2/expanded_conv_1/project/BatchNorm_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_3/expand_17": {
+            "name": "MobilenetV2/expanded_conv_3/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_2_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_3/expand_18": {
+            "name": "MobilenetV2/expanded_conv_3/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_3/expand_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_3/depthwise_19": {
+            "name": "MobilenetV2/expanded_conv_3/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 192,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_3/expand_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_3/depthwise_20": {
+            "name": "MobilenetV2/expanded_conv_3/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_3/depthwise_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_3/project/BatchNorm_21": {
+            "name": "MobilenetV2/expanded_conv_3/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_3/depthwise_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_4/expand_22": {
+            "name": "MobilenetV2/expanded_conv_4/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 288,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_3/project/BatchNorm_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_4/expand_23": {
+            "name": "MobilenetV2/expanded_conv_4/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_4/expand_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_4/depthwise_24": {
+            "name": "MobilenetV2/expanded_conv_4/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 288,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 288,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_4/expand_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_4/depthwise_25": {
+            "name": "MobilenetV2/expanded_conv_4/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_4/depthwise_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_4/project/BatchNorm_26": {
+            "name": "MobilenetV2/expanded_conv_4/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_4/depthwise_25:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_4_27": {
+            "name": "MobilenetV2/expanded_conv_4",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_4/project/BatchNorm_26:out0",
+                "@MobilenetV2/expanded_conv_3/project/BatchNorm_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_5/expand_28": {
+            "name": "MobilenetV2/expanded_conv_5/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 288,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_4_27:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_5/expand_29": {
+            "name": "MobilenetV2/expanded_conv_5/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_5/expand_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_5/depthwise_30": {
+            "name": "MobilenetV2/expanded_conv_5/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 288,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 288,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_5/expand_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_5/depthwise_31": {
+            "name": "MobilenetV2/expanded_conv_5/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_5/depthwise_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_5/project/BatchNorm_32": {
+            "name": "MobilenetV2/expanded_conv_5/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_5/depthwise_31:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_5_33": {
+            "name": "MobilenetV2/expanded_conv_5",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_5/project/BatchNorm_32:out0",
+                "@MobilenetV2/expanded_conv_4_27:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_6/expand_34": {
+            "name": "MobilenetV2/expanded_conv_6/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 288,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_5_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_6/expand_35": {
+            "name": "MobilenetV2/expanded_conv_6/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_6/expand_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_6/depthwise_36": {
+            "name": "MobilenetV2/expanded_conv_6/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 288,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 288,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_6/expand_35:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_6/depthwise_37": {
+            "name": "MobilenetV2/expanded_conv_6/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_6/depthwise_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_6/project/BatchNorm_38": {
+            "name": "MobilenetV2/expanded_conv_6/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 88,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_6/depthwise_37:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_7/expand_39": {
+            "name": "MobilenetV2/expanded_conv_7/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 528,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_6/project/BatchNorm_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_7/expand_40": {
+            "name": "MobilenetV2/expanded_conv_7/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_7/expand_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_7/depthwise_41": {
+            "name": "MobilenetV2/expanded_conv_7/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 528,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 528,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_7/expand_40:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_7/depthwise_42": {
+            "name": "MobilenetV2/expanded_conv_7/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_7/depthwise_41:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_7/project/BatchNorm_43": {
+            "name": "MobilenetV2/expanded_conv_7/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 88,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_7/depthwise_42:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_7_44": {
+            "name": "MobilenetV2/expanded_conv_7",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_7/project/BatchNorm_43:out0",
+                "@MobilenetV2/expanded_conv_6/project/BatchNorm_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_8/expand_45": {
+            "name": "MobilenetV2/expanded_conv_8/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 528,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_7_44:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_8/expand_46": {
+            "name": "MobilenetV2/expanded_conv_8/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_8/expand_45:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_8/depthwise_47": {
+            "name": "MobilenetV2/expanded_conv_8/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 528,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 528,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_8/expand_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_8/depthwise_48": {
+            "name": "MobilenetV2/expanded_conv_8/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_8/depthwise_47:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_8/project/BatchNorm_49": {
+            "name": "MobilenetV2/expanded_conv_8/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 88,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_8/depthwise_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_8_50": {
+            "name": "MobilenetV2/expanded_conv_8",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_8/project/BatchNorm_49:out0",
+                "@MobilenetV2/expanded_conv_7_44:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_9/expand_51": {
+            "name": "MobilenetV2/expanded_conv_9/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 528,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_8_50:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_9/expand_52": {
+            "name": "MobilenetV2/expanded_conv_9/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_9/expand_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_9/depthwise_53": {
+            "name": "MobilenetV2/expanded_conv_9/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 528,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 528,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_9/expand_52:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_9/depthwise_54": {
+            "name": "MobilenetV2/expanded_conv_9/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_9/depthwise_53:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_9/project/BatchNorm_55": {
+            "name": "MobilenetV2/expanded_conv_9/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 88,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_9/depthwise_54:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_9_56": {
+            "name": "MobilenetV2/expanded_conv_9",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_9/project/BatchNorm_55:out0",
+                "@MobilenetV2/expanded_conv_8_50:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_10/expand_57": {
+            "name": "MobilenetV2/expanded_conv_10/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 528,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_9_56:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_10/expand_58": {
+            "name": "MobilenetV2/expanded_conv_10/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_10/expand_57:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_10/depthwise_59": {
+            "name": "MobilenetV2/expanded_conv_10/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 528,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 528,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_10/expand_58:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_10/depthwise_60": {
+            "name": "MobilenetV2/expanded_conv_10/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_10/depthwise_59:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_10/project/BatchNorm_61": {
+            "name": "MobilenetV2/expanded_conv_10/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 136,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_10/depthwise_60:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_11/expand_62": {
+            "name": "MobilenetV2/expanded_conv_11/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 816,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_10/project/BatchNorm_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_11/expand_63": {
+            "name": "MobilenetV2/expanded_conv_11/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_11/expand_62:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_11/depthwise_64": {
+            "name": "MobilenetV2/expanded_conv_11/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 816,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 816,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_11/expand_63:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_11/depthwise_65": {
+            "name": "MobilenetV2/expanded_conv_11/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_11/depthwise_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_11/project/BatchNorm_66": {
+            "name": "MobilenetV2/expanded_conv_11/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 136,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_11/depthwise_65:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_11_67": {
+            "name": "MobilenetV2/expanded_conv_11",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_11/project/BatchNorm_66:out0",
+                "@MobilenetV2/expanded_conv_10/project/BatchNorm_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_12/expand_68": {
+            "name": "MobilenetV2/expanded_conv_12/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 816,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_11_67:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_12/expand_69": {
+            "name": "MobilenetV2/expanded_conv_12/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_12/expand_68:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_12/depthwise_70": {
+            "name": "MobilenetV2/expanded_conv_12/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 816,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 816,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_12/expand_69:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_12/depthwise_71": {
+            "name": "MobilenetV2/expanded_conv_12/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_12/depthwise_70:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_12/project/BatchNorm_72": {
+            "name": "MobilenetV2/expanded_conv_12/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 136,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_12/depthwise_71:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_12_73": {
+            "name": "MobilenetV2/expanded_conv_12",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_12/project/BatchNorm_72:out0",
+                "@MobilenetV2/expanded_conv_11_67:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_13/expand_74": {
+            "name": "MobilenetV2/expanded_conv_13/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 816,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_12_73:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_13/expand_75": {
+            "name": "MobilenetV2/expanded_conv_13/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_13/expand_74:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_13/depthwise_76": {
+            "name": "MobilenetV2/expanded_conv_13/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 816,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 816,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_13/expand_75:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_13/depthwise_77": {
+            "name": "MobilenetV2/expanded_conv_13/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_13/depthwise_76:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_13/project/BatchNorm_78": {
+            "name": "MobilenetV2/expanded_conv_13/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 224,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_13/depthwise_77:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_14/expand_79": {
+            "name": "MobilenetV2/expanded_conv_14/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1344,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_13/project/BatchNorm_78:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_14/expand_80": {
+            "name": "MobilenetV2/expanded_conv_14/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_14/expand_79:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_14/depthwise_81": {
+            "name": "MobilenetV2/expanded_conv_14/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1344,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1344,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_14/expand_80:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_14/depthwise_82": {
+            "name": "MobilenetV2/expanded_conv_14/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_14/depthwise_81:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_14/project/BatchNorm_83": {
+            "name": "MobilenetV2/expanded_conv_14/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 224,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_14/depthwise_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_14_84": {
+            "name": "MobilenetV2/expanded_conv_14",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_14/project/BatchNorm_83:out0",
+                "@MobilenetV2/expanded_conv_13/project/BatchNorm_78:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_15/expand_85": {
+            "name": "MobilenetV2/expanded_conv_15/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1344,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_14_84:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_15/expand_86": {
+            "name": "MobilenetV2/expanded_conv_15/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_15/expand_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_15/depthwise_87": {
+            "name": "MobilenetV2/expanded_conv_15/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1344,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1344,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_15/expand_86:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_15/depthwise_88": {
+            "name": "MobilenetV2/expanded_conv_15/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_15/depthwise_87:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_15/project/BatchNorm_89": {
+            "name": "MobilenetV2/expanded_conv_15/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 224,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_15/depthwise_88:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_15_90": {
+            "name": "MobilenetV2/expanded_conv_15",
+            "op": "add",
+            "inputs": [
+                "@MobilenetV2/expanded_conv_15/project/BatchNorm_89:out0",
+                "@MobilenetV2/expanded_conv_14_84:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_16/expand_91": {
+            "name": "MobilenetV2/expanded_conv_16/expand",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1344,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_15_90:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_16/expand_92": {
+            "name": "MobilenetV2/expanded_conv_16/expand",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_16/expand_91:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_16/depthwise_93": {
+            "name": "MobilenetV2/expanded_conv_16/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1344,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1344,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_16/expand_92:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_16/depthwise_94": {
+            "name": "MobilenetV2/expanded_conv_16/depthwise",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_16/depthwise_93:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/expanded_conv_16/project/BatchNorm_95": {
+            "name": "MobilenetV2/expanded_conv_16/project/BatchNorm",
+            "op": "convolution",
+            "parameters": {
+                "weights": 448,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_16/depthwise_94:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/Conv_1_96": {
+            "name": "MobilenetV2/Conv_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1792,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/expanded_conv_16/project/BatchNorm_95:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/Conv_1_97": {
+            "name": "MobilenetV2/Conv_1",
+            "op": "relun",
+            "parameters": {
+                "relu_clamp_top": 6,
+                "relu_clamp_bottom": "0"
+            },
+            "inputs": [
+                "@MobilenetV2/Conv_1_96:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/Logits_98": {
+            "name": "MobilenetV2/Logits",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "padding_const": ""
+            },
+            "inputs": [
+                "@MobilenetV2/Conv_1_97:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/Logits/Conv2d_1c_1x1_99": {
+            "name": "MobilenetV2/Logits/Conv2d_1c_1x1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1001,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1
+            },
+            "inputs": [
+                "@MobilenetV2/Logits_98:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/Logits_100": {
+            "name": "MobilenetV2/Logits",
+            "op": "reshape",
+            "parameters": {
+                "shape": "1 1001"
+            },
+            "inputs": [
+                "@MobilenetV2/Logits/Conv2d_1c_1x1_99:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobilenetV2/Predictions_101": {
+            "name": "MobilenetV2/Predictions",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1
+            },
+            "inputs": [
+                "@MobilenetV2/Logits_100:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output_102": {
+            "name": "output",
+            "op": "output",
+            "inputs": [
+                "@MobilenetV2/Predictions_101:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

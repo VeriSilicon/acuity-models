@@ -1,6 +1,6 @@
 ## Acuity Model Zoo
 
-Acuity model zoo contains a set of popular neural-network models created or converted (from Caffe or Tensorflow) by Acuity toolset.
+Acuity model zoo contains a set of popular neural-network models created or converted (from Caffe, Tensorflow, DarkNet or ONNX) by Acuity toolset.
 
 ### Model Viewer
 Acuity uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netscope](http://ethereon.github.io/netscope/quickstart.html).
@@ -12,7 +12,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [Inception-v3](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/inception_v3/inception_v3.json)
  - [Inception-v4](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/inception_v4/inception_v4.json)
  - [Mobilenet-v1](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_v1/mobilenet_v1.json)
- - [Mobilenet-v1-025](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_v1_025/mobilenet_v1_025.json)
+ - [Mobilenet-v2](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_v2/mobilenet_v2.json)
  - [Nasnet-Large](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/nasnet_large/nasnet_large.json)
  - [Nasnet-Mobile](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/nasnet_mobile/nasnet_mobile.json)
  - [Resnet-50](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/resnet50/resnet50.json)
@@ -48,7 +48,7 @@ Acuity is a python based neural-network framework built on top of Tensorflow, it
  - Importing from popular frameworks such as Caffe and Tensorflow 
 
  
-   > AcuityNet natively supports Caffe and Tensorflow imports, although it can be expanded to other NN frameworks.  
+   > AcuityNet natively supports Caffe, Tensorflow, DarkNet and ONNX imports, it can also be expanded to support other NN frameworks.  
 
 
  - Fixed Point Quantization  
@@ -66,13 +66,14 @@ Acuity is a python based neural-network framework built on top of Tensorflow, it
    - Merge consective layers into dense layers, such as ConvolutionReluPool, FullyConnectedRelu, etc.   
    - Fold BatchNrom layers into Convolution  
    - Swap layer ordering when suitable to reduce output size  
-   - Remove Concatenation layers  
-   - Intelligent layer optimization when mathamatically equivalent  
+   - Remove Concatenation and Split layers
+   - Horizontal layer fusion   
+   - Intelligent layer optimization when mathamatically equivalent
 
  - Tensor Pruning  
 
 
-   > Pruning neural networks tensors to remove ineffective connections and neurons to create sparse matrix  
+   > Pruning neural networks tensors to remove ineffective synapses and neurons to create sparse matrix  
 
 
  - Training and Validation  
