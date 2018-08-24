@@ -1,6 +1,6 @@
 {
     "MetaData": {
-        "Name": "Speech Recognition LSTM",
+        "Name": "Command Recognition",
         "AcuityVersion": "2.0",
         "Platform": "caffe"
     },

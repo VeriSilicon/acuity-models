@@ -1,6 +1,6 @@
 ## Acuity Model Zoo
 
-Acuity model zoo contains a set of popular neural-network models created or converted (from Caffe, Tensorflow, DarkNet or ONNX) by Acuity toolset.
+Acuity model zoo contains a set of popular neural-network models created or converted (from Caffe, Tensorflow, TFLite, DarkNet or ONNX) by Acuity toolset.
 
 ### Model Viewer
 Acuity uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netscope](http://ethereon.github.io/netscope/quickstart.html).
@@ -30,25 +30,27 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [Tiny-YOLO](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/tiny_yolo/tiny_yolo.json)
  - [YOLO-v1](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/yolo_v1/yolo_v1.json)
  - [YOLO-v2](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/yolo_v2/yolo_v2.json)
+ - [YOLO-v3](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/yolo_v3/yolo_v3.json)
 
 ### Segmentation
  - [ENET](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/enet/enet.json)
  - [SegNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/segnet/segnet.json)
 
 ### Recurrent Net
- - [LSTM](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/lstm/lstm.json)
+ - [LSTM - Command Recognition](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/lstm/lstm.json)
+ - [LSTM - Speech Recognition](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/deepspeech2/deepspeech2.json)
 
 ## About Acuity
 
-Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks for deployment on [Vivante Vision IP](http://www.verisilicon.com/IPPortfolio_2_122_1_VisionIP.html) powered hardware platforms.
+Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks for deployment on [Vivante Vision IP](http://www.verisilicon.com/IPPortfolio_2_122_1_VisionIP.html) powered hardware platforms. Going from a pre-trained model to hardware inferencing can be as simple as 3 automated steps.
 
-![Acuity Workflow](/docs/acuity-workflow.png)
+![Acuity Workflow](/docs/acuity_123.png)
 
 
  - Importing from popular frameworks such as Caffe and Tensorflow 
 
  
-   > AcuityNet natively supports Caffe, Tensorflow, DarkNet and ONNX imports, it can also be expanded to support other NN frameworks.  
+   > AcuityNet natively supports Caffe, Tensorflow, TFLite, DarkNet and ONNX imports, it can also be expanded to support other NN frameworks.  
 
 
  - Fixed Point Quantization  

@@ -1,0 +1,371 @@
+{
+    "Layers": {
+        "input_0": {
+            "name": "input",
+            "op": "input",
+            "parameters": {
+                "size": "161 204",
+                "channels": 1,
+                "shape": []
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv1_2": {
+            "name": "conv1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 11,
+                "ksize_w": 41,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 5,
+                "pad_w": 20,
+                "dilation": 1
+            },
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "relu1_3": {
+            "name": "relu1",
+            "op": "relu",
+            "inputs": [
+                "@conv1_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "batchnorm1_4": {
+            "name": "batchnorm1",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@relu1_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2_5": {
+            "name": "conv2",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 11,
+                "ksize_w": 21,
+                "stride_h": 1,
+                "stride_w": 2,
+                "pad_h": 5,
+                "pad_w": 10,
+                "dilation": 1
+            },
+            "inputs": [
+                "@batchnorm1_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "relu2_6": {
+            "name": "relu2",
+            "op": "relu",
+            "inputs": [
+                "@conv2_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "batchnorm2_7": {
+            "name": "batchnorm2",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@relu2_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "permuted_data_8": {
+            "name": "permuted_data",
+            "op": "permute",
+            "parameters": {
+                "perm": "2 0 3 1"
+            },
+            "inputs": [
+                "@batchnorm2_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm1_fw_9": {
+            "name": "lstm1_fw",
+            "op": "lstm",
+            "parameters": {
+                "weights": 1024,
+                "time_major": true
+            },
+            "inputs": [
+                "@permuted_data_8:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "reverse1_lstm1_bw_10": {
+            "name": "reverse1_lstm1_bw",
+            "op": "reverse",
+            "parameters": {
+                "axis": [0]
+            },
+            "inputs": [
+                "@permuted_data_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm1_bw_11": {
+            "name": "lstm1_bw",
+            "op": "lstm",
+            "parameters": {
+                "weights": 1024,
+                "time_major": true
+            },
+            "inputs": [
+                "@reverse1_lstm1_bw_10:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "reverse2_lstm1_bw_12": {
+            "name": "reverse2_lstm1_bw",
+            "op": "reverse",
+            "parameters": {
+                "axis": [0]
+            },
+            "inputs": [
+                "@lstm1_bw_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "concat_lstm1_13": {
+            "name": "concat_lstm1",
+            "op": "concat",
+            "parameters": {
+                "dim": 2
+            },
+            "inputs": [
+                "@lstm1_fw_9:out0",
+                "@reverse2_lstm1_bw_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm2_fw_14": {
+            "name": "lstm2_fw",
+            "op": "lstm",
+            "parameters": {
+                "weights": 1024,
+                "time_major": true
+            },
+            "inputs": [
+                "@concat_lstm1_13:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "reverse1_lstm2_bw_15": {
+            "name": "reverse1_lstm2_bw",
+            "op": "reverse",
+            "parameters": {
+                "axis": [0]
+            },
+            "inputs": [
+                "@concat_lstm1_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm2_bw_16": {
+            "name": "lstm2_bw",
+            "op": "lstm",
+            "parameters": {
+                "weights": 1024,
+                "time_major": true
+            },
+            "inputs": [
+                "@reverse1_lstm2_bw_15:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "reverse2_lstm2_bw_17": {
+            "name": "reverse2_lstm2_bw",
+            "op": "reverse",
+            "parameters": {
+                "axis": [0]
+            },
+            "inputs": [
+                "@lstm2_bw_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "concat_lstm2_18": {
+            "name": "concat_lstm2",
+            "op": "concat",
+            "parameters": {
+                "dim": 2
+            },
+            "inputs": [
+                "@lstm2_fw_14:out0",
+                "@reverse2_lstm2_bw_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm3_fw_19": {
+            "name": "lstm3_fw",
+            "op": "lstm",
+            "parameters": {
+                "weights": 1024,
+                "time_major": true
+            },
+            "inputs": [
+                "@concat_lstm2_18:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "reverse1_lstm3_bw_20": {
+            "name": "reverse1_lstm3_bw",
+            "op": "reverse",
+            "parameters": {
+                "axis": [0]
+            },
+            "inputs": [
+                "@concat_lstm2_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "lstm3_bw_21": {
+            "name": "lstm3_bw",
+            "op": "lstm",
+            "parameters": {
+                "weights": 1024,
+                "time_major": true
+            },
+            "inputs": [
+                "@reverse1_lstm3_bw_20:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "reverse2_lstm3_bw_22": {
+            "name": "reverse2_lstm3_bw",
+            "op": "reverse",
+            "parameters": {
+                "axis": [0]
+            },
+            "inputs": [
+                "@lstm3_bw_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "concat_lstm3_23": {
+            "name": "concat_lstm3",
+            "op": "concat",
+            "parameters": {
+                "dim": 2
+            },
+            "inputs": [
+                "@lstm3_fw_19:out0",
+                "@reverse2_lstm3_bw_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fc_24": {
+            "name": "fc",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 29,
+                "bias": true,
+                "regularize": false,
+                "axis": 2
+            },
+            "inputs": [
+                "@concat_lstm3_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output_25": {
+            "name": "output",
+            "op": "output",
+            "inputs": [
+                "@fc_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "MetaData": {
+        "Name": "DeepSpeech 2",
+        "AcuityVersion": "2.0",
+        "Platform": "caffe"
+    }
+}
