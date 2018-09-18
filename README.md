@@ -37,7 +37,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [SegNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/segnet/segnet.json)
 
 ### Pixel Processing
- - [Denoiser](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/denoiser/denoiser.json)
+ - [Denoiser](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/denoise/denoise.json)
  - [Super Resolution](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/vdsr/vdsr.json)
  - [Fast Style Transfer](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/fast_style_transfer/fast_style_transfer.json)
 
