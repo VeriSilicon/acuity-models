@@ -41,6 +41,9 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [Super Resolution](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/vdsr/vdsr.json)
  - [Fast Style Transfer](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/fast_style_transfer/fast_style_transfer.json)
 
+### Pose Estimation
+ - [Open Pose](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/open_pose/open_pose.json)
+
 ### Recurrent Net
  - [LSTM - Command Recognition](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/lstm/lstm.json)
  - [LSTM - Speech Recognition](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/deepspeech2/deepspeech2.json)
