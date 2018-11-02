@@ -1,6 +1,6 @@
 {
     "MetaData": {
-        "Name": "Pose",
+        "Name": "OpenPose",
         "AcuityVersion": "2.0",
         "Platform": "caffe"
     },
