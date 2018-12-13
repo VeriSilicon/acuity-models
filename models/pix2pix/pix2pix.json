@@ -1,0 +1,1374 @@
+{
+    "MetaData": {
+        "Name": "pix2pix_frozen",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow"
+    },
+    "Layers": {
+        "attach_generator/decoder_1/Tanh/out0_0": {
+            "name": "attach_generator/decoder_1/Tanh/out0",
+            "op": "output",
+            "inputs": [
+                "@generator/decoder_1/Tanh_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_generator/encoder_1/conv/Conv2D/in0_1": {
+            "name": "attach_generator/encoder_1/conv/Conv2D/in0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    0,
+                    258,
+                    258,
+                    1
+                ]
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_1/Tanh_2": {
+            "name": "generator/decoder_1/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@generator/decoder_1/deconv/conv2d_transpose_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_1/deconv/conv2d_transpose_3": {
+            "name": "generator/decoder_1/deconv/conv2d_transpose",
+            "op": "deconvolution",
+            "parameters": {
+                "weights": 2,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "output_shape": [
+                    1,
+                    256,
+                    256,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_1/Relu_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_1/Relu_4": {
+            "name": "generator/decoder_1/Relu",
+            "op": "relu",
+            "inputs": [
+                "@generator/decoder_1/concat_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_1/concat_5": {
+            "name": "generator/decoder_1/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@generator/decoder_2/batchnorm/batchnorm/add_1_7:out0",
+                "@generator/encoder_1/conv/Conv2D_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_1/conv/Conv2D_6": {
+            "name": "generator/encoder_1/conv/Conv2D",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@attach_generator/encoder_1/conv/Conv2D/in0_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_2/batchnorm/batchnorm/add_1_7": {
+            "name": "generator/decoder_2/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_2/deconv/conv2d_transpose_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_2/deconv/conv2d_transpose_8": {
+            "name": "generator/decoder_2/deconv/conv2d_transpose",
+            "op": "deconvolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "output_shape": [
+                    1,
+                    128,
+                    128,
+                    64
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_2/Relu_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_2/Relu_9": {
+            "name": "generator/decoder_2/Relu",
+            "op": "relu",
+            "inputs": [
+                "@generator/decoder_2/concat_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_2/concat_10": {
+            "name": "generator/decoder_2/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@generator/decoder_3/batchnorm/batchnorm/add_1_11:out0",
+                "@generator/encoder_2/batchnorm/batchnorm/add_1_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_3/batchnorm/batchnorm/add_1_11": {
+            "name": "generator/decoder_3/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_3/deconv/conv2d_transpose_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_2/batchnorm/batchnorm/add_1_12": {
+            "name": "generator/encoder_2/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_2/conv/Conv2D_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_3/deconv/conv2d_transpose_13": {
+            "name": "generator/decoder_3/deconv/conv2d_transpose",
+            "op": "deconvolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "output_shape": [
+                    1,
+                    64,
+                    64,
+                    128
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_3/Relu_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_2/conv/Conv2D_14": {
+            "name": "generator/encoder_2/conv/Conv2D",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_2/conv/Pad_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_3/Relu_15": {
+            "name": "generator/decoder_3/Relu",
+            "op": "relu",
+            "inputs": [
+                "@generator/decoder_3/concat_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_2/conv/Pad_16": {
+            "name": "generator/encoder_2/conv/Pad",
+            "op": "pad",
+            "parameters": {
+                "padding_value": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        0,
+                        0
+                    ]
+                ],
+                "padding_mode": "CONSTANT",
+                "padding_const": 0
+            },
+            "inputs": [
+                "@generator/encoder_2/lrelu/add_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_3/concat_17": {
+            "name": "generator/decoder_3/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@generator/decoder_4/batchnorm/batchnorm/add_1_20:out0",
+                "@generator/encoder_3/batchnorm/batchnorm/add_1_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_2/lrelu/add_18": {
+            "name": "generator/encoder_2/lrelu/add",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.20000001788139343
+            },
+            "inputs": [
+                "@generator/encoder_1/conv/Conv2D_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_3/batchnorm/batchnorm/add_1_19": {
+            "name": "generator/encoder_3/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_3/conv/Conv2D_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_4/batchnorm/batchnorm/add_1_20": {
+            "name": "generator/decoder_4/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_4/deconv/conv2d_transpose_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_3/conv/Conv2D_21": {
+            "name": "generator/encoder_3/conv/Conv2D",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_3/conv/Pad_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_4/deconv/conv2d_transpose_22": {
+            "name": "generator/decoder_4/deconv/conv2d_transpose",
+            "op": "deconvolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "output_shape": [
+                    1,
+                    32,
+                    32,
+                    256
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_4/Relu_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_3/conv/Pad_23": {
+            "name": "generator/encoder_3/conv/Pad",
+            "op": "pad",
+            "parameters": {
+                "padding_value": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        0,
+                        0
+                    ]
+                ],
+                "padding_mode": "CONSTANT",
+                "padding_const": 0
+            },
+            "inputs": [
+                "@generator/encoder_3/lrelu/add_25:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_4/Relu_24": {
+            "name": "generator/decoder_4/Relu",
+            "op": "relu",
+            "inputs": [
+                "@generator/decoder_4/concat_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_3/lrelu/add_25": {
+            "name": "generator/encoder_3/lrelu/add",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.20000001788139343
+            },
+            "inputs": [
+                "@generator/encoder_2/batchnorm/batchnorm/add_1_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_4/concat_26": {
+            "name": "generator/decoder_4/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@generator/decoder_5/batchnorm/batchnorm/add_1_28:out0",
+                "@generator/encoder_4/batchnorm/batchnorm/add_1_27:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_4/batchnorm/batchnorm/add_1_27": {
+            "name": "generator/encoder_4/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_4/conv/Conv2D_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_5/batchnorm/batchnorm/add_1_28": {
+            "name": "generator/decoder_5/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_5/deconv/conv2d_transpose_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_4/conv/Conv2D_29": {
+            "name": "generator/encoder_4/conv/Conv2D",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_4/conv/Pad_31:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_5/deconv/conv2d_transpose_30": {
+            "name": "generator/decoder_5/deconv/conv2d_transpose",
+            "op": "deconvolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "output_shape": [
+                    1,
+                    16,
+                    16,
+                    512
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_5/Relu_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_4/conv/Pad_31": {
+            "name": "generator/encoder_4/conv/Pad",
+            "op": "pad",
+            "parameters": {
+                "padding_value": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        0,
+                        0
+                    ]
+                ],
+                "padding_mode": "CONSTANT",
+                "padding_const": 0
+            },
+            "inputs": [
+                "@generator/encoder_4/lrelu/add_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_5/Relu_32": {
+            "name": "generator/decoder_5/Relu",
+            "op": "relu",
+            "inputs": [
+                "@generator/decoder_5/concat_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_4/lrelu/add_33": {
+            "name": "generator/encoder_4/lrelu/add",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.20000001788139343
+            },
+            "inputs": [
+                "@generator/encoder_3/batchnorm/batchnorm/add_1_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_5/concat_34": {
+            "name": "generator/decoder_5/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@generator/decoder_6/dropout/mul_35:out0",
+                "@generator/encoder_5/batchnorm/batchnorm/add_1_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_6/dropout/mul_35": {
+            "name": "generator/decoder_6/dropout/mul",
+            "op": "dropout",
+            "parameters": {
+                "ratio": 0.5,
+                "scale_train": true
+            },
+            "inputs": [
+                "@generator/decoder_6/batchnorm/batchnorm/add_1_37:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_5/batchnorm/batchnorm/add_1_36": {
+            "name": "generator/encoder_5/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_5/conv/Conv2D_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_6/batchnorm/batchnorm/add_1_37": {
+            "name": "generator/decoder_6/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_6/deconv/conv2d_transpose_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_5/conv/Conv2D_38": {
+            "name": "generator/encoder_5/conv/Conv2D",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_5/conv/Pad_40:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_6/deconv/conv2d_transpose_39": {
+            "name": "generator/decoder_6/deconv/conv2d_transpose",
+            "op": "deconvolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "output_shape": [
+                    1,
+                    8,
+                    8,
+                    512
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_6/Relu_41:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_5/conv/Pad_40": {
+            "name": "generator/encoder_5/conv/Pad",
+            "op": "pad",
+            "parameters": {
+                "padding_value": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        0,
+                        0
+                    ]
+                ],
+                "padding_mode": "CONSTANT",
+                "padding_const": 0
+            },
+            "inputs": [
+                "@generator/encoder_5/lrelu/add_42:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_6/Relu_41": {
+            "name": "generator/decoder_6/Relu",
+            "op": "relu",
+            "inputs": [
+                "@generator/decoder_6/concat_43:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_5/lrelu/add_42": {
+            "name": "generator/encoder_5/lrelu/add",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.20000001788139343
+            },
+            "inputs": [
+                "@generator/encoder_4/batchnorm/batchnorm/add_1_27:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_6/concat_43": {
+            "name": "generator/decoder_6/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@generator/decoder_7/dropout/mul_44:out0",
+                "@generator/encoder_6/batchnorm/batchnorm/add_1_45:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_7/dropout/mul_44": {
+            "name": "generator/decoder_7/dropout/mul",
+            "op": "dropout",
+            "parameters": {
+                "ratio": 0.5,
+                "scale_train": true
+            },
+            "inputs": [
+                "@generator/decoder_7/batchnorm/batchnorm/add_1_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_6/batchnorm/batchnorm/add_1_45": {
+            "name": "generator/encoder_6/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_6/conv/Conv2D_47:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_7/batchnorm/batchnorm/add_1_46": {
+            "name": "generator/decoder_7/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_7/deconv/conv2d_transpose_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_6/conv/Conv2D_47": {
+            "name": "generator/encoder_6/conv/Conv2D",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_6/conv/Pad_49:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_7/deconv/conv2d_transpose_48": {
+            "name": "generator/decoder_7/deconv/conv2d_transpose",
+            "op": "deconvolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "output_shape": [
+                    1,
+                    4,
+                    4,
+                    512
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_7/Relu_50:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_6/conv/Pad_49": {
+            "name": "generator/encoder_6/conv/Pad",
+            "op": "pad",
+            "parameters": {
+                "padding_value": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        0,
+                        0
+                    ]
+                ],
+                "padding_mode": "CONSTANT",
+                "padding_const": 0
+            },
+            "inputs": [
+                "@generator/encoder_6/lrelu/add_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_7/Relu_50": {
+            "name": "generator/decoder_7/Relu",
+            "op": "relu",
+            "inputs": [
+                "@generator/decoder_7/concat_52:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_6/lrelu/add_51": {
+            "name": "generator/encoder_6/lrelu/add",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.20000001788139343
+            },
+            "inputs": [
+                "@generator/encoder_5/batchnorm/batchnorm/add_1_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_7/concat_52": {
+            "name": "generator/decoder_7/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@generator/decoder_8/dropout/mul_54:out0",
+                "@generator/encoder_7/batchnorm/batchnorm/add_1_53:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_7/batchnorm/batchnorm/add_1_53": {
+            "name": "generator/encoder_7/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_7/conv/Conv2D_55:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_8/dropout/mul_54": {
+            "name": "generator/decoder_8/dropout/mul",
+            "op": "dropout",
+            "parameters": {
+                "ratio": 0.5,
+                "scale_train": true
+            },
+            "inputs": [
+                "@generator/decoder_8/batchnorm/batchnorm/add_1_56:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_7/conv/Conv2D_55": {
+            "name": "generator/encoder_7/conv/Conv2D",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_7/conv/Pad_57:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_8/batchnorm/batchnorm/add_1_56": {
+            "name": "generator/decoder_8/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_8/deconv/conv2d_transpose_58:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_7/conv/Pad_57": {
+            "name": "generator/encoder_7/conv/Pad",
+            "op": "pad",
+            "parameters": {
+                "padding_value": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        0,
+                        0
+                    ]
+                ],
+                "padding_mode": "CONSTANT",
+                "padding_const": 0
+            },
+            "inputs": [
+                "@generator/encoder_7/lrelu/add_59:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_8/deconv/conv2d_transpose_58": {
+            "name": "generator/decoder_8/deconv/conv2d_transpose",
+            "op": "deconvolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "output_shape": [
+                    1,
+                    2,
+                    2,
+                    512
+                ]
+            },
+            "inputs": [
+                "@generator/decoder_8/Relu_60:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_7/lrelu/add_59": {
+            "name": "generator/encoder_7/lrelu/add",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.20000001788139343
+            },
+            "inputs": [
+                "@generator/encoder_6/batchnorm/batchnorm/add_1_45:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/decoder_8/Relu_60": {
+            "name": "generator/decoder_8/Relu",
+            "op": "relu",
+            "inputs": [
+                "@generator/encoder_8/batchnorm/batchnorm/add_1_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_8/batchnorm/batchnorm/add_1_61": {
+            "name": "generator/encoder_8/batchnorm/batchnorm/add_1",
+            "op": "instancenormalize",
+            "parameters": {
+                "eps": 9.999999747378752e-06,
+                "axis": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_8/conv/Conv2D_62:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_8/conv/Conv2D_62": {
+            "name": "generator/encoder_8/conv/Conv2D",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@generator/encoder_8/conv/Pad_63:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_8/conv/Pad_63": {
+            "name": "generator/encoder_8/conv/Pad",
+            "op": "pad",
+            "parameters": {
+                "padding_value": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        0,
+                        0
+                    ]
+                ],
+                "padding_mode": "CONSTANT",
+                "padding_const": 0
+            },
+            "inputs": [
+                "@generator/encoder_8/lrelu/add_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "generator/encoder_8/lrelu/add_64": {
+            "name": "generator/encoder_8/lrelu/add",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.20000001788139343
+            },
+            "inputs": [
+                "@generator/encoder_7/batchnorm/batchnorm/add_1_53:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

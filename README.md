@@ -25,6 +25,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 ### Detection
  - [Faster-RCNN-ZF](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/faster_rcnn_zf/faster_rcnn_zf.json)
  - [Mobilenet-SSD](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_ssd/mobilenet_ssd.json)
+-- [Mobilenet-SSD-FPN](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_ssd_fpn/mobilenet_ssd_fpn.json)
  - [MTCNN PNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_pnet.json) [RNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_rnet.json) [ONet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_onet.json) [LNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_lnet.json)
  - [SSD](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/ssd/ssd.json) 
  - [Tiny-YOLO](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/tiny_yolo/tiny_yolo.json)
@@ -35,14 +36,17 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 ### Segmentation
  - [ENET](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/enet/enet.json)
  - [SegNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/segnet/segnet.json)
+ - [DeepLab-v3](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/deeplab_v3/deeplab_v3.json)
 
 ### Pixel Processing
  - [Denoiser](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/denoise/denoise.json)
  - [Super Resolution](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/vdsr/vdsr.json)
  - [Fast Style Transfer](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/fast_style_transfer/fast_style_transfer.json)
+ - [Pix2Pix](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/pix2pix/pix2pix.json)
 
 ### Pose Estimation
  - [Open Pose](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/open_pose/open_pose.json)
+ - [CPM Mobile](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/cpm/cpm.json)
 
 ### Recurrent Net
  - [LSTM - Command Recognition](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/lstm/lstm.json)
