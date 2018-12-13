@@ -25,7 +25,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 ### Detection
  - [Faster-RCNN-ZF](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/faster_rcnn_zf/faster_rcnn_zf.json)
  - [Mobilenet-SSD](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_ssd/mobilenet_ssd.json)
--- [Mobilenet-SSD-FPN](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_ssd_fpn/mobilenet_ssd_fpn.json)
+ - [Mobilenet-SSD-FPN](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_ssd_fpn/mobilenet_ssd_fpn.json)
  - [MTCNN PNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_pnet.json) [RNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_rnet.json) [ONet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_onet.json) [LNet](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_lnet.json)
  - [SSD](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/ssd/ssd.json) 
  - [Tiny-YOLO](https://verisilicon.github.io/acuity-models/viewer/render.html#../models/tiny_yolo/tiny_yolo.json)
