@@ -32,7 +32,7 @@ var render_net = function(net) {
 //console.log(net);
 
 var g = new dagreD3.graphlib.Graph()
-			.setGraph({rankdir: 'tb',ranksep:30,nodesep:10,edgesep:20,marginx:0,marginy:0});
+			.setGraph({rankdir: 'tb',ranksep:30,nodesep:10,edgesep:20,marginx:10,marginy:10});
 //var progress = d3.select('#parse-progress-bar');
 //progress.attr('aria-valuenow', '0')
 //progress.attr('style', 'width: 0%')
@@ -158,11 +158,25 @@ inner.selectAll("g.node")
     //        "scale(" + d3.event.transform.k + ")");
 //});
 //svg.call(zoom);
-var initialScale = 1;
+// var initialScale = 1;
 
-svg.attr('width', g.graph().width * initialScale + 100);
-svg.attr('height', g.graph().height * initialScale + 150);
-inner.attr("transform", "translate(15,20)" + "scale(" + initialScale + ")");
+// svg.attr('width', g.graph().width * initialScale + 100);
+// svg.attr('height', g.graph().height * initialScale + 150);
+// inner.attr("transform", "translate(15,20)" + "scale(" + initialScale + ")");
+
+var  bbox = svg.node().getBBox();
+svg.attr("viewBox", bbox.x + " " + bbox.y + " " +  bbox.width + " " + bbox.height);
+
+// debug code to view bbox of svg canvas
+//var rect = svg.append("rect")
+// .attr("x", bbox.x)
+// .attr("y", bbox.y)
+// .attr("width", bbox.width)
+// .attr("height", bbox.height)
+// .style("fill", "#ccc")
+// .style("fill-opacity", ".3")
+// .style("stroke", "#666")
+// .style("stroke-width", "1.5px");
 
 //progress.attr('aria-valuenow', '100')
 //progress.attr('style', 'width: 100%')
