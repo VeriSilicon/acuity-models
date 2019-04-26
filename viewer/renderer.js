@@ -165,10 +165,15 @@ inner.selectAll("g.node")
 // inner.attr("transform", "translate(15,20)" + "scale(" + initialScale + ")");
 
 var  bbox = svg.node().getBBox();
+
+svg.attr("x", bbox.x);
+svg.attr("y", bbox.y);
+svg.attr("width", bbox.width);
+svg.attr("height", bbox.height);
 svg.attr("viewBox", bbox.x + " " + bbox.y + " " +  bbox.width + " " + bbox.height);
 
 // debug code to view bbox of svg canvas
-//var rect = svg.append("rect")
+// var rect = svg.append("rect")
 // .attr("x", bbox.x)
 // .attr("y", bbox.y)
 // .attr("width", bbox.width)
