@@ -50,7 +50,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 
 ### Recurrent Net
  - [LSTM - Command Recognition][]
- - [LSTM - Speech Recognition][] ([OriginModel][OriginLSTM - Speech Recognition])
+ - [LSTM - Speech Recognition][]
 
 ## About Acuity
 
