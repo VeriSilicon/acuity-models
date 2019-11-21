@@ -54,7 +54,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 
 ## About Acuity
 
-Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks for deployment on [Vivante Vision IP](http://www.verisilicon.com/IPPortfolio_2_122_1_VisionIP.html) powered hardware platforms. Going from a pre-trained model to hardware inferencing can be as simple as 3 automated steps.
+Acuity is a python based neural-network framework built on top of Tensorflow, it provides a set of easy to use high level layer API as well as infrastructure for optimizing neural networks for deployment on [Vivante Neural Network Processor IP](http://www.verisilicon.com/en/IPPortfolio/VivanteNPUIP) powered hardware platforms. Going from a pre-trained model to hardware inferencing can be as simple as 3 automated steps.
 
 ![Acuity Workflow](/docs/acuity_123.png)
 
@@ -62,7 +62,7 @@ Acuity is a python based neural-network framework built on top of Tensorflow, it
  - Importing from popular frameworks such as Caffe and Tensorflow 
 
  
-   > AcuityNet natively supports Caffe, Tensorflow, TFLite, DarkNet and ONNX imports, it can also be expanded to support other NN frameworks.  
+   > AcuityNet natively supports Caffe, Tensorflow, PyTorch, ONNX, TFLite, DarkNet, and Keras imports, it can also be expanded to support other NN frameworks.  
 
 
  - Fixed Point Quantization  
