@@ -13,6 +13,8 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [Inception-v4][] ([OriginModel][OriginInception-v4])
  - [Mobilenet-v1][] ([OriginModel][OriginMobilenet-v1])
  - [Mobilenet-v2][] ([OriginModel][OriginMobilenet-v2])
+ - [EfficientNet][] ([OriginModel][OriginEfficientNet])
+ - [EfficientNet (EdgeTPU)][] ([OriginModel][OriginEfficientNet-EdgeTPU])
  - [Nasnet-Large][] ([OriginModel][OriginNasnet-Large])
  - [Nasnet-Mobile][] ([OriginModel][OriginNasnet-Mobile])
  - [Resnet-50][] ([OriginModel][OriginResnet-50])
@@ -111,6 +113,8 @@ Acuity is a python based neural-network framework built on top of Tensorflow, it
 [Inception-v4]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/inception_v4/inception_v4.json
 [Mobilenet-v1]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_v1/mobilenet_v1.json
 [Mobilenet-v2]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_v2/mobilenet_v2.json
+[EfficientNet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/efficientnet_b0/efficientnet_b0.json
+[EfficientNet (EdgeTPU)]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/efficientnet_edgetpu/efficientnet_edgetpu.json
 [Nasnet-Large]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/nasnet_large/nasnet_large.json
 [Nasnet-Mobile]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/nasnet_mobile/nasnet_mobile.json
 [Resnet-50]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/resnet50/resnet50.json
@@ -150,6 +154,8 @@ Acuity is a python based neural-network framework built on top of Tensorflow, it
 [OriginInception-v4]: http://download.tensorflow.org/models/inception_v4_2016_09_09.tar.gz
 [OriginMobilenet-v1]: http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224.tgz
 [OriginMobilenet-v2]: https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.0_224.tgz
+[OriginEfficientNet]: https://storage.googleapis.com/cloud-tpu-checkpoints/efficientnet/ckpts/efficientnet-b0.tar.gz
+[OriginEfficientNet-EdgeTPU]: https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet/edgetpu
 [OriginNasnet-Large]: https://storage.googleapis.com/download.tensorflow.org/models/nasnet-a_large_04_10_2017.tar.gz
 [OriginNasnet-Mobile]: https://storage.googleapis.com/download.tensorflow.org/models/nasnet-a_mobile_04_10_2017.tar.gz
 [OriginResnet-50]: http://download.tensorflow.org/models/resnet_v1_50_2016_08_28.tar.gz

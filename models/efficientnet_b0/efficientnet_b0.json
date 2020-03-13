@@ -1,0 +1,5338 @@
+{
+    "MetaData": {
+        "Name": "efnB0",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow",
+        "Org_Platform": "tensorflow"
+    },
+    "Layers": {
+        "attach_probs/Softmax/out0_0": {
+            "name": "attach_probs/Softmax/out0",
+            "op": "output",
+            "inputs": [
+                "@probs/Softmax_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_input_1/out0_1": {
+            "name": "attach_input_1/out0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    0,
+                    224,
+                    224,
+                    3
+                ]
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "probs/Softmax_2": {
+            "name": "probs/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1
+            },
+            "inputs": [
+                "@probs/BiasAdd_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "probs/BiasAdd_3": {
+            "name": "probs/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 1000,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@reshape_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "avg_pool/Mean_4": {
+            "name": "avg_pool/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@top_activation/mul_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_5": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@avg_pool/Mean_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "top_activation/mul_6": {
+            "name": "top_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@top_conv/convolution_9:out0",
+                "@top_activation/Sigmoid_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "top_activation/Sigmoid_7": {
+            "name": "top_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@top_conv/convolution_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "top_conv/convolution_9": {
+            "name": "top_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1280,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block7a_project_conv/convolution_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_project_conv/convolution_11": {
+            "name": "block7a_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 320,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block7a_se_excite/mul_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_se_excite/mul_12": {
+            "name": "block7a_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block7a_activation/mul_14:out0",
+                "@block7a_se_expand/Sigmoid_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_se_expand/Sigmoid_13": {
+            "name": "block7a_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block7a_se_expand/BiasAdd_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_activation/mul_14": {
+            "name": "block7a_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block7a_dwconv/depthwise_19:out0",
+                "@block7a_activation/Sigmoid_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_se_expand/BiasAdd_15": {
+            "name": "block7a_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block7a_se_reduce/mul_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_activation/Sigmoid_16": {
+            "name": "block7a_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block7a_dwconv/depthwise_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_se_reduce/mul_18": {
+            "name": "block7a_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block7a_se_reduce/BiasAdd_21:out0",
+                "@block7a_se_reduce/Sigmoid_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_dwconv/depthwise_19": {
+            "name": "block7a_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1152,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@block7a_expand_activation/mul_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_se_reduce/Sigmoid_20": {
+            "name": "block7a_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block7a_se_reduce/BiasAdd_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_se_reduce/BiasAdd_21": {
+            "name": "block7a_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block7a_se_reshape/Reshape_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_expand_activation/mul_22": {
+            "name": "block7a_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block7a_expand_conv/convolution_28:out0",
+                "@block7a_expand_activation/Sigmoid_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_se_reshape/Reshape_23": {
+            "name": "block7a_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    1152
+                ]
+            },
+            "inputs": [
+                "@reshape_27:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_expand_activation/Sigmoid_24": {
+            "name": "block7a_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block7a_expand_conv/convolution_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_se_squeeze/Mean_26": {
+            "name": "block7a_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block7a_activation/mul_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_27": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block7a_se_squeeze/Mean_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block7a_expand_conv/convolution_28": {
+            "name": "block7a_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6d_add/add_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_add/add_29": {
+            "name": "block6d_add/add",
+            "op": "add",
+            "inputs": [
+                "@block6d_project_conv/convolution_34:out0",
+                "@block6c_add/add_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_add/add_30": {
+            "name": "block6c_add/add",
+            "op": "add",
+            "inputs": [
+                "@block6c_project_conv/convolution_37:out0",
+                "@block6b_add/add_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_add/add_32": {
+            "name": "block6b_add/add",
+            "op": "add",
+            "inputs": [
+                "@block6b_project_conv/convolution_40:out0",
+                "@block6a_project_conv/convolution_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_project_conv/convolution_34": {
+            "name": "block6d_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6d_se_excite/mul_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_project_conv/convolution_37": {
+            "name": "block6c_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6c_se_excite/mul_41:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_se_excite/mul_38": {
+            "name": "block6d_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6d_activation/mul_43:out0",
+                "@block6d_se_expand/Sigmoid_42:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_project_conv/convolution_39": {
+            "name": "block6a_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6a_se_excite/mul_44:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_project_conv/convolution_40": {
+            "name": "block6b_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6b_se_excite/mul_45:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_se_excite/mul_41": {
+            "name": "block6c_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6c_activation/mul_47:out0",
+                "@block6c_se_expand/Sigmoid_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_se_expand/Sigmoid_42": {
+            "name": "block6d_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6d_se_expand/BiasAdd_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_activation/mul_43": {
+            "name": "block6d_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6d_dwconv/depthwise_59:out0",
+                "@block6d_activation/Sigmoid_49:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_se_excite/mul_44": {
+            "name": "block6a_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6a_activation/mul_52:out0",
+                "@block6a_se_expand/Sigmoid_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_se_excite/mul_45": {
+            "name": "block6b_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6b_activation/mul_54:out0",
+                "@block6b_se_expand/Sigmoid_53:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_se_expand/Sigmoid_46": {
+            "name": "block6c_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6c_se_expand/BiasAdd_55:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_activation/mul_47": {
+            "name": "block6c_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6c_dwconv/depthwise_67:out0",
+                "@block6c_activation/Sigmoid_56:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_se_expand/BiasAdd_48": {
+            "name": "block6d_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6d_se_reduce/mul_58:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_activation/Sigmoid_49": {
+            "name": "block6d_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6d_dwconv/depthwise_59:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_se_expand/Sigmoid_51": {
+            "name": "block6a_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6a_se_expand/BiasAdd_60:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_activation/mul_52": {
+            "name": "block6a_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6a_dwconv/depthwise_72:out0",
+                "@block6a_activation/Sigmoid_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_se_expand/Sigmoid_53": {
+            "name": "block6b_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6b_se_expand/BiasAdd_63:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_activation/mul_54": {
+            "name": "block6b_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6b_dwconv/depthwise_74:out0",
+                "@block6b_activation/Sigmoid_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_se_expand/BiasAdd_55": {
+            "name": "block6c_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6c_se_reduce/mul_66:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_activation/Sigmoid_56": {
+            "name": "block6c_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6c_dwconv/depthwise_67:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_se_reduce/mul_58": {
+            "name": "block6d_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6d_se_reduce/BiasAdd_69:out0",
+                "@block6d_se_reduce/Sigmoid_68:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_dwconv/depthwise_59": {
+            "name": "block6d_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1152,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block6d_expand_activation/mul_70:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_se_expand/BiasAdd_60": {
+            "name": "block6a_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6a_se_reduce/mul_71:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_activation/Sigmoid_61": {
+            "name": "block6a_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6a_dwconv/depthwise_72:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_se_expand/BiasAdd_63": {
+            "name": "block6b_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6b_se_reduce/mul_73:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_activation/Sigmoid_64": {
+            "name": "block6b_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6b_dwconv/depthwise_74:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_se_reduce/mul_66": {
+            "name": "block6c_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6c_se_reduce/BiasAdd_76:out0",
+                "@block6c_se_reduce/Sigmoid_75:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_dwconv/depthwise_67": {
+            "name": "block6c_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1152,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block6c_expand_activation/mul_77:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_se_reduce/Sigmoid_68": {
+            "name": "block6d_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6d_se_reduce/BiasAdd_69:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_se_reduce/BiasAdd_69": {
+            "name": "block6d_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6d_se_reshape/Reshape_78:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_expand_activation/mul_70": {
+            "name": "block6d_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6d_expand_conv/convolution_92:out0",
+                "@block6d_expand_activation/Sigmoid_79:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_se_reduce/mul_71": {
+            "name": "block6a_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6a_se_reduce/BiasAdd_82:out0",
+                "@block6a_se_reduce/Sigmoid_81:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_dwconv/depthwise_72": {
+            "name": "block6a_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 672,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    2,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block6a_expand_activation/mul_83:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_se_reduce/mul_73": {
+            "name": "block6b_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6b_se_reduce/BiasAdd_85:out0",
+                "@block6b_se_reduce/Sigmoid_84:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_dwconv/depthwise_74": {
+            "name": "block6b_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1152,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block6b_expand_activation/mul_86:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_se_reduce/Sigmoid_75": {
+            "name": "block6c_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6c_se_reduce/BiasAdd_76:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_se_reduce/BiasAdd_76": {
+            "name": "block6c_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6c_se_reshape/Reshape_87:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_expand_activation/mul_77": {
+            "name": "block6c_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6c_expand_conv/convolution_101:out0",
+                "@block6c_expand_activation/Sigmoid_88:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_se_reshape/Reshape_78": {
+            "name": "block6d_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    1152
+                ]
+            },
+            "inputs": [
+                "@reshape_91:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_expand_activation/Sigmoid_79": {
+            "name": "block6d_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6d_expand_conv/convolution_92:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_se_reduce/Sigmoid_81": {
+            "name": "block6a_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6a_se_reduce/BiasAdd_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_se_reduce/BiasAdd_82": {
+            "name": "block6a_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 28,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6a_se_reshape/Reshape_93:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_expand_activation/mul_83": {
+            "name": "block6a_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6a_expand_conv/convolution_104:out0",
+                "@block6a_expand_activation/Sigmoid_94:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_se_reduce/Sigmoid_84": {
+            "name": "block6b_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6b_se_reduce/BiasAdd_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_se_reduce/BiasAdd_85": {
+            "name": "block6b_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6b_se_reshape/Reshape_96:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_expand_activation/mul_86": {
+            "name": "block6b_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block6b_expand_conv/convolution_107:out0",
+                "@block6b_expand_activation/Sigmoid_97:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_se_reshape/Reshape_87": {
+            "name": "block6c_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    1152
+                ]
+            },
+            "inputs": [
+                "@reshape_100:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_expand_activation/Sigmoid_88": {
+            "name": "block6c_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6c_expand_conv/convolution_101:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_se_squeeze/Mean_90": {
+            "name": "block6d_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6d_activation/mul_43:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_91": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block6d_se_squeeze/Mean_90:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6d_expand_conv/convolution_92": {
+            "name": "block6d_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6c_add/add_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_se_reshape/Reshape_93": {
+            "name": "block6a_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    672
+                ]
+            },
+            "inputs": [
+                "@reshape_103:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_expand_activation/Sigmoid_94": {
+            "name": "block6a_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6a_expand_conv/convolution_104:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_se_reshape/Reshape_96": {
+            "name": "block6b_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    1152
+                ]
+            },
+            "inputs": [
+                "@reshape_106:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_expand_activation/Sigmoid_97": {
+            "name": "block6b_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block6b_expand_conv/convolution_107:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_se_squeeze/Mean_99": {
+            "name": "block6c_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6c_activation/mul_47:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_100": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block6c_se_squeeze/Mean_99:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6c_expand_conv/convolution_101": {
+            "name": "block6c_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6b_add/add_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_se_squeeze/Mean_102": {
+            "name": "block6a_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6a_activation/mul_52:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_103": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block6a_se_squeeze/Mean_102:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6a_expand_conv/convolution_104": {
+            "name": "block6a_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5c_add/add_108:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_se_squeeze/Mean_105": {
+            "name": "block6b_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6b_activation/mul_54:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_106": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block6b_se_squeeze/Mean_105:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block6b_expand_conv/convolution_107": {
+            "name": "block6b_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block6a_project_conv/convolution_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_add/add_108": {
+            "name": "block5c_add/add",
+            "op": "add",
+            "inputs": [
+                "@block5c_project_conv/convolution_113:out0",
+                "@block5b_add/add_109:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_add/add_109": {
+            "name": "block5b_add/add",
+            "op": "add",
+            "inputs": [
+                "@block5b_project_conv/convolution_115:out0",
+                "@block5a_project_conv/convolution_114:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_project_conv/convolution_113": {
+            "name": "block5c_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 112,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5c_se_excite/mul_116:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_project_conv/convolution_114": {
+            "name": "block5a_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 112,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5a_se_excite/mul_117:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_project_conv/convolution_115": {
+            "name": "block5b_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 112,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5b_se_excite/mul_118:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_se_excite/mul_116": {
+            "name": "block5c_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5c_activation/mul_120:out0",
+                "@block5c_se_expand/Sigmoid_119:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_se_excite/mul_117": {
+            "name": "block5a_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5a_activation/mul_122:out0",
+                "@block5a_se_expand/Sigmoid_121:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_se_excite/mul_118": {
+            "name": "block5b_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5b_activation/mul_124:out0",
+                "@block5b_se_expand/Sigmoid_123:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_se_expand/Sigmoid_119": {
+            "name": "block5c_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5c_se_expand/BiasAdd_125:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_activation/mul_120": {
+            "name": "block5c_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5c_dwconv/depthwise_135:out0",
+                "@block5c_activation/Sigmoid_126:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_se_expand/Sigmoid_121": {
+            "name": "block5a_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5a_se_expand/BiasAdd_128:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_activation/mul_122": {
+            "name": "block5a_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5a_dwconv/depthwise_137:out0",
+                "@block5a_activation/Sigmoid_129:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_se_expand/Sigmoid_123": {
+            "name": "block5b_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5b_se_expand/BiasAdd_131:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_activation/mul_124": {
+            "name": "block5b_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5b_dwconv/depthwise_139:out0",
+                "@block5b_activation/Sigmoid_132:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_se_expand/BiasAdd_125": {
+            "name": "block5c_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5c_se_reduce/mul_134:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_activation/Sigmoid_126": {
+            "name": "block5c_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5c_dwconv/depthwise_135:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_se_expand/BiasAdd_128": {
+            "name": "block5a_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5a_se_reduce/mul_136:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_activation/Sigmoid_129": {
+            "name": "block5a_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5a_dwconv/depthwise_137:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_se_expand/BiasAdd_131": {
+            "name": "block5b_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5b_se_reduce/mul_138:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_activation/Sigmoid_132": {
+            "name": "block5b_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5b_dwconv/depthwise_139:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_se_reduce/mul_134": {
+            "name": "block5c_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5c_se_reduce/BiasAdd_141:out0",
+                "@block5c_se_reduce/Sigmoid_140:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_dwconv/depthwise_135": {
+            "name": "block5c_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 672,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block5c_expand_activation/mul_142:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_se_reduce/mul_136": {
+            "name": "block5a_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5a_se_reduce/BiasAdd_144:out0",
+                "@block5a_se_reduce/Sigmoid_143:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_dwconv/depthwise_137": {
+            "name": "block5a_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 480,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block5a_expand_activation/mul_145:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_se_reduce/mul_138": {
+            "name": "block5b_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5b_se_reduce/BiasAdd_147:out0",
+                "@block5b_se_reduce/Sigmoid_146:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_dwconv/depthwise_139": {
+            "name": "block5b_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 672,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block5b_expand_activation/mul_148:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_se_reduce/Sigmoid_140": {
+            "name": "block5c_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5c_se_reduce/BiasAdd_141:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_se_reduce/BiasAdd_141": {
+            "name": "block5c_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 28,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5c_se_reshape/Reshape_149:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_expand_activation/mul_142": {
+            "name": "block5c_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5c_expand_conv/convolution_160:out0",
+                "@block5c_expand_activation/Sigmoid_150:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_se_reduce/Sigmoid_143": {
+            "name": "block5a_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5a_se_reduce/BiasAdd_144:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_se_reduce/BiasAdd_144": {
+            "name": "block5a_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 20,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5a_se_reshape/Reshape_152:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_expand_activation/mul_145": {
+            "name": "block5a_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5a_expand_conv/convolution_163:out0",
+                "@block5a_expand_activation/Sigmoid_153:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_se_reduce/Sigmoid_146": {
+            "name": "block5b_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5b_se_reduce/BiasAdd_147:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_se_reduce/BiasAdd_147": {
+            "name": "block5b_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 28,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5b_se_reshape/Reshape_155:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_expand_activation/mul_148": {
+            "name": "block5b_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block5b_expand_conv/convolution_166:out0",
+                "@block5b_expand_activation/Sigmoid_156:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_se_reshape/Reshape_149": {
+            "name": "block5c_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    672
+                ]
+            },
+            "inputs": [
+                "@reshape_159:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_expand_activation/Sigmoid_150": {
+            "name": "block5c_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5c_expand_conv/convolution_160:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_se_reshape/Reshape_152": {
+            "name": "block5a_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    480
+                ]
+            },
+            "inputs": [
+                "@reshape_162:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_expand_activation/Sigmoid_153": {
+            "name": "block5a_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5a_expand_conv/convolution_163:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_se_reshape/Reshape_155": {
+            "name": "block5b_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    672
+                ]
+            },
+            "inputs": [
+                "@reshape_165:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_expand_activation/Sigmoid_156": {
+            "name": "block5b_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block5b_expand_conv/convolution_166:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_se_squeeze/Mean_158": {
+            "name": "block5c_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 14,
+                "ksize_w": 14,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5c_activation/mul_120:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_159": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block5c_se_squeeze/Mean_158:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5c_expand_conv/convolution_160": {
+            "name": "block5c_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5b_add/add_109:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_se_squeeze/Mean_161": {
+            "name": "block5a_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 14,
+                "ksize_w": 14,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5a_activation/mul_122:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_162": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block5a_se_squeeze/Mean_161:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5a_expand_conv/convolution_163": {
+            "name": "block5a_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4c_add/add_167:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_se_squeeze/Mean_164": {
+            "name": "block5b_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 14,
+                "ksize_w": 14,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5b_activation/mul_124:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_165": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block5b_se_squeeze/Mean_164:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block5b_expand_conv/convolution_166": {
+            "name": "block5b_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 672,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block5a_project_conv/convolution_114:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_add/add_167": {
+            "name": "block4c_add/add",
+            "op": "add",
+            "inputs": [
+                "@block4c_project_conv/convolution_172:out0",
+                "@block4b_add/add_168:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_add/add_168": {
+            "name": "block4b_add/add",
+            "op": "add",
+            "inputs": [
+                "@block4b_project_conv/convolution_174:out0",
+                "@block4a_project_conv/convolution_173:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_project_conv/convolution_172": {
+            "name": "block4c_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 80,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4c_se_excite/mul_175:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_project_conv/convolution_173": {
+            "name": "block4a_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 80,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4a_se_excite/mul_176:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_project_conv/convolution_174": {
+            "name": "block4b_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 80,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4b_se_excite/mul_177:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_se_excite/mul_175": {
+            "name": "block4c_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4c_activation/mul_179:out0",
+                "@block4c_se_expand/Sigmoid_178:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_se_excite/mul_176": {
+            "name": "block4a_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4a_activation/mul_181:out0",
+                "@block4a_se_expand/Sigmoid_180:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_se_excite/mul_177": {
+            "name": "block4b_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4b_activation/mul_183:out0",
+                "@block4b_se_expand/Sigmoid_182:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_se_expand/Sigmoid_178": {
+            "name": "block4c_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4c_se_expand/BiasAdd_184:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_activation/mul_179": {
+            "name": "block4c_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4c_dwconv/depthwise_194:out0",
+                "@block4c_activation/Sigmoid_185:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_se_expand/Sigmoid_180": {
+            "name": "block4a_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4a_se_expand/BiasAdd_187:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_activation/mul_181": {
+            "name": "block4a_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4a_dwconv/depthwise_196:out0",
+                "@block4a_activation/Sigmoid_188:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_se_expand/Sigmoid_182": {
+            "name": "block4b_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4b_se_expand/BiasAdd_190:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_activation/mul_183": {
+            "name": "block4b_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4b_dwconv/depthwise_198:out0",
+                "@block4b_activation/Sigmoid_191:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_se_expand/BiasAdd_184": {
+            "name": "block4c_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4c_se_reduce/mul_193:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_activation/Sigmoid_185": {
+            "name": "block4c_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4c_dwconv/depthwise_194:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_se_expand/BiasAdd_187": {
+            "name": "block4a_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 240,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4a_se_reduce/mul_195:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_activation/Sigmoid_188": {
+            "name": "block4a_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4a_dwconv/depthwise_196:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_se_expand/BiasAdd_190": {
+            "name": "block4b_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4b_se_reduce/mul_197:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_activation/Sigmoid_191": {
+            "name": "block4b_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4b_dwconv/depthwise_198:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_se_reduce/mul_193": {
+            "name": "block4c_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4c_se_reduce/BiasAdd_200:out0",
+                "@block4c_se_reduce/Sigmoid_199:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_dwconv/depthwise_194": {
+            "name": "block4c_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 480,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@block4c_expand_activation/mul_201:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_se_reduce/mul_195": {
+            "name": "block4a_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4a_se_reduce/BiasAdd_203:out0",
+                "@block4a_se_reduce/Sigmoid_202:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_dwconv/depthwise_196": {
+            "name": "block4a_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 240,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 240,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            "inputs": [
+                "@block4a_expand_activation/mul_204:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_se_reduce/mul_197": {
+            "name": "block4b_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4b_se_reduce/BiasAdd_206:out0",
+                "@block4b_se_reduce/Sigmoid_205:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_dwconv/depthwise_198": {
+            "name": "block4b_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 480,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@block4b_expand_activation/mul_207:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_se_reduce/Sigmoid_199": {
+            "name": "block4c_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4c_se_reduce/BiasAdd_200:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_se_reduce/BiasAdd_200": {
+            "name": "block4c_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 20,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4c_se_reshape/Reshape_208:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_expand_activation/mul_201": {
+            "name": "block4c_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4c_expand_conv/convolution_219:out0",
+                "@block4c_expand_activation/Sigmoid_209:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_se_reduce/Sigmoid_202": {
+            "name": "block4a_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4a_se_reduce/BiasAdd_203:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_se_reduce/BiasAdd_203": {
+            "name": "block4a_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 10,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4a_se_reshape/Reshape_211:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_expand_activation/mul_204": {
+            "name": "block4a_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4a_expand_conv/convolution_222:out0",
+                "@block4a_expand_activation/Sigmoid_212:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_se_reduce/Sigmoid_205": {
+            "name": "block4b_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4b_se_reduce/BiasAdd_206:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_se_reduce/BiasAdd_206": {
+            "name": "block4b_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 20,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4b_se_reshape/Reshape_214:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_expand_activation/mul_207": {
+            "name": "block4b_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block4b_expand_conv/convolution_225:out0",
+                "@block4b_expand_activation/Sigmoid_215:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_se_reshape/Reshape_208": {
+            "name": "block4c_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    480
+                ]
+            },
+            "inputs": [
+                "@reshape_218:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_expand_activation/Sigmoid_209": {
+            "name": "block4c_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4c_expand_conv/convolution_219:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_se_reshape/Reshape_211": {
+            "name": "block4a_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    240
+                ]
+            },
+            "inputs": [
+                "@reshape_221:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_expand_activation/Sigmoid_212": {
+            "name": "block4a_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4a_expand_conv/convolution_222:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_se_reshape/Reshape_214": {
+            "name": "block4b_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    480
+                ]
+            },
+            "inputs": [
+                "@reshape_224:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_expand_activation/Sigmoid_215": {
+            "name": "block4b_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block4b_expand_conv/convolution_225:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_se_squeeze/Mean_217": {
+            "name": "block4c_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 14,
+                "ksize_w": 14,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4c_activation/mul_179:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_218": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block4c_se_squeeze/Mean_217:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4c_expand_conv/convolution_219": {
+            "name": "block4c_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4b_add/add_168:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_se_squeeze/Mean_220": {
+            "name": "block4a_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 14,
+                "ksize_w": 14,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4a_activation/mul_181:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_221": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block4a_se_squeeze/Mean_220:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4a_expand_conv/convolution_222": {
+            "name": "block4a_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 240,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3b_add/add_226:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_se_squeeze/Mean_223": {
+            "name": "block4b_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 14,
+                "ksize_w": 14,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4b_activation/mul_183:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_224": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block4b_se_squeeze/Mean_223:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block4b_expand_conv/convolution_225": {
+            "name": "block4b_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 480,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block4a_project_conv/convolution_173:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_add/add_226": {
+            "name": "block3b_add/add",
+            "op": "add",
+            "inputs": [
+                "@block3b_project_conv/convolution_230:out0",
+                "@block3a_project_conv/convolution_229:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_project_conv/convolution_229": {
+            "name": "block3a_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 40,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3a_se_excite/mul_231:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_project_conv/convolution_230": {
+            "name": "block3b_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 40,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3b_se_excite/mul_232:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_se_excite/mul_231": {
+            "name": "block3a_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block3a_activation/mul_234:out0",
+                "@block3a_se_expand/Sigmoid_233:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_se_excite/mul_232": {
+            "name": "block3b_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block3b_activation/mul_236:out0",
+                "@block3b_se_expand/Sigmoid_235:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_se_expand/Sigmoid_233": {
+            "name": "block3a_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block3a_se_expand/BiasAdd_237:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_activation/mul_234": {
+            "name": "block3a_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block3a_dwconv/depthwise_244:out0",
+                "@block3a_activation/Sigmoid_238:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_se_expand/Sigmoid_235": {
+            "name": "block3b_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block3b_se_expand/BiasAdd_240:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_activation/mul_236": {
+            "name": "block3b_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block3b_dwconv/depthwise_246:out0",
+                "@block3b_activation/Sigmoid_241:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_se_expand/BiasAdd_237": {
+            "name": "block3a_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3a_se_reduce/mul_243:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_activation/Sigmoid_238": {
+            "name": "block3a_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block3a_dwconv/depthwise_244:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_se_expand/BiasAdd_240": {
+            "name": "block3b_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 240,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3b_se_reduce/mul_245:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_activation/Sigmoid_241": {
+            "name": "block3b_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block3b_dwconv/depthwise_246:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_se_reduce/mul_243": {
+            "name": "block3a_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block3a_se_reduce/BiasAdd_248:out0",
+                "@block3a_se_reduce/Sigmoid_247:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_dwconv/depthwise_244": {
+            "name": "block3a_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 144,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    2,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block3a_expand_activation/mul_249:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_se_reduce/mul_245": {
+            "name": "block3b_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block3b_se_reduce/BiasAdd_251:out0",
+                "@block3b_se_reduce/Sigmoid_250:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_dwconv/depthwise_246": {
+            "name": "block3b_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 240,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 240,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@block3b_expand_activation/mul_252:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_se_reduce/Sigmoid_247": {
+            "name": "block3a_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block3a_se_reduce/BiasAdd_248:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_se_reduce/BiasAdd_248": {
+            "name": "block3a_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 6,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3a_se_reshape/Reshape_253:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_expand_activation/mul_249": {
+            "name": "block3a_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block3a_expand_conv/convolution_261:out0",
+                "@block3a_expand_activation/Sigmoid_254:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_se_reduce/Sigmoid_250": {
+            "name": "block3b_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block3b_se_reduce/BiasAdd_251:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_se_reduce/BiasAdd_251": {
+            "name": "block3b_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 10,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3b_se_reshape/Reshape_256:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_expand_activation/mul_252": {
+            "name": "block3b_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block3b_expand_conv/convolution_264:out0",
+                "@block3b_expand_activation/Sigmoid_257:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_se_reshape/Reshape_253": {
+            "name": "block3a_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    144
+                ]
+            },
+            "inputs": [
+                "@reshape_260:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_expand_activation/Sigmoid_254": {
+            "name": "block3a_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block3a_expand_conv/convolution_261:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_se_reshape/Reshape_256": {
+            "name": "block3b_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    240
+                ]
+            },
+            "inputs": [
+                "@reshape_263:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_expand_activation/Sigmoid_257": {
+            "name": "block3b_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block3b_expand_conv/convolution_264:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_se_squeeze/Mean_259": {
+            "name": "block3a_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 28,
+                "ksize_w": 28,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3a_activation/mul_234:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_260": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block3a_se_squeeze/Mean_259:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3a_expand_conv/convolution_261": {
+            "name": "block3a_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2b_add/add_265:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_se_squeeze/Mean_262": {
+            "name": "block3b_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 28,
+                "ksize_w": 28,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3b_activation/mul_236:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_263": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block3b_se_squeeze/Mean_262:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block3b_expand_conv/convolution_264": {
+            "name": "block3b_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 240,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block3a_project_conv/convolution_229:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_add/add_265": {
+            "name": "block2b_add/add",
+            "op": "add",
+            "inputs": [
+                "@block2b_project_conv/convolution_269:out0",
+                "@block2a_project_conv/convolution_268:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_project_conv/convolution_268": {
+            "name": "block2a_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 24,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2a_se_excite/mul_270:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_project_conv/convolution_269": {
+            "name": "block2b_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 24,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2b_se_excite/mul_271:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_se_excite/mul_270": {
+            "name": "block2a_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block2a_activation/mul_273:out0",
+                "@block2a_se_expand/Sigmoid_272:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_se_excite/mul_271": {
+            "name": "block2b_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block2b_activation/mul_275:out0",
+                "@block2b_se_expand/Sigmoid_274:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_se_expand/Sigmoid_272": {
+            "name": "block2a_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block2a_se_expand/BiasAdd_276:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_activation/mul_273": {
+            "name": "block2a_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block2a_dwconv/depthwise_283:out0",
+                "@block2a_activation/Sigmoid_277:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_se_expand/Sigmoid_274": {
+            "name": "block2b_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block2b_se_expand/BiasAdd_279:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_activation/mul_275": {
+            "name": "block2b_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block2b_dwconv/depthwise_285:out0",
+                "@block2b_activation/Sigmoid_280:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_se_expand/BiasAdd_276": {
+            "name": "block2a_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2a_se_reduce/mul_282:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_activation/Sigmoid_277": {
+            "name": "block2a_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block2a_dwconv/depthwise_283:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_se_expand/BiasAdd_279": {
+            "name": "block2b_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2b_se_reduce/mul_284:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_activation/Sigmoid_280": {
+            "name": "block2b_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block2b_dwconv/depthwise_285:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_se_reduce/mul_282": {
+            "name": "block2a_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block2a_se_reduce/BiasAdd_287:out0",
+                "@block2a_se_reduce/Sigmoid_286:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_dwconv/depthwise_283": {
+            "name": "block2a_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 96,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            "inputs": [
+                "@block2a_expand_activation/mul_288:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_se_reduce/mul_284": {
+            "name": "block2b_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block2b_se_reduce/BiasAdd_290:out0",
+                "@block2b_se_reduce/Sigmoid_289:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_dwconv/depthwise_285": {
+            "name": "block2b_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 144,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@block2b_expand_activation/mul_291:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_se_reduce/Sigmoid_286": {
+            "name": "block2a_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block2a_se_reduce/BiasAdd_287:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_se_reduce/BiasAdd_287": {
+            "name": "block2a_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 4,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2a_se_reshape/Reshape_292:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_expand_activation/mul_288": {
+            "name": "block2a_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block2a_expand_conv/convolution_300:out0",
+                "@block2a_expand_activation/Sigmoid_293:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_se_reduce/Sigmoid_289": {
+            "name": "block2b_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block2b_se_reduce/BiasAdd_290:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_se_reduce/BiasAdd_290": {
+            "name": "block2b_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 6,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2b_se_reshape/Reshape_295:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_expand_activation/mul_291": {
+            "name": "block2b_expand_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block2b_expand_conv/convolution_303:out0",
+                "@block2b_expand_activation/Sigmoid_296:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_se_reshape/Reshape_292": {
+            "name": "block2a_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    96
+                ]
+            },
+            "inputs": [
+                "@reshape_299:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_expand_activation/Sigmoid_293": {
+            "name": "block2a_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block2a_expand_conv/convolution_300:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_se_reshape/Reshape_295": {
+            "name": "block2b_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    144
+                ]
+            },
+            "inputs": [
+                "@reshape_302:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_expand_activation/Sigmoid_296": {
+            "name": "block2b_expand_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block2b_expand_conv/convolution_303:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_se_squeeze/Mean_298": {
+            "name": "block2a_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 56,
+                "ksize_w": 56,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2a_activation/mul_273:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_299": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block2a_se_squeeze/Mean_298:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2a_expand_conv/convolution_300": {
+            "name": "block2a_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block1a_project_conv/convolution_305:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_se_squeeze/Mean_301": {
+            "name": "block2b_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 56,
+                "ksize_w": 56,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2b_activation/mul_275:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_302": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block2b_se_squeeze/Mean_301:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block2b_expand_conv/convolution_303": {
+            "name": "block2b_expand_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block2a_project_conv/convolution_268:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_project_conv/convolution_305": {
+            "name": "block1a_project_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 16,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block1a_se_excite/mul_306:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_se_excite/mul_306": {
+            "name": "block1a_se_excite/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block1a_activation/mul_308:out0",
+                "@block1a_se_expand/Sigmoid_307:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_se_expand/Sigmoid_307": {
+            "name": "block1a_se_expand/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block1a_se_expand/BiasAdd_309:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_activation/mul_308": {
+            "name": "block1a_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block1a_dwconv/depthwise_313:out0",
+                "@block1a_activation/Sigmoid_310:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_se_expand/BiasAdd_309": {
+            "name": "block1a_se_expand/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block1a_se_reduce/mul_312:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_activation/Sigmoid_310": {
+            "name": "block1a_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block1a_dwconv/depthwise_313:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_se_reduce/mul_312": {
+            "name": "block1a_se_reduce/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@block1a_se_reduce/BiasAdd_315:out0",
+                "@block1a_se_reduce/Sigmoid_314:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_dwconv/depthwise_313": {
+            "name": "block1a_dwconv/depthwise",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 32,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@stem_activation/mul_316:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_se_reduce/Sigmoid_314": {
+            "name": "block1a_se_reduce/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@block1a_se_reduce/BiasAdd_315:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_se_reduce/BiasAdd_315": {
+            "name": "block1a_se_reduce/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 8,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block1a_se_reshape/Reshape_317:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "stem_activation/mul_316": {
+            "name": "stem_activation/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@stem_conv/convolution_322:out0",
+                "@stem_activation/Sigmoid_318:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_se_reshape/Reshape_317": {
+            "name": "block1a_se_reshape/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    1,
+                    32
+                ]
+            },
+            "inputs": [
+                "@reshape_321:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "stem_activation/Sigmoid_318": {
+            "name": "stem_activation/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@stem_conv/convolution_322:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "block1a_se_squeeze/Mean_320": {
+            "name": "block1a_se_squeeze/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 112,
+                "ksize_w": 112,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@block1a_activation/mul_308:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_321": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@block1a_se_squeeze/Mean_320:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "stem_conv/convolution_322": {
+            "name": "stem_conv/convolution",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            "inputs": [
+                "@attach_input_1/out0_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

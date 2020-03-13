@@ -1,0 +1,2076 @@
+{
+    "MetaData": {
+        "Name": "efficientnet_quant_a",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow",
+        "Org_Platform": "tensorflow"
+    },
+    "Layers": {
+        "input_0": {
+            "name": "input",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    224,
+                    224,
+                    3
+                ]
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "images_int8_1": {
+            "name": "images_int8",
+            "op": "quantize",
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/stem/Relu_2": {
+            "name": "efficientnet-edgetpu-S/model/stem/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            "inputs": [
+                "@images_int8_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/stem/Relu_3": {
+            "name": "efficientnet-edgetpu-S/model/stem/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/stem/Relu_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_0/Relu_4": {
+            "name": "efficientnet-edgetpu-S/model/blocks_0/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/stem/Relu_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_0/Relu_5": {
+            "name": "efficientnet-edgetpu-S/model/blocks_0/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_0/Relu_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_0/tpu_batch_normalization_1/batchnorm/add_1_6": {
+            "name": "efficientnet-edgetpu-S/model/blocks_0/tpu_batch_normalization_1/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 24,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_0/Relu_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_1/Relu_7": {
+            "name": "efficientnet-edgetpu-S/model/blocks_1/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_0/tpu_batch_normalization_1/batchnorm/add_1_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_1/Relu_8": {
+            "name": "efficientnet-edgetpu-S/model/blocks_1/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_1/Relu_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_1/tpu_batch_normalization_1/batchnorm/add_1_9": {
+            "name": "efficientnet-edgetpu-S/model/blocks_1/tpu_batch_normalization_1/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_1/Relu_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_2/Relu_10": {
+            "name": "efficientnet-edgetpu-S/model/blocks_2/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_1/tpu_batch_normalization_1/batchnorm/add_1_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_2/Relu_11": {
+            "name": "efficientnet-edgetpu-S/model/blocks_2/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_2/Relu_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_2/tpu_batch_normalization_1/batchnorm/add_1_12": {
+            "name": "efficientnet-edgetpu-S/model/blocks_2/tpu_batch_normalization_1/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_2/Relu_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_2/Add_13": {
+            "name": "efficientnet-edgetpu-S/model/blocks_2/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_2/tpu_batch_normalization_1/batchnorm/add_1_12:out0",
+                "@efficientnet-edgetpu-S/model/blocks_1/tpu_batch_normalization_1/batchnorm/add_1_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_3/Relu_14": {
+            "name": "efficientnet-edgetpu-S/model/blocks_3/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_2/Add_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_3/Relu_15": {
+            "name": "efficientnet-edgetpu-S/model/blocks_3/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_3/Relu_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_3/tpu_batch_normalization_1/batchnorm/add_1_16": {
+            "name": "efficientnet-edgetpu-S/model/blocks_3/tpu_batch_normalization_1/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_3/Relu_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_4/Relu_17": {
+            "name": "efficientnet-edgetpu-S/model/blocks_4/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 384,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_3/tpu_batch_normalization_1/batchnorm/add_1_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_4/Relu_18": {
+            "name": "efficientnet-edgetpu-S/model/blocks_4/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_4/Relu_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_4/tpu_batch_normalization_1/batchnorm/add_1_19": {
+            "name": "efficientnet-edgetpu-S/model/blocks_4/tpu_batch_normalization_1/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_4/Relu_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_4/Add_20": {
+            "name": "efficientnet-edgetpu-S/model/blocks_4/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_4/tpu_batch_normalization_1/batchnorm/add_1_19:out0",
+                "@efficientnet-edgetpu-S/model/blocks_3/tpu_batch_normalization_1/batchnorm/add_1_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_5/Relu_21": {
+            "name": "efficientnet-edgetpu-S/model/blocks_5/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 384,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_4/Add_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_5/Relu_22": {
+            "name": "efficientnet-edgetpu-S/model/blocks_5/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_5/Relu_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_5/tpu_batch_normalization_1/batchnorm/add_1_23": {
+            "name": "efficientnet-edgetpu-S/model/blocks_5/tpu_batch_normalization_1/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_5/Relu_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_5/Add_24": {
+            "name": "efficientnet-edgetpu-S/model/blocks_5/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_5/tpu_batch_normalization_1/batchnorm/add_1_23:out0",
+                "@efficientnet-edgetpu-S/model/blocks_4/Add_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_6/Relu_25": {
+            "name": "efficientnet-edgetpu-S/model/blocks_6/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 384,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_5/Add_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_6/Relu_26": {
+            "name": "efficientnet-edgetpu-S/model/blocks_6/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_6/Relu_25:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_6/tpu_batch_normalization_1/batchnorm/add_1_27": {
+            "name": "efficientnet-edgetpu-S/model/blocks_6/tpu_batch_normalization_1/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 48,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_6/Relu_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_6/Add_28": {
+            "name": "efficientnet-edgetpu-S/model/blocks_6/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_6/tpu_batch_normalization_1/batchnorm/add_1_27:out0",
+                "@efficientnet-edgetpu-S/model/blocks_5/Add_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_7/Relu_29": {
+            "name": "efficientnet-edgetpu-S/model/blocks_7/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 384,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_6/Add_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_7/Relu_30": {
+            "name": "efficientnet-edgetpu-S/model/blocks_7/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_7/Relu_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_7/Relu_1_31": {
+            "name": "efficientnet-edgetpu-S/model/blocks_7/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 384,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 384,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    2,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_7/Relu_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_7/Relu_1_32": {
+            "name": "efficientnet-edgetpu-S/model/blocks_7/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_7/Relu_1_31:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_7/tpu_batch_normalization_2/batchnorm/add_1_33": {
+            "name": "efficientnet-edgetpu-S/model/blocks_7/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_7/Relu_1_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_8/Relu_34": {
+            "name": "efficientnet-edgetpu-S/model/blocks_8/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_7/tpu_batch_normalization_2/batchnorm/add_1_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_8/Relu_35": {
+            "name": "efficientnet-edgetpu-S/model/blocks_8/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_8/Relu_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_8/Relu_1_36": {
+            "name": "efficientnet-edgetpu-S/model/blocks_8/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 768,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_8/Relu_35:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_8/Relu_1_37": {
+            "name": "efficientnet-edgetpu-S/model/blocks_8/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_8/Relu_1_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_8/tpu_batch_normalization_2/batchnorm/add_1_38": {
+            "name": "efficientnet-edgetpu-S/model/blocks_8/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_8/Relu_1_37:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_8/Add_39": {
+            "name": "efficientnet-edgetpu-S/model/blocks_8/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_8/tpu_batch_normalization_2/batchnorm/add_1_38:out0",
+                "@efficientnet-edgetpu-S/model/blocks_7/tpu_batch_normalization_2/batchnorm/add_1_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_9/Relu_40": {
+            "name": "efficientnet-edgetpu-S/model/blocks_9/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_8/Add_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_9/Relu_41": {
+            "name": "efficientnet-edgetpu-S/model/blocks_9/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_9/Relu_40:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_9/Relu_1_42": {
+            "name": "efficientnet-edgetpu-S/model/blocks_9/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 768,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_9/Relu_41:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_9/Relu_1_43": {
+            "name": "efficientnet-edgetpu-S/model/blocks_9/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_9/Relu_1_42:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_9/tpu_batch_normalization_2/batchnorm/add_1_44": {
+            "name": "efficientnet-edgetpu-S/model/blocks_9/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_9/Relu_1_43:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_9/Add_45": {
+            "name": "efficientnet-edgetpu-S/model/blocks_9/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_9/tpu_batch_normalization_2/batchnorm/add_1_44:out0",
+                "@efficientnet-edgetpu-S/model/blocks_8/Add_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_10/Relu_46": {
+            "name": "efficientnet-edgetpu-S/model/blocks_10/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_9/Add_45:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_10/Relu_47": {
+            "name": "efficientnet-edgetpu-S/model/blocks_10/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_10/Relu_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_10/Relu_1_48": {
+            "name": "efficientnet-edgetpu-S/model/blocks_10/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 768,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_10/Relu_47:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_10/Relu_1_49": {
+            "name": "efficientnet-edgetpu-S/model/blocks_10/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_10/Relu_1_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_10/tpu_batch_normalization_2/batchnorm/add_1_50": {
+            "name": "efficientnet-edgetpu-S/model/blocks_10/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_10/Relu_1_49:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_10/Add_51": {
+            "name": "efficientnet-edgetpu-S/model/blocks_10/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_10/tpu_batch_normalization_2/batchnorm/add_1_50:out0",
+                "@efficientnet-edgetpu-S/model/blocks_9/Add_45:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_11/Relu_52": {
+            "name": "efficientnet-edgetpu-S/model/blocks_11/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_10/Add_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_11/Relu_53": {
+            "name": "efficientnet-edgetpu-S/model/blocks_11/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_11/Relu_52:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_11/Relu_1_54": {
+            "name": "efficientnet-edgetpu-S/model/blocks_11/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 768,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_11/Relu_53:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_11/Relu_1_55": {
+            "name": "efficientnet-edgetpu-S/model/blocks_11/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_11/Relu_1_54:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_11/tpu_batch_normalization_2/batchnorm/add_1_56": {
+            "name": "efficientnet-edgetpu-S/model/blocks_11/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 96,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_11/Relu_1_55:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_11/Add_57": {
+            "name": "efficientnet-edgetpu-S/model/blocks_11/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_11/tpu_batch_normalization_2/batchnorm/add_1_56:out0",
+                "@efficientnet-edgetpu-S/model/blocks_10/Add_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_12/Relu_58": {
+            "name": "efficientnet-edgetpu-S/model/blocks_12/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_11/Add_57:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_12/Relu_59": {
+            "name": "efficientnet-edgetpu-S/model/blocks_12/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_12/Relu_58:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_12/Relu_1_60": {
+            "name": "efficientnet-edgetpu-S/model/blocks_12/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 768,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 768,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_12/Relu_59:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_12/Relu_1_61": {
+            "name": "efficientnet-edgetpu-S/model/blocks_12/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_12/Relu_1_60:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_12/tpu_batch_normalization_2/batchnorm/add_1_62": {
+            "name": "efficientnet-edgetpu-S/model/blocks_12/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_12/Relu_1_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_13/Relu_63": {
+            "name": "efficientnet-edgetpu-S/model/blocks_13/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_12/tpu_batch_normalization_2/batchnorm/add_1_62:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_13/Relu_64": {
+            "name": "efficientnet-edgetpu-S/model/blocks_13/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_13/Relu_63:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_13/Relu_1_65": {
+            "name": "efficientnet-edgetpu-S/model/blocks_13/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1152,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_13/Relu_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_13/Relu_1_66": {
+            "name": "efficientnet-edgetpu-S/model/blocks_13/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_13/Relu_1_65:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_13/tpu_batch_normalization_2/batchnorm/add_1_67": {
+            "name": "efficientnet-edgetpu-S/model/blocks_13/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_13/Relu_1_66:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_13/Add_68": {
+            "name": "efficientnet-edgetpu-S/model/blocks_13/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_13/tpu_batch_normalization_2/batchnorm/add_1_67:out0",
+                "@efficientnet-edgetpu-S/model/blocks_12/tpu_batch_normalization_2/batchnorm/add_1_62:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_14/Relu_69": {
+            "name": "efficientnet-edgetpu-S/model/blocks_14/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_13/Add_68:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_14/Relu_70": {
+            "name": "efficientnet-edgetpu-S/model/blocks_14/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_14/Relu_69:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_14/Relu_1_71": {
+            "name": "efficientnet-edgetpu-S/model/blocks_14/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1152,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_14/Relu_70:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_14/Relu_1_72": {
+            "name": "efficientnet-edgetpu-S/model/blocks_14/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_14/Relu_1_71:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_14/tpu_batch_normalization_2/batchnorm/add_1_73": {
+            "name": "efficientnet-edgetpu-S/model/blocks_14/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_14/Relu_1_72:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_14/Add_74": {
+            "name": "efficientnet-edgetpu-S/model/blocks_14/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_14/tpu_batch_normalization_2/batchnorm/add_1_73:out0",
+                "@efficientnet-edgetpu-S/model/blocks_13/Add_68:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_15/Relu_75": {
+            "name": "efficientnet-edgetpu-S/model/blocks_15/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_14/Add_74:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_15/Relu_76": {
+            "name": "efficientnet-edgetpu-S/model/blocks_15/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_15/Relu_75:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_15/Relu_1_77": {
+            "name": "efficientnet-edgetpu-S/model/blocks_15/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1152,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_15/Relu_76:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_15/Relu_1_78": {
+            "name": "efficientnet-edgetpu-S/model/blocks_15/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_15/Relu_1_77:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_15/tpu_batch_normalization_2/batchnorm/add_1_79": {
+            "name": "efficientnet-edgetpu-S/model/blocks_15/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 144,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_15/Relu_1_78:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_15/Add_80": {
+            "name": "efficientnet-edgetpu-S/model/blocks_15/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_15/tpu_batch_normalization_2/batchnorm/add_1_79:out0",
+                "@efficientnet-edgetpu-S/model/blocks_14/Add_74:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_16/Relu_81": {
+            "name": "efficientnet-edgetpu-S/model/blocks_16/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_15/Add_80:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_16/Relu_82": {
+            "name": "efficientnet-edgetpu-S/model/blocks_16/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_16/Relu_81:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_16/Relu_1_83": {
+            "name": "efficientnet-edgetpu-S/model/blocks_16/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1152,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1152,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    2,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_16/Relu_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_16/Relu_1_84": {
+            "name": "efficientnet-edgetpu-S/model/blocks_16/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_16/Relu_1_83:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_16/tpu_batch_normalization_2/batchnorm/add_1_85": {
+            "name": "efficientnet-edgetpu-S/model/blocks_16/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_16/Relu_1_84:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_17/Relu_86": {
+            "name": "efficientnet-edgetpu-S/model/blocks_17/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1536,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_16/tpu_batch_normalization_2/batchnorm/add_1_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_17/Relu_87": {
+            "name": "efficientnet-edgetpu-S/model/blocks_17/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_17/Relu_86:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_17/Relu_1_88": {
+            "name": "efficientnet-edgetpu-S/model/blocks_17/Relu_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1536,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1536,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_17/Relu_87:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_17/Relu_1_89": {
+            "name": "efficientnet-edgetpu-S/model/blocks_17/Relu_1",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_17/Relu_1_88:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_17/tpu_batch_normalization_2/batchnorm/add_1_90": {
+            "name": "efficientnet-edgetpu-S/model/blocks_17/tpu_batch_normalization_2/batchnorm/add_1",
+            "op": "convolution",
+            "parameters": {
+                "weights": 192,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_17/Relu_1_89:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/blocks_17/Add_91": {
+            "name": "efficientnet-edgetpu-S/model/blocks_17/Add",
+            "op": "add",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_17/tpu_batch_normalization_2/batchnorm/add_1_90:out0",
+                "@efficientnet-edgetpu-S/model/blocks_16/tpu_batch_normalization_2/batchnorm/add_1_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/head/Relu_92": {
+            "name": "efficientnet-edgetpu-S/model/head/Relu",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1280,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": 1,
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/blocks_17/Add_91:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/head/Relu_93": {
+            "name": "efficientnet-edgetpu-S/model/head/Relu",
+            "op": "relu",
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/head/Relu_92:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/head/global_average_pooling2d/Mean_94": {
+            "name": "efficientnet-edgetpu-S/model/head/global_average_pooling2d/Mean",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 7,
+                "ksize_w": 7,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "ceil",
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/head/Relu_93:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "efficientnet-edgetpu-S/model/head/dense/BiasAdd_95": {
+            "name": "efficientnet-edgetpu-S/model/head/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 1001,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/head/global_average_pooling2d/Mean_94:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Softmax_int8_96": {
+            "name": "Softmax_int8",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1
+            },
+            "inputs": [
+                "@efficientnet-edgetpu-S/model/head/dense/BiasAdd_95:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Softmax_97": {
+            "name": "Softmax",
+            "op": "quantize",
+            "inputs": [
+                "@Softmax_int8_96:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output_98": {
+            "name": "output",
+            "op": "output",
+            "inputs": [
+                "@Softmax_97:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}
