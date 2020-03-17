@@ -62,50 +62,47 @@ Acuity is a python based neural-network framework built on top of Tensorflow, it
 ![Acuity Workflow](/docs/acuity_123.png)
 
 
- - Importing from popular frameworks such as Caffe and Tensorflow 
+ - Importing from popular frameworks such as Tensorflow and PyTorch
 
- 
    > AcuityNet natively supports Caffe, Tensorflow, PyTorch, ONNX, TFLite, DarkNet, and Keras imports, it can also be expanded to support other NN frameworks.  
 
+ - Fixed Point Quantization
 
- - Fixed Point Quantization  
-
-
-   > AcuityNet provides accurate Fixed Point Quantization from floating point 32 with a calibration dataset and produces accuracy numbers before and after quantization for comparison  
-
+   > AcuityNet provides accurate Post Training Quantization and produces accuracy numbers before and after quantization for comparison. Advanced techniques are built-in into AcuityNet quantizer, such as KL-Divergence, Weight Equalization, Hybrid Quantization, Per Channel Quantization, etc.
 
  - Graph Optimization  
 
-
-   > Neural-network graph optimization is performed to reduce graph complexity for inference, such as Layer Merging, Layer Removal and Layer Swapping  
-
-
-   - Merge consective layers into dense layers, such as ConvolutionReluPool, FullyConnectedRelu, etc.   
-   - Fold BatchNrom layers into Convolution  
-   - Swap layer ordering when suitable to reduce output size  
-   - Remove Concatenation and Split layers
-   - Horizontal layer fusion   
-   - Intelligent layer optimization when mathamatically equivalent
+   > Neural-network graph optimization is performed to reduce graph complexity for inference, such as Layer Fusion, Layer Removal and Layer Swapping  
 
  - Tensor Pruning  
 
-
    > Pruning neural networks tensors to remove ineffective synapses and neurons to create sparse matrix  
-
 
  - Training and Validation  
 
-
-   > Acuitynet provides capability to train and validate Neural Networks  
-
+   > AcuityNet provides capability to train and validate Neural Networks
 
  - Inference Code Generator  
 
-
    > Generates OpenVX Neural Network inference code which can run on any OpenVX enabled platforms  
 
+## About Vivante NPUIP
 
+Vivante NPUIP is a highly scalable and programmable neural network processor that supports a wide range of Machine Learning applications. It has been deployed in many fields to accelerate ML algorithms for AI-vision, AI-voice, AI-pixel and other special use cases. Vivante NPUIP offers high performance MAC engine as well as flexible programmable capability to adopt new operations and networks without having to fall back to CPU. Today, over 120 operators are supported and continue to grow.
 
+Mature software stack and complete solutions are provided to customers for easy integration and fast time to market. 
+
+Tooling
+ - Acuity Toolkits
+ - Acuity IDE
+
+Runtime software stack support
+ - OpenVX and OpenVX NN Extension
+ - OpenCL
+ - Android NN API
+ - TFLite NPU Delegate
+ - ONNX Runtime Execution Provider
+ - ARMNN Backend
 
 [Alexnet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/alexnet/alexnet.json
 [Inception-v1]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/inception_v1/inception_v1.json
