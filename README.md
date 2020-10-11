@@ -3,7 +3,7 @@
 Acuity model zoo contains a set of popular neural-network models created or converted (from Caffe, Tensorflow, TFLite, DarkNet or ONNX) by Acuity toolset.
 
 ### Model Viewer
-Acuity uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netscope](http://ethereon.github.io/netscope/quickstart.html).
+Acuity uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netron](https://github.com/lutzroeder/netron).
 
 ### Classification
  - [Alexnet][]([OriginModel][OriginAlexnet])
@@ -104,47 +104,47 @@ Runtime software stack support
  - ONNX Runtime Execution Provider
  - ARMNN Backend
 
-[Alexnet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/alexnet/alexnet.json
-[Inception-v1]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/inception_v1/inception_v1.json
-[Inception-v2]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/inception_v2/inception_v2.json
-[Inception-v3]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/inception_v3/inception_v3.json
-[Inception-v4]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/inception_v4/inception_v4.json
-[Mobilenet-v1]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_v1/mobilenet_v1.json
-[Mobilenet-v2]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_v2/mobilenet_v2.json
-[Mobilenet-v3]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_v3/mobilenet_v3.json
-[EfficientNet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/efficientnet_b0/efficientnet_b0.json
-[EfficientNet (EdgeTPU)]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/efficientnet_edgetpu/efficientnet_edgetpu.json
-[Nasnet-Large]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/nasnet_large/nasnet_large.json
-[Nasnet-Mobile]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/nasnet_mobile/nasnet_mobile.json
-[Resnet-50]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/resnet50/resnet50.json
-[Resnext-50]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/resnext50/resnext50.json
-[Senet-50]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/senet50/senet50.json
-[Squeezenet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/squeezenet/squeezenet.json
-[VGG-16]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/vgg16/vgg16.json
-[Xception]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/xception/xception.json
-[Faster-RCNN-ZF]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/faster_rcnn_zf/faster_rcnn_zf.json
-[Mobilenet-SSD]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_ssd/mobilenet_ssd.json
-[Mobilenet-SSD-FPN]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mobilenet_ssd_fpn/mobilenet_ssd_fpn.json
-[MTCNN PNet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_pnet.json 
-[RNet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_rnet.json
-[ONet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_onet.json
-[LNet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/mtcnn/mtcnn_lnet.json
-[SSD]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/ssd/ssd.json 
-[Tiny-YOLO]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/tiny_yolo/tiny_yolo.json
-[YOLO-v1]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/yolo_v1/yolo_v1.json
-[YOLO-v2]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/yolo_v2/yolo_v2.json
-[YOLO-v3]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/yolo_v3/yolo_v3.json
-[ENET]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/enet/enet.json
-[SegNet]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/segnet/segnet.json
-[DeepLab-v3]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/deeplab_v3/deeplab_v3.json
-[Denoiser]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/denoise/denoise.json
-[Super Resolution]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/vdsr/vdsr.json
-[Fast Style Transfer]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/fast_style_transfer/fast_style_transfer.json
-[Pix2Pix]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/pix2pix/pix2pix.json
-[Open Pose]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/open_pose/open_pose.json
-[CPM Mobile]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/cpm/cpm.json
-[LSTM - Command Recognition]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/lstm/lstm.json
-[LSTM - Speech Recognition]: https://verisilicon.github.io/acuity-models/viewer/render.html#../models/deepspeech2/deepspeech2.json
+[Alexnet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/alexnet/alexnet.json
+[Inception-v1]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/inception_v1/inception_v1.json
+[Inception-v2]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/inception_v2/inception_v2.json
+[Inception-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/inception_v3/inception_v3.json
+[Inception-v4]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/inception_v4/inception_v4.json
+[Mobilenet-v1]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mobilenet_v1/mobilenet_v1.json
+[Mobilenet-v2]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mobilenet_v2/mobilenet_v2.json
+[Mobilenet-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mobilenet_v3/mobilenet_v3.json
+[EfficientNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/efficientnet_b0/efficientnet_b0.json
+[EfficientNet (EdgeTPU)]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/efficientnet_edgetpu/efficientnet_edgetpu.json
+[Nasnet-Large]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/nasnet_large/nasnet_large.json
+[Nasnet-Mobile]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/nasnet_mobile/nasnet_mobile.json
+[Resnet-50]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/resnet50/resnet50.json
+[Resnext-50]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/resnext50/resnext50.json
+[Senet-50]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/senet50/senet50.json
+[Squeezenet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/squeezenet/squeezenet.json
+[VGG-16]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/vgg16/vgg16.json
+[Xception]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/xception/xception.json
+[Faster-RCNN-ZF]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/faster_rcnn_zf/faster_rcnn_zf.json
+[Mobilenet-SSD]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mobilenet_ssd/mobilenet_ssd.json
+[Mobilenet-SSD-FPN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mobilenet_ssd_fpn/mobilenet_ssd_fpn.json
+[MTCNN PNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_pnet.json 
+[RNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_rnet.json
+[ONet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_onet.json
+[LNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_lnet.json
+[SSD]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/ssd/ssd.json 
+[Tiny-YOLO]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/tiny_yolo/tiny_yolo.json
+[YOLO-v1]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v1/yolo_v1.json
+[YOLO-v2]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v2/yolo_v2.json
+[YOLO-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v3/yolo_v3.json
+[ENET]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/enet/enet.json
+[SegNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/segnet/segnet.json
+[DeepLab-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/deeplab_v3/deeplab_v3.json
+[Denoiser]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/denoise/denoise.json
+[Super Resolution]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/vdsr/vdsr.json
+[Fast Style Transfer]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/fast_style_transfer/fast_style_transfer.json
+[Pix2Pix]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/pix2pix/pix2pix.json
+[Open Pose]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/open_pose/open_pose.json
+[CPM Mobile]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/cpm/cpm.json
+[LSTM - Command Recognition]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/lstm/lstm.json
+[LSTM - Speech Recognition]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/deepspeech2/deepspeech2.json
 
 [OriginAlexNet]: https://github.com/BVLC/caffe/tree/master/models/bvlc_alexnet
 [OriginInception-v1]: http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
