@@ -1,0 +1,4110 @@
+{
+    "MetaData": {
+        "Name": "torch-jit-export",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow",
+        "Org_Platform": "caffe"
+    },
+    "Layers": {
+        "attach_Transpose_Transpose_574/out0_0": {
+            "name": "attach_Transpose_Transpose_574/out0",
+            "op": "output",
+            "inputs": [
+                "@Transpose_Transpose_574_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_Transpose_Transpose_590/out0_1": {
+            "name": "attach_Transpose_Transpose_590/out0",
+            "op": "output",
+            "inputs": [
+                "@Transpose_Transpose_590_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_Transpose_Transpose_606/out0_2": {
+            "name": "attach_Transpose_Transpose_606/out0",
+            "op": "output",
+            "inputs": [
+                "@Transpose_Transpose_606_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Transpose_Transpose_606_3": {
+            "name": "Transpose_Transpose_606",
+            "op": "permute",
+            "parameters": {
+                "perm": "0 1 3 4 2"
+            },
+            "inputs": [
+                "@Reshape_Reshape_605_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Transpose_Transpose_590_4": {
+            "name": "Transpose_Transpose_590",
+            "op": "permute",
+            "parameters": {
+                "perm": "0 1 3 4 2"
+            },
+            "inputs": [
+                "@Reshape_Reshape_589_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Transpose_Transpose_574_5": {
+            "name": "Transpose_Transpose_574",
+            "op": "permute",
+            "parameters": {
+                "perm": "0 1 3 4 2"
+            },
+            "inputs": [
+                "@Reshape_Reshape_573_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Reshape_Reshape_605_6": {
+            "name": "Reshape_Reshape_605",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    3,
+                    85,
+                    20,
+                    20
+                ]
+            },
+            "inputs": [
+                "@Reshape_Reshape_605_6_acuity_mark_perm_181:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Reshape_Reshape_589_7": {
+            "name": "Reshape_Reshape_589",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    3,
+                    85,
+                    40,
+                    40
+                ]
+            },
+            "inputs": [
+                "@Reshape_Reshape_589_7_acuity_mark_perm_182:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Reshape_Reshape_573_8": {
+            "name": "Reshape_Reshape_573",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    3,
+                    85,
+                    80,
+                    80
+                ]
+            },
+            "inputs": [
+                "@Reshape_Reshape_573_8_acuity_mark_perm_183:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_591_9": {
+            "name": "Conv_Conv_591",
+            "op": "convolution",
+            "parameters": {
+                "weights": 255,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_558_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_575_10": {
+            "name": "Conv_Conv_575",
+            "op": "convolution",
+            "parameters": {
+                "weights": 255,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_507_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_559_11": {
+            "name": "Conv_Conv_559",
+            "op": "convolution",
+            "parameters": {
+                "weights": 255,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_456_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_558_12": {
+            "name": "Div_Div_558",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_550_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_507_13": {
+            "name": "Div_Div_507",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_499_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_456_14": {
+            "name": "Div_Div_456",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_448_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_550_15": {
+            "name": "Conv_Conv_550",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@LeakyRelu_LeakyRelu_549_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "LeakyRelu_LeakyRelu_549_16": {
+            "name": "LeakyRelu_LeakyRelu_549",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.10000000149011612
+            },
+            "inputs": [
+                "@BatchNormalization_BatchNormalization_548_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_499_17": {
+            "name": "Conv_Conv_499",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@LeakyRelu_LeakyRelu_498_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "LeakyRelu_LeakyRelu_498_18": {
+            "name": "LeakyRelu_LeakyRelu_498",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.10000000149011612
+            },
+            "inputs": [
+                "@BatchNormalization_BatchNormalization_497_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_448_19": {
+            "name": "Conv_Conv_448",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@LeakyRelu_LeakyRelu_447_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "LeakyRelu_LeakyRelu_447_20": {
+            "name": "LeakyRelu_LeakyRelu_447",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.10000000149011612
+            },
+            "inputs": [
+                "@BatchNormalization_BatchNormalization_446_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "BatchNormalization_BatchNormalization_548_21": {
+            "name": "BatchNormalization_BatchNormalization_548",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@Concat_Concat_547_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "BatchNormalization_BatchNormalization_497_22": {
+            "name": "BatchNormalization_BatchNormalization_497",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@Concat_Concat_496_25:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "BatchNormalization_BatchNormalization_446_23": {
+            "name": "BatchNormalization_BatchNormalization_446",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@Concat_Concat_445_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_547_24": {
+            "name": "Concat_Concat_547",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Conv_Conv_545_27:out0",
+                "@Conv_Conv_546_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_496_25": {
+            "name": "Concat_Concat_496",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Conv_Conv_494_29:out0",
+                "@Conv_Conv_495_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_445_26": {
+            "name": "Concat_Concat_445",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Conv_Conv_443_31:out0",
+                "@Conv_Conv_444_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_545_27": {
+            "name": "Conv_Conv_545",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_544_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_546_28": {
+            "name": "Conv_Conv_546",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_517_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_494_29": {
+            "name": "Conv_Conv_494",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_493_35:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_495_30": {
+            "name": "Conv_Conv_495",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_466_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_443_31": {
+            "name": "Conv_Conv_443",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_442_37:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_444_32": {
+            "name": "Conv_Conv_444",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_415_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_544_33": {
+            "name": "Div_Div_544",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_536_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_517_34": {
+            "name": "Concat_Concat_517",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Div_Div_516_41:out0",
+                "@Div_Div_359_42:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_493_35": {
+            "name": "Div_Div_493",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_485_43:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_466_36": {
+            "name": "Concat_Concat_466",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Div_Div_465_45:out0",
+                "@Div_Div_412_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_442_37": {
+            "name": "Div_Div_442",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_434_47:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_415_38": {
+            "name": "Concat_Concat_415",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Resize_Resize_414_49:out0",
+                "@Div_Div_189_50:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_536_39": {
+            "name": "Conv_Conv_536",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_535_40:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_535_40": {
+            "name": "Div_Div_535",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_527_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_516_41": {
+            "name": "Div_Div_516",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_508_53:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_359_42": {
+            "name": "Div_Div_359",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_351_55:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_485_43": {
+            "name": "Conv_Conv_485",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_484_44:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_484_44": {
+            "name": "Div_Div_484",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_476_57:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_465_45": {
+            "name": "Div_Div_465",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_457_59:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_412_46": {
+            "name": "Div_Div_412",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_404_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_434_47": {
+            "name": "Conv_Conv_434",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_433_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_433_48": {
+            "name": "Div_Div_433",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_425_63:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Resize_Resize_414_49": {
+            "name": "Resize_Resize_414",
+            "op": "image_resize",
+            "parameters": {
+                "type": "nearest",
+                "new_size": [
+                    80,
+                    80
+                ],
+                "align_corners": false,
+                "half_pixel": false
+            },
+            "inputs": [
+                "@Div_Div_412_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_189_50": {
+            "name": "Div_Div_189",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_181_66:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_527_51": {
+            "name": "Conv_Conv_527",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_526_52:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_526_52": {
+            "name": "Div_Div_526",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_518_54:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_508_53": {
+            "name": "Conv_Conv_508",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_507_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_518_54": {
+            "name": "Conv_Conv_518",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_517_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_351_55": {
+            "name": "Conv_Conv_351",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_350_56:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_350_56": {
+            "name": "Div_Div_350",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_342_70:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_476_57": {
+            "name": "Conv_Conv_476",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_475_58:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_475_58": {
+            "name": "Div_Div_475",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_467_60:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_457_59": {
+            "name": "Conv_Conv_457",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_456_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_467_60": {
+            "name": "Conv_Conv_467",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_466_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_404_61": {
+            "name": "Conv_Conv_404",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_403_62:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_403_62": {
+            "name": "Div_Div_403",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_395_74:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_425_63": {
+            "name": "Conv_Conv_425",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_424_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_424_64": {
+            "name": "Div_Div_424",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_416_65:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_416_65": {
+            "name": "Conv_Conv_416",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_415_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_181_66": {
+            "name": "Conv_Conv_181",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@LeakyRelu_LeakyRelu_180_67:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "LeakyRelu_LeakyRelu_180_67": {
+            "name": "LeakyRelu_LeakyRelu_180",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.10000000149011612
+            },
+            "inputs": [
+                "@BatchNormalization_BatchNormalization_179_68:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "BatchNormalization_BatchNormalization_179_68": {
+            "name": "BatchNormalization_BatchNormalization_179",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@Concat_Concat_178_69:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_178_69": {
+            "name": "Concat_Concat_178",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Conv_Conv_176_78:out0",
+                "@Conv_Conv_177_79:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_342_70": {
+            "name": "Conv_Conv_342",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@LeakyRelu_LeakyRelu_341_71:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "LeakyRelu_LeakyRelu_341_71": {
+            "name": "LeakyRelu_LeakyRelu_341",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.10000000149011612
+            },
+            "inputs": [
+                "@BatchNormalization_BatchNormalization_340_72:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "BatchNormalization_BatchNormalization_340_72": {
+            "name": "BatchNormalization_BatchNormalization_340",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@Concat_Concat_339_73:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_339_73": {
+            "name": "Concat_Concat_339",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Conv_Conv_337_80:out0",
+                "@Conv_Conv_338_81:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_395_74": {
+            "name": "Conv_Conv_395",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@LeakyRelu_LeakyRelu_394_75:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "LeakyRelu_LeakyRelu_394_75": {
+            "name": "LeakyRelu_LeakyRelu_394",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.10000000149011612
+            },
+            "inputs": [
+                "@BatchNormalization_BatchNormalization_393_76:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "BatchNormalization_BatchNormalization_393_76": {
+            "name": "BatchNormalization_BatchNormalization_393",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@Concat_Concat_392_77:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_392_77": {
+            "name": "Concat_Concat_392",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Conv_Conv_390_82:out0",
+                "@Conv_Conv_391_83:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_176_78": {
+            "name": "Conv_Conv_176",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Add_Add_175_84:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_177_79": {
+            "name": "Conv_Conv_177",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_109_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_337_80": {
+            "name": "Conv_Conv_337",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_336_86:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_338_81": {
+            "name": "Conv_Conv_338",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_309_87:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_390_82": {
+            "name": "Conv_Conv_390",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_389_88:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_391_83": {
+            "name": "Conv_Conv_391",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_362_89:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Add_Add_175_84": {
+            "name": "Add_Add_175",
+            "op": "add",
+            "inputs": [
+                "@Add_Add_156_90:out0",
+                "@Div_Div_174_91:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_109_85": {
+            "name": "Div_Div_109",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_101_92:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_336_86": {
+            "name": "Div_Div_336",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_328_94:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_309_87": {
+            "name": "Div_Div_309",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_301_96:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_389_88": {
+            "name": "Div_Div_389",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_381_98:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_362_89": {
+            "name": "Concat_Concat_362",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Resize_Resize_361_100:out0",
+                "@Div_Div_278_101:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Add_Add_156_90": {
+            "name": "Add_Add_156",
+            "op": "add",
+            "inputs": [
+                "@Add_Add_137_102:out0",
+                "@Div_Div_155_103:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_174_91": {
+            "name": "Div_Div_174",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_166_104:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_101_92": {
+            "name": "Conv_Conv_101",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_100_93:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_100_93": {
+            "name": "Div_Div_100",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_92_106:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_328_94": {
+            "name": "Conv_Conv_328",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_327_95:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_327_95": {
+            "name": "Div_Div_327",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_319_108:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_301_96": {
+            "name": "Conv_Conv_301",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_300_97:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_300_97": {
+            "name": "Concat_Concat_300",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Div_Div_296_110:out0",
+                "@MaxPool_MaxPool_297_111:out0",
+                "@MaxPool_MaxPool_298_112:out0",
+                "@MaxPool_MaxPool_299_113:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_381_98": {
+            "name": "Conv_Conv_381",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_380_99:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_380_99": {
+            "name": "Div_Div_380",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_372_114:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Resize_Resize_361_100": {
+            "name": "Resize_Resize_361",
+            "op": "image_resize",
+            "parameters": {
+                "type": "nearest",
+                "new_size": [
+                    40,
+                    40
+                ],
+                "align_corners": false,
+                "half_pixel": false
+            },
+            "inputs": [
+                "@Div_Div_359_42:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_278_101": {
+            "name": "Div_Div_278",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_270_117:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Add_Add_137_102": {
+            "name": "Add_Add_137",
+            "op": "add",
+            "inputs": [
+                "@Div_Div_118_119:out0",
+                "@Div_Div_136_120:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_155_103": {
+            "name": "Div_Div_155",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_147_121:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_166_104": {
+            "name": "Conv_Conv_166",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_165_105:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_165_105": {
+            "name": "Div_Div_165",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_157_123:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_92_106": {
+            "name": "Conv_Conv_92",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@LeakyRelu_LeakyRelu_91_107:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "LeakyRelu_LeakyRelu_91_107": {
+            "name": "LeakyRelu_LeakyRelu_91",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.10000000149011612
+            },
+            "inputs": [
+                "@BatchNormalization_BatchNormalization_90_125:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_319_108": {
+            "name": "Conv_Conv_319",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_318_109:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_318_109": {
+            "name": "Div_Div_318",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_310_126:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_296_110": {
+            "name": "Div_Div_296",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_288_128:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MaxPool_MaxPool_297_111": {
+            "name": "MaxPool_MaxPool_297",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "MAX",
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@Div_Div_296_110:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MaxPool_MaxPool_298_112": {
+            "name": "MaxPool_MaxPool_298",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "MAX",
+                "ksize_h": 9,
+                "ksize_w": 9,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 4,
+                "pad_w": 4,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    4,
+                    4,
+                    4,
+                    4
+                ]
+            },
+            "inputs": [
+                "@Div_Div_296_110:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MaxPool_MaxPool_299_113": {
+            "name": "MaxPool_MaxPool_299",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "MAX",
+                "ksize_h": 13,
+                "ksize_w": 13,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 6,
+                "pad_w": 6,
+                "round_type": "floor",
+                "pad_method": "padding_const",
+                "pad": [
+                    6,
+                    6,
+                    6,
+                    6
+                ]
+            },
+            "inputs": [
+                "@Div_Div_296_110:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_372_114": {
+            "name": "Conv_Conv_372",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_371_115:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_371_115": {
+            "name": "Div_Div_371",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_363_116:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_363_116": {
+            "name": "Conv_Conv_363",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_362_89:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_270_117": {
+            "name": "Conv_Conv_270",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@LeakyRelu_LeakyRelu_269_118:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "LeakyRelu_LeakyRelu_269_118": {
+            "name": "LeakyRelu_LeakyRelu_269",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.10000000149011612
+            },
+            "inputs": [
+                "@BatchNormalization_BatchNormalization_268_135:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_118_119": {
+            "name": "Div_Div_118",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_110_136:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_136_120": {
+            "name": "Div_Div_136",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_128_138:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_147_121": {
+            "name": "Conv_Conv_147",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_146_122:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_146_122": {
+            "name": "Div_Div_146",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_138_124:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_157_123": {
+            "name": "Conv_Conv_157",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Add_Add_156_90:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_138_124": {
+            "name": "Conv_Conv_138",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Add_Add_137_102:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "BatchNormalization_BatchNormalization_90_125": {
+            "name": "BatchNormalization_BatchNormalization_90",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@Concat_Concat_89_127:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_310_126": {
+            "name": "Conv_Conv_310",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_309_87:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_89_127": {
+            "name": "Concat_Concat_89",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Conv_Conv_87_142:out0",
+                "@Conv_Conv_88_131:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_288_128": {
+            "name": "Conv_Conv_288",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_287_129:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_287_129": {
+            "name": "Div_Div_287",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_279_130:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_279_130": {
+            "name": "Conv_Conv_279",
+            "op": "convolution",
+            "parameters": {
+                "weights": 512,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_278_101:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_88_131": {
+            "name": "Conv_Conv_88",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_58_132:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_58_132": {
+            "name": "Div_Div_58",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_50_133:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_50_133": {
+            "name": "Conv_Conv_50",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_49_134:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_49_134": {
+            "name": "Div_Div_49",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_41_144:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "BatchNormalization_BatchNormalization_268_135": {
+            "name": "BatchNormalization_BatchNormalization_268",
+            "op": "batchnormalize",
+            "parameters": {
+                "eps": 0.0010000000474974513
+            },
+            "inputs": [
+                "@Concat_Concat_267_137:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_110_136": {
+            "name": "Conv_Conv_110",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_109_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_267_137": {
+            "name": "Concat_Concat_267",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Conv_Conv_265_146:out0",
+                "@Conv_Conv_266_141:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_128_138": {
+            "name": "Conv_Conv_128",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_127_139:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_127_139": {
+            "name": "Div_Div_127",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_119_140:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_119_140": {
+            "name": "Conv_Conv_119",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_118_119:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_266_141": {
+            "name": "Conv_Conv_266",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_198_147:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_87_142": {
+            "name": "Conv_Conv_87",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Add_Add_86_143:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Add_Add_86_143": {
+            "name": "Add_Add_86",
+            "op": "add",
+            "inputs": [
+                "@Div_Div_67_148:out0",
+                "@Div_Div_85_149:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_41_144": {
+            "name": "Conv_Conv_41",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Concat_Concat_40_145:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Concat_Concat_40_145": {
+            "name": "Concat_Concat_40",
+            "op": "concat",
+            "parameters": {
+                "dim": 3
+            },
+            "inputs": [
+                "@Slice_Slice_9_150:out0",
+                "@Slice_Slice_19_151:out0",
+                "@Slice_Slice_29_152:out0",
+                "@Slice_Slice_39_153:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_265_146": {
+            "name": "Conv_Conv_265",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Add_Add_264_154:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_198_147": {
+            "name": "Div_Div_198",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_190_155:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_67_148": {
+            "name": "Div_Div_67",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_59_157:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_85_149": {
+            "name": "Div_Div_85",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_77_159:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Slice_Slice_9_150": {
+            "name": "Slice_Slice_9",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    320,
+                    640,
+                    3
+                ],
+                "slice_strides": [
+                    1,
+                    1,
+                    2,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Slice_Slice_4_161:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Slice_Slice_19_151": {
+            "name": "Slice_Slice_19",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    320,
+                    640,
+                    3
+                ],
+                "slice_strides": [
+                    1,
+                    1,
+                    2,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Slice_Slice_14_162:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Slice_Slice_29_152": {
+            "name": "Slice_Slice_29",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    320,
+                    640,
+                    3
+                ],
+                "slice_strides": [
+                    1,
+                    1,
+                    2,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Slice_Slice_24_163:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Slice_Slice_39_153": {
+            "name": "Slice_Slice_39",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    0,
+                    1,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    320,
+                    640,
+                    3
+                ],
+                "slice_strides": [
+                    1,
+                    1,
+                    2,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Slice_Slice_34_164:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Add_Add_264_154": {
+            "name": "Add_Add_264",
+            "op": "add",
+            "inputs": [
+                "@Add_Add_245_165:out0",
+                "@Div_Div_263_156:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_190_155": {
+            "name": "Conv_Conv_190",
+            "op": "convolution",
+            "parameters": {
+                "weights": 256,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_189_50:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_263_156": {
+            "name": "Div_Div_263",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_255_158:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_59_157": {
+            "name": "Conv_Conv_59",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_58_132:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_255_158": {
+            "name": "Conv_Conv_255",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_254_167:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_77_159": {
+            "name": "Conv_Conv_77",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_76_160:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_76_160": {
+            "name": "Div_Div_76",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_68_168:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Slice_Slice_4_161": {
+            "name": "Slice_Slice_4",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    640,
+                    640,
+                    3
+                ],
+                "slice_strides": [
+                    1,
+                    2,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@images_180:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Slice_Slice_14_162": {
+            "name": "Slice_Slice_14",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    640,
+                    640,
+                    3
+                ],
+                "slice_strides": [
+                    1,
+                    2,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@images_180:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Slice_Slice_24_163": {
+            "name": "Slice_Slice_24",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    640,
+                    640,
+                    3
+                ],
+                "slice_strides": [
+                    1,
+                    2,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@images_180:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Slice_Slice_34_164": {
+            "name": "Slice_Slice_34",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    1,
+                    0,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    640,
+                    640,
+                    3
+                ],
+                "slice_strides": [
+                    1,
+                    2,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@images_180:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Add_Add_245_165": {
+            "name": "Add_Add_245",
+            "op": "add",
+            "inputs": [
+                "@Add_Add_226_173:out0",
+                "@Div_Div_244_166:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_244_166": {
+            "name": "Div_Div_244",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_236_170:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_254_167": {
+            "name": "Div_Div_254",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_246_169:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_68_168": {
+            "name": "Conv_Conv_68",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_67_148:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_246_169": {
+            "name": "Conv_Conv_246",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Add_Add_245_165:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_236_170": {
+            "name": "Conv_Conv_236",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_235_171:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_235_171": {
+            "name": "Div_Div_235",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_227_172:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_227_172": {
+            "name": "Conv_Conv_227",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Add_Add_226_173:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Add_Add_226_173": {
+            "name": "Add_Add_226",
+            "op": "add",
+            "inputs": [
+                "@Div_Div_207_177:out0",
+                "@Div_Div_225_174:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_225_174": {
+            "name": "Div_Div_225",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_217_175:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_217_175": {
+            "name": "Conv_Conv_217",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Div_Div_216_176:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_216_176": {
+            "name": "Div_Div_216",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_208_179:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Div_Div_207_177": {
+            "name": "Div_Div_207",
+            "op": "hard_swish",
+            "inputs": [
+                "@Conv_Conv_199_178:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_199_178": {
+            "name": "Conv_Conv_199",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_198_147:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_Conv_208_179": {
+            "name": "Conv_Conv_208",
+            "op": "convolution",
+            "parameters": {
+                "weights": 128,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@Div_Div_207_177:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "images_180": {
+            "name": "images",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    640,
+                    640,
+                    3
+                ]
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Reshape_Reshape_605_6_acuity_mark_perm_181": {
+            "name": "Reshape_Reshape_605_6_acuity_mark_perm",
+            "op": "permute",
+            "parameters": {
+                "perm": "0 3 1 2"
+            },
+            "inputs": [
+                "@Conv_Conv_591_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Reshape_Reshape_589_7_acuity_mark_perm_182": {
+            "name": "Reshape_Reshape_589_7_acuity_mark_perm",
+            "op": "permute",
+            "parameters": {
+                "perm": "0 3 1 2"
+            },
+            "inputs": [
+                "@Conv_Conv_575_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Reshape_Reshape_573_8_acuity_mark_perm_183": {
+            "name": "Reshape_Reshape_573_8_acuity_mark_perm",
+            "op": "permute",
+            "parameters": {
+                "perm": "0 3 1 2"
+            },
+            "inputs": [
+                "@Conv_Conv_559_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

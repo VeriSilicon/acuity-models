@@ -1,9 +1,9 @@
 ## Acuity Model Zoo
 
-Acuity model zoo contains a set of popular neural-network models created or converted (from Caffe, Tensorflow, TFLite, DarkNet or ONNX) by Acuity toolset.
+Acuity model zoo contains a set of popular neural-network models created or converted (from Caffe, Tensorflow, PyTorch, TFLite, DarkNet or ONNX) by Acuity toolkits.
 
 ### Model Viewer
-Acuity uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is inspired by [netron](https://github.com/lutzroeder/netron).
+Acuity uses JSON format to describe a neural-network model, and we provide an [online model viewer](https://verisilicon.github.io/acuity-models/viewer/index.html) to help visualized data flow graphs. The model viewer is part of [netron](https://github.com/lutzroeder/netron) since 4.6.8.
 
 ### Classification
  - [Alexnet][]([OriginModel][OriginAlexnet])
@@ -35,6 +35,8 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [YOLO-v1][] ([OriginModel][OriginYOLO-v1])
  - [YOLO-v2][] ([OriginModel][OriginYOLO-v2])
  - [YOLO-v3][] ([OriginModel][OriginYOLO-v3])
+ - [YOLO-v4][] ([OriginModel][OriginYOLO-v4])
+ - [YOLO-v5][] ([OriginModel][OriginYOLO-v5])
 
 ### Segmentation
  - [ENET][] ([OriginModel][OriginENET])
@@ -134,6 +136,8 @@ Runtime software stack support
 [YOLO-v1]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v1/yolo_v1.json
 [YOLO-v2]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v2/yolo_v2.json
 [YOLO-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v3/yolo_v3.json
+[YOLO-v4]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v4/yolo_v4.json
+[YOLO-v5]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v5/yolo_v5.json
 [ENET]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/enet/enet.json
 [SegNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/segnet/segnet.json
 [DeepLab-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/deeplab_v3/deeplab_v3.json
@@ -176,6 +180,8 @@ Runtime software stack support
 [OriginYOLO-v1]: https://pjreddie.com/media/files/yolov1.weights
 [OriginYOLO-v2]: https://pjreddie.com/media/files/yolov2.weights
 [OriginYOLO-v3]: https://pjreddie.com/media/files/yolov3.weights
+[OriginYOLO-v4]: https://github.com/AlexeyAB/darknet/#pre-trained-models
+[OriginYOLO-v5]: https://github.com/ultralytics/yolov5/releases/download/v3.0/yolov5s.pt
 [OriginENET]: https://github.com/TimoSaemann/ENet
 [OriginSegNet]: https://github.com/BVLC/caffe/wiki/Model-Zoo#segnet-and-bayesian-segnet
 [OriginDeepLab-v3]: https://github.com/tensorflow/models/tree/master/research/deeplab
