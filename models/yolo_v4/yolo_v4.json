@@ -17,7 +17,8 @@
                     608,
                     608,
                     3
-                ]
+                ],
+                "type": "float32"
             },
             "inputs": [],
             "outputs": [
@@ -64,7 +65,7 @@
             "name": "mish_0",
             "op": "mish",
             "inputs": [
-                "@mish_0_3_acuity_mark_perm_377:out0"
+                "@convolution_0_1:out0"
             ],
             "outputs": [
                 "out0"
@@ -100,7 +101,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_1_4_acuity_mark_perm_378:out0"
+                "@mish_0_3:out0"
             ],
             "outputs": [
                 "out0"
@@ -110,7 +111,7 @@
             "name": "mish_1",
             "op": "mish",
             "inputs": [
-                "@mish_1_6_acuity_mark_perm_379:out0"
+                "@convolution_1_4:out0"
             ],
             "outputs": [
                 "out0"
@@ -146,7 +147,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_2_7_acuity_mark_perm_380:out0"
+                "@mish_1_6:out0"
             ],
             "outputs": [
                 "out0"
@@ -156,7 +157,7 @@
             "name": "mish_2",
             "op": "mish",
             "inputs": [
-                "@mish_2_9_acuity_mark_perm_382:out0"
+                "@convolution_2_7:out0"
             ],
             "outputs": [
                 "out0"
@@ -192,7 +193,7 @@
                 ]
             },
             "inputs": [
-                "@noop_3_10_acuity_mark_perm_381:out0"
+                "@mish_1_6:out0"
             ],
             "outputs": [
                 "out0"
@@ -202,7 +203,7 @@
             "name": "mish_4",
             "op": "mish",
             "inputs": [
-                "@mish_4_13_acuity_mark_perm_384:out0"
+                "@convolution_4_11:out0"
             ],
             "outputs": [
                 "out0"
@@ -238,7 +239,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_5_14_acuity_mark_perm_385:out0"
+                "@mish_4_13:out0"
             ],
             "outputs": [
                 "out0"
@@ -248,7 +249,7 @@
             "name": "mish_5",
             "op": "mish",
             "inputs": [
-                "@mish_5_16_acuity_mark_perm_387:out0"
+                "@convolution_5_14:out0"
             ],
             "outputs": [
                 "out0"
@@ -284,7 +285,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_6_17_acuity_mark_perm_388:out0"
+                "@mish_5_16:out0"
             ],
             "outputs": [
                 "out0"
@@ -294,7 +295,7 @@
             "name": "mish_6",
             "op": "mish",
             "inputs": [
-                "@mish_6_19_acuity_mark_perm_389:out0"
+                "@convolution_6_17:out0"
             ],
             "outputs": [
                 "out0"
@@ -304,8 +305,8 @@
             "name": "add_shortcut_7",
             "op": "add",
             "inputs": [
-                "@add_shortcut_7_20_acuity_mark_perm_390:out0",
-                "@add_shortcut_7_20_acuity_mark_perm_386:out0"
+                "@mish_6_19:out0",
+                "@mish_4_13:out0"
             ],
             "outputs": [
                 "out0"
@@ -351,7 +352,7 @@
             "name": "mish_8",
             "op": "mish",
             "inputs": [
-                "@mish_8_23_acuity_mark_perm_391:out0"
+                "@convolution_8_21:out0"
             ],
             "outputs": [
                 "out0"
@@ -364,8 +365,8 @@
                 "dim": 3
             },
             "inputs": [
-                "@concat_9_24_acuity_mark_perm_392:out0",
-                "@concat_9_24_acuity_mark_perm_383:out0"
+                "@mish_8_23:out0",
+                "@mish_2_9:out0"
             ],
             "outputs": [
                 "out0"
@@ -411,7 +412,7 @@
             "name": "mish_10",
             "op": "mish",
             "inputs": [
-                "@mish_10_27_acuity_mark_perm_393:out0"
+                "@convolution_10_25:out0"
             ],
             "outputs": [
                 "out0"
@@ -447,7 +448,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_11_28_acuity_mark_perm_394:out0"
+                "@mish_10_27:out0"
             ],
             "outputs": [
                 "out0"
@@ -457,7 +458,7 @@
             "name": "mish_11",
             "op": "mish",
             "inputs": [
-                "@mish_11_30_acuity_mark_perm_395:out0"
+                "@convolution_11_28:out0"
             ],
             "outputs": [
                 "out0"
@@ -493,7 +494,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_12_31_acuity_mark_perm_396:out0"
+                "@mish_11_30:out0"
             ],
             "outputs": [
                 "out0"
@@ -503,7 +504,7 @@
             "name": "mish_12",
             "op": "mish",
             "inputs": [
-                "@mish_12_33_acuity_mark_perm_398:out0"
+                "@convolution_12_31:out0"
             ],
             "outputs": [
                 "out0"
@@ -539,7 +540,7 @@
                 ]
             },
             "inputs": [
-                "@noop_13_34_acuity_mark_perm_397:out0"
+                "@mish_11_30:out0"
             ],
             "outputs": [
                 "out0"
@@ -549,7 +550,7 @@
             "name": "mish_14",
             "op": "mish",
             "inputs": [
-                "@mish_14_37_acuity_mark_perm_400:out0"
+                "@convolution_14_35:out0"
             ],
             "outputs": [
                 "out0"
@@ -585,7 +586,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_15_38_acuity_mark_perm_401:out0"
+                "@mish_14_37:out0"
             ],
             "outputs": [
                 "out0"
@@ -595,7 +596,7 @@
             "name": "mish_15",
             "op": "mish",
             "inputs": [
-                "@mish_15_40_acuity_mark_perm_403:out0"
+                "@convolution_15_38:out0"
             ],
             "outputs": [
                 "out0"
@@ -631,7 +632,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_16_41_acuity_mark_perm_404:out0"
+                "@mish_15_40:out0"
             ],
             "outputs": [
                 "out0"
@@ -641,7 +642,7 @@
             "name": "mish_16",
             "op": "mish",
             "inputs": [
-                "@mish_16_43_acuity_mark_perm_405:out0"
+                "@convolution_16_41:out0"
             ],
             "outputs": [
                 "out0"
@@ -651,8 +652,8 @@
             "name": "add_shortcut_17",
             "op": "add",
             "inputs": [
-                "@add_shortcut_17_44_acuity_mark_perm_406:out0",
-                "@add_shortcut_17_44_acuity_mark_perm_402:out0"
+                "@mish_16_43:out0",
+                "@mish_14_37:out0"
             ],
             "outputs": [
                 "out0"
@@ -698,7 +699,7 @@
             "name": "mish_18",
             "op": "mish",
             "inputs": [
-                "@mish_18_47_acuity_mark_perm_407:out0"
+                "@convolution_18_45:out0"
             ],
             "outputs": [
                 "out0"
@@ -734,7 +735,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_19_48_acuity_mark_perm_408:out0"
+                "@mish_18_47:out0"
             ],
             "outputs": [
                 "out0"
@@ -744,7 +745,7 @@
             "name": "mish_19",
             "op": "mish",
             "inputs": [
-                "@mish_19_50_acuity_mark_perm_409:out0"
+                "@convolution_19_48:out0"
             ],
             "outputs": [
                 "out0"
@@ -754,7 +755,7 @@
             "name": "add_shortcut_20",
             "op": "add",
             "inputs": [
-                "@add_shortcut_20_51_acuity_mark_perm_410:out0",
+                "@mish_19_50:out0",
                 "@add_shortcut_17_44:out0"
             ],
             "outputs": [
@@ -801,7 +802,7 @@
             "name": "mish_21",
             "op": "mish",
             "inputs": [
-                "@mish_21_54_acuity_mark_perm_411:out0"
+                "@convolution_21_52:out0"
             ],
             "outputs": [
                 "out0"
@@ -814,8 +815,8 @@
                 "dim": 3
             },
             "inputs": [
-                "@concat_22_55_acuity_mark_perm_412:out0",
-                "@concat_22_55_acuity_mark_perm_399:out0"
+                "@mish_21_54:out0",
+                "@mish_12_33:out0"
             ],
             "outputs": [
                 "out0"
@@ -861,7 +862,7 @@
             "name": "mish_23",
             "op": "mish",
             "inputs": [
-                "@mish_23_58_acuity_mark_perm_413:out0"
+                "@convolution_23_56:out0"
             ],
             "outputs": [
                 "out0"
@@ -897,7 +898,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_24_59_acuity_mark_perm_414:out0"
+                "@mish_23_58:out0"
             ],
             "outputs": [
                 "out0"
@@ -907,7 +908,7 @@
             "name": "mish_24",
             "op": "mish",
             "inputs": [
-                "@mish_24_61_acuity_mark_perm_415:out0"
+                "@convolution_24_59:out0"
             ],
             "outputs": [
                 "out0"
@@ -943,7 +944,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_25_62_acuity_mark_perm_416:out0"
+                "@mish_24_61:out0"
             ],
             "outputs": [
                 "out0"
@@ -953,7 +954,7 @@
             "name": "mish_25",
             "op": "mish",
             "inputs": [
-                "@mish_25_64_acuity_mark_perm_418:out0"
+                "@convolution_25_62:out0"
             ],
             "outputs": [
                 "out0"
@@ -989,7 +990,7 @@
                 ]
             },
             "inputs": [
-                "@noop_26_65_acuity_mark_perm_417:out0"
+                "@mish_24_61:out0"
             ],
             "outputs": [
                 "out0"
@@ -999,7 +1000,7 @@
             "name": "mish_27",
             "op": "mish",
             "inputs": [
-                "@mish_27_68_acuity_mark_perm_420:out0"
+                "@convolution_27_66:out0"
             ],
             "outputs": [
                 "out0"
@@ -1035,7 +1036,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_28_69_acuity_mark_perm_421:out0"
+                "@mish_27_68:out0"
             ],
             "outputs": [
                 "out0"
@@ -1045,7 +1046,7 @@
             "name": "mish_28",
             "op": "mish",
             "inputs": [
-                "@mish_28_71_acuity_mark_perm_423:out0"
+                "@convolution_28_69:out0"
             ],
             "outputs": [
                 "out0"
@@ -1081,7 +1082,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_29_72_acuity_mark_perm_424:out0"
+                "@mish_28_71:out0"
             ],
             "outputs": [
                 "out0"
@@ -1091,7 +1092,7 @@
             "name": "mish_29",
             "op": "mish",
             "inputs": [
-                "@mish_29_74_acuity_mark_perm_425:out0"
+                "@convolution_29_72:out0"
             ],
             "outputs": [
                 "out0"
@@ -1101,8 +1102,8 @@
             "name": "add_shortcut_30",
             "op": "add",
             "inputs": [
-                "@add_shortcut_30_75_acuity_mark_perm_426:out0",
-                "@add_shortcut_30_75_acuity_mark_perm_422:out0"
+                "@mish_29_74:out0",
+                "@mish_27_68:out0"
             ],
             "outputs": [
                 "out0"
@@ -1148,7 +1149,7 @@
             "name": "mish_31",
             "op": "mish",
             "inputs": [
-                "@mish_31_78_acuity_mark_perm_427:out0"
+                "@convolution_31_76:out0"
             ],
             "outputs": [
                 "out0"
@@ -1184,7 +1185,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_32_79_acuity_mark_perm_428:out0"
+                "@mish_31_78:out0"
             ],
             "outputs": [
                 "out0"
@@ -1194,7 +1195,7 @@
             "name": "mish_32",
             "op": "mish",
             "inputs": [
-                "@mish_32_81_acuity_mark_perm_429:out0"
+                "@convolution_32_79:out0"
             ],
             "outputs": [
                 "out0"
@@ -1204,7 +1205,7 @@
             "name": "add_shortcut_33",
             "op": "add",
             "inputs": [
-                "@add_shortcut_33_82_acuity_mark_perm_430:out0",
+                "@mish_32_81:out0",
                 "@add_shortcut_30_75:out0"
             ],
             "outputs": [
@@ -1251,7 +1252,7 @@
             "name": "mish_34",
             "op": "mish",
             "inputs": [
-                "@mish_34_85_acuity_mark_perm_431:out0"
+                "@convolution_34_83:out0"
             ],
             "outputs": [
                 "out0"
@@ -1287,7 +1288,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_35_86_acuity_mark_perm_432:out0"
+                "@mish_34_85:out0"
             ],
             "outputs": [
                 "out0"
@@ -1297,7 +1298,7 @@
             "name": "mish_35",
             "op": "mish",
             "inputs": [
-                "@mish_35_88_acuity_mark_perm_433:out0"
+                "@convolution_35_86:out0"
             ],
             "outputs": [
                 "out0"
@@ -1307,7 +1308,7 @@
             "name": "add_shortcut_36",
             "op": "add",
             "inputs": [
-                "@add_shortcut_36_89_acuity_mark_perm_434:out0",
+                "@mish_35_88:out0",
                 "@add_shortcut_33_82:out0"
             ],
             "outputs": [
@@ -1354,7 +1355,7 @@
             "name": "mish_37",
             "op": "mish",
             "inputs": [
-                "@mish_37_92_acuity_mark_perm_435:out0"
+                "@convolution_37_90:out0"
             ],
             "outputs": [
                 "out0"
@@ -1390,7 +1391,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_38_93_acuity_mark_perm_436:out0"
+                "@mish_37_92:out0"
             ],
             "outputs": [
                 "out0"
@@ -1400,7 +1401,7 @@
             "name": "mish_38",
             "op": "mish",
             "inputs": [
-                "@mish_38_95_acuity_mark_perm_437:out0"
+                "@convolution_38_93:out0"
             ],
             "outputs": [
                 "out0"
@@ -1410,7 +1411,7 @@
             "name": "add_shortcut_39",
             "op": "add",
             "inputs": [
-                "@add_shortcut_39_96_acuity_mark_perm_438:out0",
+                "@mish_38_95:out0",
                 "@add_shortcut_36_89:out0"
             ],
             "outputs": [
@@ -1457,7 +1458,7 @@
             "name": "mish_40",
             "op": "mish",
             "inputs": [
-                "@mish_40_99_acuity_mark_perm_439:out0"
+                "@convolution_40_97:out0"
             ],
             "outputs": [
                 "out0"
@@ -1493,7 +1494,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_41_100_acuity_mark_perm_440:out0"
+                "@mish_40_99:out0"
             ],
             "outputs": [
                 "out0"
@@ -1503,7 +1504,7 @@
             "name": "mish_41",
             "op": "mish",
             "inputs": [
-                "@mish_41_102_acuity_mark_perm_441:out0"
+                "@convolution_41_100:out0"
             ],
             "outputs": [
                 "out0"
@@ -1513,7 +1514,7 @@
             "name": "add_shortcut_42",
             "op": "add",
             "inputs": [
-                "@add_shortcut_42_103_acuity_mark_perm_442:out0",
+                "@mish_41_102:out0",
                 "@add_shortcut_39_96:out0"
             ],
             "outputs": [
@@ -1560,7 +1561,7 @@
             "name": "mish_43",
             "op": "mish",
             "inputs": [
-                "@mish_43_106_acuity_mark_perm_443:out0"
+                "@convolution_43_104:out0"
             ],
             "outputs": [
                 "out0"
@@ -1596,7 +1597,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_44_107_acuity_mark_perm_444:out0"
+                "@mish_43_106:out0"
             ],
             "outputs": [
                 "out0"
@@ -1606,7 +1607,7 @@
             "name": "mish_44",
             "op": "mish",
             "inputs": [
-                "@mish_44_109_acuity_mark_perm_445:out0"
+                "@convolution_44_107:out0"
             ],
             "outputs": [
                 "out0"
@@ -1616,7 +1617,7 @@
             "name": "add_shortcut_45",
             "op": "add",
             "inputs": [
-                "@add_shortcut_45_110_acuity_mark_perm_446:out0",
+                "@mish_44_109:out0",
                 "@add_shortcut_42_103:out0"
             ],
             "outputs": [
@@ -1663,7 +1664,7 @@
             "name": "mish_46",
             "op": "mish",
             "inputs": [
-                "@mish_46_113_acuity_mark_perm_447:out0"
+                "@convolution_46_111:out0"
             ],
             "outputs": [
                 "out0"
@@ -1699,7 +1700,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_47_114_acuity_mark_perm_448:out0"
+                "@mish_46_113:out0"
             ],
             "outputs": [
                 "out0"
@@ -1709,7 +1710,7 @@
             "name": "mish_47",
             "op": "mish",
             "inputs": [
-                "@mish_47_116_acuity_mark_perm_449:out0"
+                "@convolution_47_114:out0"
             ],
             "outputs": [
                 "out0"
@@ -1719,7 +1720,7 @@
             "name": "add_shortcut_48",
             "op": "add",
             "inputs": [
-                "@add_shortcut_48_117_acuity_mark_perm_450:out0",
+                "@mish_47_116:out0",
                 "@add_shortcut_45_110:out0"
             ],
             "outputs": [
@@ -1766,7 +1767,7 @@
             "name": "mish_49",
             "op": "mish",
             "inputs": [
-                "@mish_49_120_acuity_mark_perm_451:out0"
+                "@convolution_49_118:out0"
             ],
             "outputs": [
                 "out0"
@@ -1802,7 +1803,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_50_121_acuity_mark_perm_452:out0"
+                "@mish_49_120:out0"
             ],
             "outputs": [
                 "out0"
@@ -1812,7 +1813,7 @@
             "name": "mish_50",
             "op": "mish",
             "inputs": [
-                "@mish_50_123_acuity_mark_perm_453:out0"
+                "@convolution_50_121:out0"
             ],
             "outputs": [
                 "out0"
@@ -1822,7 +1823,7 @@
             "name": "add_shortcut_51",
             "op": "add",
             "inputs": [
-                "@add_shortcut_51_124_acuity_mark_perm_454:out0",
+                "@mish_50_123:out0",
                 "@add_shortcut_48_117:out0"
             ],
             "outputs": [
@@ -1869,7 +1870,7 @@
             "name": "mish_52",
             "op": "mish",
             "inputs": [
-                "@mish_52_127_acuity_mark_perm_455:out0"
+                "@convolution_52_125:out0"
             ],
             "outputs": [
                 "out0"
@@ -1882,8 +1883,8 @@
                 "dim": 3
             },
             "inputs": [
-                "@concat_53_128_acuity_mark_perm_456:out0",
-                "@concat_53_128_acuity_mark_perm_419:out0"
+                "@mish_52_127:out0",
+                "@mish_25_64:out0"
             ],
             "outputs": [
                 "out0"
@@ -1929,7 +1930,7 @@
             "name": "mish_54",
             "op": "mish",
             "inputs": [
-                "@mish_54_131_acuity_mark_perm_457:out0"
+                "@convolution_54_129:out0"
             ],
             "outputs": [
                 "out0"
@@ -1965,7 +1966,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_55_132_acuity_mark_perm_458:out0"
+                "@mish_54_131:out0"
             ],
             "outputs": [
                 "out0"
@@ -1975,7 +1976,7 @@
             "name": "mish_55",
             "op": "mish",
             "inputs": [
-                "@mish_55_134_acuity_mark_perm_460:out0"
+                "@convolution_55_132:out0"
             ],
             "outputs": [
                 "out0"
@@ -2011,7 +2012,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_56_135_acuity_mark_perm_461:out0"
+                "@mish_55_134:out0"
             ],
             "outputs": [
                 "out0"
@@ -2021,7 +2022,7 @@
             "name": "mish_56",
             "op": "mish",
             "inputs": [
-                "@mish_56_137_acuity_mark_perm_463:out0"
+                "@convolution_56_135:out0"
             ],
             "outputs": [
                 "out0"
@@ -2057,7 +2058,7 @@
                 ]
             },
             "inputs": [
-                "@noop_57_138_acuity_mark_perm_462:out0"
+                "@mish_55_134:out0"
             ],
             "outputs": [
                 "out0"
@@ -2067,7 +2068,7 @@
             "name": "mish_58",
             "op": "mish",
             "inputs": [
-                "@mish_58_141_acuity_mark_perm_465:out0"
+                "@convolution_58_139:out0"
             ],
             "outputs": [
                 "out0"
@@ -2103,7 +2104,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_59_142_acuity_mark_perm_466:out0"
+                "@mish_58_141:out0"
             ],
             "outputs": [
                 "out0"
@@ -2113,7 +2114,7 @@
             "name": "mish_59",
             "op": "mish",
             "inputs": [
-                "@mish_59_144_acuity_mark_perm_468:out0"
+                "@convolution_59_142:out0"
             ],
             "outputs": [
                 "out0"
@@ -2149,7 +2150,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_60_145_acuity_mark_perm_469:out0"
+                "@mish_59_144:out0"
             ],
             "outputs": [
                 "out0"
@@ -2159,7 +2160,7 @@
             "name": "mish_60",
             "op": "mish",
             "inputs": [
-                "@mish_60_147_acuity_mark_perm_470:out0"
+                "@convolution_60_145:out0"
             ],
             "outputs": [
                 "out0"
@@ -2169,8 +2170,8 @@
             "name": "add_shortcut_61",
             "op": "add",
             "inputs": [
-                "@add_shortcut_61_148_acuity_mark_perm_471:out0",
-                "@add_shortcut_61_148_acuity_mark_perm_467:out0"
+                "@mish_60_147:out0",
+                "@mish_58_141:out0"
             ],
             "outputs": [
                 "out0"
@@ -2216,7 +2217,7 @@
             "name": "mish_62",
             "op": "mish",
             "inputs": [
-                "@mish_62_151_acuity_mark_perm_472:out0"
+                "@convolution_62_149:out0"
             ],
             "outputs": [
                 "out0"
@@ -2252,7 +2253,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_63_152_acuity_mark_perm_473:out0"
+                "@mish_62_151:out0"
             ],
             "outputs": [
                 "out0"
@@ -2262,7 +2263,7 @@
             "name": "mish_63",
             "op": "mish",
             "inputs": [
-                "@mish_63_154_acuity_mark_perm_474:out0"
+                "@convolution_63_152:out0"
             ],
             "outputs": [
                 "out0"
@@ -2272,7 +2273,7 @@
             "name": "add_shortcut_64",
             "op": "add",
             "inputs": [
-                "@add_shortcut_64_155_acuity_mark_perm_475:out0",
+                "@mish_63_154:out0",
                 "@add_shortcut_61_148:out0"
             ],
             "outputs": [
@@ -2319,7 +2320,7 @@
             "name": "mish_65",
             "op": "mish",
             "inputs": [
-                "@mish_65_158_acuity_mark_perm_476:out0"
+                "@convolution_65_156:out0"
             ],
             "outputs": [
                 "out0"
@@ -2355,7 +2356,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_66_159_acuity_mark_perm_477:out0"
+                "@mish_65_158:out0"
             ],
             "outputs": [
                 "out0"
@@ -2365,7 +2366,7 @@
             "name": "mish_66",
             "op": "mish",
             "inputs": [
-                "@mish_66_161_acuity_mark_perm_478:out0"
+                "@convolution_66_159:out0"
             ],
             "outputs": [
                 "out0"
@@ -2375,7 +2376,7 @@
             "name": "add_shortcut_67",
             "op": "add",
             "inputs": [
-                "@add_shortcut_67_162_acuity_mark_perm_479:out0",
+                "@mish_66_161:out0",
                 "@add_shortcut_64_155:out0"
             ],
             "outputs": [
@@ -2422,7 +2423,7 @@
             "name": "mish_68",
             "op": "mish",
             "inputs": [
-                "@mish_68_165_acuity_mark_perm_480:out0"
+                "@convolution_68_163:out0"
             ],
             "outputs": [
                 "out0"
@@ -2458,7 +2459,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_69_166_acuity_mark_perm_481:out0"
+                "@mish_68_165:out0"
             ],
             "outputs": [
                 "out0"
@@ -2468,7 +2469,7 @@
             "name": "mish_69",
             "op": "mish",
             "inputs": [
-                "@mish_69_168_acuity_mark_perm_482:out0"
+                "@convolution_69_166:out0"
             ],
             "outputs": [
                 "out0"
@@ -2478,7 +2479,7 @@
             "name": "add_shortcut_70",
             "op": "add",
             "inputs": [
-                "@add_shortcut_70_169_acuity_mark_perm_483:out0",
+                "@mish_69_168:out0",
                 "@add_shortcut_67_162:out0"
             ],
             "outputs": [
@@ -2525,7 +2526,7 @@
             "name": "mish_71",
             "op": "mish",
             "inputs": [
-                "@mish_71_172_acuity_mark_perm_484:out0"
+                "@convolution_71_170:out0"
             ],
             "outputs": [
                 "out0"
@@ -2561,7 +2562,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_72_173_acuity_mark_perm_485:out0"
+                "@mish_71_172:out0"
             ],
             "outputs": [
                 "out0"
@@ -2571,7 +2572,7 @@
             "name": "mish_72",
             "op": "mish",
             "inputs": [
-                "@mish_72_175_acuity_mark_perm_486:out0"
+                "@convolution_72_173:out0"
             ],
             "outputs": [
                 "out0"
@@ -2581,7 +2582,7 @@
             "name": "add_shortcut_73",
             "op": "add",
             "inputs": [
-                "@add_shortcut_73_176_acuity_mark_perm_487:out0",
+                "@mish_72_175:out0",
                 "@add_shortcut_70_169:out0"
             ],
             "outputs": [
@@ -2628,7 +2629,7 @@
             "name": "mish_74",
             "op": "mish",
             "inputs": [
-                "@mish_74_179_acuity_mark_perm_488:out0"
+                "@convolution_74_177:out0"
             ],
             "outputs": [
                 "out0"
@@ -2664,7 +2665,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_75_180_acuity_mark_perm_489:out0"
+                "@mish_74_179:out0"
             ],
             "outputs": [
                 "out0"
@@ -2674,7 +2675,7 @@
             "name": "mish_75",
             "op": "mish",
             "inputs": [
-                "@mish_75_182_acuity_mark_perm_490:out0"
+                "@convolution_75_180:out0"
             ],
             "outputs": [
                 "out0"
@@ -2684,7 +2685,7 @@
             "name": "add_shortcut_76",
             "op": "add",
             "inputs": [
-                "@add_shortcut_76_183_acuity_mark_perm_491:out0",
+                "@mish_75_182:out0",
                 "@add_shortcut_73_176:out0"
             ],
             "outputs": [
@@ -2731,7 +2732,7 @@
             "name": "mish_77",
             "op": "mish",
             "inputs": [
-                "@mish_77_186_acuity_mark_perm_492:out0"
+                "@convolution_77_184:out0"
             ],
             "outputs": [
                 "out0"
@@ -2767,7 +2768,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_78_187_acuity_mark_perm_493:out0"
+                "@mish_77_186:out0"
             ],
             "outputs": [
                 "out0"
@@ -2777,7 +2778,7 @@
             "name": "mish_78",
             "op": "mish",
             "inputs": [
-                "@mish_78_189_acuity_mark_perm_494:out0"
+                "@convolution_78_187:out0"
             ],
             "outputs": [
                 "out0"
@@ -2787,7 +2788,7 @@
             "name": "add_shortcut_79",
             "op": "add",
             "inputs": [
-                "@add_shortcut_79_190_acuity_mark_perm_495:out0",
+                "@mish_78_189:out0",
                 "@add_shortcut_76_183:out0"
             ],
             "outputs": [
@@ -2834,7 +2835,7 @@
             "name": "mish_80",
             "op": "mish",
             "inputs": [
-                "@mish_80_193_acuity_mark_perm_496:out0"
+                "@convolution_80_191:out0"
             ],
             "outputs": [
                 "out0"
@@ -2870,7 +2871,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_81_194_acuity_mark_perm_497:out0"
+                "@mish_80_193:out0"
             ],
             "outputs": [
                 "out0"
@@ -2880,7 +2881,7 @@
             "name": "mish_81",
             "op": "mish",
             "inputs": [
-                "@mish_81_196_acuity_mark_perm_498:out0"
+                "@convolution_81_194:out0"
             ],
             "outputs": [
                 "out0"
@@ -2890,7 +2891,7 @@
             "name": "add_shortcut_82",
             "op": "add",
             "inputs": [
-                "@add_shortcut_82_197_acuity_mark_perm_499:out0",
+                "@mish_81_196:out0",
                 "@add_shortcut_79_190:out0"
             ],
             "outputs": [
@@ -2937,7 +2938,7 @@
             "name": "mish_83",
             "op": "mish",
             "inputs": [
-                "@mish_83_200_acuity_mark_perm_500:out0"
+                "@convolution_83_198:out0"
             ],
             "outputs": [
                 "out0"
@@ -2950,8 +2951,8 @@
                 "dim": 3
             },
             "inputs": [
-                "@concat_84_201_acuity_mark_perm_501:out0",
-                "@concat_84_201_acuity_mark_perm_464:out0"
+                "@mish_83_200:out0",
+                "@mish_56_137:out0"
             ],
             "outputs": [
                 "out0"
@@ -2997,7 +2998,7 @@
             "name": "mish_85",
             "op": "mish",
             "inputs": [
-                "@mish_85_204_acuity_mark_perm_502:out0"
+                "@convolution_85_202:out0"
             ],
             "outputs": [
                 "out0"
@@ -3033,7 +3034,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_86_205_acuity_mark_perm_503:out0"
+                "@mish_85_204:out0"
             ],
             "outputs": [
                 "out0"
@@ -3043,7 +3044,7 @@
             "name": "mish_86",
             "op": "mish",
             "inputs": [
-                "@mish_86_207_acuity_mark_perm_505:out0"
+                "@convolution_86_205:out0"
             ],
             "outputs": [
                 "out0"
@@ -3079,7 +3080,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_87_208_acuity_mark_perm_506:out0"
+                "@mish_86_207:out0"
             ],
             "outputs": [
                 "out0"
@@ -3089,7 +3090,7 @@
             "name": "mish_87",
             "op": "mish",
             "inputs": [
-                "@mish_87_210_acuity_mark_perm_508:out0"
+                "@convolution_87_208:out0"
             ],
             "outputs": [
                 "out0"
@@ -3125,7 +3126,7 @@
                 ]
             },
             "inputs": [
-                "@noop_88_211_acuity_mark_perm_507:out0"
+                "@mish_86_207:out0"
             ],
             "outputs": [
                 "out0"
@@ -3135,7 +3136,7 @@
             "name": "mish_89",
             "op": "mish",
             "inputs": [
-                "@mish_89_214_acuity_mark_perm_510:out0"
+                "@convolution_89_212:out0"
             ],
             "outputs": [
                 "out0"
@@ -3171,7 +3172,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_90_215_acuity_mark_perm_511:out0"
+                "@mish_89_214:out0"
             ],
             "outputs": [
                 "out0"
@@ -3181,7 +3182,7 @@
             "name": "mish_90",
             "op": "mish",
             "inputs": [
-                "@mish_90_217_acuity_mark_perm_513:out0"
+                "@convolution_90_215:out0"
             ],
             "outputs": [
                 "out0"
@@ -3217,7 +3218,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_91_218_acuity_mark_perm_514:out0"
+                "@mish_90_217:out0"
             ],
             "outputs": [
                 "out0"
@@ -3227,7 +3228,7 @@
             "name": "mish_91",
             "op": "mish",
             "inputs": [
-                "@mish_91_220_acuity_mark_perm_515:out0"
+                "@convolution_91_218:out0"
             ],
             "outputs": [
                 "out0"
@@ -3237,8 +3238,8 @@
             "name": "add_shortcut_92",
             "op": "add",
             "inputs": [
-                "@add_shortcut_92_221_acuity_mark_perm_516:out0",
-                "@add_shortcut_92_221_acuity_mark_perm_512:out0"
+                "@mish_91_220:out0",
+                "@mish_89_214:out0"
             ],
             "outputs": [
                 "out0"
@@ -3284,7 +3285,7 @@
             "name": "mish_93",
             "op": "mish",
             "inputs": [
-                "@mish_93_224_acuity_mark_perm_517:out0"
+                "@convolution_93_222:out0"
             ],
             "outputs": [
                 "out0"
@@ -3320,7 +3321,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_94_225_acuity_mark_perm_518:out0"
+                "@mish_93_224:out0"
             ],
             "outputs": [
                 "out0"
@@ -3330,7 +3331,7 @@
             "name": "mish_94",
             "op": "mish",
             "inputs": [
-                "@mish_94_227_acuity_mark_perm_519:out0"
+                "@convolution_94_225:out0"
             ],
             "outputs": [
                 "out0"
@@ -3340,7 +3341,7 @@
             "name": "add_shortcut_95",
             "op": "add",
             "inputs": [
-                "@add_shortcut_95_228_acuity_mark_perm_520:out0",
+                "@mish_94_227:out0",
                 "@add_shortcut_92_221:out0"
             ],
             "outputs": [
@@ -3387,7 +3388,7 @@
             "name": "mish_96",
             "op": "mish",
             "inputs": [
-                "@mish_96_231_acuity_mark_perm_521:out0"
+                "@convolution_96_229:out0"
             ],
             "outputs": [
                 "out0"
@@ -3423,7 +3424,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_97_232_acuity_mark_perm_522:out0"
+                "@mish_96_231:out0"
             ],
             "outputs": [
                 "out0"
@@ -3433,7 +3434,7 @@
             "name": "mish_97",
             "op": "mish",
             "inputs": [
-                "@mish_97_234_acuity_mark_perm_523:out0"
+                "@convolution_97_232:out0"
             ],
             "outputs": [
                 "out0"
@@ -3443,7 +3444,7 @@
             "name": "add_shortcut_98",
             "op": "add",
             "inputs": [
-                "@add_shortcut_98_235_acuity_mark_perm_524:out0",
+                "@mish_97_234:out0",
                 "@add_shortcut_95_228:out0"
             ],
             "outputs": [
@@ -3490,7 +3491,7 @@
             "name": "mish_99",
             "op": "mish",
             "inputs": [
-                "@mish_99_238_acuity_mark_perm_525:out0"
+                "@convolution_99_236:out0"
             ],
             "outputs": [
                 "out0"
@@ -3526,7 +3527,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_100_239_acuity_mark_perm_526:out0"
+                "@mish_99_238:out0"
             ],
             "outputs": [
                 "out0"
@@ -3536,7 +3537,7 @@
             "name": "mish_100",
             "op": "mish",
             "inputs": [
-                "@mish_100_241_acuity_mark_perm_527:out0"
+                "@convolution_100_239:out0"
             ],
             "outputs": [
                 "out0"
@@ -3546,7 +3547,7 @@
             "name": "add_shortcut_101",
             "op": "add",
             "inputs": [
-                "@add_shortcut_101_242_acuity_mark_perm_528:out0",
+                "@mish_100_241:out0",
                 "@add_shortcut_98_235:out0"
             ],
             "outputs": [
@@ -3593,7 +3594,7 @@
             "name": "mish_102",
             "op": "mish",
             "inputs": [
-                "@mish_102_245_acuity_mark_perm_529:out0"
+                "@convolution_102_243:out0"
             ],
             "outputs": [
                 "out0"
@@ -3606,8 +3607,8 @@
                 "dim": 3
             },
             "inputs": [
-                "@concat_103_246_acuity_mark_perm_530:out0",
-                "@concat_103_246_acuity_mark_perm_509:out0"
+                "@mish_102_245:out0",
+                "@mish_87_210:out0"
             ],
             "outputs": [
                 "out0"
@@ -3653,7 +3654,7 @@
             "name": "mish_104",
             "op": "mish",
             "inputs": [
-                "@mish_104_249_acuity_mark_perm_531:out0"
+                "@convolution_104_247:out0"
             ],
             "outputs": [
                 "out0"
@@ -3689,7 +3690,7 @@
                 ]
             },
             "inputs": [
-                "@convolution_105_250_acuity_mark_perm_532:out0"
+                "@mish_104_249:out0"
             ],
             "outputs": [
                 "out0"
@@ -4145,7 +4146,7 @@
                 ]
             },
             "inputs": [
-                "@noop_119_278_acuity_mark_perm_504:out0"
+                "@mish_85_204:out0"
             ],
             "outputs": [
                 "out0"
@@ -4515,7 +4516,7 @@
                 ]
             },
             "inputs": [
-                "@noop_129_302_acuity_mark_perm_459:out0"
+                "@mish_54_131:out0"
             ],
             "outputs": [
                 "out0"
@@ -5689,2034 +5690,6 @@
             "op": "output",
             "inputs": [
                 "@convolution_160_375:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_0_3_acuity_mark_perm_377": {
-            "name": "mish_0_3_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_0_1:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_1_4_acuity_mark_perm_378": {
-            "name": "convolution_1_4_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_0_3:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_1_6_acuity_mark_perm_379": {
-            "name": "mish_1_6_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_1_4:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_2_7_acuity_mark_perm_380": {
-            "name": "convolution_2_7_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_1_6:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "noop_3_10_acuity_mark_perm_381": {
-            "name": "noop_3_10_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_1_6:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_2_9_acuity_mark_perm_382": {
-            "name": "mish_2_9_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_2_7:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_9_24_acuity_mark_perm_383": {
-            "name": "concat_9_24_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_2_9:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_4_13_acuity_mark_perm_384": {
-            "name": "mish_4_13_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_4_11:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_5_14_acuity_mark_perm_385": {
-            "name": "convolution_5_14_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_4_13:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_7_20_acuity_mark_perm_386": {
-            "name": "add_shortcut_7_20_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_4_13:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_5_16_acuity_mark_perm_387": {
-            "name": "mish_5_16_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_5_14:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_6_17_acuity_mark_perm_388": {
-            "name": "convolution_6_17_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_5_16:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_6_19_acuity_mark_perm_389": {
-            "name": "mish_6_19_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_6_17:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_7_20_acuity_mark_perm_390": {
-            "name": "add_shortcut_7_20_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_6_19:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_8_23_acuity_mark_perm_391": {
-            "name": "mish_8_23_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_8_21:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_9_24_acuity_mark_perm_392": {
-            "name": "concat_9_24_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_8_23:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_10_27_acuity_mark_perm_393": {
-            "name": "mish_10_27_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_10_25:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_11_28_acuity_mark_perm_394": {
-            "name": "convolution_11_28_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_10_27:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_11_30_acuity_mark_perm_395": {
-            "name": "mish_11_30_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_11_28:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_12_31_acuity_mark_perm_396": {
-            "name": "convolution_12_31_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_11_30:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "noop_13_34_acuity_mark_perm_397": {
-            "name": "noop_13_34_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_11_30:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_12_33_acuity_mark_perm_398": {
-            "name": "mish_12_33_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_12_31:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_22_55_acuity_mark_perm_399": {
-            "name": "concat_22_55_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_12_33:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_14_37_acuity_mark_perm_400": {
-            "name": "mish_14_37_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_14_35:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_15_38_acuity_mark_perm_401": {
-            "name": "convolution_15_38_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_14_37:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_17_44_acuity_mark_perm_402": {
-            "name": "add_shortcut_17_44_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_14_37:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_15_40_acuity_mark_perm_403": {
-            "name": "mish_15_40_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_15_38:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_16_41_acuity_mark_perm_404": {
-            "name": "convolution_16_41_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_15_40:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_16_43_acuity_mark_perm_405": {
-            "name": "mish_16_43_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_16_41:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_17_44_acuity_mark_perm_406": {
-            "name": "add_shortcut_17_44_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_16_43:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_18_47_acuity_mark_perm_407": {
-            "name": "mish_18_47_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_18_45:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_19_48_acuity_mark_perm_408": {
-            "name": "convolution_19_48_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_18_47:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_19_50_acuity_mark_perm_409": {
-            "name": "mish_19_50_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_19_48:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_20_51_acuity_mark_perm_410": {
-            "name": "add_shortcut_20_51_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_19_50:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_21_54_acuity_mark_perm_411": {
-            "name": "mish_21_54_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_21_52:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_22_55_acuity_mark_perm_412": {
-            "name": "concat_22_55_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_21_54:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_23_58_acuity_mark_perm_413": {
-            "name": "mish_23_58_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_23_56:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_24_59_acuity_mark_perm_414": {
-            "name": "convolution_24_59_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_23_58:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_24_61_acuity_mark_perm_415": {
-            "name": "mish_24_61_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_24_59:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_25_62_acuity_mark_perm_416": {
-            "name": "convolution_25_62_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_24_61:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "noop_26_65_acuity_mark_perm_417": {
-            "name": "noop_26_65_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_24_61:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_25_64_acuity_mark_perm_418": {
-            "name": "mish_25_64_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_25_62:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_53_128_acuity_mark_perm_419": {
-            "name": "concat_53_128_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_25_64:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_27_68_acuity_mark_perm_420": {
-            "name": "mish_27_68_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_27_66:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_28_69_acuity_mark_perm_421": {
-            "name": "convolution_28_69_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_27_68:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_30_75_acuity_mark_perm_422": {
-            "name": "add_shortcut_30_75_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_27_68:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_28_71_acuity_mark_perm_423": {
-            "name": "mish_28_71_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_28_69:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_29_72_acuity_mark_perm_424": {
-            "name": "convolution_29_72_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_28_71:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_29_74_acuity_mark_perm_425": {
-            "name": "mish_29_74_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_29_72:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_30_75_acuity_mark_perm_426": {
-            "name": "add_shortcut_30_75_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_29_74:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_31_78_acuity_mark_perm_427": {
-            "name": "mish_31_78_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_31_76:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_32_79_acuity_mark_perm_428": {
-            "name": "convolution_32_79_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_31_78:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_32_81_acuity_mark_perm_429": {
-            "name": "mish_32_81_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_32_79:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_33_82_acuity_mark_perm_430": {
-            "name": "add_shortcut_33_82_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_32_81:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_34_85_acuity_mark_perm_431": {
-            "name": "mish_34_85_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_34_83:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_35_86_acuity_mark_perm_432": {
-            "name": "convolution_35_86_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_34_85:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_35_88_acuity_mark_perm_433": {
-            "name": "mish_35_88_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_35_86:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_36_89_acuity_mark_perm_434": {
-            "name": "add_shortcut_36_89_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_35_88:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_37_92_acuity_mark_perm_435": {
-            "name": "mish_37_92_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_37_90:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_38_93_acuity_mark_perm_436": {
-            "name": "convolution_38_93_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_37_92:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_38_95_acuity_mark_perm_437": {
-            "name": "mish_38_95_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_38_93:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_39_96_acuity_mark_perm_438": {
-            "name": "add_shortcut_39_96_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_38_95:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_40_99_acuity_mark_perm_439": {
-            "name": "mish_40_99_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_40_97:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_41_100_acuity_mark_perm_440": {
-            "name": "convolution_41_100_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_40_99:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_41_102_acuity_mark_perm_441": {
-            "name": "mish_41_102_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_41_100:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_42_103_acuity_mark_perm_442": {
-            "name": "add_shortcut_42_103_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_41_102:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_43_106_acuity_mark_perm_443": {
-            "name": "mish_43_106_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_43_104:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_44_107_acuity_mark_perm_444": {
-            "name": "convolution_44_107_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_43_106:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_44_109_acuity_mark_perm_445": {
-            "name": "mish_44_109_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_44_107:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_45_110_acuity_mark_perm_446": {
-            "name": "add_shortcut_45_110_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_44_109:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_46_113_acuity_mark_perm_447": {
-            "name": "mish_46_113_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_46_111:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_47_114_acuity_mark_perm_448": {
-            "name": "convolution_47_114_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_46_113:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_47_116_acuity_mark_perm_449": {
-            "name": "mish_47_116_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_47_114:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_48_117_acuity_mark_perm_450": {
-            "name": "add_shortcut_48_117_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_47_116:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_49_120_acuity_mark_perm_451": {
-            "name": "mish_49_120_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_49_118:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_50_121_acuity_mark_perm_452": {
-            "name": "convolution_50_121_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_49_120:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_50_123_acuity_mark_perm_453": {
-            "name": "mish_50_123_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_50_121:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_51_124_acuity_mark_perm_454": {
-            "name": "add_shortcut_51_124_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_50_123:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_52_127_acuity_mark_perm_455": {
-            "name": "mish_52_127_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_52_125:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_53_128_acuity_mark_perm_456": {
-            "name": "concat_53_128_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_52_127:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_54_131_acuity_mark_perm_457": {
-            "name": "mish_54_131_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_54_129:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_55_132_acuity_mark_perm_458": {
-            "name": "convolution_55_132_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_54_131:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "noop_129_302_acuity_mark_perm_459": {
-            "name": "noop_129_302_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_54_131:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_55_134_acuity_mark_perm_460": {
-            "name": "mish_55_134_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_55_132:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_56_135_acuity_mark_perm_461": {
-            "name": "convolution_56_135_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_55_134:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "noop_57_138_acuity_mark_perm_462": {
-            "name": "noop_57_138_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_55_134:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_56_137_acuity_mark_perm_463": {
-            "name": "mish_56_137_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_56_135:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_84_201_acuity_mark_perm_464": {
-            "name": "concat_84_201_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_56_137:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_58_141_acuity_mark_perm_465": {
-            "name": "mish_58_141_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_58_139:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_59_142_acuity_mark_perm_466": {
-            "name": "convolution_59_142_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_58_141:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_61_148_acuity_mark_perm_467": {
-            "name": "add_shortcut_61_148_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_58_141:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_59_144_acuity_mark_perm_468": {
-            "name": "mish_59_144_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_59_142:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_60_145_acuity_mark_perm_469": {
-            "name": "convolution_60_145_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_59_144:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_60_147_acuity_mark_perm_470": {
-            "name": "mish_60_147_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_60_145:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_61_148_acuity_mark_perm_471": {
-            "name": "add_shortcut_61_148_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_60_147:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_62_151_acuity_mark_perm_472": {
-            "name": "mish_62_151_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_62_149:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_63_152_acuity_mark_perm_473": {
-            "name": "convolution_63_152_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_62_151:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_63_154_acuity_mark_perm_474": {
-            "name": "mish_63_154_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_63_152:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_64_155_acuity_mark_perm_475": {
-            "name": "add_shortcut_64_155_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_63_154:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_65_158_acuity_mark_perm_476": {
-            "name": "mish_65_158_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_65_156:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_66_159_acuity_mark_perm_477": {
-            "name": "convolution_66_159_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_65_158:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_66_161_acuity_mark_perm_478": {
-            "name": "mish_66_161_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_66_159:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_67_162_acuity_mark_perm_479": {
-            "name": "add_shortcut_67_162_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_66_161:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_68_165_acuity_mark_perm_480": {
-            "name": "mish_68_165_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_68_163:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_69_166_acuity_mark_perm_481": {
-            "name": "convolution_69_166_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_68_165:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_69_168_acuity_mark_perm_482": {
-            "name": "mish_69_168_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_69_166:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_70_169_acuity_mark_perm_483": {
-            "name": "add_shortcut_70_169_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_69_168:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_71_172_acuity_mark_perm_484": {
-            "name": "mish_71_172_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_71_170:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_72_173_acuity_mark_perm_485": {
-            "name": "convolution_72_173_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_71_172:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_72_175_acuity_mark_perm_486": {
-            "name": "mish_72_175_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_72_173:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_73_176_acuity_mark_perm_487": {
-            "name": "add_shortcut_73_176_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_72_175:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_74_179_acuity_mark_perm_488": {
-            "name": "mish_74_179_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_74_177:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_75_180_acuity_mark_perm_489": {
-            "name": "convolution_75_180_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_74_179:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_75_182_acuity_mark_perm_490": {
-            "name": "mish_75_182_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_75_180:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_76_183_acuity_mark_perm_491": {
-            "name": "add_shortcut_76_183_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_75_182:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_77_186_acuity_mark_perm_492": {
-            "name": "mish_77_186_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_77_184:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_78_187_acuity_mark_perm_493": {
-            "name": "convolution_78_187_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_77_186:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_78_189_acuity_mark_perm_494": {
-            "name": "mish_78_189_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_78_187:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_79_190_acuity_mark_perm_495": {
-            "name": "add_shortcut_79_190_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_78_189:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_80_193_acuity_mark_perm_496": {
-            "name": "mish_80_193_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_80_191:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_81_194_acuity_mark_perm_497": {
-            "name": "convolution_81_194_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_80_193:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_81_196_acuity_mark_perm_498": {
-            "name": "mish_81_196_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_81_194:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_82_197_acuity_mark_perm_499": {
-            "name": "add_shortcut_82_197_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_81_196:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_83_200_acuity_mark_perm_500": {
-            "name": "mish_83_200_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_83_198:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_84_201_acuity_mark_perm_501": {
-            "name": "concat_84_201_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_83_200:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_85_204_acuity_mark_perm_502": {
-            "name": "mish_85_204_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_85_202:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_86_205_acuity_mark_perm_503": {
-            "name": "convolution_86_205_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_85_204:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "noop_119_278_acuity_mark_perm_504": {
-            "name": "noop_119_278_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_85_204:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_86_207_acuity_mark_perm_505": {
-            "name": "mish_86_207_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_86_205:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_87_208_acuity_mark_perm_506": {
-            "name": "convolution_87_208_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_86_207:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "noop_88_211_acuity_mark_perm_507": {
-            "name": "noop_88_211_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_86_207:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_87_210_acuity_mark_perm_508": {
-            "name": "mish_87_210_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_87_208:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_103_246_acuity_mark_perm_509": {
-            "name": "concat_103_246_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_87_210:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_89_214_acuity_mark_perm_510": {
-            "name": "mish_89_214_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_89_212:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_90_215_acuity_mark_perm_511": {
-            "name": "convolution_90_215_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_89_214:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_92_221_acuity_mark_perm_512": {
-            "name": "add_shortcut_92_221_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_89_214:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_90_217_acuity_mark_perm_513": {
-            "name": "mish_90_217_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_90_215:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_91_218_acuity_mark_perm_514": {
-            "name": "convolution_91_218_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_90_217:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_91_220_acuity_mark_perm_515": {
-            "name": "mish_91_220_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_91_218:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_92_221_acuity_mark_perm_516": {
-            "name": "add_shortcut_92_221_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_91_220:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_93_224_acuity_mark_perm_517": {
-            "name": "mish_93_224_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_93_222:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_94_225_acuity_mark_perm_518": {
-            "name": "convolution_94_225_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_93_224:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_94_227_acuity_mark_perm_519": {
-            "name": "mish_94_227_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_94_225:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_95_228_acuity_mark_perm_520": {
-            "name": "add_shortcut_95_228_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_94_227:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_96_231_acuity_mark_perm_521": {
-            "name": "mish_96_231_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_96_229:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_97_232_acuity_mark_perm_522": {
-            "name": "convolution_97_232_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_96_231:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_97_234_acuity_mark_perm_523": {
-            "name": "mish_97_234_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_97_232:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_98_235_acuity_mark_perm_524": {
-            "name": "add_shortcut_98_235_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_97_234:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_99_238_acuity_mark_perm_525": {
-            "name": "mish_99_238_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_99_236:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_100_239_acuity_mark_perm_526": {
-            "name": "convolution_100_239_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_99_238:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_100_241_acuity_mark_perm_527": {
-            "name": "mish_100_241_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_100_239:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "add_shortcut_101_242_acuity_mark_perm_528": {
-            "name": "add_shortcut_101_242_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_100_241:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_102_245_acuity_mark_perm_529": {
-            "name": "mish_102_245_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_102_243:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "concat_103_246_acuity_mark_perm_530": {
-            "name": "concat_103_246_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_102_245:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "mish_104_249_acuity_mark_perm_531": {
-            "name": "mish_104_249_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 3 1 2"
-            },
-            "inputs": [
-                "@convolution_104_247:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "convolution_105_250_acuity_mark_perm_532": {
-            "name": "convolution_105_250_acuity_mark_perm",
-            "op": "permute",
-            "parameters": {
-                "perm": "0 2 3 1"
-            },
-            "inputs": [
-                "@mish_104_249:out0"
             ],
             "outputs": [
                 "out0"
