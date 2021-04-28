@@ -1,0 +1,320 @@
+{
+    "MetaData": {
+        "Name": "speaker_verification",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow"
+    },
+    "Layers": {
+        "attach_truediv/out0_0": {
+            "name": "attach_truediv/out0",
+            "op": "output",
+            "inputs": [
+                "@truediv_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_input/out0_1": {
+            "name": "attach_input/out0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    0,
+                    80,
+                    40
+                ],
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "truediv_2": {
+            "name": "truediv",
+            "op": "real_div",
+            "inputs": [
+                "@dense/BiasAdd_4:out0",
+                "@ExpandDims_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "ExpandDims_3": {
+            "name": "ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@norm/Squeeze_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense/BiasAdd_4": {
+            "name": "dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 256,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@strided_slice_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "norm/Squeeze_5": {
+            "name": "norm/Squeeze",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0
+                ]
+            },
+            "inputs": [
+                "@norm/Sqrt_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "strided_slice_6": {
+            "name": "strided_slice",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 0,
+                "slice_end_mask": 0,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 2,
+                "slice_begin": [
+                    0,
+                    79,
+                    0
+                ],
+                "slice_end": [
+                    1,
+                    80,
+                    768
+                ],
+                "slice_strides": [
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@rnn_2/transpose_1_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "norm/Sqrt_7": {
+            "name": "norm/Sqrt",
+            "op": "sqrt",
+            "inputs": [
+                "@norm/Sum_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "rnn_2/transpose_1_8": {
+            "name": "rnn_2/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@rnn_2/TensorArrayStack/TensorArrayGatherV3_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "norm/Sum_9": {
+            "name": "norm/Sum",
+            "op": "reducesum",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "keep_dims": true
+            },
+            "inputs": [
+                "@norm/mul_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "rnn_2/TensorArrayStack/TensorArrayGatherV3_10": {
+            "name": "rnn_2/TensorArrayStack/TensorArrayGatherV3",
+            "op": "lstm",
+            "parameters": {
+                "weights": 768,
+                "time_major": true,
+                "forget_bias": 1.0,
+                "activation": "tanh",
+                "use_cifg": false,
+                "use_peepholes": false,
+                "num_proj": null,
+                "cell_clip": 0.0,
+                "proj_clip": 0.0,
+                "recurrent_activation": "sigmoid",
+                "return_sequences": true
+            },
+            "inputs": [
+                "@rnn_2/transpose_12:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "norm/mul_11": {
+            "name": "norm/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@dense/BiasAdd_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "rnn_2/transpose_12": {
+            "name": "rnn_2/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@rnn_1/transpose_1_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "rnn_1/transpose_1_13": {
+            "name": "rnn_1/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@rnn_1/TensorArrayStack/TensorArrayGatherV3_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "rnn_1/TensorArrayStack/TensorArrayGatherV3_14": {
+            "name": "rnn_1/TensorArrayStack/TensorArrayGatherV3",
+            "op": "lstm",
+            "parameters": {
+                "weights": 768,
+                "time_major": true,
+                "forget_bias": 1.0,
+                "activation": "tanh",
+                "use_cifg": false,
+                "use_peepholes": false,
+                "num_proj": null,
+                "cell_clip": 0.0,
+                "proj_clip": 0.0,
+                "recurrent_activation": "sigmoid",
+                "return_sequences": true
+            },
+            "inputs": [
+                "@rnn_1/transpose_15:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "rnn_1/transpose_15": {
+            "name": "rnn_1/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@rnn/transpose_1_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "rnn/transpose_1_16": {
+            "name": "rnn/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@rnn/TensorArrayStack/TensorArrayGatherV3_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "rnn/TensorArrayStack/TensorArrayGatherV3_17": {
+            "name": "rnn/TensorArrayStack/TensorArrayGatherV3",
+            "op": "lstm",
+            "parameters": {
+                "weights": 768,
+                "time_major": true,
+                "forget_bias": 1.0,
+                "activation": "tanh",
+                "use_cifg": false,
+                "use_peepholes": false,
+                "num_proj": null,
+                "cell_clip": 0.0,
+                "proj_clip": 0.0,
+                "recurrent_activation": "sigmoid",
+                "return_sequences": true
+            },
+            "inputs": [
+                "@rnn/transpose_18:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "rnn/transpose_18": {
+            "name": "rnn/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@attach_input/out0_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

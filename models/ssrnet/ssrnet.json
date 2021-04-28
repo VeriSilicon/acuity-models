@@ -1,0 +1,1736 @@
+{
+    "MetaData": {
+        "Name": "ssrnet",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow"
+    },
+    "Layers": {
+        "attach_pred_age_stage1/Relu/out0_0": {
+            "name": "attach_pred_age_stage1/Relu/out0",
+            "op": "output",
+            "inputs": [
+                "@pred_age_stage1/Relu_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_pred_age_stage2/Relu/out0_1": {
+            "name": "attach_pred_age_stage2/Relu/out0",
+            "op": "output",
+            "inputs": [
+                "@pred_age_stage2/Relu_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_pred_age_stage3/Relu/out0_2": {
+            "name": "attach_pred_age_stage3/Relu/out0",
+            "op": "output",
+            "inputs": [
+                "@pred_age_stage3/Relu_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_local_delta_stage1/Tanh/out0_3": {
+            "name": "attach_local_delta_stage1/Tanh/out0",
+            "op": "output",
+            "inputs": [
+                "@local_delta_stage1/Tanh_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_local_delta_stage2/Tanh/out0_4": {
+            "name": "attach_local_delta_stage2/Tanh/out0",
+            "op": "output",
+            "inputs": [
+                "@local_delta_stage2/Tanh_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_local_delta_stage3/Tanh/out0_5": {
+            "name": "attach_local_delta_stage3/Tanh/out0",
+            "op": "output",
+            "inputs": [
+                "@local_delta_stage3/Tanh_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_delta_s1/Tanh/out0_6": {
+            "name": "attach_delta_s1/Tanh/out0",
+            "op": "output",
+            "inputs": [
+                "@delta_s1/Tanh_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_delta_s2/Tanh/out0_7": {
+            "name": "attach_delta_s2/Tanh/out0",
+            "op": "output",
+            "inputs": [
+                "@delta_s2/Tanh_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_delta_s3/Tanh/out0_8": {
+            "name": "attach_delta_s3/Tanh/out0",
+            "op": "output",
+            "inputs": [
+                "@delta_s3/Tanh_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_input_1/out0_9": {
+            "name": "attach_input_1/out0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    0,
+                    64,
+                    64,
+                    3
+                ],
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pred_age_stage1/Relu_10": {
+            "name": "pred_age_stage1/Relu",
+            "op": "relu",
+            "inputs": [
+                "@pred_age_stage1/BiasAdd_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pred_age_stage2/Relu_11": {
+            "name": "pred_age_stage2/Relu",
+            "op": "relu",
+            "inputs": [
+                "@pred_age_stage2/BiasAdd_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pred_age_stage3/Relu_12": {
+            "name": "pred_age_stage3/Relu",
+            "op": "relu",
+            "inputs": [
+                "@pred_age_stage3/BiasAdd_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "local_delta_stage1/Tanh_13": {
+            "name": "local_delta_stage1/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@local_delta_stage1/BiasAdd_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "local_delta_stage2/Tanh_14": {
+            "name": "local_delta_stage2/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@local_delta_stage2/BiasAdd_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "local_delta_stage3/Tanh_15": {
+            "name": "local_delta_stage3/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@local_delta_stage3/BiasAdd_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "delta_s1/Tanh_16": {
+            "name": "delta_s1/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@delta_s1/BiasAdd_25:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "delta_s2/Tanh_17": {
+            "name": "delta_s2/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@delta_s2/BiasAdd_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "delta_s3/Tanh_18": {
+            "name": "delta_s3/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@delta_s3/BiasAdd_27:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pred_age_stage1/BiasAdd_19": {
+            "name": "pred_age_stage1/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@dense_3/Relu_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pred_age_stage2/BiasAdd_20": {
+            "name": "pred_age_stage2/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@dense_6/Relu_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "pred_age_stage3/BiasAdd_21": {
+            "name": "pred_age_stage3/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@dense_9/Relu_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "local_delta_stage1/BiasAdd_22": {
+            "name": "local_delta_stage1/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@dense_3/Relu_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "local_delta_stage2/BiasAdd_23": {
+            "name": "local_delta_stage2/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@dense_6/Relu_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "local_delta_stage3/BiasAdd_24": {
+            "name": "local_delta_stage3/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@dense_9/Relu_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "delta_s1/BiasAdd_25": {
+            "name": "delta_s1/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 1,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@multiply_1/mul_31:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "delta_s2/BiasAdd_26": {
+            "name": "delta_s2/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 1,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@multiply_3/mul_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "delta_s3/BiasAdd_27": {
+            "name": "delta_s3/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 1,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@multiply_5/mul_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_3/Relu_28": {
+            "name": "dense_3/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_3/BiasAdd_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_6/Relu_29": {
+            "name": "dense_6/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_6/BiasAdd_35:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_9/Relu_30": {
+            "name": "dense_9/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_9/BiasAdd_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "multiply_1/mul_31": {
+            "name": "multiply_1/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@flatten_1/Reshape_38:out0",
+                "@flatten_2/Reshape_37:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "multiply_3/mul_32": {
+            "name": "multiply_3/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@flatten_3/Reshape_40:out0",
+                "@flatten_4/Reshape_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "multiply_5/mul_33": {
+            "name": "multiply_5/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@flatten_5/Reshape_42:out0",
+                "@flatten_6/Reshape_41:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_3/BiasAdd_34": {
+            "name": "dense_3/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 6,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@multiply_2/mul_43:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_6/BiasAdd_35": {
+            "name": "dense_6/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 6,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@multiply_4/mul_44:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_9/BiasAdd_36": {
+            "name": "dense_9/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 6,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@multiply_6/mul_45:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "flatten_2/Reshape_37": {
+            "name": "flatten_2/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    160
+                ]
+            },
+            "inputs": [
+                "@conv2d_10/Relu_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "flatten_1/Reshape_38": {
+            "name": "flatten_1/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    160
+                ]
+            },
+            "inputs": [
+                "@conv2d_9/Relu_47:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "flatten_4/Reshape_39": {
+            "name": "flatten_4/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    90
+                ]
+            },
+            "inputs": [
+                "@average_pooling2d_4/AvgPool_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "flatten_3/Reshape_40": {
+            "name": "flatten_3/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    90
+                ]
+            },
+            "inputs": [
+                "@max_pooling2d_4/MaxPool_49:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "flatten_6/Reshape_41": {
+            "name": "flatten_6/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    90
+                ]
+            },
+            "inputs": [
+                "@average_pooling2d_5/AvgPool_50:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "flatten_5/Reshape_42": {
+            "name": "flatten_5/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    90
+                ]
+            },
+            "inputs": [
+                "@max_pooling2d_5/MaxPool_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "multiply_2/mul_43": {
+            "name": "multiply_2/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@dense_1/Relu_53:out0",
+                "@dense_2/Relu_52:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "multiply_4/mul_44": {
+            "name": "multiply_4/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@dense_4/Relu_55:out0",
+                "@dense_5/Relu_54:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "multiply_6/mul_45": {
+            "name": "multiply_6/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@dense_7/Relu_57:out0",
+                "@dense_8/Relu_56:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_10/Relu_46": {
+            "name": "conv2d_10/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_10/BiasAdd_58:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_9/Relu_47": {
+            "name": "conv2d_9/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_9/BiasAdd_59:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "average_pooling2d_4/AvgPool_48": {
+            "name": "average_pooling2d_4/AvgPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 4,
+                "stride_w": 4,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@conv2d_12/Relu_60:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "max_pooling2d_4/MaxPool_49": {
+            "name": "max_pooling2d_4/MaxPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "MAX",
+                "ksize_h": 4,
+                "ksize_w": 4,
+                "stride_h": 4,
+                "stride_w": 4,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@conv2d_11/Relu_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "average_pooling2d_5/AvgPool_50": {
+            "name": "average_pooling2d_5/AvgPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 8,
+                "ksize_w": 8,
+                "stride_h": 8,
+                "stride_w": 8,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@conv2d_14/Relu_62:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "max_pooling2d_5/MaxPool_51": {
+            "name": "max_pooling2d_5/MaxPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "MAX",
+                "ksize_h": 8,
+                "ksize_w": 8,
+                "stride_h": 8,
+                "stride_w": 8,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@conv2d_13/Relu_63:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_2/Relu_52": {
+            "name": "dense_2/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_2/BiasAdd_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_1/Relu_53": {
+            "name": "dense_1/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_1/BiasAdd_65:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_5/Relu_54": {
+            "name": "dense_5/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_5/BiasAdd_66:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_4/Relu_55": {
+            "name": "dense_4/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_4/BiasAdd_67:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_8/Relu_56": {
+            "name": "dense_8/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_8/BiasAdd_68:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_7/Relu_57": {
+            "name": "dense_7/Relu",
+            "op": "relu",
+            "inputs": [
+                "@dense_7/BiasAdd_69:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_10/BiasAdd_58": {
+            "name": "conv2d_10/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 10,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@activation_4/Relu_70:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_9/BiasAdd_59": {
+            "name": "conv2d_9/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 10,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@activation_8/Tanh_71:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_12/Relu_60": {
+            "name": "conv2d_12/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_12/BiasAdd_72:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_11/Relu_61": {
+            "name": "conv2d_11/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_11/BiasAdd_73:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_14/Relu_62": {
+            "name": "conv2d_14/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_14/BiasAdd_74:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_13/Relu_63": {
+            "name": "conv2d_13/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_13/BiasAdd_75:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_2/BiasAdd_64": {
+            "name": "dense_2/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@flatten_2/Reshape_37:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_1/BiasAdd_65": {
+            "name": "dense_1/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@flatten_1/Reshape_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_5/BiasAdd_66": {
+            "name": "dense_5/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@flatten_4/Reshape_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_4/BiasAdd_67": {
+            "name": "dense_4/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@flatten_3/Reshape_40:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_8/BiasAdd_68": {
+            "name": "dense_8/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@flatten_6/Reshape_41:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "dense_7/BiasAdd_69": {
+            "name": "dense_7/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@flatten_5/Reshape_42:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "activation_4/Relu_70": {
+            "name": "activation_4/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_4/BiasAdd_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "activation_8/Tanh_71": {
+            "name": "activation_8/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@conv2d_8/BiasAdd_83:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_12/BiasAdd_72": {
+            "name": "conv2d_12/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 10,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@average_pooling2d_2/AvgPool_78:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_11/BiasAdd_73": {
+            "name": "conv2d_11/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 10,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@max_pooling2d_2/MaxPool_79:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_14/BiasAdd_74": {
+            "name": "conv2d_14/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 10,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@average_pooling2d_1/AvgPool_80:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_13/BiasAdd_75": {
+            "name": "conv2d_13/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 10,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@max_pooling2d_1/MaxPool_81:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "average_pooling2d_2/AvgPool_78": {
+            "name": "average_pooling2d_2/AvgPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@activation_2/Relu_84:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "max_pooling2d_2/MaxPool_79": {
+            "name": "max_pooling2d_2/MaxPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "MAX",
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@activation_6/Tanh_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "average_pooling2d_1/AvgPool_80": {
+            "name": "average_pooling2d_1/AvgPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@activation_1/Relu_86:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "max_pooling2d_1/MaxPool_81": {
+            "name": "max_pooling2d_1/MaxPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "MAX",
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@activation_5/Tanh_87:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_4/BiasAdd_82": {
+            "name": "conv2d_4/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@average_pooling2d_3/AvgPool_88:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_8/BiasAdd_83": {
+            "name": "conv2d_8/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 16,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@max_pooling2d_3/MaxPool_89:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "activation_2/Relu_84": {
+            "name": "activation_2/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_2/BiasAdd_96:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "activation_6/Tanh_85": {
+            "name": "activation_6/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@conv2d_6/BiasAdd_97:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "activation_1/Relu_86": {
+            "name": "activation_1/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_1/BiasAdd_98:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "activation_5/Tanh_87": {
+            "name": "activation_5/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@conv2d_5/BiasAdd_99:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "average_pooling2d_3/AvgPool_88": {
+            "name": "average_pooling2d_3/AvgPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@activation_3/Relu_94:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "max_pooling2d_3/MaxPool_89": {
+            "name": "max_pooling2d_3/MaxPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "MAX",
+                "ksize_h": 2,
+                "ksize_w": 2,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@activation_7/Tanh_95:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "activation_3/Relu_94": {
+            "name": "activation_3/Relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2d_3/BiasAdd_102:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "activation_7/Tanh_95": {
+            "name": "activation_7/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@conv2d_7/BiasAdd_103:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_2/BiasAdd_96": {
+            "name": "conv2d_2/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@average_pooling2d_1/AvgPool_80:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_6/BiasAdd_97": {
+            "name": "conv2d_6/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 16,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@max_pooling2d_1/MaxPool_81:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_1/BiasAdd_98": {
+            "name": "conv2d_1/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@attach_input_1/out0_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_5/BiasAdd_99": {
+            "name": "conv2d_5/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 16,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@attach_input_1/out0_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_3/BiasAdd_102": {
+            "name": "conv2d_3/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@average_pooling2d_2/AvgPool_78:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2d_7/BiasAdd_103": {
+            "name": "conv2d_7/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 16,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@max_pooling2d_2/MaxPool_79:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

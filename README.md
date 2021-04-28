@@ -24,6 +24,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [Squeezenet][] ([OriginModel][OriginSqueezenet])
  - [VGG-16][] ([OriginModel][OriginVGG-16])
  - [Xception][] ([OriginModel][OriginXception])
+ - [DenseNet][] ([OriginModel][OriginDenseNet])
 
 ### Detection
  - [Faster-RCNN-ZF][] ([OriginModel][OriginFaster-RCNN-ZF])
@@ -37,21 +38,45 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [YOLO-v3][] ([OriginModel][OriginYOLO-v3])
  - [YOLO-v4][] ([OriginModel][OriginYOLO-v4])
  - [YOLO-v5][] ([OriginModel][OriginYOLO-v5])
+ - [FCOS][] ([OriginModel][OriginFCOS])
+
+### Face Recognition
+ - [ArcFace][] ([OriginModel][OriginArcFace])
 
 ### Segmentation
  - [ENET][] ([OriginModel][OriginENET])
  - [SegNet][] ([OriginModel][OriginSegNet])
  - [DeepLab-v3][] ([OriginModel][OriginDeepLab-v3])
 
+### Super Resolution
+ - [SRCNN][] ([OriginModel][OriginSRCNN])
+ - [VDSR][] ([OriginModel][OriginVDSR])
+ - [EDSR_x2][] ([OriginModel][OriginEDSR_x2])
+ - [EDSR_x3][] ([OriginModel][OriginEDSR_x3])
+ - [EDSR_x4][] ([OriginModel][OriginEDSR_x4])
+ - [ESRGAN][] ([OriginModel][OriginESRGAN])
+
+### Image Denoising
+ - [SID][] ([OriginModel][OriginSID])
+
 ### Pixel Processing
- - [Denoiser][] 
- - [Super Resolution][] ([OriginModel][OriginSuper Resolution])
  - [Fast Style Transfer][] ([OriginModel][OriginFast Style Transfer])
  - [Pix2Pix][] ([OriginModel][OriginPix2Pix])
+
+### Voice Processing
+ - [QuartzNet][] ([OriginModel][OriginQuartzNet])
+ - [DPRNN][] ([OriginModel][OriginDPRNN])
+ - [RNNOISE][] ([OriginModel][OriginRNNOISE])
+ - [Speaker Verification][] ([OriginModel][OriginSpeaker Verification])
+ - [DS_CNN][] ([OriginModel][OriginDS_CNN])
 
 ### Pose Estimation
  - [Open Pose][] ([OriginModel][OriginOpen Pose])
  - [CPM Mobile][] ([OriginModel][OriginCPM Mobile])
+ - [MSPN][] ([OriginModel][OriginMSPN])
+
+### Age Estimation
+ - [SSRNet][] ([OriginModel][OriginSSRNet])
 
 ### Recurrent Net
  - [LSTM - Command Recognition][]
@@ -141,14 +166,29 @@ Runtime software stack support
 [ENET]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/enet/enet.json
 [SegNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/segnet/segnet.json
 [DeepLab-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/deeplab_v3/deeplab_v3.json
-[Denoiser]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/denoise/denoise.json
-[Super Resolution]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/vdsr/vdsr.json
 [Fast Style Transfer]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/fast_style_transfer/fast_style_transfer.json
 [Pix2Pix]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/pix2pix/pix2pix.json
 [Open Pose]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/open_pose/open_pose.json
 [CPM Mobile]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/cpm/cpm.json
 [LSTM - Command Recognition]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/lstm/lstm.json
 [LSTM - Speech Recognition]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/deepspeech2/deepspeech2.json
+[QuartzNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/quartznet/quartznet.json
+[DPRNN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/dprnn/dprnn.json
+[RNNOISE]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/rnnoise/rnnoise.json
+[Speaker Verification]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/speaker_verification/speaker_verification.json
+[DS_CNN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/ds_cnn/ds_cnn.json
+[MSPN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mspn/mspn.json
+[FCOS]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/fcos/fcos.json
+[SSRNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/ssrnet/ssrnet.json
+[DenseNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/densenet/densenet.json
+[ArcFace]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/arcface/arcface.json
+[SRCNN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/srcnn/srcnn.json
+[VDSR]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/vdsr/vdsr.json
+[EDSR_x2]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/edsr/edsr_x2.json
+[EDSR_x3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/edsr/edsr_x3.json
+[EDSR_x4]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/edsr/edsr_x4.json
+[ESRGAN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/esrgan/esrgan.json
+[SID]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/sid/sid.json
 
 [OriginAlexNet]: https://github.com/BVLC/caffe/tree/master/models/bvlc_alexnet
 [OriginInception-v1]: http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
@@ -185,9 +225,25 @@ Runtime software stack support
 [OriginENET]: https://github.com/TimoSaemann/ENet
 [OriginSegNet]: https://github.com/BVLC/caffe/wiki/Model-Zoo#segnet-and-bayesian-segnet
 [OriginDeepLab-v3]: https://github.com/tensorflow/models/tree/master/research/deeplab
-[OriginSuper Resolution]: https://github.com/tegg89/SRCNN-Tensorflow/tree/master/checkpoint/srcnn_21
 [OriginFast Style Transfer]: https://drive.google.com/drive/folders/0B9jhaT37ydSyRk9UX0wwX3BpMzQ?usp=sharing
 [OriginPix2Pix]: https://github.com/affinelayer/pix2pix-tensorflow
 [OriginOpen Pose]: https://github.com/CMU-Perceptual-Computing-Lab/openpose
 [OriginCPM Mobile]: https://drive.google.com/open?id=1gOwBY5puCusYPCQaPcEUMmQtPnGHCPyl
 [OriginLSTM - Speech Recognition]: https://github.com/tensorflow/models/tree/master/research/deep_speech
+[OriginQuartzNet]: https://github.com/NVIDIA/NeMo/blob/main/docs/source/asr/configs.rst
+[OriginDPRNN]: https://github.com/sp-uhh/dual-path-rnn
+[OriginRNNOISE]: https://github.com/xiph/rnnoise
+[OriginSpeaker Verification]: https://github.com/HarryVolek/PyTorch_Speaker_Verification
+[OriginDS_CNN]: https://github.com/ARM-software/ML-KWS-for-MCU/tree/master/Pretrained_models/DS_CNN
+[OriginMSPN]: https://github.com/megvii-detection/MSPN
+[OriginFCOS]: https://github.com/tianzhi0549/FCOS
+[OriginSSRNet]: https://github.com/shamangary/SSR-Net/tree/master/pre-trained
+[OriginDenseNet]: https://github.com/shicai/DenseNet-Caffe
+[OriginArcFace]: https://github.com/deepinsight/insightface/wiki/Model-Zoo
+[OriginSRCNN]: https://github.com/tegg89/SRCNN-Tensorflow/tree/master/checkpoint/srcnn_21
+[OriginVDSR]: https://cv.snu.ac.kr/research/VDSR/VDSR_code.zip
+[OriginEDSR_x2]: https://cv.snu.ac.kr/research/EDSR/model_pytorch.tar
+[OriginEDSR_x3]: https://cv.snu.ac.kr/research/EDSR/model_pytorch.tar
+[OriginEDSR_x4]: https://cv.snu.ac.kr/research/EDSR/model_pytorch.tar
+[OriginESRGAN]: https://github.com/xinntao/ESRGAN
+[OriginSID]: https://github.com/cchen156/Learning-to-See-in-the-Dark/blob/master/download_models.py
