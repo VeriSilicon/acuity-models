@@ -1,0 +1,299 @@
+{
+    "MetaData": {
+        "Name": "rnnoise",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow"
+    },
+    "Layers": {
+        "attach_vad_out/out0_0": {
+            "name": "attach_vad_out/out0",
+            "op": "output",
+            "inputs": [
+                "@FC-Layer2/fc2/dense/Sigmoid_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_gru_out/out0_1": {
+            "name": "attach_gru_out/out0",
+            "op": "output",
+            "inputs": [
+                "@FC-Layer3/fc3/dense/Sigmoid_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_input/out0_2": {
+            "name": "attach_input/out0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    0,
+                    1,
+                    42
+                ]
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "FC-Layer2/fc2/dense/Sigmoid_5": {
+            "name": "FC-Layer2/fc2/dense/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@FC-Layer2/fc2/dense/BiasAdd_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "FC-Layer3/fc3/dense/Sigmoid_6": {
+            "name": "FC-Layer3/fc3/dense/Sigmoid",
+            "op": "sigmoid",
+            "inputs": [
+                "@FC-Layer3/fc3/dense/BiasAdd_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "FC-Layer2/fc2/dense/BiasAdd_7": {
+            "name": "FC-Layer2/fc2/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 24,
+                "bias": true,
+                "regularize": false,
+                "axis": -1
+            },
+            "inputs": [
+                "@GRU-Layer1/gru1/rnn/transpose_1_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "FC-Layer3/fc3/dense/BiasAdd_8": {
+            "name": "FC-Layer3/fc3/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 22,
+                "bias": true,
+                "regularize": false,
+                "axis": -1
+            },
+            "inputs": [
+                "@GRU-Layer3/gru3/rnn/transpose_1_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "GRU-Layer1/gru1/rnn/transpose_1_9": {
+            "name": "GRU-Layer1/gru1/rnn/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@GRU-Layer1/gru1/rnn/TensorArrayStack/TensorArrayGatherV3_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "GRU-Layer3/gru3/rnn/transpose_1_10": {
+            "name": "GRU-Layer3/gru3/rnn/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@GRU-Layer3/gru3/rnn/TensorArrayStack/TensorArrayGatherV3_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "GRU-Layer1/gru1/rnn/TensorArrayStack/TensorArrayGatherV3_11": {
+            "name": "GRU-Layer1/gru1/rnn/TensorArrayStack/TensorArrayGatherV3",
+            "op": "gru",
+            "parameters": {
+                "num_units": 24,
+                "time_major": true,
+                "bias": true,
+                "activation": "tanh",
+                "recurrent_activation": "sigmoid",
+                "return_sequences": true,
+                "direction": "forward",
+                "linear_before_reset": 0
+            },
+            "inputs": [
+                "@GRU-Layer1/gru1/rnn/transpose_13:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1"
+            ]
+        },
+        "GRU-Layer3/gru3/rnn/TensorArrayStack/TensorArrayGatherV3_12": {
+            "name": "GRU-Layer3/gru3/rnn/TensorArrayStack/TensorArrayGatherV3",
+            "op": "gru",
+            "parameters": {
+                "num_units": 96,
+                "time_major": true,
+                "bias": true,
+                "activation": "tanh",
+                "recurrent_activation": "sigmoid",
+                "return_sequences": true,
+                "direction": "forward",
+                "linear_before_reset": 0
+            },
+            "inputs": [
+                "@GRU-Layer3/gru3/rnn/transpose_14:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1"
+            ]
+        },
+        "GRU-Layer1/gru1/rnn/transpose_13": {
+            "name": "GRU-Layer1/gru1/rnn/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@FC-Layer1/fc1/dense/Tanh_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "GRU-Layer3/gru3/rnn/transpose_14": {
+            "name": "GRU-Layer3/gru3/rnn/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@CONCAT2/concat2/concat_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "FC-Layer1/fc1/dense/Tanh_15": {
+            "name": "FC-Layer1/fc1/dense/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@FC-Layer1/fc1/dense/BiasAdd_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "CONCAT2/concat2/concat_16": {
+            "name": "CONCAT2/concat2/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 2
+            },
+            "inputs": [
+                "@GRU-Layer1/gru1/rnn/transpose_1_9:out0",
+                "@GRU-Layer2/gru2/rnn/transpose_1_18:out0",
+                "@attach_input/out0_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "FC-Layer1/fc1/dense/BiasAdd_17": {
+            "name": "FC-Layer1/fc1/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 24,
+                "bias": true,
+                "regularize": false,
+                "axis": -1
+            },
+            "inputs": [
+                "@attach_input/out0_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "GRU-Layer2/gru2/rnn/transpose_1_18": {
+            "name": "GRU-Layer2/gru2/rnn/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@GRU-Layer2/gru2/rnn/TensorArrayStack/TensorArrayGatherV3_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "GRU-Layer2/gru2/rnn/TensorArrayStack/TensorArrayGatherV3_19": {
+            "name": "GRU-Layer2/gru2/rnn/TensorArrayStack/TensorArrayGatherV3",
+            "op": "gru",
+            "parameters": {
+                "num_units": 48,
+                "time_major": true,
+                "bias": true,
+                "activation": "tanh",
+                "recurrent_activation": "sigmoid",
+                "return_sequences": true,
+                "direction": "forward",
+                "linear_before_reset": 0
+            },
+            "inputs": [
+                "@GRU-Layer2/gru2/rnn/transpose_20:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1"
+            ]
+        },
+        "GRU-Layer2/gru2/rnn/transpose_20": {
+            "name": "GRU-Layer2/gru2/rnn/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": "1 0 2"
+            },
+            "inputs": [
+                "@CONCAT1/concat1/concat_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "CONCAT1/concat1/concat_21": {
+            "name": "CONCAT1/concat1/concat",
+            "op": "concat",
+            "parameters": {
+                "dim": 2
+            },
+            "inputs": [
+                "@FC-Layer1/fc1/dense/Tanh_15:out0",
+                "@GRU-Layer1/gru1/rnn/transpose_1_9:out0",
+                "@attach_input/out0_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

@@ -1,671 +1,33 @@
 {
     "MetaData": {
-        "Name": "VDSR",
+        "Name": "vdsr",
         "AcuityVersion": "2.0",
-        "Platform": "caffe"
+        "Platform": "tensorflow"
     },
     "Layers": {
-        "input_0": {
-            "name": "input",
-            "op": "input",
-            "parameters": {
-                "size": "2160 3840",
-                "channels": 1,
-                "shape": []
-            },
-            "inputs": [],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv1_1": {
-            "name": "conv1",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
+        "attach_Add_m60_Add_0/out0_0": {
+            "name": "attach_Add_m60_Add_0/out0",
+            "op": "output",
             "inputs": [
-                "@input_0:out0"
+                "@Add_m60_Add_0_1:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "relu1_2": {
-            "name": "relu1",
-            "op": "relu",
+        "Add_m60_Add_0_1": {
+            "name": "Add_m60_Add_0",
+            "op": "add",
             "inputs": [
-                "@conv1_1:out0"
+                "@Conv_m59_Conv_0_2:out0",
+                "@input.1_41:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "conv2_3": {
-            "name": "conv2",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu1_2:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu2_4": {
-            "name": "relu2",
-            "op": "relu",
-            "inputs": [
-                "@conv2_3:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv3_5": {
-            "name": "conv3",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu2_4:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu3_6": {
-            "name": "relu3",
-            "op": "relu",
-            "inputs": [
-                "@conv3_5:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv4_7": {
-            "name": "conv4",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu3_6:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu4_8": {
-            "name": "relu4",
-            "op": "relu",
-            "inputs": [
-                "@conv4_7:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv5_9": {
-            "name": "conv5",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu4_8:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu5_10": {
-            "name": "relu5",
-            "op": "relu",
-            "inputs": [
-                "@conv5_9:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv6_11": {
-            "name": "conv6",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu5_10:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu6_12": {
-            "name": "relu6",
-            "op": "relu",
-            "inputs": [
-                "@conv6_11:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv7_13": {
-            "name": "conv7",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu6_12:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu7_14": {
-            "name": "relu7",
-            "op": "relu",
-            "inputs": [
-                "@conv7_13:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv8_15": {
-            "name": "conv8",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu7_14:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu8_16": {
-            "name": "relu8",
-            "op": "relu",
-            "inputs": [
-                "@conv8_15:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv9_17": {
-            "name": "conv9",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu8_16:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu9_18": {
-            "name": "relu9",
-            "op": "relu",
-            "inputs": [
-                "@conv9_17:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv10_19": {
-            "name": "conv10",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu9_18:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu10_20": {
-            "name": "relu10",
-            "op": "relu",
-            "inputs": [
-                "@conv10_19:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv11_21": {
-            "name": "conv11",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu10_20:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu11_22": {
-            "name": "relu11",
-            "op": "relu",
-            "inputs": [
-                "@conv11_21:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv12_23": {
-            "name": "conv12",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu11_22:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu12_24": {
-            "name": "relu12",
-            "op": "relu",
-            "inputs": [
-                "@conv12_23:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv13_25": {
-            "name": "conv13",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu12_24:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu13_26": {
-            "name": "relu13",
-            "op": "relu",
-            "inputs": [
-                "@conv13_25:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv14_27": {
-            "name": "conv14",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu13_26:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu14_28": {
-            "name": "relu14",
-            "op": "relu",
-            "inputs": [
-                "@conv14_27:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv15_29": {
-            "name": "conv15",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu14_28:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu15_30": {
-            "name": "relu15",
-            "op": "relu",
-            "inputs": [
-                "@conv15_29:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv16_31": {
-            "name": "conv16",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu15_30:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu16_32": {
-            "name": "relu16",
-            "op": "relu",
-            "inputs": [
-                "@conv16_31:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv17_33": {
-            "name": "conv17",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu16_32:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu17_34": {
-            "name": "relu17",
-            "op": "relu",
-            "inputs": [
-                "@conv17_33:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv18_35": {
-            "name": "conv18",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu17_34:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu18_36": {
-            "name": "relu18",
-            "op": "relu",
-            "inputs": [
-                "@conv18_35:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv19_37": {
-            "name": "conv19",
-            "op": "convolution",
-            "parameters": {
-                "weights": 64,
-                "padding": "VALID",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
-                "ksize_h": 3,
-                "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1
-            },
-            "inputs": [
-                "@relu18_36:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "relu19_38": {
-            "name": "relu19",
-            "op": "relu",
-            "inputs": [
-                "@conv19_37:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "conv20_39": {
-            "name": "conv20",
+        "Conv_m59_Conv_0_2": {
+            "name": "Conv_m59_Conv_0",
             "op": "convolution",
             "parameters": {
                 "weights": 1,
@@ -679,36 +41,915 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
             },
             "inputs": [
-                "@relu19_38:out0"
+                "@Relu_m58_Relu_0_3:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "sum_40": {
-            "name": "sum",
-            "op": "eltwise",
+        "Relu_m58_Relu_0_3": {
+            "name": "Relu_m58_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m56_Conv_0_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m56_Conv_0_4": {
+            "name": "Conv_m56_Conv_0",
+            "op": "convolution",
             "parameters": {
-                "operation": "SUM",
-                "coeff": ""
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
             },
             "inputs": [
-                "@input_0:out0",
-                "@conv20_39:out0"
+                "@Relu_m55_Relu_0_5:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "output_41": {
-            "name": "output",
-            "op": "output",
+        "Relu_m55_Relu_0_5": {
+            "name": "Relu_m55_Relu_0",
+            "op": "relu",
             "inputs": [
-                "@sum_40:out0"
+                "@Conv_m53_Conv_0_6:out0"
             ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m53_Conv_0_6": {
+            "name": "Conv_m53_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m52_Relu_0_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m52_Relu_0_7": {
+            "name": "Relu_m52_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m50_Conv_0_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m50_Conv_0_8": {
+            "name": "Conv_m50_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m49_Relu_0_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m49_Relu_0_9": {
+            "name": "Relu_m49_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m47_Conv_0_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m47_Conv_0_10": {
+            "name": "Conv_m47_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m46_Relu_0_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m46_Relu_0_11": {
+            "name": "Relu_m46_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m44_Conv_0_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m44_Conv_0_12": {
+            "name": "Conv_m44_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m43_Relu_0_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m43_Relu_0_13": {
+            "name": "Relu_m43_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m41_Conv_0_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m41_Conv_0_14": {
+            "name": "Conv_m41_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m40_Relu_0_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m40_Relu_0_15": {
+            "name": "Relu_m40_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m38_Conv_0_16:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m38_Conv_0_16": {
+            "name": "Conv_m38_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m37_Relu_0_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m37_Relu_0_17": {
+            "name": "Relu_m37_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m35_Conv_0_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m35_Conv_0_18": {
+            "name": "Conv_m35_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m34_Relu_0_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m34_Relu_0_19": {
+            "name": "Relu_m34_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m32_Conv_0_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m32_Conv_0_20": {
+            "name": "Conv_m32_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m31_Relu_0_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m31_Relu_0_21": {
+            "name": "Relu_m31_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m29_Conv_0_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m29_Conv_0_22": {
+            "name": "Conv_m29_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m28_Relu_0_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m28_Relu_0_23": {
+            "name": "Relu_m28_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m26_Conv_0_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m26_Conv_0_24": {
+            "name": "Conv_m26_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m25_Relu_0_25:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m25_Relu_0_25": {
+            "name": "Relu_m25_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m23_Conv_0_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m23_Conv_0_26": {
+            "name": "Conv_m23_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m22_Relu_0_27:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m22_Relu_0_27": {
+            "name": "Relu_m22_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m20_Conv_0_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m20_Conv_0_28": {
+            "name": "Conv_m20_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m19_Relu_0_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m19_Relu_0_29": {
+            "name": "Relu_m19_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m17_Conv_0_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m17_Conv_0_30": {
+            "name": "Conv_m17_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m16_Relu_0_31:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m16_Relu_0_31": {
+            "name": "Relu_m16_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m14_Conv_0_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m14_Conv_0_32": {
+            "name": "Conv_m14_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m13_Relu_0_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m13_Relu_0_33": {
+            "name": "Relu_m13_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m11_Conv_0_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m11_Conv_0_34": {
+            "name": "Conv_m11_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m10_Relu_0_35:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m10_Relu_0_35": {
+            "name": "Relu_m10_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m8_Conv_0_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m8_Conv_0_36": {
+            "name": "Conv_m8_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m7_Relu_0_37:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m7_Relu_0_37": {
+            "name": "Relu_m7_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m5_Conv_0_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m5_Conv_0_38": {
+            "name": "Conv_m5_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@Relu_m4_Relu_0_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Relu_m4_Relu_0_39": {
+            "name": "Relu_m4_Relu_0",
+            "op": "relu",
+            "inputs": [
+                "@Conv_m2_Conv_0_40:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Conv_m2_Conv_0_40": {
+            "name": "Conv_m2_Conv_0",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "VALID",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@input.1_41:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "input.1_41": {
+            "name": "input.1",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    0,
+                    1080,
+                    1920,
+                    1
+                ]
+            },
+            "inputs": [],
             "outputs": [
                 "out0"
             ]

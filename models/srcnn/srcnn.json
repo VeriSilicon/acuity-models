@@ -1,0 +1,165 @@
+{
+    "MetaData": {
+        "Name": "srcnn",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow"
+    },
+    "Layers": {
+        "attach_conv3/conv3_add/out0_0": {
+            "name": "attach_conv3/conv3_add/out0",
+            "op": "output",
+            "inputs": [
+                "@conv3/conv3_add_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_x2/out0_1": {
+            "name": "attach_x2/out0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    0,
+                    1080,
+                    1920,
+                    1
+                ]
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv3/conv3_add_2": {
+            "name": "conv3/conv3_add",
+            "op": "convolution",
+            "parameters": {
+                "weights": 1,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 5,
+                "ksize_w": 5,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 2,
+                "pad_w": 2,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    2,
+                    2,
+                    2,
+                    2
+                ]
+            },
+            "inputs": [
+                "@conv2/conv2_relu_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2/conv2_relu_3": {
+            "name": "conv2/conv2_relu",
+            "op": "relu",
+            "inputs": [
+                "@conv2/conv2_add_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv2/conv2_add_4": {
+            "name": "conv2/conv2_add",
+            "op": "convolution",
+            "parameters": {
+                "weights": 32,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@conv1/conv1_relu_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv1/conv1_relu_5": {
+            "name": "conv1/conv1_relu",
+            "op": "relu",
+            "inputs": [
+                "@conv1/conv1_add_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "conv1/conv1_add_6": {
+            "name": "conv1/conv1_add",
+            "op": "convolution",
+            "parameters": {
+                "weights": 64,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 9,
+                "ksize_w": 9,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 4,
+                "pad_w": 4,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    4,
+                    4,
+                    4,
+                    4
+                ]
+            },
+            "inputs": [
+                "@attach_x2/out0_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

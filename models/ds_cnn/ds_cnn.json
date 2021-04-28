@@ -1,0 +1,636 @@
+{
+    "MetaData": {
+        "Name": "DS_CNN_L",
+        "AcuityVersion": "2.0",
+        "Platform": "tensorflow"
+    },
+    "Layers": {
+        "attach_labels_softmax/out0_0": {
+            "name": "attach_labels_softmax/out0",
+            "op": "output",
+            "inputs": [
+                "@labels_softmax_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_Reshape_1/in0_1": {
+            "name": "attach_Reshape_1/in0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    0,
+                    49,
+                    10,
+                    1
+                ],
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "labels_softmax_2": {
+            "name": "labels_softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@MobileNet/fc1/BiasAdd_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/fc1/BiasAdd_3": {
+            "name": "MobileNet/fc1/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 12,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@MobileNet/SpatialSqueeze_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/SpatialSqueeze_4": {
+            "name": "MobileNet/SpatialSqueeze",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    276
+                ]
+            },
+            "inputs": [
+                "@MobileNet/avg_pool/AvgPool_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/avg_pool/AvgPool_5": {
+            "name": "MobileNet/avg_pool/AvgPool",
+            "op": "pooling",
+            "parameters": {
+                "padding": "VALID",
+                "type": "AVG",
+                "ksize_h": 13,
+                "ksize_w": 5,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "round_type": "floor",
+                "pad_method": "auto",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_5/pw_batch_norm/Relu_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_5/pw_batch_norm/Relu_6": {
+            "name": "MobileNet/conv_ds_5/pw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_5/pointwise_conv/BiasAdd_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_5/pointwise_conv/BiasAdd_8": {
+            "name": "MobileNet/conv_ds_5/pointwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_5/dw_batch_norm/Relu_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_5/dw_batch_norm/Relu_9": {
+            "name": "MobileNet/conv_ds_5/dw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_5/depthwise_conv/BiasAdd_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_5/depthwise_conv/BiasAdd_11": {
+            "name": "MobileNet/conv_ds_5/depthwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 276,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_4/pw_batch_norm/Relu_12:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_4/pw_batch_norm/Relu_12": {
+            "name": "MobileNet/conv_ds_4/pw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_4/pointwise_conv/BiasAdd_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_4/pointwise_conv/BiasAdd_14": {
+            "name": "MobileNet/conv_ds_4/pointwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_4/dw_batch_norm/Relu_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_4/dw_batch_norm/Relu_15": {
+            "name": "MobileNet/conv_ds_4/dw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_4/depthwise_conv/BiasAdd_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_4/depthwise_conv/BiasAdd_17": {
+            "name": "MobileNet/conv_ds_4/depthwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 276,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_3/pw_batch_norm/Relu_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_3/pw_batch_norm/Relu_18": {
+            "name": "MobileNet/conv_ds_3/pw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_3/pointwise_conv/BiasAdd_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_3/pointwise_conv/BiasAdd_20": {
+            "name": "MobileNet/conv_ds_3/pointwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_3/dw_batch_norm/Relu_21:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_3/dw_batch_norm/Relu_21": {
+            "name": "MobileNet/conv_ds_3/dw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_3/depthwise_conv/BiasAdd_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_3/depthwise_conv/BiasAdd_23": {
+            "name": "MobileNet/conv_ds_3/depthwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 276,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_2/pw_batch_norm/Relu_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_2/pw_batch_norm/Relu_24": {
+            "name": "MobileNet/conv_ds_2/pw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_2/pointwise_conv/BiasAdd_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_2/pointwise_conv/BiasAdd_26": {
+            "name": "MobileNet/conv_ds_2/pointwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_2/dw_batch_norm/Relu_27:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_2/dw_batch_norm/Relu_27": {
+            "name": "MobileNet/conv_ds_2/dw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_2/depthwise_conv/BiasAdd_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_2/depthwise_conv/BiasAdd_29": {
+            "name": "MobileNet/conv_ds_2/depthwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 276,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 1,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_1/pw_batch_norm/Relu_30:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_1/pw_batch_norm/Relu_30": {
+            "name": "MobileNet/conv_ds_1/pw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_1/pointwise_conv/BiasAdd_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_1/pointwise_conv/BiasAdd_32": {
+            "name": "MobileNet/conv_ds_1/pointwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_ds_1/dw_batch_norm/Relu_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_1/dw_batch_norm/Relu_33": {
+            "name": "MobileNet/conv_ds_1/dw_batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_ds_1/depthwise_conv/BiasAdd_35:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_ds_1/depthwise_conv/BiasAdd_35": {
+            "name": "MobileNet/conv_ds_1/depthwise_conv/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 276,
+                "regularize": false,
+                "ksize_h": 3,
+                "ksize_w": 3,
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 1,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    1,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            "inputs": [
+                "@MobileNet/conv_1/batch_norm/Relu_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_1/batch_norm/Relu_36": {
+            "name": "MobileNet/conv_1/batch_norm/Relu",
+            "op": "relu",
+            "inputs": [
+                "@MobileNet/conv_1/BiasAdd_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "MobileNet/conv_1/BiasAdd_38": {
+            "name": "MobileNet/conv_1/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 276,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 10,
+                "ksize_w": 4,
+                "stride_h": 2,
+                "stride_w": 1,
+                "pad_h": 4,
+                "pad_w": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    4,
+                    5,
+                    1,
+                    2
+                ]
+            },
+            "inputs": [
+                "@Reshape_1_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "Reshape_1_39": {
+            "name": "Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    49,
+                    10,
+                    1
+                ]
+            },
+            "inputs": [
+                "@attach_Reshape_1/in0_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}
