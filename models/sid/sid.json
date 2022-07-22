@@ -1,13 +1,15 @@
 {
     "MetaData": {
         "Name": "sid",
-        "AcuityVersion": "2.0",
-        "Platform": "tensorflow"
+        "AcuityVersion": "6",
+        "Platform": "tensorflow",
+        "Org_Platform": "tensorflow"
     },
     "Layers": {
         "attach_DepthToSpace/out0_0": {
             "name": "attach_DepthToSpace/out0",
             "op": "output",
+            "parameters": {},
             "inputs": [
                 "@DepthToSpace_2:out0"
             ],
@@ -26,7 +28,9 @@
                     544,
                     960,
                     4
-                ]
+                ],
+                "is_scalar": false,
+                "type": "float32"
             },
             "inputs": [],
             "outputs": [
@@ -37,17 +41,31 @@
             "name": "DepthToSpace",
             "op": "depth2space",
             "parameters": {
-                "block_size": 2
+                "block_size": 2,
+                "mode": "DCR"
             },
             "inputs": [
-                "@g_conv10/BiasAdd_3:out0"
+                "@g_conv9_2/LeakyRelu_3:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv10/BiasAdd_3": {
-            "name": "g_conv10/BiasAdd",
+        "g_conv9_2/LeakyRelu_3": {
+            "name": "g_conv9_2/LeakyRelu",
+            "op": "leakyrelu",
+            "parameters": {
+                "leaky_ratio": 0.20000000298023224
+            },
+            "inputs": [
+                "@g_conv9_2/BiasAdd_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "g_conv9_2/BiasAdd_4": {
+            "name": "g_conv9_2/BiasAdd",
             "op": "convolution",
             "parameters": {
                 "weights": 12,
@@ -55,57 +73,18 @@
                 "bias": true,
                 "group_number": 1,
                 "regularize": false,
-                "ksize_h": 1,
-                "ksize_w": 1,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 0,
-                "pad_w": 0,
-                "dilation": 1,
-                "pad_method": "padding_const",
-                "pad": [
-                    0,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            "inputs": [
-                "@g_conv9_2/LeakyRelu_4:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "g_conv9_2/LeakyRelu_4": {
-            "name": "g_conv9_2/LeakyRelu",
-            "op": "leakyrelu",
-            "parameters": {
-                "leaky_ratio": 0.20000000298023224
-            },
-            "inputs": [
-                "@g_conv9_2/BiasAdd_5:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "g_conv9_2/BiasAdd_5": {
-            "name": "g_conv9_2/BiasAdd",
-            "op": "convolution",
-            "parameters": {
-                "weights": 32,
-                "padding": "SAME",
-                "bias": true,
-                "group_number": 1,
-                "regularize": false,
                 "ksize_h": 3,
                 "ksize_w": 3,
                 "stride_h": 1,
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -115,30 +94,30 @@
                 ]
             },
             "inputs": [
-                "@g_conv9_1/LeakyRelu_6:out0"
+                "@g_conv9_1/LeakyRelu_5:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv9_1/LeakyRelu_6": {
+        "g_conv9_1/LeakyRelu_5": {
             "name": "g_conv9_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv9_1/BiasAdd_7:out0"
+                "@g_conv9_1/BiasAdd_6:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv9_1/BiasAdd_7": {
+        "g_conv9_1/BiasAdd_6": {
             "name": "g_conv9_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 32,
+                "weights": 12,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -149,7 +128,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -159,44 +143,44 @@
                 ]
             },
             "inputs": [
-                "@concat_3_8:out0"
+                "@concat_3_7:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "concat_3_8": {
+        "concat_3_7": {
             "name": "concat_3",
             "op": "concat",
             "parameters": {
                 "dim": 3
             },
             "inputs": [
-                "@conv2d_transpose_3_10:out0",
-                "@g_conv1_2/LeakyRelu_9:out0"
+                "@upsample_deconv_4_9:out0",
+                "@g_conv1_2/LeakyRelu_8:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv1_2/LeakyRelu_9": {
+        "g_conv1_2/LeakyRelu_8": {
             "name": "g_conv1_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv1_2/BiasAdd_11:out0"
+                "@g_conv1_2/BiasAdd_10:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "conv2d_transpose_3_10": {
-            "name": "conv2d_transpose_3",
+        "upsample_deconv_4_9": {
+            "name": "upsample_deconv_4",
             "op": "deconvolution",
             "parameters": {
-                "weights": 32,
+                "weights": 12,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -218,21 +202,21 @@
                     0,
                     544,
                     960,
-                    32
+                    12
                 ]
             },
             "inputs": [
-                "@g_conv8_2/LeakyRelu_12:out0"
+                "@g_conv8_2/LeakyRelu_11:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv1_2/BiasAdd_11": {
+        "g_conv1_2/BiasAdd_10": {
             "name": "g_conv1_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 32,
+                "weights": 12,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -243,7 +227,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -253,43 +242,43 @@
                 ]
             },
             "inputs": [
-                "@g_conv1_1/LeakyRelu_13:out0"
+                "@g_conv1_1/LeakyRelu_12:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv8_2/LeakyRelu_12": {
+        "g_conv8_2/LeakyRelu_11": {
             "name": "g_conv8_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv8_2/BiasAdd_14:out0"
+                "@g_conv8_2/BiasAdd_13:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv1_1/LeakyRelu_13": {
+        "g_conv1_1/LeakyRelu_12": {
             "name": "g_conv1_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv1_1/BiasAdd_15:out0"
+                "@g_conv1_1/BiasAdd_14:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv8_2/BiasAdd_14": {
+        "g_conv8_2/BiasAdd_13": {
             "name": "g_conv8_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 64,
+                "weights": 24,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -300,7 +289,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -310,17 +304,17 @@
                 ]
             },
             "inputs": [
-                "@g_conv8_1/LeakyRelu_16:out0"
+                "@g_conv8_1/LeakyRelu_15:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv1_1/BiasAdd_15": {
+        "g_conv1_1/BiasAdd_14": {
             "name": "g_conv1_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 32,
+                "weights": 12,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -331,7 +325,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -347,24 +346,24 @@
                 "out0"
             ]
         },
-        "g_conv8_1/LeakyRelu_16": {
+        "g_conv8_1/LeakyRelu_15": {
             "name": "g_conv8_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv8_1/BiasAdd_17:out0"
+                "@g_conv8_1/BiasAdd_16:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv8_1/BiasAdd_17": {
+        "g_conv8_1/BiasAdd_16": {
             "name": "g_conv8_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 64,
+                "weights": 24,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -375,7 +374,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -385,44 +389,44 @@
                 ]
             },
             "inputs": [
-                "@concat_2_18:out0"
+                "@concat_2_17:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "concat_2_18": {
+        "concat_2_17": {
             "name": "concat_2",
             "op": "concat",
             "parameters": {
                 "dim": 3
             },
             "inputs": [
-                "@conv2d_transpose_2_20:out0",
-                "@g_conv2_2/LeakyRelu_19:out0"
+                "@upsample_deconv_3_19:out0",
+                "@g_conv2_2/LeakyRelu_18:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv2_2/LeakyRelu_19": {
+        "g_conv2_2/LeakyRelu_18": {
             "name": "g_conv2_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv2_2/BiasAdd_21:out0"
+                "@g_conv2_2/BiasAdd_20:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "conv2d_transpose_2_20": {
-            "name": "conv2d_transpose_2",
+        "upsample_deconv_3_19": {
+            "name": "upsample_deconv_3",
             "op": "deconvolution",
             "parameters": {
-                "weights": 64,
+                "weights": 24,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -444,21 +448,21 @@
                     0,
                     272,
                     480,
-                    64
+                    24
                 ]
             },
             "inputs": [
-                "@g_conv7_2/LeakyRelu_22:out0"
+                "@g_conv7_2/LeakyRelu_21:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv2_2/BiasAdd_21": {
+        "g_conv2_2/BiasAdd_20": {
             "name": "g_conv2_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 64,
+                "weights": 24,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -469,7 +473,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -479,43 +488,43 @@
                 ]
             },
             "inputs": [
-                "@g_conv2_1/LeakyRelu_23:out0"
+                "@g_conv2_1/LeakyRelu_22:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv7_2/LeakyRelu_22": {
+        "g_conv7_2/LeakyRelu_21": {
             "name": "g_conv7_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv7_2/BiasAdd_24:out0"
+                "@g_conv7_2/BiasAdd_23:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv2_1/LeakyRelu_23": {
+        "g_conv2_1/LeakyRelu_22": {
             "name": "g_conv2_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv2_1/BiasAdd_25:out0"
+                "@g_conv2_1/BiasAdd_24:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv7_2/BiasAdd_24": {
+        "g_conv7_2/BiasAdd_23": {
             "name": "g_conv7_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 128,
+                "weights": 48,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -526,7 +535,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -536,89 +550,66 @@
                 ]
             },
             "inputs": [
-                "@g_conv7_1/LeakyRelu_26:out0"
+                "@g_conv7_1/LeakyRelu_25:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv2_1/BiasAdd_25": {
+        "g_conv2_1/BiasAdd_24": {
             "name": "g_conv2_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 64,
+                "weights": 24,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
                 "regularize": false,
                 "ksize_h": 3,
                 "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1,
-                "pad_method": "padding_const",
-                "pad": [
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
                     1,
                     1,
                     1,
                     1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    1,
+                    0,
+                    1
                 ]
             },
             "inputs": [
-                "@MaxPool2D/MaxPool_27:out0"
+                "@g_conv1_2/LeakyRelu_8:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv7_1/LeakyRelu_26": {
+        "g_conv7_1/LeakyRelu_25": {
             "name": "g_conv7_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv7_1/BiasAdd_28:out0"
+                "@g_conv7_1/BiasAdd_26:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "MaxPool2D/MaxPool_27": {
-            "name": "MaxPool2D/MaxPool",
-            "op": "pooling",
-            "parameters": {
-                "padding": "SAME",
-                "type": "MAX",
-                "ksize_h": 2,
-                "ksize_w": 2,
-                "stride_h": 2,
-                "stride_w": 2,
-                "pad_h": 0,
-                "pad_w": 0,
-                "round_type": "floor",
-                "pad_method": "padding_const",
-                "pad": [
-                    0,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            "inputs": [
-                "@g_conv1_2/LeakyRelu_9:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "g_conv7_1/BiasAdd_28": {
+        "g_conv7_1/BiasAdd_26": {
             "name": "g_conv7_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 128,
+                "weights": 48,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -629,7 +620,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -639,44 +635,44 @@
                 ]
             },
             "inputs": [
-                "@concat_1_29:out0"
+                "@concat_1_27:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "concat_1_29": {
+        "concat_1_27": {
             "name": "concat_1",
             "op": "concat",
             "parameters": {
                 "dim": 3
             },
             "inputs": [
-                "@conv2d_transpose_1_31:out0",
-                "@g_conv3_2/LeakyRelu_30:out0"
+                "@upsample_deconv_2_29:out0",
+                "@g_conv3_2/LeakyRelu_28:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv3_2/LeakyRelu_30": {
+        "g_conv3_2/LeakyRelu_28": {
             "name": "g_conv3_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv3_2/BiasAdd_32:out0"
+                "@g_conv3_2/BiasAdd_30:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "conv2d_transpose_1_31": {
-            "name": "conv2d_transpose_1",
+        "upsample_deconv_2_29": {
+            "name": "upsample_deconv_2",
             "op": "deconvolution",
             "parameters": {
-                "weights": 128,
+                "weights": 48,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -698,21 +694,21 @@
                     0,
                     136,
                     240,
-                    128
+                    48
                 ]
             },
             "inputs": [
-                "@g_conv6_2/LeakyRelu_33:out0"
+                "@g_conv6_2/LeakyRelu_31:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv3_2/BiasAdd_32": {
+        "g_conv3_2/BiasAdd_30": {
             "name": "g_conv3_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 128,
+                "weights": 48,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -723,7 +719,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -733,43 +734,43 @@
                 ]
             },
             "inputs": [
-                "@g_conv3_1/LeakyRelu_34:out0"
+                "@g_conv3_1/LeakyRelu_32:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv6_2/LeakyRelu_33": {
+        "g_conv6_2/LeakyRelu_31": {
             "name": "g_conv6_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv6_2/BiasAdd_35:out0"
+                "@g_conv6_2/BiasAdd_33:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv3_1/LeakyRelu_34": {
+        "g_conv3_1/LeakyRelu_32": {
             "name": "g_conv3_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv3_1/BiasAdd_36:out0"
+                "@g_conv3_1/BiasAdd_34:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv6_2/BiasAdd_35": {
+        "g_conv6_2/BiasAdd_33": {
             "name": "g_conv6_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 256,
+                "weights": 96,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -780,7 +781,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -790,89 +796,66 @@
                 ]
             },
             "inputs": [
-                "@g_conv6_1/LeakyRelu_37:out0"
+                "@g_conv6_1/LeakyRelu_35:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv3_1/BiasAdd_36": {
+        "g_conv3_1/BiasAdd_34": {
             "name": "g_conv3_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 128,
+                "weights": 48,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
                 "regularize": false,
                 "ksize_h": 3,
                 "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1,
-                "pad_method": "padding_const",
-                "pad": [
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
                     1,
                     1,
                     1,
                     1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    1,
+                    0,
+                    1
                 ]
             },
             "inputs": [
-                "@MaxPool2D_1/MaxPool_38:out0"
+                "@g_conv2_2/LeakyRelu_18:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv6_1/LeakyRelu_37": {
+        "g_conv6_1/LeakyRelu_35": {
             "name": "g_conv6_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv6_1/BiasAdd_39:out0"
+                "@g_conv6_1/BiasAdd_36:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "MaxPool2D_1/MaxPool_38": {
-            "name": "MaxPool2D_1/MaxPool",
-            "op": "pooling",
-            "parameters": {
-                "padding": "SAME",
-                "type": "MAX",
-                "ksize_h": 2,
-                "ksize_w": 2,
-                "stride_h": 2,
-                "stride_w": 2,
-                "pad_h": 0,
-                "pad_w": 0,
-                "round_type": "floor",
-                "pad_method": "padding_const",
-                "pad": [
-                    0,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            "inputs": [
-                "@g_conv2_2/LeakyRelu_19:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "g_conv6_1/BiasAdd_39": {
+        "g_conv6_1/BiasAdd_36": {
             "name": "g_conv6_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 256,
+                "weights": 96,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -883,7 +866,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -893,44 +881,44 @@
                 ]
             },
             "inputs": [
-                "@concat_40:out0"
+                "@concat_37:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "concat_40": {
+        "concat_37": {
             "name": "concat",
             "op": "concat",
             "parameters": {
                 "dim": 3
             },
             "inputs": [
-                "@conv2d_transpose_42:out0",
-                "@g_conv4_2/LeakyRelu_41:out0"
+                "@upsample_deconv_1_39:out0",
+                "@g_conv4_2/LeakyRelu_38:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv4_2/LeakyRelu_41": {
+        "g_conv4_2/LeakyRelu_38": {
             "name": "g_conv4_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv4_2/BiasAdd_43:out0"
+                "@g_conv4_2/BiasAdd_40:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "conv2d_transpose_42": {
-            "name": "conv2d_transpose",
+        "upsample_deconv_1_39": {
+            "name": "upsample_deconv_1",
             "op": "deconvolution",
             "parameters": {
-                "weights": 256,
+                "weights": 96,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -952,21 +940,21 @@
                     0,
                     68,
                     120,
-                    256
+                    96
                 ]
             },
             "inputs": [
-                "@g_conv5_2/LeakyRelu_44:out0"
+                "@g_conv5_2/LeakyRelu_41:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv4_2/BiasAdd_43": {
+        "g_conv4_2/BiasAdd_40": {
             "name": "g_conv4_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 256,
+                "weights": 96,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -977,7 +965,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -987,43 +980,43 @@
                 ]
             },
             "inputs": [
-                "@g_conv4_1/LeakyRelu_45:out0"
+                "@g_conv4_1/LeakyRelu_42:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv5_2/LeakyRelu_44": {
+        "g_conv5_2/LeakyRelu_41": {
             "name": "g_conv5_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv5_2/BiasAdd_46:out0"
+                "@g_conv5_2/BiasAdd_43:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv4_1/LeakyRelu_45": {
+        "g_conv4_1/LeakyRelu_42": {
             "name": "g_conv4_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv4_1/BiasAdd_47:out0"
+                "@g_conv4_1/BiasAdd_44:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv5_2/BiasAdd_46": {
+        "g_conv5_2/BiasAdd_43": {
             "name": "g_conv5_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 512,
+                "weights": 192,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -1034,7 +1027,12 @@
                 "stride_w": 1,
                 "pad_h": 1,
                 "pad_w": 1,
-                "dilation": 1,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     1,
@@ -1044,142 +1042,97 @@
                 ]
             },
             "inputs": [
-                "@g_conv5_1/LeakyRelu_48:out0"
+                "@g_conv5_1/LeakyRelu_45:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv4_1/BiasAdd_47": {
+        "g_conv4_1/BiasAdd_44": {
             "name": "g_conv4_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 256,
+                "weights": 96,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
                 "regularize": false,
                 "ksize_h": 3,
                 "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1,
-                "pad_method": "padding_const",
-                "pad": [
+                "stride_h": 2,
+                "stride_w": 2,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
                     1,
                     1,
                     1,
                     1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    1,
+                    0,
+                    1
                 ]
             },
             "inputs": [
-                "@MaxPool2D_2/MaxPool_49:out0"
+                "@g_conv3_2/LeakyRelu_28:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv5_1/LeakyRelu_48": {
+        "g_conv5_1/LeakyRelu_45": {
             "name": "g_conv5_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv5_1/BiasAdd_50:out0"
+                "@g_conv5_1/BiasAdd_46:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "MaxPool2D_2/MaxPool_49": {
-            "name": "MaxPool2D_2/MaxPool",
-            "op": "pooling",
-            "parameters": {
-                "padding": "SAME",
-                "type": "MAX",
-                "ksize_h": 2,
-                "ksize_w": 2,
-                "stride_h": 2,
-                "stride_w": 2,
-                "pad_h": 0,
-                "pad_w": 0,
-                "round_type": "floor",
-                "pad_method": "padding_const",
-                "pad": [
-                    0,
-                    0,
-                    0,
-                    0
-                ]
-            },
-            "inputs": [
-                "@g_conv3_2/LeakyRelu_30:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "g_conv5_1/BiasAdd_50": {
+        "g_conv5_1/BiasAdd_46": {
             "name": "g_conv5_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 512,
+                "weights": 192,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
                 "regularize": false,
                 "ksize_h": 3,
                 "ksize_w": 3,
-                "stride_h": 1,
-                "stride_w": 1,
-                "pad_h": 1,
-                "pad_w": 1,
-                "dilation": 1,
-                "pad_method": "padding_const",
-                "pad": [
-                    1,
-                    1,
-                    1,
-                    1
-                ]
-            },
-            "inputs": [
-                "@MaxPool2D_3/MaxPool_51:out0"
-            ],
-            "outputs": [
-                "out0"
-            ]
-        },
-        "MaxPool2D_3/MaxPool_51": {
-            "name": "MaxPool2D_3/MaxPool",
-            "op": "pooling",
-            "parameters": {
-                "padding": "SAME",
-                "type": "MAX",
-                "ksize_h": 2,
-                "ksize_w": 2,
                 "stride_h": 2,
                 "stride_w": 2,
                 "pad_h": 0,
                 "pad_w": 0,
-                "round_type": "floor",
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
                 "pad_method": "padding_const",
                 "pad": [
                     0,
+                    1,
                     0,
-                    0,
-                    0
+                    1
                 ]
             },
             "inputs": [
-                "@g_conv4_2/LeakyRelu_41:out0"
+                "@g_conv4_2/LeakyRelu_38:out0"
             ],
             "outputs": [
                 "out0"
             ]
         }
-    }
+    },
+    "quantize_info": {}
 }
