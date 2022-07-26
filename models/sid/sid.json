@@ -45,30 +45,66 @@
                 "mode": "DCR"
             },
             "inputs": [
-                "@g_conv9_2/LeakyRelu_3:out0"
+                "@g_conv10/BiasAdd_3:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv9_2/LeakyRelu_3": {
+        "g_conv10/BiasAdd_3": {
+            "name": "g_conv10/BiasAdd",
+            "op": "convolution",
+            "parameters": {
+                "weights": 12,
+                "padding": "SAME",
+                "bias": true,
+                "group_number": 1,
+                "regularize": false,
+                "ksize_h": 1,
+                "ksize_w": 1,
+                "stride_h": 1,
+                "stride_w": 1,
+                "pad_h": 0,
+                "pad_w": 0,
+                "dilation": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "pad_method": "padding_const",
+                "pad": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "inputs": [
+                "@g_conv9_2/LeakyRelu_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "g_conv9_2/LeakyRelu_4": {
             "name": "g_conv9_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv9_2/BiasAdd_4:out0"
+                "@g_conv9_2/BiasAdd_5:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv9_2/BiasAdd_4": {
+        "g_conv9_2/BiasAdd_5": {
             "name": "g_conv9_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 12,
+                "weights": 16,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -94,30 +130,30 @@
                 ]
             },
             "inputs": [
-                "@g_conv9_1/LeakyRelu_5:out0"
+                "@g_conv9_1/LeakyRelu_6:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv9_1/LeakyRelu_5": {
+        "g_conv9_1/LeakyRelu_6": {
             "name": "g_conv9_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv9_1/BiasAdd_6:out0"
+                "@g_conv9_1/BiasAdd_7:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv9_1/BiasAdd_6": {
+        "g_conv9_1/BiasAdd_7": {
             "name": "g_conv9_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 12,
+                "weights": 16,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -143,44 +179,44 @@
                 ]
             },
             "inputs": [
-                "@concat_3_7:out0"
+                "@concat_3_8:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "concat_3_7": {
+        "concat_3_8": {
             "name": "concat_3",
             "op": "concat",
             "parameters": {
                 "dim": 3
             },
             "inputs": [
-                "@upsample_deconv_4_9:out0",
-                "@g_conv1_2/LeakyRelu_8:out0"
+                "@upsample_deconv_4_10:out0",
+                "@g_conv1_2/LeakyRelu_9:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv1_2/LeakyRelu_8": {
+        "g_conv1_2/LeakyRelu_9": {
             "name": "g_conv1_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv1_2/BiasAdd_10:out0"
+                "@g_conv1_2/BiasAdd_11:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "upsample_deconv_4_9": {
+        "upsample_deconv_4_10": {
             "name": "upsample_deconv_4",
             "op": "deconvolution",
             "parameters": {
-                "weights": 12,
+                "weights": 16,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -202,21 +238,21 @@
                     0,
                     544,
                     960,
-                    12
+                    16
                 ]
             },
             "inputs": [
-                "@g_conv8_2/LeakyRelu_11:out0"
+                "@g_conv8_2/LeakyRelu_12:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv1_2/BiasAdd_10": {
+        "g_conv1_2/BiasAdd_11": {
             "name": "g_conv1_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 12,
+                "weights": 16,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -242,43 +278,43 @@
                 ]
             },
             "inputs": [
-                "@g_conv1_1/LeakyRelu_12:out0"
+                "@g_conv1_1/LeakyRelu_13:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv8_2/LeakyRelu_11": {
+        "g_conv8_2/LeakyRelu_12": {
             "name": "g_conv8_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv8_2/BiasAdd_13:out0"
+                "@g_conv8_2/BiasAdd_14:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv1_1/LeakyRelu_12": {
+        "g_conv1_1/LeakyRelu_13": {
             "name": "g_conv1_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv1_1/BiasAdd_14:out0"
+                "@g_conv1_1/BiasAdd_15:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv8_2/BiasAdd_13": {
+        "g_conv8_2/BiasAdd_14": {
             "name": "g_conv8_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 24,
+                "weights": 32,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -304,17 +340,17 @@
                 ]
             },
             "inputs": [
-                "@g_conv8_1/LeakyRelu_15:out0"
+                "@g_conv8_1/LeakyRelu_16:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv1_1/BiasAdd_14": {
+        "g_conv1_1/BiasAdd_15": {
             "name": "g_conv1_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 12,
+                "weights": 16,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -346,24 +382,24 @@
                 "out0"
             ]
         },
-        "g_conv8_1/LeakyRelu_15": {
+        "g_conv8_1/LeakyRelu_16": {
             "name": "g_conv8_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv8_1/BiasAdd_16:out0"
+                "@g_conv8_1/BiasAdd_17:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv8_1/BiasAdd_16": {
+        "g_conv8_1/BiasAdd_17": {
             "name": "g_conv8_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 24,
+                "weights": 32,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -389,44 +425,44 @@
                 ]
             },
             "inputs": [
-                "@concat_2_17:out0"
+                "@concat_2_18:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "concat_2_17": {
+        "concat_2_18": {
             "name": "concat_2",
             "op": "concat",
             "parameters": {
                 "dim": 3
             },
             "inputs": [
-                "@upsample_deconv_3_19:out0",
-                "@g_conv2_2/LeakyRelu_18:out0"
+                "@upsample_deconv_3_20:out0",
+                "@g_conv2_2/LeakyRelu_19:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv2_2/LeakyRelu_18": {
+        "g_conv2_2/LeakyRelu_19": {
             "name": "g_conv2_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv2_2/BiasAdd_20:out0"
+                "@g_conv2_2/BiasAdd_21:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "upsample_deconv_3_19": {
+        "upsample_deconv_3_20": {
             "name": "upsample_deconv_3",
             "op": "deconvolution",
             "parameters": {
-                "weights": 24,
+                "weights": 32,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -448,21 +484,21 @@
                     0,
                     272,
                     480,
-                    24
+                    32
                 ]
             },
             "inputs": [
-                "@g_conv7_2/LeakyRelu_21:out0"
+                "@g_conv7_2/LeakyRelu_22:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv2_2/BiasAdd_20": {
+        "g_conv2_2/BiasAdd_21": {
             "name": "g_conv2_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 24,
+                "weights": 32,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -488,43 +524,43 @@
                 ]
             },
             "inputs": [
-                "@g_conv2_1/LeakyRelu_22:out0"
+                "@g_conv2_1/LeakyRelu_23:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv7_2/LeakyRelu_21": {
+        "g_conv7_2/LeakyRelu_22": {
             "name": "g_conv7_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv7_2/BiasAdd_23:out0"
+                "@g_conv7_2/BiasAdd_24:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv2_1/LeakyRelu_22": {
+        "g_conv2_1/LeakyRelu_23": {
             "name": "g_conv2_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv2_1/BiasAdd_24:out0"
+                "@g_conv2_1/BiasAdd_25:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv7_2/BiasAdd_23": {
+        "g_conv7_2/BiasAdd_24": {
             "name": "g_conv7_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 48,
+                "weights": 64,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -550,17 +586,17 @@
                 ]
             },
             "inputs": [
-                "@g_conv7_1/LeakyRelu_25:out0"
+                "@g_conv7_1/LeakyRelu_26:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv2_1/BiasAdd_24": {
+        "g_conv2_1/BiasAdd_25": {
             "name": "g_conv2_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 24,
+                "weights": 32,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -586,30 +622,30 @@
                 ]
             },
             "inputs": [
-                "@g_conv1_2/LeakyRelu_8:out0"
+                "@g_conv1_2/LeakyRelu_9:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv7_1/LeakyRelu_25": {
+        "g_conv7_1/LeakyRelu_26": {
             "name": "g_conv7_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv7_1/BiasAdd_26:out0"
+                "@g_conv7_1/BiasAdd_27:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv7_1/BiasAdd_26": {
+        "g_conv7_1/BiasAdd_27": {
             "name": "g_conv7_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 48,
+                "weights": 64,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -635,44 +671,44 @@
                 ]
             },
             "inputs": [
-                "@concat_1_27:out0"
+                "@concat_1_28:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "concat_1_27": {
+        "concat_1_28": {
             "name": "concat_1",
             "op": "concat",
             "parameters": {
                 "dim": 3
             },
             "inputs": [
-                "@upsample_deconv_2_29:out0",
-                "@g_conv3_2/LeakyRelu_28:out0"
+                "@upsample_deconv_2_30:out0",
+                "@g_conv3_2/LeakyRelu_29:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv3_2/LeakyRelu_28": {
+        "g_conv3_2/LeakyRelu_29": {
             "name": "g_conv3_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv3_2/BiasAdd_30:out0"
+                "@g_conv3_2/BiasAdd_31:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "upsample_deconv_2_29": {
+        "upsample_deconv_2_30": {
             "name": "upsample_deconv_2",
             "op": "deconvolution",
             "parameters": {
-                "weights": 48,
+                "weights": 64,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -694,21 +730,21 @@
                     0,
                     136,
                     240,
-                    48
+                    64
                 ]
             },
             "inputs": [
-                "@g_conv6_2/LeakyRelu_31:out0"
+                "@g_conv6_2/LeakyRelu_32:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv3_2/BiasAdd_30": {
+        "g_conv3_2/BiasAdd_31": {
             "name": "g_conv3_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 48,
+                "weights": 64,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -734,43 +770,43 @@
                 ]
             },
             "inputs": [
-                "@g_conv3_1/LeakyRelu_32:out0"
+                "@g_conv3_1/LeakyRelu_33:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv6_2/LeakyRelu_31": {
+        "g_conv6_2/LeakyRelu_32": {
             "name": "g_conv6_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv6_2/BiasAdd_33:out0"
+                "@g_conv6_2/BiasAdd_34:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv3_1/LeakyRelu_32": {
+        "g_conv3_1/LeakyRelu_33": {
             "name": "g_conv3_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv3_1/BiasAdd_34:out0"
+                "@g_conv3_1/BiasAdd_35:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv6_2/BiasAdd_33": {
+        "g_conv6_2/BiasAdd_34": {
             "name": "g_conv6_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 96,
+                "weights": 128,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -796,17 +832,17 @@
                 ]
             },
             "inputs": [
-                "@g_conv6_1/LeakyRelu_35:out0"
+                "@g_conv6_1/LeakyRelu_36:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv3_1/BiasAdd_34": {
+        "g_conv3_1/BiasAdd_35": {
             "name": "g_conv3_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 48,
+                "weights": 64,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -832,30 +868,30 @@
                 ]
             },
             "inputs": [
-                "@g_conv2_2/LeakyRelu_18:out0"
+                "@g_conv2_2/LeakyRelu_19:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv6_1/LeakyRelu_35": {
+        "g_conv6_1/LeakyRelu_36": {
             "name": "g_conv6_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv6_1/BiasAdd_36:out0"
+                "@g_conv6_1/BiasAdd_37:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv6_1/BiasAdd_36": {
+        "g_conv6_1/BiasAdd_37": {
             "name": "g_conv6_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 96,
+                "weights": 128,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -881,44 +917,44 @@
                 ]
             },
             "inputs": [
-                "@concat_37:out0"
+                "@concat_38:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "concat_37": {
+        "concat_38": {
             "name": "concat",
             "op": "concat",
             "parameters": {
                 "dim": 3
             },
             "inputs": [
-                "@upsample_deconv_1_39:out0",
-                "@g_conv4_2/LeakyRelu_38:out0"
+                "@upsample_deconv_1_40:out0",
+                "@g_conv4_2/LeakyRelu_39:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv4_2/LeakyRelu_38": {
+        "g_conv4_2/LeakyRelu_39": {
             "name": "g_conv4_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv4_2/BiasAdd_40:out0"
+                "@g_conv4_2/BiasAdd_41:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "upsample_deconv_1_39": {
+        "upsample_deconv_1_40": {
             "name": "upsample_deconv_1",
             "op": "deconvolution",
             "parameters": {
-                "weights": 96,
+                "weights": 128,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -940,21 +976,21 @@
                     0,
                     68,
                     120,
-                    96
+                    128
                 ]
             },
             "inputs": [
-                "@g_conv5_2/LeakyRelu_41:out0"
+                "@g_conv5_2/LeakyRelu_42:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv4_2/BiasAdd_40": {
+        "g_conv4_2/BiasAdd_41": {
             "name": "g_conv4_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 96,
+                "weights": 128,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -980,43 +1016,43 @@
                 ]
             },
             "inputs": [
-                "@g_conv4_1/LeakyRelu_42:out0"
+                "@g_conv4_1/LeakyRelu_43:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv5_2/LeakyRelu_41": {
+        "g_conv5_2/LeakyRelu_42": {
             "name": "g_conv5_2/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv5_2/BiasAdd_43:out0"
+                "@g_conv5_2/BiasAdd_44:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv4_1/LeakyRelu_42": {
+        "g_conv4_1/LeakyRelu_43": {
             "name": "g_conv4_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv4_1/BiasAdd_44:out0"
+                "@g_conv4_1/BiasAdd_45:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv5_2/BiasAdd_43": {
+        "g_conv5_2/BiasAdd_44": {
             "name": "g_conv5_2/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 192,
+                "weights": 256,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -1042,17 +1078,17 @@
                 ]
             },
             "inputs": [
-                "@g_conv5_1/LeakyRelu_45:out0"
+                "@g_conv5_1/LeakyRelu_46:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv4_1/BiasAdd_44": {
+        "g_conv4_1/BiasAdd_45": {
             "name": "g_conv4_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 96,
+                "weights": 128,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -1078,30 +1114,30 @@
                 ]
             },
             "inputs": [
-                "@g_conv3_2/LeakyRelu_28:out0"
+                "@g_conv3_2/LeakyRelu_29:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv5_1/LeakyRelu_45": {
+        "g_conv5_1/LeakyRelu_46": {
             "name": "g_conv5_1/LeakyRelu",
             "op": "leakyrelu",
             "parameters": {
                 "leaky_ratio": 0.20000000298023224
             },
             "inputs": [
-                "@g_conv5_1/BiasAdd_46:out0"
+                "@g_conv5_1/BiasAdd_47:out0"
             ],
             "outputs": [
                 "out0"
             ]
         },
-        "g_conv5_1/BiasAdd_46": {
+        "g_conv5_1/BiasAdd_47": {
             "name": "g_conv5_1/BiasAdd",
             "op": "convolution",
             "parameters": {
-                "weights": 192,
+                "weights": 256,
                 "padding": "SAME",
                 "bias": true,
                 "group_number": 1,
@@ -1127,7 +1163,7 @@
                 ]
             },
             "inputs": [
-                "@g_conv4_2/LeakyRelu_38:out0"
+                "@g_conv4_2/LeakyRelu_39:out0"
             ],
             "outputs": [
                 "out0"
