@@ -1,0 +1,86 @@
+{
+    "MetaData": {
+        "Name": "encoder0_int8_80p_sparse_layernorm_a",
+        "AcuityVersion": "6",
+        "Platform": "tensorflow",
+        "Org_Platform": "tflite"
+    },
+    "Layers": {
+        "input_0": {
+            "name": "input0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    240
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output24_1": {
+            "name": "output24",
+            "op": "lstmunit",
+            "parameters": {
+                "weights": 2048,
+                "num_proj": 640,
+                "forget_bias": 0,
+                "cell_clip": 10.0,
+                "proj_clip": 0.0,
+                "activation": "tanh",
+                "use_layer_norm_lstm": true,
+                "use_cifg": false,
+                "use_peepholes": false
+            },
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "output48_2": {
+            "name": "output48",
+            "op": "lstmunit",
+            "parameters": {
+                "weights": 2048,
+                "num_proj": 640,
+                "forget_bias": 0,
+                "cell_clip": 10.0,
+                "proj_clip": 0.0,
+                "activation": "tanh",
+                "use_layer_norm_lstm": true,
+                "use_cifg": false,
+                "use_peepholes": false
+            },
+            "inputs": [
+                "@output24_1:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "output_3": {
+            "name": "output48",
+            "op": "output",
+            "parameters": {},
+            "inputs": [
+                "@output48_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "quantize_info": {}
+}

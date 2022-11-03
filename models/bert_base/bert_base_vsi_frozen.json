@@ -1,0 +1,6028 @@
+{
+    "MetaData": {
+        "Name": "bert_base_vsi_frozen",
+        "AcuityVersion": "6",
+        "Platform": "tensorflow",
+        "Org_Platform": "tensorflow"
+    },
+    "Layers": {
+        "attach_bert/pooler/dense/Tanh/out0_0": {
+            "name": "attach_bert/pooler/dense/Tanh/out0",
+            "op": "output",
+            "inputs": [
+                "@bert/pooler/dense/Tanh_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_input_ids/out0_1": {
+            "name": "attach_input_ids/out0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    128
+                ],
+                "type": "int32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_input_mask/out0_2": {
+            "name": "attach_input_mask/out0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    128
+                ],
+                "type": "int32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_segment_ids/out0_3": {
+            "name": "attach_segment_ids/out0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    128
+                ],
+                "type": "int32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/pooler/dense/Tanh_4": {
+            "name": "bert/pooler/dense/Tanh",
+            "op": "tanh",
+            "parameters": {
+                "hyperbolic_tan_scale_a": 1.0,
+                "hyperbolic_tan_scale_b": 1.0
+            },
+            "inputs": [
+                "@bert/pooler/dense/BiasAdd_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/pooler/dense/BiasAdd_5": {
+            "name": "bert/pooler/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/pooler/Squeeze_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/pooler/Squeeze_6": {
+            "name": "bert/pooler/Squeeze",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    0,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/pooler/strided_slice_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/pooler/strided_slice_7": {
+            "name": "bert/pooler/strided_slice",
+            "op": "stridedslice",
+            "parameters": {
+                "slice_begin_mask": 5,
+                "slice_end_mask": 5,
+                "slice_ellipsis_mask": 0,
+                "slice_new_axis_mask": 0,
+                "slice_shrink_axis_mask": 0,
+                "slice_begin": [
+                    0,
+                    0,
+                    0
+                ],
+                "slice_end": [
+                    0,
+                    1,
+                    0
+                ],
+                "slice_strides": [
+                    1,
+                    1,
+                    1
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/Reshape_13_8:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/Reshape_13_8": {
+            "name": "bert/encoder/Reshape_13",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/output/LayerNorm/batchnorm/add_1_9:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/output/LayerNorm/batchnorm/add_1_9": {
+            "name": "bert/encoder/layer_11/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/output/add_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/output/add_10": {
+            "name": "bert/encoder/layer_11/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_11/output/dense/BiasAdd_12:out0",
+                "@bert/encoder/layer_11/attention/output/LayerNorm/batchnorm/add_1_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/output/LayerNorm/batchnorm/add_1_11": {
+            "name": "bert/encoder/layer_11/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/output/add_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/output/dense/BiasAdd_12": {
+            "name": "bert/encoder/layer_11/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/intermediate/dense/mul_3_14:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/output/add_13": {
+            "name": "bert/encoder/layer_11/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_11/attention/output/dense/BiasAdd_16:out0",
+                "@bert/encoder/layer_10/output/LayerNorm/batchnorm/add_1_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/intermediate/dense/mul_3_14": {
+            "name": "bert/encoder/layer_11/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/intermediate/dense/BiasAdd_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/output/LayerNorm/batchnorm/add_1_15": {
+            "name": "bert/encoder/layer_10/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/output/add_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/output/dense/BiasAdd_16": {
+            "name": "bert/encoder/layer_11/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/Reshape_3_19:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/intermediate/dense/BiasAdd_17": {
+            "name": "bert/encoder/layer_11/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/output/LayerNorm/batchnorm/add_1_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/output/add_18": {
+            "name": "bert/encoder/layer_10/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_10/output/dense/BiasAdd_21:out0",
+                "@bert/encoder/layer_10/attention/output/LayerNorm/batchnorm/add_1_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/Reshape_3_19": {
+            "name": "bert/encoder/layer_11/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/transpose_3_22:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/output/LayerNorm/batchnorm/add_1_20": {
+            "name": "bert/encoder/layer_10/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/output/add_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/output/dense/BiasAdd_21": {
+            "name": "bert/encoder/layer_10/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/intermediate/dense/mul_3_24:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/transpose_3_22": {
+            "name": "bert/encoder/layer_11/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/MatMul_1_25:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/output/add_23": {
+            "name": "bert/encoder/layer_10/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_10/attention/output/dense/BiasAdd_27:out0",
+                "@bert/encoder/layer_9/output/LayerNorm/batchnorm/add_1_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/intermediate/dense/mul_3_24": {
+            "name": "bert/encoder/layer_10/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/intermediate/dense/BiasAdd_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/MatMul_1_25": {
+            "name": "bert/encoder/layer_11/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/Softmax_30:out0",
+                "@bert/encoder/layer_11/attention/self/transpose_2_29:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/output/LayerNorm/batchnorm/add_1_26": {
+            "name": "bert/encoder/layer_9/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/output/add_31:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/output/dense/BiasAdd_27": {
+            "name": "bert/encoder/layer_10/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/Reshape_3_32:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/intermediate/dense/BiasAdd_28": {
+            "name": "bert/encoder/layer_10/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/output/LayerNorm/batchnorm/add_1_20:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/transpose_2_29": {
+            "name": "bert/encoder/layer_11/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/Reshape_2_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/Softmax_30": {
+            "name": "bert/encoder/layer_11/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/add_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/output/add_31": {
+            "name": "bert/encoder/layer_9/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_9/output/dense/BiasAdd_36:out0",
+                "@bert/encoder/layer_9/attention/output/LayerNorm/batchnorm/add_1_35:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/Reshape_3_32": {
+            "name": "bert/encoder/layer_10/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/transpose_3_37:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/Reshape_2_33": {
+            "name": "bert/encoder/layer_11/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/value/BiasAdd_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/add_34": {
+            "name": "bert/encoder/layer_11/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/Mul_40:out0",
+                "@bert/encoder/layer_11/attention/self/mul_1_39:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/output/LayerNorm/batchnorm/add_1_35": {
+            "name": "bert/encoder/layer_9/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/output/add_41:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/output/dense/BiasAdd_36": {
+            "name": "bert/encoder/layer_9/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/intermediate/dense/mul_3_42:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/transpose_3_37": {
+            "name": "bert/encoder/layer_10/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/MatMul_1_43:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/value/BiasAdd_38": {
+            "name": "bert/encoder/layer_11/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/output/LayerNorm/batchnorm/add_1_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/mul_1_39": {
+            "name": "bert/encoder/layer_11/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/sub_45:out0",
+                "@bert/encoder/layer_11/attention/self/mul_1/y_44:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/Mul_40": {
+            "name": "bert/encoder/layer_11/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/MatMul_47:out0",
+                "@bert/encoder/layer_11/attention/self/Mul/y_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/output/add_41": {
+            "name": "bert/encoder/layer_9/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_9/attention/output/dense/BiasAdd_49:out0",
+                "@bert/encoder/layer_8/output/LayerNorm/batchnorm/add_1_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/intermediate/dense/mul_3_42": {
+            "name": "bert/encoder/layer_9/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/intermediate/dense/BiasAdd_50:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/MatMul_1_43": {
+            "name": "bert/encoder/layer_10/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/Softmax_52:out0",
+                "@bert/encoder/layer_10/attention/self/transpose_2_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/mul_1/y_44": {
+            "name": "bert/encoder/layer_11/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/sub_45": {
+            "name": "bert/encoder/layer_11/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/sub/x_54:out0",
+                "@bert/encoder/layer_11/attention/self/ExpandDims_53:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/Mul/y_46": {
+            "name": "bert/encoder/layer_11/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/MatMul_47": {
+            "name": "bert/encoder/layer_11/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/transpose_56:out0",
+                "@bert/encoder/layer_11/attention/self/transpose_1_55:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/output/LayerNorm/batchnorm/add_1_48": {
+            "name": "bert/encoder/layer_8/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/output/add_57:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/output/dense/BiasAdd_49": {
+            "name": "bert/encoder/layer_9/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/Reshape_3_58:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/intermediate/dense/BiasAdd_50": {
+            "name": "bert/encoder/layer_9/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/output/LayerNorm/batchnorm/add_1_35:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/transpose_2_51": {
+            "name": "bert/encoder/layer_10/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/Reshape_2_59:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/Softmax_52": {
+            "name": "bert/encoder/layer_10/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/add_60:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/ExpandDims_53": {
+            "name": "bert/encoder/layer_11/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/sub/x_54": {
+            "name": "bert/encoder/layer_11/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/transpose_1_55": {
+            "name": "bert/encoder/layer_11/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/Reshape_1_62:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/transpose_56": {
+            "name": "bert/encoder/layer_11/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/Reshape_63:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/output/add_57": {
+            "name": "bert/encoder/layer_8/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_8/output/dense/BiasAdd_65:out0",
+                "@bert/encoder/layer_8/attention/output/LayerNorm/batchnorm/add_1_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/Reshape_3_58": {
+            "name": "bert/encoder/layer_9/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/transpose_3_66:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/Reshape_2_59": {
+            "name": "bert/encoder/layer_10/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/value/BiasAdd_67:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/add_60": {
+            "name": "bert/encoder/layer_10/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/Mul_69:out0",
+                "@bert/encoder/layer_10/attention/self/mul_1_68:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/mul_61": {
+            "name": "bert/encoder/mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/ones_out_0_acuity_const_71:out0",
+                "@bert/encoder/Cast_70:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/Reshape_1_62": {
+            "name": "bert/encoder/layer_11/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/key/BiasAdd_72:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/Reshape_63": {
+            "name": "bert/encoder/layer_11/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_11/attention/self/query/BiasAdd_73:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/output/LayerNorm/batchnorm/add_1_64": {
+            "name": "bert/encoder/layer_8/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/output/add_74:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/output/dense/BiasAdd_65": {
+            "name": "bert/encoder/layer_8/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/intermediate/dense/mul_3_75:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/transpose_3_66": {
+            "name": "bert/encoder/layer_9/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/MatMul_1_76:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/value/BiasAdd_67": {
+            "name": "bert/encoder/layer_10/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/output/LayerNorm/batchnorm/add_1_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/mul_1_68": {
+            "name": "bert/encoder/layer_10/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/sub_78:out0",
+                "@bert/encoder/layer_10/attention/self/mul_1/y_77:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/Mul_69": {
+            "name": "bert/encoder/layer_10/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/MatMul_80:out0",
+                "@bert/encoder/layer_10/attention/self/Mul/y_79:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/Cast_70": {
+            "name": "bert/encoder/Cast",
+            "op": "cast",
+            "parameters": {
+                "in_data_type": "3",
+                "out_data_type": "float32"
+            },
+            "inputs": [
+                "@bert/encoder/Reshape_81:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/ones_out_0_acuity_const_71": {
+            "name": "bert/encoder/ones_out_0_acuity_const",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1,
+                    128,
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/key/BiasAdd_72": {
+            "name": "bert/encoder/layer_11/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/output/LayerNorm/batchnorm/add_1_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_11/attention/self/query/BiasAdd_73": {
+            "name": "bert/encoder/layer_11/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/output/LayerNorm/batchnorm/add_1_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/output/add_74": {
+            "name": "bert/encoder/layer_8/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_8/attention/output/dense/BiasAdd_83:out0",
+                "@bert/encoder/layer_7/output/LayerNorm/batchnorm/add_1_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/intermediate/dense/mul_3_75": {
+            "name": "bert/encoder/layer_8/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/intermediate/dense/BiasAdd_84:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/MatMul_1_76": {
+            "name": "bert/encoder/layer_9/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/Softmax_86:out0",
+                "@bert/encoder/layer_9/attention/self/transpose_2_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/mul_1/y_77": {
+            "name": "bert/encoder/layer_10/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/sub_78": {
+            "name": "bert/encoder/layer_10/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/sub/x_88:out0",
+                "@bert/encoder/layer_10/attention/self/ExpandDims_87:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/Mul/y_79": {
+            "name": "bert/encoder/layer_10/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/MatMul_80": {
+            "name": "bert/encoder/layer_10/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/transpose_90:out0",
+                "@bert/encoder/layer_10/attention/self/transpose_1_89:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/Reshape_81": {
+            "name": "bert/encoder/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    128
+                ]
+            },
+            "inputs": [
+                "@attach_input_mask/out0_2:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/output/LayerNorm/batchnorm/add_1_82": {
+            "name": "bert/encoder/layer_7/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/output/add_91:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/output/dense/BiasAdd_83": {
+            "name": "bert/encoder/layer_8/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/Reshape_3_92:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/intermediate/dense/BiasAdd_84": {
+            "name": "bert/encoder/layer_8/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/output/LayerNorm/batchnorm/add_1_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/transpose_2_85": {
+            "name": "bert/encoder/layer_9/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/Reshape_2_93:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/Softmax_86": {
+            "name": "bert/encoder/layer_9/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/add_94:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/ExpandDims_87": {
+            "name": "bert/encoder/layer_10/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/sub/x_88": {
+            "name": "bert/encoder/layer_10/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/transpose_1_89": {
+            "name": "bert/encoder/layer_10/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/Reshape_1_95:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/transpose_90": {
+            "name": "bert/encoder/layer_10/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/Reshape_96:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/output/add_91": {
+            "name": "bert/encoder/layer_7/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_7/output/dense/BiasAdd_98:out0",
+                "@bert/encoder/layer_7/attention/output/LayerNorm/batchnorm/add_1_97:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/Reshape_3_92": {
+            "name": "bert/encoder/layer_8/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/transpose_3_99:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/Reshape_2_93": {
+            "name": "bert/encoder/layer_9/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/value/BiasAdd_100:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/add_94": {
+            "name": "bert/encoder/layer_9/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/Mul_102:out0",
+                "@bert/encoder/layer_9/attention/self/mul_1_101:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/Reshape_1_95": {
+            "name": "bert/encoder/layer_10/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/key/BiasAdd_103:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/Reshape_96": {
+            "name": "bert/encoder/layer_10/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_10/attention/self/query/BiasAdd_104:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/output/LayerNorm/batchnorm/add_1_97": {
+            "name": "bert/encoder/layer_7/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/output/add_105:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/output/dense/BiasAdd_98": {
+            "name": "bert/encoder/layer_7/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/intermediate/dense/mul_3_106:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/transpose_3_99": {
+            "name": "bert/encoder/layer_8/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/MatMul_1_107:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/value/BiasAdd_100": {
+            "name": "bert/encoder/layer_9/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/output/LayerNorm/batchnorm/add_1_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/mul_1_101": {
+            "name": "bert/encoder/layer_9/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/sub_109:out0",
+                "@bert/encoder/layer_9/attention/self/mul_1/y_108:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/Mul_102": {
+            "name": "bert/encoder/layer_9/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/MatMul_111:out0",
+                "@bert/encoder/layer_9/attention/self/Mul/y_110:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/key/BiasAdd_103": {
+            "name": "bert/encoder/layer_10/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/output/LayerNorm/batchnorm/add_1_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_10/attention/self/query/BiasAdd_104": {
+            "name": "bert/encoder/layer_10/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/output/LayerNorm/batchnorm/add_1_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/output/add_105": {
+            "name": "bert/encoder/layer_7/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_7/attention/output/dense/BiasAdd_113:out0",
+                "@bert/encoder/layer_6/output/LayerNorm/batchnorm/add_1_112:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/intermediate/dense/mul_3_106": {
+            "name": "bert/encoder/layer_7/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/intermediate/dense/BiasAdd_114:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/MatMul_1_107": {
+            "name": "bert/encoder/layer_8/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/Softmax_116:out0",
+                "@bert/encoder/layer_8/attention/self/transpose_2_115:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/mul_1/y_108": {
+            "name": "bert/encoder/layer_9/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/sub_109": {
+            "name": "bert/encoder/layer_9/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/sub/x_118:out0",
+                "@bert/encoder/layer_9/attention/self/ExpandDims_117:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/Mul/y_110": {
+            "name": "bert/encoder/layer_9/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/MatMul_111": {
+            "name": "bert/encoder/layer_9/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/transpose_120:out0",
+                "@bert/encoder/layer_9/attention/self/transpose_1_119:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/output/LayerNorm/batchnorm/add_1_112": {
+            "name": "bert/encoder/layer_6/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/output/add_121:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/output/dense/BiasAdd_113": {
+            "name": "bert/encoder/layer_7/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/Reshape_3_122:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/intermediate/dense/BiasAdd_114": {
+            "name": "bert/encoder/layer_7/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/output/LayerNorm/batchnorm/add_1_97:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/transpose_2_115": {
+            "name": "bert/encoder/layer_8/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/Reshape_2_123:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/Softmax_116": {
+            "name": "bert/encoder/layer_8/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/add_124:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/ExpandDims_117": {
+            "name": "bert/encoder/layer_9/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/sub/x_118": {
+            "name": "bert/encoder/layer_9/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/transpose_1_119": {
+            "name": "bert/encoder/layer_9/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/Reshape_1_125:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/transpose_120": {
+            "name": "bert/encoder/layer_9/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/Reshape_126:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/output/add_121": {
+            "name": "bert/encoder/layer_6/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_6/output/dense/BiasAdd_128:out0",
+                "@bert/encoder/layer_6/attention/output/LayerNorm/batchnorm/add_1_127:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/Reshape_3_122": {
+            "name": "bert/encoder/layer_7/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/transpose_3_129:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/Reshape_2_123": {
+            "name": "bert/encoder/layer_8/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/value/BiasAdd_130:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/add_124": {
+            "name": "bert/encoder/layer_8/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/Mul_132:out0",
+                "@bert/encoder/layer_8/attention/self/mul_1_131:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/Reshape_1_125": {
+            "name": "bert/encoder/layer_9/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/key/BiasAdd_133:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/Reshape_126": {
+            "name": "bert/encoder/layer_9/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_9/attention/self/query/BiasAdd_134:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/output/LayerNorm/batchnorm/add_1_127": {
+            "name": "bert/encoder/layer_6/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/output/add_135:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/output/dense/BiasAdd_128": {
+            "name": "bert/encoder/layer_6/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/intermediate/dense/mul_3_136:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/transpose_3_129": {
+            "name": "bert/encoder/layer_7/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/MatMul_1_137:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/value/BiasAdd_130": {
+            "name": "bert/encoder/layer_8/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/output/LayerNorm/batchnorm/add_1_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/mul_1_131": {
+            "name": "bert/encoder/layer_8/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/sub_139:out0",
+                "@bert/encoder/layer_8/attention/self/mul_1/y_138:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/Mul_132": {
+            "name": "bert/encoder/layer_8/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/MatMul_141:out0",
+                "@bert/encoder/layer_8/attention/self/Mul/y_140:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/key/BiasAdd_133": {
+            "name": "bert/encoder/layer_9/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/output/LayerNorm/batchnorm/add_1_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_9/attention/self/query/BiasAdd_134": {
+            "name": "bert/encoder/layer_9/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/output/LayerNorm/batchnorm/add_1_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/output/add_135": {
+            "name": "bert/encoder/layer_6/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_6/attention/output/dense/BiasAdd_143:out0",
+                "@bert/encoder/layer_5/output/LayerNorm/batchnorm/add_1_142:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/intermediate/dense/mul_3_136": {
+            "name": "bert/encoder/layer_6/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/intermediate/dense/BiasAdd_144:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/MatMul_1_137": {
+            "name": "bert/encoder/layer_7/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/Softmax_146:out0",
+                "@bert/encoder/layer_7/attention/self/transpose_2_145:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/mul_1/y_138": {
+            "name": "bert/encoder/layer_8/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/sub_139": {
+            "name": "bert/encoder/layer_8/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/sub/x_148:out0",
+                "@bert/encoder/layer_8/attention/self/ExpandDims_147:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/Mul/y_140": {
+            "name": "bert/encoder/layer_8/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/MatMul_141": {
+            "name": "bert/encoder/layer_8/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/transpose_150:out0",
+                "@bert/encoder/layer_8/attention/self/transpose_1_149:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/output/LayerNorm/batchnorm/add_1_142": {
+            "name": "bert/encoder/layer_5/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/output/add_151:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/output/dense/BiasAdd_143": {
+            "name": "bert/encoder/layer_6/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/Reshape_3_152:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/intermediate/dense/BiasAdd_144": {
+            "name": "bert/encoder/layer_6/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/output/LayerNorm/batchnorm/add_1_127:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/transpose_2_145": {
+            "name": "bert/encoder/layer_7/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/Reshape_2_153:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/Softmax_146": {
+            "name": "bert/encoder/layer_7/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/add_154:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/ExpandDims_147": {
+            "name": "bert/encoder/layer_8/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/sub/x_148": {
+            "name": "bert/encoder/layer_8/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/transpose_1_149": {
+            "name": "bert/encoder/layer_8/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/Reshape_1_155:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/transpose_150": {
+            "name": "bert/encoder/layer_8/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/Reshape_156:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/output/add_151": {
+            "name": "bert/encoder/layer_5/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_5/output/dense/BiasAdd_158:out0",
+                "@bert/encoder/layer_5/attention/output/LayerNorm/batchnorm/add_1_157:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/Reshape_3_152": {
+            "name": "bert/encoder/layer_6/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/transpose_3_159:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/Reshape_2_153": {
+            "name": "bert/encoder/layer_7/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/value/BiasAdd_160:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/add_154": {
+            "name": "bert/encoder/layer_7/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/Mul_162:out0",
+                "@bert/encoder/layer_7/attention/self/mul_1_161:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/Reshape_1_155": {
+            "name": "bert/encoder/layer_8/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/key/BiasAdd_163:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/Reshape_156": {
+            "name": "bert/encoder/layer_8/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_8/attention/self/query/BiasAdd_164:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/output/LayerNorm/batchnorm/add_1_157": {
+            "name": "bert/encoder/layer_5/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/output/add_165:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/output/dense/BiasAdd_158": {
+            "name": "bert/encoder/layer_5/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/intermediate/dense/mul_3_166:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/transpose_3_159": {
+            "name": "bert/encoder/layer_6/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/MatMul_1_167:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/value/BiasAdd_160": {
+            "name": "bert/encoder/layer_7/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/output/LayerNorm/batchnorm/add_1_112:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/mul_1_161": {
+            "name": "bert/encoder/layer_7/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/sub_169:out0",
+                "@bert/encoder/layer_7/attention/self/mul_1/y_168:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/Mul_162": {
+            "name": "bert/encoder/layer_7/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/MatMul_171:out0",
+                "@bert/encoder/layer_7/attention/self/Mul/y_170:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/key/BiasAdd_163": {
+            "name": "bert/encoder/layer_8/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/output/LayerNorm/batchnorm/add_1_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_8/attention/self/query/BiasAdd_164": {
+            "name": "bert/encoder/layer_8/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/output/LayerNorm/batchnorm/add_1_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/output/add_165": {
+            "name": "bert/encoder/layer_5/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_5/attention/output/dense/BiasAdd_173:out0",
+                "@bert/encoder/layer_4/output/LayerNorm/batchnorm/add_1_172:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/intermediate/dense/mul_3_166": {
+            "name": "bert/encoder/layer_5/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/intermediate/dense/BiasAdd_174:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/MatMul_1_167": {
+            "name": "bert/encoder/layer_6/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/Softmax_176:out0",
+                "@bert/encoder/layer_6/attention/self/transpose_2_175:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/mul_1/y_168": {
+            "name": "bert/encoder/layer_7/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/sub_169": {
+            "name": "bert/encoder/layer_7/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/sub/x_178:out0",
+                "@bert/encoder/layer_7/attention/self/ExpandDims_177:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/Mul/y_170": {
+            "name": "bert/encoder/layer_7/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/MatMul_171": {
+            "name": "bert/encoder/layer_7/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/transpose_180:out0",
+                "@bert/encoder/layer_7/attention/self/transpose_1_179:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/output/LayerNorm/batchnorm/add_1_172": {
+            "name": "bert/encoder/layer_4/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/output/add_181:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/output/dense/BiasAdd_173": {
+            "name": "bert/encoder/layer_5/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/Reshape_3_182:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/intermediate/dense/BiasAdd_174": {
+            "name": "bert/encoder/layer_5/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/output/LayerNorm/batchnorm/add_1_157:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/transpose_2_175": {
+            "name": "bert/encoder/layer_6/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/Reshape_2_183:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/Softmax_176": {
+            "name": "bert/encoder/layer_6/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/add_184:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/ExpandDims_177": {
+            "name": "bert/encoder/layer_7/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/sub/x_178": {
+            "name": "bert/encoder/layer_7/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/transpose_1_179": {
+            "name": "bert/encoder/layer_7/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/Reshape_1_185:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/transpose_180": {
+            "name": "bert/encoder/layer_7/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/Reshape_186:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/output/add_181": {
+            "name": "bert/encoder/layer_4/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_4/output/dense/BiasAdd_188:out0",
+                "@bert/encoder/layer_4/attention/output/LayerNorm/batchnorm/add_1_187:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/Reshape_3_182": {
+            "name": "bert/encoder/layer_5/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/transpose_3_189:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/Reshape_2_183": {
+            "name": "bert/encoder/layer_6/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/value/BiasAdd_190:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/add_184": {
+            "name": "bert/encoder/layer_6/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/Mul_192:out0",
+                "@bert/encoder/layer_6/attention/self/mul_1_191:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/Reshape_1_185": {
+            "name": "bert/encoder/layer_7/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/key/BiasAdd_193:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/Reshape_186": {
+            "name": "bert/encoder/layer_7/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_7/attention/self/query/BiasAdd_194:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/output/LayerNorm/batchnorm/add_1_187": {
+            "name": "bert/encoder/layer_4/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/output/add_195:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/output/dense/BiasAdd_188": {
+            "name": "bert/encoder/layer_4/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/intermediate/dense/mul_3_196:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/transpose_3_189": {
+            "name": "bert/encoder/layer_5/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/MatMul_1_197:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/value/BiasAdd_190": {
+            "name": "bert/encoder/layer_6/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/output/LayerNorm/batchnorm/add_1_142:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/mul_1_191": {
+            "name": "bert/encoder/layer_6/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/sub_199:out0",
+                "@bert/encoder/layer_6/attention/self/mul_1/y_198:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/Mul_192": {
+            "name": "bert/encoder/layer_6/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/MatMul_201:out0",
+                "@bert/encoder/layer_6/attention/self/Mul/y_200:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/key/BiasAdd_193": {
+            "name": "bert/encoder/layer_7/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/output/LayerNorm/batchnorm/add_1_112:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_7/attention/self/query/BiasAdd_194": {
+            "name": "bert/encoder/layer_7/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/output/LayerNorm/batchnorm/add_1_112:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/output/add_195": {
+            "name": "bert/encoder/layer_4/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_4/attention/output/dense/BiasAdd_203:out0",
+                "@bert/encoder/layer_3/output/LayerNorm/batchnorm/add_1_202:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/intermediate/dense/mul_3_196": {
+            "name": "bert/encoder/layer_4/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/intermediate/dense/BiasAdd_204:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/MatMul_1_197": {
+            "name": "bert/encoder/layer_5/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/Softmax_206:out0",
+                "@bert/encoder/layer_5/attention/self/transpose_2_205:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/mul_1/y_198": {
+            "name": "bert/encoder/layer_6/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/sub_199": {
+            "name": "bert/encoder/layer_6/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/sub/x_208:out0",
+                "@bert/encoder/layer_6/attention/self/ExpandDims_207:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/Mul/y_200": {
+            "name": "bert/encoder/layer_6/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/MatMul_201": {
+            "name": "bert/encoder/layer_6/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/transpose_210:out0",
+                "@bert/encoder/layer_6/attention/self/transpose_1_209:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/output/LayerNorm/batchnorm/add_1_202": {
+            "name": "bert/encoder/layer_3/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/output/add_211:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/output/dense/BiasAdd_203": {
+            "name": "bert/encoder/layer_4/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/Reshape_3_212:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/intermediate/dense/BiasAdd_204": {
+            "name": "bert/encoder/layer_4/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/output/LayerNorm/batchnorm/add_1_187:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/transpose_2_205": {
+            "name": "bert/encoder/layer_5/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/Reshape_2_213:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/Softmax_206": {
+            "name": "bert/encoder/layer_5/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/add_214:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/ExpandDims_207": {
+            "name": "bert/encoder/layer_6/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/sub/x_208": {
+            "name": "bert/encoder/layer_6/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/transpose_1_209": {
+            "name": "bert/encoder/layer_6/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/Reshape_1_215:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/transpose_210": {
+            "name": "bert/encoder/layer_6/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/Reshape_216:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/output/add_211": {
+            "name": "bert/encoder/layer_3/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_3/output/dense/BiasAdd_218:out0",
+                "@bert/encoder/layer_3/attention/output/LayerNorm/batchnorm/add_1_217:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/Reshape_3_212": {
+            "name": "bert/encoder/layer_4/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/transpose_3_219:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/Reshape_2_213": {
+            "name": "bert/encoder/layer_5/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/value/BiasAdd_220:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/add_214": {
+            "name": "bert/encoder/layer_5/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/Mul_222:out0",
+                "@bert/encoder/layer_5/attention/self/mul_1_221:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/Reshape_1_215": {
+            "name": "bert/encoder/layer_6/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/key/BiasAdd_223:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/Reshape_216": {
+            "name": "bert/encoder/layer_6/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_6/attention/self/query/BiasAdd_224:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/output/LayerNorm/batchnorm/add_1_217": {
+            "name": "bert/encoder/layer_3/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/output/add_225:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/output/dense/BiasAdd_218": {
+            "name": "bert/encoder/layer_3/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/intermediate/dense/mul_3_226:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/transpose_3_219": {
+            "name": "bert/encoder/layer_4/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/MatMul_1_227:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/value/BiasAdd_220": {
+            "name": "bert/encoder/layer_5/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/output/LayerNorm/batchnorm/add_1_172:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/mul_1_221": {
+            "name": "bert/encoder/layer_5/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/sub_229:out0",
+                "@bert/encoder/layer_5/attention/self/mul_1/y_228:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/Mul_222": {
+            "name": "bert/encoder/layer_5/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/MatMul_231:out0",
+                "@bert/encoder/layer_5/attention/self/Mul/y_230:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/key/BiasAdd_223": {
+            "name": "bert/encoder/layer_6/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/output/LayerNorm/batchnorm/add_1_142:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_6/attention/self/query/BiasAdd_224": {
+            "name": "bert/encoder/layer_6/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/output/LayerNorm/batchnorm/add_1_142:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/output/add_225": {
+            "name": "bert/encoder/layer_3/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_3/attention/output/dense/BiasAdd_233:out0",
+                "@bert/encoder/layer_2/output/LayerNorm/batchnorm/add_1_232:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/intermediate/dense/mul_3_226": {
+            "name": "bert/encoder/layer_3/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/intermediate/dense/BiasAdd_234:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/MatMul_1_227": {
+            "name": "bert/encoder/layer_4/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/Softmax_236:out0",
+                "@bert/encoder/layer_4/attention/self/transpose_2_235:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/mul_1/y_228": {
+            "name": "bert/encoder/layer_5/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/sub_229": {
+            "name": "bert/encoder/layer_5/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/sub/x_238:out0",
+                "@bert/encoder/layer_5/attention/self/ExpandDims_237:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/Mul/y_230": {
+            "name": "bert/encoder/layer_5/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/MatMul_231": {
+            "name": "bert/encoder/layer_5/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/transpose_240:out0",
+                "@bert/encoder/layer_5/attention/self/transpose_1_239:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/output/LayerNorm/batchnorm/add_1_232": {
+            "name": "bert/encoder/layer_2/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/output/add_241:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/output/dense/BiasAdd_233": {
+            "name": "bert/encoder/layer_3/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/Reshape_3_242:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/intermediate/dense/BiasAdd_234": {
+            "name": "bert/encoder/layer_3/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/output/LayerNorm/batchnorm/add_1_217:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/transpose_2_235": {
+            "name": "bert/encoder/layer_4/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/Reshape_2_243:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/Softmax_236": {
+            "name": "bert/encoder/layer_4/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/add_244:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/ExpandDims_237": {
+            "name": "bert/encoder/layer_5/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/sub/x_238": {
+            "name": "bert/encoder/layer_5/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/transpose_1_239": {
+            "name": "bert/encoder/layer_5/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/Reshape_1_245:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/transpose_240": {
+            "name": "bert/encoder/layer_5/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/Reshape_246:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/output/add_241": {
+            "name": "bert/encoder/layer_2/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_2/output/dense/BiasAdd_248:out0",
+                "@bert/encoder/layer_2/attention/output/LayerNorm/batchnorm/add_1_247:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/Reshape_3_242": {
+            "name": "bert/encoder/layer_3/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/transpose_3_249:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/Reshape_2_243": {
+            "name": "bert/encoder/layer_4/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/value/BiasAdd_250:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/add_244": {
+            "name": "bert/encoder/layer_4/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/Mul_252:out0",
+                "@bert/encoder/layer_4/attention/self/mul_1_251:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/Reshape_1_245": {
+            "name": "bert/encoder/layer_5/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/key/BiasAdd_253:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/Reshape_246": {
+            "name": "bert/encoder/layer_5/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_5/attention/self/query/BiasAdd_254:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/output/LayerNorm/batchnorm/add_1_247": {
+            "name": "bert/encoder/layer_2/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/output/add_255:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/output/dense/BiasAdd_248": {
+            "name": "bert/encoder/layer_2/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/intermediate/dense/mul_3_256:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/transpose_3_249": {
+            "name": "bert/encoder/layer_3/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/MatMul_1_257:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/value/BiasAdd_250": {
+            "name": "bert/encoder/layer_4/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/output/LayerNorm/batchnorm/add_1_202:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/mul_1_251": {
+            "name": "bert/encoder/layer_4/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/sub_259:out0",
+                "@bert/encoder/layer_4/attention/self/mul_1/y_258:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/Mul_252": {
+            "name": "bert/encoder/layer_4/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/MatMul_261:out0",
+                "@bert/encoder/layer_4/attention/self/Mul/y_260:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/key/BiasAdd_253": {
+            "name": "bert/encoder/layer_5/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/output/LayerNorm/batchnorm/add_1_172:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_5/attention/self/query/BiasAdd_254": {
+            "name": "bert/encoder/layer_5/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/output/LayerNorm/batchnorm/add_1_172:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/output/add_255": {
+            "name": "bert/encoder/layer_2/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_2/attention/output/dense/BiasAdd_263:out0",
+                "@bert/encoder/layer_1/output/LayerNorm/batchnorm/add_1_262:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/intermediate/dense/mul_3_256": {
+            "name": "bert/encoder/layer_2/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/intermediate/dense/BiasAdd_264:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/MatMul_1_257": {
+            "name": "bert/encoder/layer_3/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/Softmax_266:out0",
+                "@bert/encoder/layer_3/attention/self/transpose_2_265:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/mul_1/y_258": {
+            "name": "bert/encoder/layer_4/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/sub_259": {
+            "name": "bert/encoder/layer_4/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/sub/x_268:out0",
+                "@bert/encoder/layer_4/attention/self/ExpandDims_267:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/Mul/y_260": {
+            "name": "bert/encoder/layer_4/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/MatMul_261": {
+            "name": "bert/encoder/layer_4/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/transpose_270:out0",
+                "@bert/encoder/layer_4/attention/self/transpose_1_269:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/output/LayerNorm/batchnorm/add_1_262": {
+            "name": "bert/encoder/layer_1/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/output/add_271:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/output/dense/BiasAdd_263": {
+            "name": "bert/encoder/layer_2/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/Reshape_3_272:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/intermediate/dense/BiasAdd_264": {
+            "name": "bert/encoder/layer_2/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/output/LayerNorm/batchnorm/add_1_247:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/transpose_2_265": {
+            "name": "bert/encoder/layer_3/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/Reshape_2_273:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/Softmax_266": {
+            "name": "bert/encoder/layer_3/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/add_274:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/ExpandDims_267": {
+            "name": "bert/encoder/layer_4/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/sub/x_268": {
+            "name": "bert/encoder/layer_4/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/transpose_1_269": {
+            "name": "bert/encoder/layer_4/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/Reshape_1_275:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/transpose_270": {
+            "name": "bert/encoder/layer_4/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/Reshape_276:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/output/add_271": {
+            "name": "bert/encoder/layer_1/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_1/output/dense/BiasAdd_278:out0",
+                "@bert/encoder/layer_1/attention/output/LayerNorm/batchnorm/add_1_277:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/Reshape_3_272": {
+            "name": "bert/encoder/layer_2/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/transpose_3_279:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/Reshape_2_273": {
+            "name": "bert/encoder/layer_3/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/value/BiasAdd_280:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/add_274": {
+            "name": "bert/encoder/layer_3/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/Mul_282:out0",
+                "@bert/encoder/layer_3/attention/self/mul_1_281:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/Reshape_1_275": {
+            "name": "bert/encoder/layer_4/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/key/BiasAdd_283:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/Reshape_276": {
+            "name": "bert/encoder/layer_4/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_4/attention/self/query/BiasAdd_284:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/output/LayerNorm/batchnorm/add_1_277": {
+            "name": "bert/encoder/layer_1/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/output/add_285:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/output/dense/BiasAdd_278": {
+            "name": "bert/encoder/layer_1/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/intermediate/dense/mul_3_286:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/transpose_3_279": {
+            "name": "bert/encoder/layer_2/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/MatMul_1_287:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/value/BiasAdd_280": {
+            "name": "bert/encoder/layer_3/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/output/LayerNorm/batchnorm/add_1_232:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/mul_1_281": {
+            "name": "bert/encoder/layer_3/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/sub_289:out0",
+                "@bert/encoder/layer_3/attention/self/mul_1/y_288:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/Mul_282": {
+            "name": "bert/encoder/layer_3/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/MatMul_291:out0",
+                "@bert/encoder/layer_3/attention/self/Mul/y_290:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/key/BiasAdd_283": {
+            "name": "bert/encoder/layer_4/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/output/LayerNorm/batchnorm/add_1_202:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_4/attention/self/query/BiasAdd_284": {
+            "name": "bert/encoder/layer_4/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/output/LayerNorm/batchnorm/add_1_202:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/output/add_285": {
+            "name": "bert/encoder/layer_1/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_1/attention/output/dense/BiasAdd_293:out0",
+                "@bert/encoder/layer_0/output/LayerNorm/batchnorm/add_1_292:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/intermediate/dense/mul_3_286": {
+            "name": "bert/encoder/layer_1/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/intermediate/dense/BiasAdd_294:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/MatMul_1_287": {
+            "name": "bert/encoder/layer_2/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/Softmax_296:out0",
+                "@bert/encoder/layer_2/attention/self/transpose_2_295:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/mul_1/y_288": {
+            "name": "bert/encoder/layer_3/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/sub_289": {
+            "name": "bert/encoder/layer_3/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/sub/x_298:out0",
+                "@bert/encoder/layer_3/attention/self/ExpandDims_297:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/Mul/y_290": {
+            "name": "bert/encoder/layer_3/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/MatMul_291": {
+            "name": "bert/encoder/layer_3/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/transpose_300:out0",
+                "@bert/encoder/layer_3/attention/self/transpose_1_299:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/output/LayerNorm/batchnorm/add_1_292": {
+            "name": "bert/encoder/layer_0/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/output/add_301:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/output/dense/BiasAdd_293": {
+            "name": "bert/encoder/layer_1/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/Reshape_3_302:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/intermediate/dense/BiasAdd_294": {
+            "name": "bert/encoder/layer_1/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/output/LayerNorm/batchnorm/add_1_277:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/transpose_2_295": {
+            "name": "bert/encoder/layer_2/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/Reshape_2_303:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/Softmax_296": {
+            "name": "bert/encoder/layer_2/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/add_304:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/ExpandDims_297": {
+            "name": "bert/encoder/layer_3/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/sub/x_298": {
+            "name": "bert/encoder/layer_3/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/transpose_1_299": {
+            "name": "bert/encoder/layer_3/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/Reshape_1_305:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/transpose_300": {
+            "name": "bert/encoder/layer_3/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/Reshape_306:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/output/add_301": {
+            "name": "bert/encoder/layer_0/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_0/output/dense/BiasAdd_308:out0",
+                "@bert/encoder/layer_0/attention/output/LayerNorm/batchnorm/add_1_307:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/Reshape_3_302": {
+            "name": "bert/encoder/layer_1/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/transpose_3_309:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/Reshape_2_303": {
+            "name": "bert/encoder/layer_2/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/value/BiasAdd_310:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/add_304": {
+            "name": "bert/encoder/layer_2/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/Mul_312:out0",
+                "@bert/encoder/layer_2/attention/self/mul_1_311:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/Reshape_1_305": {
+            "name": "bert/encoder/layer_3/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/key/BiasAdd_313:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/Reshape_306": {
+            "name": "bert/encoder/layer_3/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_3/attention/self/query/BiasAdd_314:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/output/LayerNorm/batchnorm/add_1_307": {
+            "name": "bert/encoder/layer_0/attention/output/LayerNorm/batchnorm/add_1",
+            "op": "layernormalize",
+            "parameters": {
+                "axis_list": [
+                    1
+                ],
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/output/add_315:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/output/dense/BiasAdd_308": {
+            "name": "bert/encoder/layer_0/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/intermediate/dense/mul_3_316:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/transpose_3_309": {
+            "name": "bert/encoder/layer_1/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/MatMul_1_317:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/value/BiasAdd_310": {
+            "name": "bert/encoder/layer_2/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/output/LayerNorm/batchnorm/add_1_262:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/mul_1_311": {
+            "name": "bert/encoder/layer_2/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/sub_319:out0",
+                "@bert/encoder/layer_2/attention/self/mul_1/y_318:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/Mul_312": {
+            "name": "bert/encoder/layer_2/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/MatMul_321:out0",
+                "@bert/encoder/layer_2/attention/self/Mul/y_320:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/key/BiasAdd_313": {
+            "name": "bert/encoder/layer_3/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/output/LayerNorm/batchnorm/add_1_232:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_3/attention/self/query/BiasAdd_314": {
+            "name": "bert/encoder/layer_3/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/output/LayerNorm/batchnorm/add_1_232:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/output/add_315": {
+            "name": "bert/encoder/layer_0/attention/output/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_0/attention/output/dense/BiasAdd_323:out0",
+                "@bert/encoder/Reshape_1_322:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/intermediate/dense/mul_3_316": {
+            "name": "bert/encoder/layer_0/intermediate/dense/mul_3",
+            "op": "gelu",
+            "parameters": {
+                "approximate": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/intermediate/dense/BiasAdd_324:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/MatMul_1_317": {
+            "name": "bert/encoder/layer_1/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/Softmax_326:out0",
+                "@bert/encoder/layer_1/attention/self/transpose_2_325:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/mul_1/y_318": {
+            "name": "bert/encoder/layer_2/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/sub_319": {
+            "name": "bert/encoder/layer_2/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/sub/x_328:out0",
+                "@bert/encoder/layer_2/attention/self/ExpandDims_327:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/Mul/y_320": {
+            "name": "bert/encoder/layer_2/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/MatMul_321": {
+            "name": "bert/encoder/layer_2/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/transpose_330:out0",
+                "@bert/encoder/layer_2/attention/self/transpose_1_329:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/Reshape_1_322": {
+            "name": "bert/encoder/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/embeddings/LayerNorm/batchnorm/add_1_331:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/output/dense/BiasAdd_323": {
+            "name": "bert/encoder/layer_0/attention/output/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/Reshape_3_332:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/intermediate/dense/BiasAdd_324": {
+            "name": "bert/encoder/layer_0/intermediate/dense/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 3072,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/output/LayerNorm/batchnorm/add_1_307:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/transpose_2_325": {
+            "name": "bert/encoder/layer_1/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/Reshape_2_333:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/Softmax_326": {
+            "name": "bert/encoder/layer_1/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/add_334:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/ExpandDims_327": {
+            "name": "bert/encoder/layer_2/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/sub/x_328": {
+            "name": "bert/encoder/layer_2/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/transpose_1_329": {
+            "name": "bert/encoder/layer_2/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/Reshape_1_335:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/transpose_330": {
+            "name": "bert/encoder/layer_2/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/Reshape_336:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/LayerNorm/batchnorm/add_1_331": {
+            "name": "bert/embeddings/LayerNorm/batchnorm/add_1",
+            "op": "batchnorm_single",
+            "parameters": {
+                "eps": 9.999999960041972e-13
+            },
+            "inputs": [
+                "@bert/embeddings/add_1_338:out0",
+                "@bert/embeddings/LayerNorm/moments/mean_337:out0",
+                "@bert/embeddings/LayerNorm/moments/mean_337:out1"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/Reshape_3_332": {
+            "name": "bert/encoder/layer_0/attention/self/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/transpose_3_339:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/Reshape_2_333": {
+            "name": "bert/encoder/layer_1/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/value/BiasAdd_340:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/add_334": {
+            "name": "bert/encoder/layer_1/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/Mul_342:out0",
+                "@bert/encoder/layer_1/attention/self/mul_1_341:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/Reshape_1_335": {
+            "name": "bert/encoder/layer_2/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/key/BiasAdd_343:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/Reshape_336": {
+            "name": "bert/encoder/layer_2/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_2/attention/self/query/BiasAdd_344:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/LayerNorm/moments/mean_337": {
+            "name": "bert/embeddings/LayerNorm/moments/mean",
+            "op": "moments",
+            "parameters": {
+                "axis_list": [
+                    2
+                ],
+                "keep_dims": true
+            },
+            "inputs": [
+                "@bert/embeddings/add_1_338:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1"
+            ]
+        },
+        "bert/embeddings/add_1_338": {
+            "name": "bert/embeddings/add_1",
+            "op": "add",
+            "inputs": [
+                "@bert/embeddings/add_346:out0",
+                "@bert/embeddings/Reshape_4_out_0_acuity_const_345:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/transpose_3_339": {
+            "name": "bert/encoder/layer_0/attention/self/transpose_3",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/MatMul_1_347:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/value/BiasAdd_340": {
+            "name": "bert/encoder/layer_1/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/output/LayerNorm/batchnorm/add_1_292:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/mul_1_341": {
+            "name": "bert/encoder/layer_1/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/sub_349:out0",
+                "@bert/encoder/layer_1/attention/self/mul_1/y_348:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/Mul_342": {
+            "name": "bert/encoder/layer_1/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/MatMul_351:out0",
+                "@bert/encoder/layer_1/attention/self/Mul/y_350:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/key/BiasAdd_343": {
+            "name": "bert/encoder/layer_2/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/output/LayerNorm/batchnorm/add_1_262:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_2/attention/self/query/BiasAdd_344": {
+            "name": "bert/encoder/layer_2/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/output/LayerNorm/batchnorm/add_1_262:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/Reshape_4_out_0_acuity_const_345": {
+            "name": "bert/embeddings/Reshape_4_out_0_acuity_const",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1,
+                    128,
+                    768
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/add_346": {
+            "name": "bert/embeddings/add",
+            "op": "add",
+            "inputs": [
+                "@bert/embeddings/Reshape_1_353:out0",
+                "@bert/embeddings/Reshape_3_352:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/MatMul_1_347": {
+            "name": "bert/encoder/layer_0/attention/self/MatMul_1",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/Softmax_355:out0",
+                "@bert/encoder/layer_0/attention/self/transpose_2_354:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/mul_1/y_348": {
+            "name": "bert/encoder/layer_1/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/sub_349": {
+            "name": "bert/encoder/layer_1/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/sub/x_357:out0",
+                "@bert/encoder/layer_1/attention/self/ExpandDims_356:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/Mul/y_350": {
+            "name": "bert/encoder/layer_1/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/MatMul_351": {
+            "name": "bert/encoder/layer_1/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/transpose_359:out0",
+                "@bert/encoder/layer_1/attention/self/transpose_1_358:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/Reshape_3_352": {
+            "name": "bert/embeddings/Reshape_3",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/embeddings/MatMul_360:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/Reshape_1_353": {
+            "name": "bert/embeddings/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    768
+                ]
+            },
+            "inputs": [
+                "@bert/embeddings/GatherV2_361:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/transpose_2_354": {
+            "name": "bert/encoder/layer_0/attention/self/transpose_2",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/Reshape_2_362:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/Softmax_355": {
+            "name": "bert/encoder/layer_0/attention/self/Softmax",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": -1,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/add_363:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/ExpandDims_356": {
+            "name": "bert/encoder/layer_1/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/sub/x_357": {
+            "name": "bert/encoder/layer_1/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/transpose_1_358": {
+            "name": "bert/encoder/layer_1/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/Reshape_1_364:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/transpose_359": {
+            "name": "bert/encoder/layer_1/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/Reshape_365:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/MatMul_360": {
+            "name": "bert/embeddings/MatMul",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/embeddings/one_hot_366:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/GatherV2_361": {
+            "name": "bert/embeddings/GatherV2",
+            "op": "gather",
+            "parameters": {
+                "axis": 0
+            },
+            "inputs": [
+                "@bert/embeddings/word_embeddings_368:out0",
+                "@bert/embeddings/Reshape_367:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/Reshape_2_362": {
+            "name": "bert/encoder/layer_0/attention/self/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/value/BiasAdd_369:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/add_363": {
+            "name": "bert/encoder/layer_0/attention/self/add",
+            "op": "add",
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/Mul_371:out0",
+                "@bert/encoder/layer_0/attention/self/mul_1_370:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/Reshape_1_364": {
+            "name": "bert/encoder/layer_1/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/key/BiasAdd_372:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/Reshape_365": {
+            "name": "bert/encoder/layer_1/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_1/attention/self/query/BiasAdd_373:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/one_hot_366": {
+            "name": "bert/embeddings/one_hot",
+            "op": "one_hot",
+            "parameters": {
+                "depth": 2,
+                "on_value": 1.0,
+                "off_value": 0.0,
+                "axis": -1,
+                "dtype": "float32"
+            },
+            "inputs": [
+                "@bert/embeddings/Reshape_2_374:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/Reshape_367": {
+            "name": "bert/embeddings/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1
+                ]
+            },
+            "inputs": [
+                "@bert/embeddings/ExpandDims_375:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/word_embeddings_368": {
+            "name": "bert/embeddings/word_embeddings",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    30522,
+                    768
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/value/BiasAdd_369": {
+            "name": "bert/encoder/layer_0/attention/self/value/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/Reshape_1_322:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/mul_1_370": {
+            "name": "bert/encoder/layer_0/attention/self/mul_1",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/sub_377:out0",
+                "@bert/encoder/layer_0/attention/self/mul_1/y_376:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/Mul_371": {
+            "name": "bert/encoder/layer_0/attention/self/Mul",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/MatMul_379:out0",
+                "@bert/encoder/layer_0/attention/self/Mul/y_378:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/key/BiasAdd_372": {
+            "name": "bert/encoder/layer_1/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/output/LayerNorm/batchnorm/add_1_292:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_1/attention/self/query/BiasAdd_373": {
+            "name": "bert/encoder/layer_1/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/output/LayerNorm/batchnorm/add_1_292:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/Reshape_2_374": {
+            "name": "bert/embeddings/Reshape_2",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1
+                ]
+            },
+            "inputs": [
+                "@attach_segment_ids/out0_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/embeddings/ExpandDims_375": {
+            "name": "bert/embeddings/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    128,
+                    1
+                ]
+            },
+            "inputs": [
+                "@attach_input_ids/out0_1:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/mul_1/y_376": {
+            "name": "bert/encoder/layer_0/attention/self/mul_1/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/sub_377": {
+            "name": "bert/encoder/layer_0/attention/self/sub",
+            "op": "subtract",
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/sub/x_381:out0",
+                "@bert/encoder/layer_0/attention/self/ExpandDims_380:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/Mul/y_378": {
+            "name": "bert/encoder/layer_0/attention/self/Mul/y",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/MatMul_379": {
+            "name": "bert/encoder/layer_0/attention/self/MatMul",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": true
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/transpose_383:out0",
+                "@bert/encoder/layer_0/attention/self/transpose_1_382:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/ExpandDims_380": {
+            "name": "bert/encoder/layer_0/attention/self/ExpandDims",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    128,
+                    128
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/mul_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/sub/x_381": {
+            "name": "bert/encoder/layer_0/attention/self/sub/x",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/transpose_1_382": {
+            "name": "bert/encoder/layer_0/attention/self/transpose_1",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/Reshape_1_384:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/transpose_383": {
+            "name": "bert/encoder/layer_0/attention/self/transpose",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/Reshape_385:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/Reshape_1_384": {
+            "name": "bert/encoder/layer_0/attention/self/Reshape_1",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/key/BiasAdd_386:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/Reshape_385": {
+            "name": "bert/encoder/layer_0/attention/self/Reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    128,
+                    12,
+                    64
+                ]
+            },
+            "inputs": [
+                "@bert/encoder/layer_0/attention/self/query/BiasAdd_387:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/key/BiasAdd_386": {
+            "name": "bert/encoder/layer_0/attention/self/key/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/Reshape_1_322:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "bert/encoder/layer_0/attention/self/query/BiasAdd_387": {
+            "name": "bert/encoder/layer_0/attention/self/query/BiasAdd",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 768,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@bert/encoder/Reshape_1_322:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    }
+}

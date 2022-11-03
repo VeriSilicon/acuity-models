@@ -81,6 +81,10 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 ### Recurrent Net
  - [LSTM - Command Recognition][]
  - [LSTM - Speech Recognition][]
+ - [RNN-T Encoder][] [RNN-T Decoder][]
+
+### Transformer
+ - [BERTBase][] ([OriginModel][OriginBERTBase])
 
 ## About Acuity
 
@@ -91,33 +95,33 @@ Acuity is a python based neural-network framework built on top of Tensorflow, it
 
  - Importing from popular frameworks such as Tensorflow and PyTorch
 
-   > AcuityNet natively supports Caffe, Tensorflow, PyTorch, ONNX, TFLite, DarkNet, and Keras imports, it can also be expanded to support other NN frameworks.  
+   > AcuityNet natively supports Caffe, Tensorflow, PyTorch, ONNX, TFLite, DarkNet, and Keras imports, it can also be expanded to support other NN frameworks.
 
  - Fixed Point Quantization
 
    > AcuityNet provides accurate Post Training Quantization and produces accuracy numbers before and after quantization for comparison. Advanced techniques are built-in into AcuityNet quantizer, such as KL-Divergence, Weight Equalization, Hybrid Quantization, Per Channel Quantization, etc.
 
- - Graph Optimization  
+ - Graph Optimization
 
-   > Neural-network graph optimization is performed to reduce graph complexity for inference, such as Layer Fusion, Layer Removal and Layer Swapping  
+   > Neural-network graph optimization is performed to reduce graph complexity for inference, such as Layer Fusion, Layer Removal and Layer Swapping
 
- - Tensor Pruning  
+ - Tensor Pruning
 
-   > Pruning neural networks tensors to remove ineffective synapses and neurons to create sparse matrix  
+   > Pruning neural networks tensors to remove ineffective synapses and neurons to create sparse matrix
 
- - Training and Validation  
+ - Training and Validation
 
    > AcuityNet provides capability to train and validate Neural Networks
 
- - Inference Code Generator  
+ - Inference Code Generator
 
-   > Generates OpenVX Neural Network inference code which can run on any OpenVX enabled platforms  
+   > Generates OpenVX Neural Network inference code which can run on any OpenVX enabled platforms
 
 ## About Vivante NPUIP
 
 Vivante NPUIP is a highly scalable and programmable neural network processor that supports a wide range of Machine Learning applications. It has been deployed in many fields to accelerate ML algorithms for AI-vision, AI-voice, AI-pixel and other special use cases. Vivante NPUIP offers high performance MAC engine as well as flexible programmable capability to adopt new operations and networks without having to fall back to CPU. Today, over 120 operators are supported and continue to grow.
 
-Mature software stack and complete solutions are provided to customers for easy integration and fast time to market. 
+Mature software stack and complete solutions are provided to customers for easy integration and fast time to market.
 
 Tooling
  - Acuity Toolkits
@@ -152,11 +156,11 @@ Runtime software stack support
 [Faster-RCNN-ZF]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/faster_rcnn_zf/faster_rcnn_zf.json
 [Mobilenet-SSD]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mobilenet_ssd/mobilenet_ssd.json
 [Mobilenet-SSD-FPN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mobilenet_ssd_fpn/mobilenet_ssd_fpn.json
-[MTCNN PNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_pnet.json 
+[MTCNN PNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_pnet.json
 [RNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_rnet.json
 [ONet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_onet.json
 [LNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/mtcnn/mtcnn_lnet.json
-[SSD]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/ssd/ssd.json 
+[SSD]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/ssd/ssd.json
 [Tiny-YOLO]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/tiny_yolo/tiny_yolo.json
 [YOLO-v1]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v1/yolo_v1.json
 [YOLO-v2]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v2/yolo_v2.json
@@ -189,6 +193,9 @@ Runtime software stack support
 [EDSR_x4]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/edsr/edsr_x4.json
 [ESRGAN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/esrgan/esrgan.json
 [SID]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/sid/sid.json
+[RNN-T Encoder]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/rnn-t/encoder_layernorm.json
+[RNN-T Decoder]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/rnn-t/decoder_cifg.json
+[BERTBase]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/bert_base/bert_base_vsi_frozen.json
 
 [OriginAlexNet]: https://github.com/BVLC/caffe/tree/master/models/bvlc_alexnet
 [OriginInception-v1]: http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
@@ -247,3 +254,4 @@ Runtime software stack support
 [OriginEDSR_x4]: https://cv.snu.ac.kr/research/EDSR/model_pytorch.tar
 [OriginESRGAN]: https://github.com/xinntao/ESRGAN
 [OriginSID]: https://github.com/cchen156/Learning-to-See-in-the-Dark/blob/master/download_models.py
+[OriginBERTBase]: https://storage.googleapis.com/bert_models/2020_02_20/uncased_L-12_H-768_A-12.zip
