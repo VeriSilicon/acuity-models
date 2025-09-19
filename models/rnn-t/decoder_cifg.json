@@ -1,0 +1,102 @@
+{
+    "MetaData": {
+        "Name": "decoder0_int8_50p_sparse_cifg_a",
+        "AcuityVersion": "6",
+        "Platform": "tensorflow",
+        "Org_Platform": "tflite"
+    },
+    "Layers": {
+        "input_0": {
+            "name": "input0",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    4096
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output3_1": {
+            "name": "output3",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 128,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@input_0:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "output23_2": {
+            "name": "output23",
+            "op": "lstmunit",
+            "parameters": {
+                "weights": 2048,
+                "num_proj": 640,
+                "forget_bias": 0,
+                "cell_clip": 10.0,
+                "proj_clip": 0.0,
+                "activation": "tanh",
+                "use_layer_norm_lstm": false,
+                "use_cifg": true,
+                "use_peepholes": false
+            },
+            "inputs": [
+                "@output3_1:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "output43_3": {
+            "name": "output43",
+            "op": "lstmunit",
+            "parameters": {
+                "weights": 2048,
+                "num_proj": 640,
+                "forget_bias": 0,
+                "cell_clip": 10.0,
+                "proj_clip": 0.0,
+                "activation": "tanh",
+                "use_layer_norm_lstm": false,
+                "use_cifg": true,
+                "use_peepholes": false
+            },
+            "inputs": [
+                "@output23_2:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "output_4": {
+            "name": "output43",
+            "op": "output",
+            "parameters": {},
+            "inputs": [
+                "@output43_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "quantize_info": {}
+}
