@@ -38,10 +38,19 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [YOLO-v3][] ([OriginModel][OriginYOLO-v3])
  - [YOLO-v4][] ([OriginModel][OriginYOLO-v4])
  - [YOLO-v5][] ([OriginModel][OriginYOLO-v5])
+ - [YOLO-v6][] ([OriginModel][OriginYOLO-v6])
+ - [YOLO-v7][] ([OriginModel][OriginYOLO-v7])
+ - [YOLO-v8][] ([OriginModel][OriginYOLO-v8])
+ - [YOLO-v9][] ([OriginModel][OriginYOLO-v9])
+ - [YOLO-v10][] ([OriginModel][OriginYOLO-v10])
+ - [YOLO-v11][] ([OriginModel][OriginYOLO-v11])
+ - [YOLO-v12][] ([OriginModel][OriginYOLO-v12])
+ - [YOLO-v13][] ([OriginModel][OriginYOLO-v13])
  - [FCOS][] ([OriginModel][OriginFCOS])
 
 ### Face Recognition
  - [ArcFace][] ([OriginModel][OriginArcFace])
+ - [UltraFace][] ([OriginModel][OriginUltraFace])
 
 ### Segmentation
  - [ENET][] ([OriginModel][OriginENET])
@@ -85,6 +94,14 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 
 ### Transformer
  - [BERTBase][] ([OriginModel][OriginBERTBase])
+ - [ViT][] ([OriginModel][OriginViT])
+ - [Swin-Transformer][] ([OriginModel][OriginSwin-Transformer])
+
+### Large Language Model
+ - [LLaMA2-7B Decode][] ([OriginModel][OriginLLaMA2-7B Decode])
+ - [LLaMA2-7B Prefill][] ([OriginModel][OriginLLaMA2-7B Prefill])
+ - [Qwen2.5-7B Decode][] ([OriginModel][OriginQwen2.5-7B Decode])
+ - [Qwen2.5-7B Prefill][] ([OriginModel][OriginQwen2.5-7B Prefill])
 
 ## About Acuity
 
@@ -167,6 +184,14 @@ Runtime software stack support
 [YOLO-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v3/yolo_v3.json
 [YOLO-v4]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v4/yolo_v4.json
 [YOLO-v5]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v5/yolo_v5.json
+[YOLO-v6]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v6/yolo_v6.json
+[YOLO-v7]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v7/yolo_v7.json
+[YOLO-v8]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v8/yolo_v8.json
+[YOLO-v9]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v9/yolo_v9.json
+[YOLO-v10]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v10/yolo_v10.json
+[YOLO-v11]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v11/yolo_v11.json
+[YOLO-v12]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v12/yolo_v12.json
+[YOLO-v13]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/yolo_v13/yolo_v13.json
 [ENET]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/enet/enet.json
 [SegNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/segnet/segnet.json
 [DeepLab-v3]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/deeplab_v3/deeplab_v3.json
@@ -186,6 +211,7 @@ Runtime software stack support
 [SSRNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/ssrnet/ssrnet.json
 [DenseNet]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/densenet/densenet.json
 [ArcFace]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/arcface/arcface.json
+[UltraFace]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/ultraface/ultraface.json
 [SRCNN]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/srcnn/srcnn.json
 [VDSR]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/vdsr/vdsr.json
 [EDSR_x2]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/edsr/edsr_x2.json
@@ -196,6 +222,12 @@ Runtime software stack support
 [RNN-T Encoder]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/rnn-t/encoder_layernorm.json
 [RNN-T Decoder]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/rnn-t/decoder_cifg.json
 [BERTBase]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/bert_base/bert_base_vsi_frozen.json
+[ViT]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/vit/vit.json
+[Swin-Transformer]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/swin_transformer/swin_transformer.json
+[LLaMA2-7B Decode]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/llama2_7b_decode/llama2_7b_decode.json
+[LLaMA2-7B Prefill]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/llama2_7b_prefill/llama2_7b_prefill.json
+[Qwen2.5-7B Decode]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/qwen2.5_7b_decode/qwen2.5_7b_decode.json
+[Qwen2.5-7B Prefill]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/qwen2.5_7b_prefill/qwen2.5_7b_prefill.json
 
 [OriginAlexNet]: https://github.com/BVLC/caffe/tree/master/models/bvlc_alexnet
 [OriginInception-v1]: http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
@@ -229,6 +261,14 @@ Runtime software stack support
 [OriginYOLO-v3]: https://pjreddie.com/media/files/yolov3.weights
 [OriginYOLO-v4]: https://github.com/AlexeyAB/darknet/#pre-trained-models
 [OriginYOLO-v5]: https://github.com/ultralytics/yolov5/releases/download/v3.0/yolov5s.pt
+[OriginYOLO-v6]: https://github.com/meituan/YOLOv6
+[OriginYOLO-v7]: https://github.com/WongKinYiu/yolov7
+[OriginYOLO-v8]: https://github.com/ultralytics/ultralytics/releases/tag/v8.0.4
+[OriginYOLO-v9]: https://github.com/WongKinYiu/yolov9
+[OriginYOLO-v10]: https://github.com/THU-MIG/yolov10
+[OriginYOLO-v11]: https://github.com/ultralytics/ultralytics/tree/v8.3.202
+[OriginYOLO-v12]: https://github.com/sunsmarterjie/yolov12
+[OriginYOLO-v13]: https://github.com/iMoonLab/yolov13
 [OriginENET]: https://github.com/TimoSaemann/ENet
 [OriginSegNet]: https://github.com/BVLC/caffe/wiki/Model-Zoo#segnet-and-bayesian-segnet
 [OriginDeepLab-v3]: https://github.com/tensorflow/models/tree/master/research/deeplab
@@ -247,6 +287,7 @@ Runtime software stack support
 [OriginSSRNet]: https://github.com/shamangary/SSR-Net/tree/master/pre-trained
 [OriginDenseNet]: https://github.com/shicai/DenseNet-Caffe
 [OriginArcFace]: https://github.com/deepinsight/insightface/wiki/Model-Zoo
+[OriginUltraFace]: https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
 [OriginSRCNN]: https://github.com/tegg89/SRCNN-Tensorflow/tree/master/checkpoint/srcnn_21
 [OriginVDSR]: https://cv.snu.ac.kr/research/VDSR/VDSR_code.zip
 [OriginEDSR_x2]: https://cv.snu.ac.kr/research/EDSR/model_pytorch.tar
@@ -255,3 +296,9 @@ Runtime software stack support
 [OriginESRGAN]: https://github.com/xinntao/ESRGAN
 [OriginSID]: https://github.com/cchen156/Learning-to-See-in-the-Dark/blob/master/download_models.py
 [OriginBERTBase]: https://storage.googleapis.com/bert_models/2020_02_20/uncased_L-12_H-768_A-12.zip
+[OriginViT]: https://github.com/google-research/vision_transformer
+[OriginSwin-Transformer]: https://github.com/microsoft/Swin-Transformer
+[OriginLLaMA2-7B Decode]: https://huggingface.co/meta-llama/Llama-2-7b
+[OriginLLaMA2-7B Prefill]: https://huggingface.co/meta-llama/Llama-2-7b
+[OriginQwen2.5-7B Decode]: https://huggingface.co/Qwen/Qwen2.5-7B
+[OriginQwen2.5-7B Prefill]: https://huggingface.co/Qwen/Qwen2.5-7B

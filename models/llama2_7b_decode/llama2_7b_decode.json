@@ -1,0 +1,1235 @@
+{
+    "MetaData": {
+        "Name": "LLaMA2_7B_chat_block_0_decode",
+        "AcuityVersion": "6",
+        "Platform": "tensorflow",
+        "Org_Platform": "onnx"
+    },
+    "Layers": {
+        "attach_196/out0_0": {
+            "name": "attach_196/out0",
+            "op": "output",
+            "parameters": {},
+            "inputs": [
+                "@196_5:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_154/out0_1": {
+            "name": "attach_154/out0",
+            "op": "output",
+            "parameters": {},
+            "inputs": [
+                "@154_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "attach_62/out0_2": {
+            "name": "attach_62/out0",
+            "op": "output",
+            "parameters": {},
+            "inputs": [
+                "@62_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "62_3": {
+            "name": "62",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    32,
+                    128
+                ]
+            },
+            "inputs": [
+                "@205_59:out2"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "154_4": {
+            "name": "154",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    32,
+                    128
+                ]
+            },
+            "inputs": [
+                "@148_6:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "196_5": {
+            "name": "196",
+            "op": "add",
+            "inputs": [
+                "@175_7:out0",
+                "@reshape_75:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "148_6": {
+            "name": "148",
+            "op": "concat",
+            "parameters": {
+                "dim": -1
+            },
+            "inputs": [
+                "@146_9:out0",
+                "@147_10:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "175_7": {
+            "name": "175",
+            "op": "add",
+            "inputs": [
+                "@embedding_63:out0",
+                "@reshape_78:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "146_9": {
+            "name": "146",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    32,
+                    64,
+                    1
+                ]
+            },
+            "inputs": [
+                "@142_15:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "147_10": {
+            "name": "147",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    32,
+                    64,
+                    1
+                ]
+            },
+            "inputs": [
+                "@145_11:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "145_11": {
+            "name": "145",
+            "op": "add",
+            "inputs": [
+                "@143_16:out0",
+                "@144_17:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "193_13": {
+            "name": "193",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@189_30_190_20:out0",
+                "@reshape_81:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "142_15": {
+            "name": "142",
+            "op": "subtract",
+            "inputs": [
+                "@140_22:out0",
+                "@141_23:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "143_16": {
+            "name": "143",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@139_24:out0",
+                "@cos_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "144_17": {
+            "name": "144",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@138_25:out0",
+                "@sin_65:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "172_18": {
+            "name": "172",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    -1
+                ]
+            },
+            "inputs": [
+                "@166_28:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "140_22": {
+            "name": "140",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@138_25:out0",
+                "@cos_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "141_23": {
+            "name": "141",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@139_24:out0",
+                "@sin_65:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "139_24": {
+            "name": "139",
+            "op": "squeeze",
+            "parameters": {
+                "axis_list": [
+                    4
+                ],
+                "name": null
+            },
+            "inputs": [
+                "@136_26:out1"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "138_25": {
+            "name": "138",
+            "op": "squeeze",
+            "parameters": {
+                "axis_list": [
+                    4
+                ],
+                "name": null
+            },
+            "inputs": [
+                "@136_26:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "136_26": {
+            "name": "136",
+            "op": "split",
+            "parameters": {
+                "dim": 4,
+                "slices": [
+                    1
+                ],
+                "unstack": false
+            },
+            "inputs": [
+                "@135_27:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1"
+            ]
+        },
+        "135_27": {
+            "name": "135",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    32,
+                    64,
+                    2
+                ]
+            },
+            "inputs": [
+                "@205_59:out1"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "166_28": {
+            "name": "166",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@165_33:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "186_31": {
+            "name": "186",
+            "op": "rmsnormalize",
+            "parameters": {
+                "axis": 1,
+                "eps": 9.999999974752427e-07
+            },
+            "inputs": [
+                "@186_31_acuity_mark_perm_69:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "165_33": {
+            "name": "165",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@164_37:out0",
+                "@158_34:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "158_34": {
+            "name": "158",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@156_36:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "156_36": {
+            "name": "156",
+            "op": "concat",
+            "parameters": {
+                "dim": 1
+            },
+            "inputs": [
+                "@cache_v_68:out0",
+                "@62_3:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "164_37": {
+            "name": "164",
+            "op": "softmax",
+            "parameters": {
+                "sf_axis": 3,
+                "beta": 1.0
+            },
+            "inputs": [
+                "@163_38:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "163_38": {
+            "name": "163",
+            "op": "add",
+            "inputs": [
+                "@162_39:out0",
+                "@mask_66:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "162_39": {
+            "name": "162",
+            "op": "real_div",
+            "inputs": [
+                "@160_41:out0",
+                "@161_40:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "161_40": {
+            "name": "161",
+            "op": "variable",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "160_41": {
+            "name": "160",
+            "op": "matmul",
+            "parameters": {
+                "transpose_a": false,
+                "transpose_b": false
+            },
+            "inputs": [
+                "@157_42:out0",
+                "@159_43:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "157_42": {
+            "name": "157",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1,
+                    3
+                ]
+            },
+            "inputs": [
+                "@108_44:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "159_43": {
+            "name": "159",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    3,
+                    1
+                ]
+            },
+            "inputs": [
+                "@155_45:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "108_44": {
+            "name": "108",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    32,
+                    128
+                ]
+            },
+            "inputs": [
+                "@102_46:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "155_45": {
+            "name": "155",
+            "op": "concat",
+            "parameters": {
+                "dim": 1
+            },
+            "inputs": [
+                "@cache_k_67:out0",
+                "@154_4:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "102_46": {
+            "name": "102",
+            "op": "concat",
+            "parameters": {
+                "dim": -1
+            },
+            "inputs": [
+                "@100_49:out0",
+                "@101_47:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "101_47": {
+            "name": "101",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    32,
+                    64,
+                    1
+                ]
+            },
+            "inputs": [
+                "@99_48:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "99_48": {
+            "name": "99",
+            "op": "add",
+            "inputs": [
+                "@97_50:out0",
+                "@98_51:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "100_49": {
+            "name": "100",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    1,
+                    1,
+                    32,
+                    64,
+                    1
+                ]
+            },
+            "inputs": [
+                "@96_52:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "97_50": {
+            "name": "97",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@93_53:out0",
+                "@cos_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "98_51": {
+            "name": "98",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@92_55:out0",
+                "@sin_65:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "96_52": {
+            "name": "96",
+            "op": "subtract",
+            "inputs": [
+                "@94_57:out0",
+                "@95_54:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "93_53": {
+            "name": "93",
+            "op": "squeeze",
+            "parameters": {
+                "axis_list": [
+                    4
+                ],
+                "name": null
+            },
+            "inputs": [
+                "@90_56:out1"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "95_54": {
+            "name": "95",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@93_53:out0",
+                "@sin_65:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "92_55": {
+            "name": "92",
+            "op": "squeeze",
+            "parameters": {
+                "axis_list": [
+                    4
+                ],
+                "name": null
+            },
+            "inputs": [
+                "@90_56:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "90_56": {
+            "name": "90",
+            "op": "split",
+            "parameters": {
+                "dim": 4,
+                "slices": [
+                    1
+                ],
+                "unstack": false
+            },
+            "inputs": [
+                "@89_58:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1"
+            ]
+        },
+        "94_57": {
+            "name": "94",
+            "op": "multiply",
+            "parameters": {
+                "axis": 1,
+                "bias": false
+            },
+            "inputs": [
+                "@92_55:out0",
+                "@cos_64:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "89_58": {
+            "name": "89",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    32,
+                    64,
+                    2
+                ]
+            },
+            "inputs": [
+                "@205_59:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "205_59": {
+            "name": "205",
+            "op": "split",
+            "parameters": {
+                "dim": 2,
+                "slices": [
+                    4096,
+                    8192
+                ],
+                "unstack": false
+            },
+            "inputs": [
+                "@reshape_87:out0"
+            ],
+            "outputs": [
+                "out0",
+                "out1",
+                "out2"
+            ]
+        },
+        "26_61": {
+            "name": "26",
+            "op": "rmsnormalize",
+            "parameters": {
+                "axis": 1,
+                "eps": 9.999999974752427e-07
+            },
+            "inputs": [
+                "@26_61_acuity_mark_perm_72:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "embedding_63": {
+            "name": "embedding",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    1,
+                    4096
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "cos_64": {
+            "name": "cos",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    1,
+                    1,
+                    64
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "sin_65": {
+            "name": "sin",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    1,
+                    1,
+                    64
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "mask_66": {
+            "name": "mask",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    1,
+                    1,
+                    1536
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "cache_k_67": {
+            "name": "cache_k",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    1535,
+                    32,
+                    128
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "cache_v_68": {
+            "name": "cache_v",
+            "op": "input",
+            "parameters": {
+                "size": "",
+                "channels": 1,
+                "shape": [
+                    1,
+                    1535,
+                    32,
+                    128
+                ],
+                "is_scalar": false,
+                "type": "float32"
+            },
+            "inputs": [],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "186_31_acuity_mark_perm_69": {
+            "name": "186_31_acuity_mark_perm",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1
+                ]
+            },
+            "inputs": [
+                "@175_7:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "186_31_acuity_mark_perm_70": {
+            "name": "186_31_acuity_mark_perm",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1
+                ]
+            },
+            "inputs": [
+                "@186_31:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "204_60_acuity_mark_perm_71": {
+            "name": "204_60_acuity_mark_perm",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1
+                ]
+            },
+            "inputs": [
+                "@26_61:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "26_61_acuity_mark_perm_72": {
+            "name": "26_61_acuity_mark_perm",
+            "op": "permute",
+            "parameters": {
+                "perm": [
+                    0,
+                    2,
+                    1
+                ]
+            },
+            "inputs": [
+                "@embedding_63:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_73": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    11008
+                ]
+            },
+            "inputs": [
+                "@193_13:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fullconnect_74": {
+            "name": "fullconnect",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 4096,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@reshape_73:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_75": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    4096
+                ]
+            },
+            "inputs": [
+                "@fullconnect_74:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_76": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    4096
+                ]
+            },
+            "inputs": [
+                "@172_18:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fullconnect_77": {
+            "name": "fullconnect",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 4096,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@reshape_76:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_78": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    4096
+                ]
+            },
+            "inputs": [
+                "@fullconnect_77:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_79": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    4096
+                ]
+            },
+            "inputs": [
+                "@186_31_acuity_mark_perm_70:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fullconnect_80": {
+            "name": "fullconnect",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 11008,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@reshape_79:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_81": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    11008
+                ]
+            },
+            "inputs": [
+                "@fullconnect_80:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_82": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    4096
+                ]
+            },
+            "inputs": [
+                "@186_31_acuity_mark_perm_70:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fullconnect_83": {
+            "name": "fullconnect",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 11008,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@reshape_82:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_84": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    11008
+                ]
+            },
+            "inputs": [
+                "@fullconnect_83:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_85": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    4096
+                ]
+            },
+            "inputs": [
+                "@204_60_acuity_mark_perm_71:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "fullconnect_86": {
+            "name": "fullconnect",
+            "op": "fullconnect",
+            "parameters": {
+                "weights": 12288,
+                "bias": true,
+                "regularize": false,
+                "axis": 1
+            },
+            "inputs": [
+                "@reshape_85:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "reshape_87": {
+            "name": "reshape",
+            "op": "reshape",
+            "parameters": {
+                "shape": [
+                    -1,
+                    1,
+                    12288
+                ]
+            },
+            "inputs": [
+                "@fullconnect_86:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        },
+        "189_30_190_20": {
+            "name": "swish",
+            "op": "swish",
+            "parameters": {
+                "beta": 1.0
+            },
+            "inputs": [
+                "@reshape_84:out0"
+            ],
+            "outputs": [
+                "out0"
+            ]
+        }
+    },
+    "quantize_info": {}
+}
