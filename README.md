@@ -98,10 +98,38 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
  - [Swin-Transformer][] ([OriginModel][OriginSwin-Transformer])
 
 ### Large Language Model
- - [LLaMA2-7B Decode][] ([OriginModel][OriginLLaMA2-7B Decode])
- - [LLaMA2-7B Prefill][] ([OriginModel][OriginLLaMA2-7B Prefill])
- - [Qwen2.5-7B Decode][] ([OriginModel][OriginQwen2.5-7B Decode])
- - [Qwen2.5-7B Prefill][] ([OriginModel][OriginQwen2.5-7B Prefill])
+ - **LLM-Chat**
+   - **Qwen**
+     - [Qwen2.5-0.5B-Instruct][]
+     - [Qwen2.5-1.5B-Instruct][]
+     - [Qwen2.5-3B-Instruct][]
+   - **MiniCPM**
+     - [MiniCPM-1B-sft-bf16][]
+   - **LLaMa**
+     - [Llama3.2-1B-Instruct][]
+     - [Llama-2-7b-chat-hf][]
+   - **DeepSeek**
+     - [DeepSeek-R1-Distill-Qwen-1.5B][]
+     - [DeepSeek-R1-Distill-Llama-8B][]
+   - **Gemma**
+     - [gemma-2-2b-it][]
+     - [gemma-3-1b-it][]
+ - **Audio to Text**
+   - **Whisper**
+     - [whisper-small][]
+     - [whisper-tiny][]
+     - [whisper-large-v3-turbo][]
+ - **VLM**
+   - **Llava**
+     - [llava-1.5-7b-hf][]
+   - **FastVLM**
+     - [FastVLM-0.5B][]
+   - **Qwen**
+     - [Qwen2.5-VL-3B-Instruct][]
+ - **TTS**
+   - **OuteTTS**
+     - [Llama-OuteTTS-1.0-1B][]
+
 
 ## About Acuity
 
@@ -224,10 +252,6 @@ Runtime software stack support
 [BERTBase]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/bert_base/bert_base_vsi_frozen.json
 [ViT]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/vit/vit.json
 [Swin-Transformer]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/swin_transformer/swin_transformer.json
-[LLaMA2-7B Decode]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/llama2_7b_decode/llama2_7b_decode.json
-[LLaMA2-7B Prefill]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/llama2_7b_prefill/llama2_7b_prefill.json
-[Qwen2.5-7B Decode]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/qwen2.5_7b_decode/qwen2.5_7b_decode.json
-[Qwen2.5-7B Prefill]: https://verisilicon.github.io/acuity-models/viewer/?url=../models/qwen2.5_7b_prefill/qwen2.5_7b_prefill.json
 
 [OriginAlexNet]: https://github.com/BVLC/caffe/tree/master/models/bvlc_alexnet
 [OriginInception-v1]: http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
@@ -298,7 +322,20 @@ Runtime software stack support
 [OriginBERTBase]: https://storage.googleapis.com/bert_models/2020_02_20/uncased_L-12_H-768_A-12.zip
 [OriginViT]: https://github.com/google-research/vision_transformer
 [OriginSwin-Transformer]: https://github.com/microsoft/Swin-Transformer
-[OriginLLaMA2-7B Decode]: https://huggingface.co/meta-llama/Llama-2-7b
-[OriginLLaMA2-7B Prefill]: https://huggingface.co/meta-llama/Llama-2-7b
-[OriginQwen2.5-7B Decode]: https://huggingface.co/Qwen/Qwen2.5-7B
-[OriginQwen2.5-7B Prefill]: https://huggingface.co/Qwen/Qwen2.5-7B
+[Qwen2.5-0.5B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct
+[Qwen2.5-1.5B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
+[Qwen2.5-3B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-3B-Instruct
+[MiniCPM-1B-sft-bf16]: https://huggingface.co/openbmb/MiniCPM-1B-sft-bf16
+[Llama3.2-1B-Instruct]: https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
+[Llama-2-7b-chat-hf]: https://huggingface.co/NousResearch/Llama-2-7b-chat-hf
+[DeepSeek-R1-Distill-Qwen-1.5B]: https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+[DeepSeek-R1-Distill-Llama-8B]: https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+[gemma-2-2b-it]: https://huggingface.co/google/gemma-2-2b-it
+[gemma-3-1b-it]: https://huggingface.co/google/gemma-3-1b-it
+[whisper-small]: https://huggingface.co/openai/whisper-small
+[whisper-tiny]: https://huggingface.co/openai/whisper-tiny
+[whisper-large-v3-turbo]: https://huggingface.co/openai/whisper-large-v3-turbo
+[llava-1.5-7b-hf]: https://huggingface.co/llava-hf/llava-1.5-7b-hf
+[FastVLM-0.5B]: https://huggingface.co/apple/FastVLM-0.5B
+[Qwen2.5-VL-3B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct
+[Llama-OuteTTS-1.0-1B]: https://huggingface.co/OuteAI/Llama-OuteTTS-1.0-1B
