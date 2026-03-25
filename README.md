@@ -100,35 +100,62 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 ### Large Language Model
  - **LLM-Chat**
    - **Qwen**
+     - [Qwen1.5-0.5B][]
+     - [Qwen1.5-1.8B-Chat][]
      - [Qwen2.5-0.5B-Instruct][]
      - [Qwen2.5-1.5B-Instruct][]
      - [Qwen2.5-3B-Instruct][]
+     - [Qwen3-0.6B][]
    - **MiniCPM**
      - [MiniCPM-1B-sft-bf16][]
    - **LLaMa**
+     - [TinyLlama-1.1B-intermediate-step-1431k-3T][]
      - [Llama3.2-1B-Instruct][]
      - [Llama-2-7b-chat-hf][]
    - **DeepSeek**
      - [DeepSeek-R1-Distill-Qwen-1.5B][]
      - [DeepSeek-R1-Distill-Llama-8B][]
+   - **GLM**
+     - [chatglm3-6b][]
+   - **PHI**
+     - [phi-2][]
+     - [Phi-3-mini-4k-instruct][]
    - **Gemma**
      - [gemma-2-2b-it][]
      - [gemma-3-1b-it][]
+     - [gemma-3-270m-it][]
  - **Audio to Text**
    - **Whisper**
+     - [whisper-base][]
      - [whisper-small][]
      - [whisper-tiny][]
      - [whisper-large-v3-turbo][]
  - **VLM**
    - **Llava**
      - [llava-1.5-7b-hf][]
+   - **InternVL**
+     - [InternVL3-1B][]
+     - [InternVL3.5-1B][]
    - **FastVLM**
      - [FastVLM-0.5B][]
+   - **Gemma**
+     - [gemma-3-4b-it][]
    - **Qwen**
      - [Qwen2.5-VL-3B-Instruct][]
+   - **OpenVLA**
+     - [openvla-7b][]
  - **TTS**
    - **OuteTTS**
      - [Llama-OuteTTS-1.0-1B][]
+  - **Text-To-Image**
+    - **SD**
+      - [stable-diffusion-xl-base-1.0][]
+  - **Translation**
+    - **Gemma**
+      - [GemmaX2-28-2B-v0.1][]
+  - **RAG**
+    - **EmbeddingGemma**
+      - [embeddinggemma-300m][]
 
 
 ## About Acuity
@@ -322,20 +349,36 @@ Runtime software stack support
 [OriginBERTBase]: https://storage.googleapis.com/bert_models/2020_02_20/uncased_L-12_H-768_A-12.zip
 [OriginViT]: https://github.com/google-research/vision_transformer
 [OriginSwin-Transformer]: https://github.com/microsoft/Swin-Transformer
+[Qwen1.5-0.5B]: https://huggingface.co/Qwen/Qwen1.5-0.5B
+[Qwen1.5-1.8B-Chat]: https://huggingface.co/Qwen/Qwen1.5-1.8B-Chat
 [Qwen2.5-0.5B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct
 [Qwen2.5-1.5B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
 [Qwen2.5-3B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-3B-Instruct
+[Qwen3-0.6B]: https://huggingface.co/Qwen/Qwen3-0.6B
 [MiniCPM-1B-sft-bf16]: https://huggingface.co/openbmb/MiniCPM-1B-sft-bf16
+[TinyLlama-1.1B-intermediate-step-1431k-3T]: https://huggingface.co/TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T
 [Llama3.2-1B-Instruct]: https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
-[Llama-2-7b-chat-hf]: https://huggingface.co/NousResearch/Llama-2-7b-chat-hf
+[Llama-2-7b-chat-hf]: https://huggingface.co/meta-llama/Llama-2-7b-chat-hf
 [DeepSeek-R1-Distill-Qwen-1.5B]: https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
 [DeepSeek-R1-Distill-Llama-8B]: https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+[chatglm3-6b]: https://huggingface.co/zai-org/chatglm3-6b
+[phi-2]: https://huggingface.co/microsoft/phi-2
+[Phi-3-mini-4k-instruct]: https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
 [gemma-2-2b-it]: https://huggingface.co/google/gemma-2-2b-it
 [gemma-3-1b-it]: https://huggingface.co/google/gemma-3-1b-it
+[gemma-3-270m-it]: https://huggingface.co/google/gemma-3-270m-it
+[whisper-base]: https://huggingface.co/openai/whisper-base
 [whisper-small]: https://huggingface.co/openai/whisper-small
 [whisper-tiny]: https://huggingface.co/openai/whisper-tiny
 [whisper-large-v3-turbo]: https://huggingface.co/openai/whisper-large-v3-turbo
 [llava-1.5-7b-hf]: https://huggingface.co/llava-hf/llava-1.5-7b-hf
+[InternVL3-1B]: https://huggingface.co/OpenGVLab/InternVL3-1B
+[InternVL3.5-1B]:https://huggingface.co/OpenGVLab/InternVL3_5-1B
 [FastVLM-0.5B]: https://huggingface.co/apple/FastVLM-0.5B
+[gemma-3-4b-it]: https://huggingface.co/google/gemma-3-4b-it
 [Qwen2.5-VL-3B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct
+[openvla-7b]: https://huggingface.co/openvla/openvla-7b
 [Llama-OuteTTS-1.0-1B]: https://huggingface.co/OuteAI/Llama-OuteTTS-1.0-1B
+[stable-diffusion-xl-base-1.0]: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0
+[GemmaX2-28-2B-v0.1]: https://huggingface.co/ModelSpace/GemmaX2-28-2B-v0.1
+[embeddinggemma-300m]: https://huggingface.co/google/embeddinggemma-300m
