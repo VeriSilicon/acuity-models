@@ -189,7 +189,7 @@ Acuity is a python based neural-network framework built on top of Tensorflow, it
 
    > Generates OpenVX Neural Network inference code which can run on any OpenVX enabled platforms
 
-## About Vivante NPUIP
+## About Vivante NPU IP
 
 Vivante NPUIP is a highly scalable and programmable neural network processor that supports a wide range of Machine Learning applications. It has been deployed in many fields to accelerate ML algorithms for AI-vision, AI-voice, AI-pixel and other special use cases. Vivante NPUIP offers high performance MAC engine as well as flexible programmable capability to adopt new operations and networks without having to fall back to CPU. Today, over 120 operators are supported and continue to grow.
 
