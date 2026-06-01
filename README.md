@@ -124,6 +124,8 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
      - [gemma-2-2b-it][]
      - [gemma-3-1b-it][]
      - [gemma-3-270m-it][]
+   - **Google-T5**
+	    - [T5-small][]
  - **Audio to Text**
    - **Whisper**
      - [whisper-base][]
@@ -144,6 +146,8 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
      - [Qwen2.5-VL-3B-Instruct][]
    - **OpenVLA**
      - [openvla-7b][]
+   - **Qwen3.5**
+     - [Qwen3.5-0.8B][]
  - **TTS**
    - **OuteTTS**
      - [Llama-OuteTTS-1.0-1B][]
@@ -367,6 +371,7 @@ Runtime software stack support
 [gemma-2-2b-it]: https://huggingface.co/google/gemma-2-2b-it
 [gemma-3-1b-it]: https://huggingface.co/google/gemma-3-1b-it
 [gemma-3-270m-it]: https://huggingface.co/google/gemma-3-270m-it
+[T5-small]: https://huggingface.co/google-t5/t5-small
 [whisper-base]: https://huggingface.co/openai/whisper-base
 [whisper-small]: https://huggingface.co/openai/whisper-small
 [whisper-tiny]: https://huggingface.co/openai/whisper-tiny
@@ -378,6 +383,7 @@ Runtime software stack support
 [gemma-3-4b-it]: https://huggingface.co/google/gemma-3-4b-it
 [Qwen2.5-VL-3B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct
 [openvla-7b]: https://huggingface.co/openvla/openvla-7b
+[Qwen3.5-0.8B]: https://huggingface.co/Qwen/Qwen3.5-0.8B
 [Llama-OuteTTS-1.0-1B]: https://huggingface.co/OuteAI/Llama-OuteTTS-1.0-1B
 [stable-diffusion-xl-base-1.0]: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0
 [GemmaX2-28-2B-v0.1]: https://huggingface.co/ModelSpace/GemmaX2-28-2B-v0.1
