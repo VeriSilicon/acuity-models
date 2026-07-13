@@ -102,18 +102,33 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
    - **Qwen**
      - [Qwen1.5-0.5B][]
      - [Qwen1.5-1.8B-Chat][]
+	 - [Qwen2-1.5B-Instruct][]
      - [Qwen2.5-0.5B-Instruct][]
+	 - [Qwen2.5-0.5B-Instruct-GPTQ-Int4][]
+	 - [Qwen2.5-0.5B-Instruct-Q4_0-GGUF][]
      - [Qwen2.5-1.5B-Instruct][]
+	 - [Qwen2.5-3B][]
      - [Qwen2.5-3B-Instruct][]
+	 - [Qwen2.5-3B-Instruct-GPTQ-Int8][]
+	 - [Qwen2.5-7B-Instruct][]
      - [Qwen3-0.6B][]
+	 - [Qwen3-0.6B-Base][]
+	 - [Qwen3-0.6B-GPTQ-Int8][]
+	 - [Qwen3-1.7B-Base][]
+	 - [Qwen3-1.7B-GPTQ-Int8][]
+	 - [Qwen3-4B][]
+	 - [Qwen3-8B][]
    - **MiniCPM**
      - [MiniCPM-1B-sft-bf16][]
    - **LLaMa**
      - [TinyLlama-1.1B-intermediate-step-1431k-3T][]
-     - [Llama3.2-1B-Instruct][]
+	 - [Llama-2-7b-hf][]
      - [Llama-2-7b-chat-hf][]
+	 - [Llama-3.2-3B][]
+     - [Llama3.2-1B-Instruct][]
    - **DeepSeek**
      - [DeepSeek-R1-Distill-Qwen-1.5B][]
+	 - [DeepSeek-R1-Distill-Qwen-7B][]
      - [DeepSeek-R1-Distill-Llama-8B][]
    - **GLM**
      - [chatglm3-6b][]
@@ -123,9 +138,10 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
    - **Gemma**
      - [gemma-2-2b-it][]
      - [gemma-3-1b-it][]
+	 - [gemma-3-1b-it-qat-q4_0-gguf][]
      - [gemma-3-270m-it][]
    - **Google-T5**
-	    - [T5-small][]
+	 - [T5-small][]
  - **Audio to Text**
    - **Whisper**
      - [whisper-base][]
@@ -138,12 +154,15 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
    - **InternVL**
      - [InternVL3-1B][]
      - [InternVL3.5-1B][]
+	 - [InternVL3-8B][]
    - **FastVLM**
      - [FastVLM-0.5B][]
    - **Gemma**
      - [gemma-3-4b-it][]
    - **Qwen**
      - [Qwen2.5-VL-3B-Instruct][]
+	 - [Qwen2.5-VL-7B-Instruct][]
+	 - [Qwen3-VL-2B-Instruct][]
    - **OpenVLA**
      - [openvla-7b][]
    - **Qwen3.5**
@@ -355,6 +374,7 @@ Runtime software stack support
 [OriginSwin-Transformer]: https://github.com/microsoft/Swin-Transformer
 [Qwen1.5-0.5B]: https://huggingface.co/Qwen/Qwen1.5-0.5B
 [Qwen1.5-1.8B-Chat]: https://huggingface.co/Qwen/Qwen1.5-1.8B-Chat
+[Qwen2-1.5B-Instruct]: https://huggingface.co/Qwen/Qwen2-1.5B-Instruct
 [Qwen2.5-0.5B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct
 [Qwen2.5-1.5B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
 [Qwen2.5-3B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-3B-Instruct
@@ -388,3 +408,21 @@ Runtime software stack support
 [stable-diffusion-xl-base-1.0]: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0
 [GemmaX2-28-2B-v0.1]: https://huggingface.co/ModelSpace/GemmaX2-28-2B-v0.1
 [embeddinggemma-300m]: https://huggingface.co/google/embeddinggemma-300m
+[Qwen2.5-0.5B-Instruct-GPTQ-Int4]: https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GPTQ-Int4
+[Qwen2.5-0.5B-Instruct-Q4_0-GGUF]: https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/blob/main/qwen2.5-0.5b-instruct-q4_0.gguf
+[Qwen2.5-3B]: https://huggingface.co/Qwen/Qwen2.5-3B
+[Qwen2.5-3B-Instruct-GPTQ-Int8]: https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8
+[Qwen2.5-7B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct
+[Qwen3-0.6B-Base]: https://huggingface.co/Qwen/Qwen3-0.6B-Base
+[Qwen3-0.6B-GPTQ-Int8]: https://huggingface.co/Qwen/Qwen3-0.6B-GPTQ-Int8
+[Qwen3-1.7B-Base]: https://huggingface.co/Qwen/Qwen3-1.7B-Base
+[Qwen3-1.7B-GPTQ-Int8]: https://huggingface.co/Qwen/Qwen3-1.7B-GPTQ-Int8
+[Qwen3-4B]: https://huggingface.co/Qwen/Qwen3-4B
+[Qwen3-8B]: https://huggingface.co/Qwen/Qwen3-8B
+[Llama-2-7b-hf]: https://huggingface.co/meta-llama/Llama-2-7b-hf
+[Llama-3.2-3B]: https://huggingface.co/meta-llama/Llama-3.2-3B
+[DeepSeek-R1-Distill-Qwen-7B]: https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
+[gemma-3-1b-it-qat-q4_0-gguf]: https://huggingface.co/google/gemma-3-1b-it-qat-q4_0-gguf
+[InternVL3-8B]: https://huggingface.co/OpenGVLab/InternVL3-8B
+[Qwen3-VL-2B-Instruct]: https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct
+[Qwen2.5-VL-7B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct
