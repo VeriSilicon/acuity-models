@@ -118,8 +118,6 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 	 - [Qwen3-1.7B-GPTQ-Int8][]
 	 - [Qwen3-4B][]
 	 - [Qwen3-8B][]
-     - [Qwen3.5-0.8B][]
-     - [Qwen3.5-2B][]
    - **MiniCPM**
      - [MiniCPM-1B-sft-bf16][]
      - [MiniCPM4-0.5B][]
@@ -171,6 +169,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
      - [openvla-7b][]
    - **Qwen3.5**
      - [Qwen3.5-0.8B][]
+     - [Qwen3.5-2B][]
  - **TTS**
    - **OuteTTS**
      - [Llama-OuteTTS-1.0-1B][]
@@ -413,7 +412,6 @@ Runtime software stack support
 [gemma-3-4b-it]: https://huggingface.co/google/gemma-3-4b-it
 [Qwen2.5-VL-3B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct
 [openvla-7b]: https://huggingface.co/openvla/openvla-7b
-[Qwen3.5-0.8B]: https://huggingface.co/Qwen/Qwen3.5-0.8B
 [Llama-OuteTTS-1.0-1B]: https://huggingface.co/OuteAI/Llama-OuteTTS-1.0-1B
 [stable-diffusion-xl-base-1.0]: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0
 [GemmaX2-28-2B-v0.1]: https://huggingface.co/ModelSpace/GemmaX2-28-2B-v0.1
