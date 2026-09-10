@@ -120,6 +120,8 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 	 - [Qwen3-8B][]
    - **MiniCPM**
      - [MiniCPM-1B-sft-bf16][]
+     - [MiniCPM4-0.5B][]
+     - [MiniCPM5-1B][]
    - **LLaMa**
      - [TinyLlama-1.1B-intermediate-step-1431k-3T][]
 	 - [Llama-2-7b-hf][]
@@ -167,6 +169,7 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
      - [openvla-7b][]
    - **Qwen3.5**
      - [Qwen3.5-0.8B][]
+     - [Qwen3.5-2B][]
  - **TTS**
    - **OuteTTS**
      - [Llama-OuteTTS-1.0-1B][]
@@ -179,6 +182,12 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
   - **RAG**
     - **EmbeddingGemma**
       - [embeddinggemma-300m][]
+  - **MOE**
+    - **IBM-granite**
+      - [granite-3.1-1b-a400m-base][]
+  - **OCR**
+    - **PaddleOCR**
+      - [PaddleOCR-VL-1.5][]
 
 
 ## About Acuity
@@ -403,7 +412,6 @@ Runtime software stack support
 [gemma-3-4b-it]: https://huggingface.co/google/gemma-3-4b-it
 [Qwen2.5-VL-3B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct
 [openvla-7b]: https://huggingface.co/openvla/openvla-7b
-[Qwen3.5-0.8B]: https://huggingface.co/Qwen/Qwen3.5-0.8B
 [Llama-OuteTTS-1.0-1B]: https://huggingface.co/OuteAI/Llama-OuteTTS-1.0-1B
 [stable-diffusion-xl-base-1.0]: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0
 [GemmaX2-28-2B-v0.1]: https://huggingface.co/ModelSpace/GemmaX2-28-2B-v0.1
@@ -426,3 +434,9 @@ Runtime software stack support
 [InternVL3-8B]: https://huggingface.co/OpenGVLab/InternVL3-8B
 [Qwen3-VL-2B-Instruct]: https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct
 [Qwen2.5-VL-7B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct
+[Qwen3.5-0.8B]: https://huggingface.co/Qwen/Qwen3.5-0.8B
+[Qwen3.5-2B]: https://huggingface.co/Qwen/Qwen3.5-2B
+[MiniCPM4-0.5B]: https://huggingface.co/openbmb/MiniCPM4-0.5B
+[granite-3.1-1b-a400m-base]: https://huggingface.co/ibm-granite/granite-3.1-1b-a400m-base
+[PaddleOCR-VL-1.5]: https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.5
+[MiniCPM5-1B]: https://huggingface.co/openbmb/MiniCPM5-1B
