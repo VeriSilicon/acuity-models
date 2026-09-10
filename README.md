@@ -118,8 +118,12 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
 	 - [Qwen3-1.7B-GPTQ-Int8][]
 	 - [Qwen3-4B][]
 	 - [Qwen3-8B][]
+     - [Qwen3.5-0.8B][]
+     - [Qwen3.5-2B][]
    - **MiniCPM**
      - [MiniCPM-1B-sft-bf16][]
+     - [MiniCPM4-0.5B][]
+     - [MiniCPM5-1B][]
    - **LLaMa**
      - [TinyLlama-1.1B-intermediate-step-1431k-3T][]
 	 - [Llama-2-7b-hf][]
@@ -179,6 +183,12 @@ Acuity uses JSON format to describe a neural-network model, and we provide an [o
   - **RAG**
     - **EmbeddingGemma**
       - [embeddinggemma-300m][]
+  - **MOE**
+    - **IBM-granite**
+      - [granite-3.1-1b-a400m-base][]
+  - **OCR**
+    - **PaddleOCR**
+      - [PaddleOCR-VL-1.5][]
 
 
 ## About Acuity
@@ -426,3 +436,9 @@ Runtime software stack support
 [InternVL3-8B]: https://huggingface.co/OpenGVLab/InternVL3-8B
 [Qwen3-VL-2B-Instruct]: https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct
 [Qwen2.5-VL-7B-Instruct]: https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct
+[Qwen3.5-0.8B]: https://huggingface.co/Qwen/Qwen3.5-0.8B
+[Qwen3.5-2B]: https://huggingface.co/Qwen/Qwen3.5-2B
+[MiniCPM4-0.5B]: https://huggingface.co/openbmb/MiniCPM4-0.5B
+[granite-3.1-1b-a400m-base]: https://huggingface.co/ibm-granite/granite-3.1-1b-a400m-base
+[PaddleOCR-VL-1.5]: https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.5
+[MiniCPM5-1B]: https://huggingface.co/openbmb/MiniCPM5-1B
